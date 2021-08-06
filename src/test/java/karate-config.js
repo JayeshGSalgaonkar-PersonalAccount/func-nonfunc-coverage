@@ -6,8 +6,7 @@ function fn() {
    var config = {
         env: env,
         }
-
-        config.baseURL = karate.properties['baseURL'] || 'https://reqres.in/api/'
+        config.baseURL = karate.properties['baseURL'] || 'https://devma.ntuc.org.sg/api/'
 
         return config;
       }

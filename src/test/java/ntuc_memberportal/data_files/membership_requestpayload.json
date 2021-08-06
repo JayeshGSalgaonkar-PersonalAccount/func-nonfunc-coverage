@@ -1,0 +1,52 @@
+{
+    "address": {
+        "blockHSENo": "229C",
+        "buildingName": "Compassvale",
+        "floor": "11",
+        "homeTelNo": "98765432",
+        "postalCode": "546432",
+        "residentialStatus": "SC",
+        "street": "Link",
+        "unit": "20"
+    },
+    "user": {
+        "status": "DRAFT1",
+        "applicationSource": "UCEM",
+        "bankAccountNumber": "8877665543",
+        "bankName": "DBS",
+        "companyBusinessNature": "Service",
+        "companyName": "PAlo",
+        "dob": "2000-08-05T15:25:35.623Z",
+        "email": "aasgst@pslo.com",
+        "emailVerified": true,
+        "gender": "MALE",
+        "highestEducationLevel": "Masters",
+        "lastLogin": "2021-08-05T15:25:35.623Z",
+        "lastLoginReminderSent": true,
+        "maritalStatus": "SINGLE",
+        "mobileNumber": "string",
+        "mobileNumberVerified": true,
+        "monthlyGrossSalary": 0,
+        "name": "string",
+        "nricFin": "string",
+        "occupation": "string",
+        "occupationalGroup": "string",
+        "officeTelNo": "string",
+        "race": "string",
+        "scid": "string"
+    },
+    "membership": {
+        "createdBy": "string",
+        "deletedBy": "string",
+        "deletedDttm": "2021-08-05T15:25:35.623Z",
+        "lastPaidDate": "2021-08-05T15:25:35.623Z",
+        "membershipTypeCode": "string",
+        "modifiedBy": "string",
+        "optInNebo": true,
+        "relationship": "FATHER",
+        "startDate": "2021-08-05T15:25:35.623Z",
+        "status": "DRAFT",
+        "unionCode": "string",
+        "unionName": "string"
+    }
+}
