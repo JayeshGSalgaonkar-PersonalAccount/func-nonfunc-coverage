@@ -8,7 +8,7 @@ Feature: Membership microservice
     * header Accept = 'application/json'
 
     # To GET response from Membership micro-service and verify status
-    Scenario: User story number
+    Scenario: PRODUCT BACKLOG ITEM 142 - 1
     Given path 'member-service/v1/membership'
     When method Get
     Then status 200
@@ -19,7 +19,7 @@ Feature: Membership microservice
     * print "status is = " + status
 
    # To GET response from Membership micro-service and verify content inside response
-    Scenario: User story number
+    Scenario: PRODUCT BACKLOG ITEM 142 - 2
     Given path 'member-service/v1/membership'
     When method Get
     Then status 200
@@ -29,7 +29,7 @@ Feature: Membership microservice
     And response.content.membershipStatus == "ACTIVE"
 
    # To GET response from Membership micro-service and verify content inside response
-    Scenario: User story number
+    Scenario: PRODUCT BACKLOG ITEM 417 -1
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
@@ -42,7 +42,7 @@ Feature: Membership microservice
     And match response.content.membership[0].userId == 1
 
   # To GET response from Membership micro-service and verify content inside response
-    Scenario: User story number
+    Scenario: PRODUCT BACKLOG ITEM 417 - 2
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
@@ -69,7 +69,7 @@ Feature: Membership microservice
 
 
   # To GET response from Membership micro-service and verify content inside response
-    Scenario: User story number
+    Scenario: PRODUCT BACKLOG ITEM 417 - 3
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
