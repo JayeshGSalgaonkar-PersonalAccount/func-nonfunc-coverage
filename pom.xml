@@ -65,12 +65,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
-<!--                <configuration>-->
-<!--                    <argLine>-Dfile.encoding=UTF-8</argLine>-->
-<!--                    <includes>-->
-<!--                        <include>src/test/java/TestRunner.java</include>-->
-<!--                    </includes>-->
-<!--                </configuration>-->
+                <configuration>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <includes>
+                        <include>src/test/java/TestRunner.java</include>
+                    </includes>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -85,9 +85,8 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>karate-docker[myproject]</projectName>
-                            <outputDirectory>target/surefire-reports</outputDirectory>
-                            <!--                            <inputDirectory>${project.build.directory}</inputDirectory>-->
+                            <projectName>karate-docker</projectName>
+                            <outputDirectory>target</outputDirectory>
                             <jsonFiles>
                                 <jsonFile>**/**.json</jsonFile>
                             </jsonFiles>

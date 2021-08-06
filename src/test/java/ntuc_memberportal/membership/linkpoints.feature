@@ -1,4 +1,4 @@
-@membership
+@membership @all
 
 Feature: Linkpoint microservice
 

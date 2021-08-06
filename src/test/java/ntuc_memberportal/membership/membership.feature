@@ -1,4 +1,4 @@
-@membership
+@membership @all
 
 Feature: Membership microservice
   This feature will test GET/POST HTTP methods for Membership service to validate results
