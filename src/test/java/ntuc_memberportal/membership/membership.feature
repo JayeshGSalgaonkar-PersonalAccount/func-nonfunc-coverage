@@ -6,9 +6,12 @@ Feature: Membership microservice
   Background:
     * url baseURL
     * header Accept = 'application/json'
+    * def expectedMembershipDetails = read("ntuc_memberportal/resources/Response/membershipDetails.json")
+    * def expectedMembership_User_Details = read("ntuc_memberportal/resources/Response/membershipUserDetails.json")
+    * def expectedMembership_Address_Details = read("ntuc_memberportal/resources/Response/membershipAddressDetails.json")
 
     # To GET response from Membership micro-service and verify status
-    Scenario: PRODUCT BACKLOG ITEM 142 - 1
+  Scenario: PRODUCT BACKLOG ITEM 142 - 1
     Given path 'member-service/v1/membership'
     When method Get
     Then status 200
@@ -19,7 +22,7 @@ Feature: Membership microservice
     * print "status is = " + status
 
    # To GET response from Membership micro-service and verify content inside response
-    Scenario: PRODUCT BACKLOG ITEM 142 - 2
+  Scenario: PRODUCT BACKLOG ITEM 142 - 2
     Given path 'member-service/v1/membership'
     When method Get
     Then status 200
@@ -27,58 +30,82 @@ Feature: Membership microservice
     And response.content.membershipType == "OA"
     And response.content.unionName == "NTUC Union"
     And response.content.membershipStatus == "ACTIVE"
+    * def date1 = response.content[0].lastPaidDate
+    And assert date1 == "2021-07-15T06:12:36.000Z"
+#    #Below logic to verify accurate date (NEED TO DISCUSS WITH DEV TEAM ON DATE LOGIC)
+#    * def sdf = new java.text.SimpleDateFormat("MM-dd-yyyy")
+#    * def today = sdf.format(new java.util.Date())
+#    And print today
 
-   # To GET response from Membership micro-service and verify content inside response
-    Scenario: PRODUCT BACKLOG ITEM 417 -1
+   # To GET response from Membership micro-service and verify content inside MEMBERSHIP response
+  Scenario: PRODUCT BACKLOG ITEM 417 -1
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
-    And print response
-    And match response.content.membership[0].id == 2
-    And match response.content.membership[0].membershipTypeCode == "OA"
-    And match response.content.membership[0].optInNebo == true
-    And match response.content.membership[0].relationship == "FATHER"
-    And match response.content.membership[0].status =="DRAFT"
-    And match response.content.membership[0].userId == 1
+    And print response.content.membership[0]
+    And match response.content.membership[0] == expectedMembershipDetails
 
-  # To GET response from Membership micro-service and verify content inside response
-    Scenario: PRODUCT BACKLOG ITEM 417 - 2
+  # To GET response from Membership micro-service and verify content inside USER response
+  Scenario: PRODUCT BACKLOG ITEM 417 - 2
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
-    And print response
-    And match response.content.user.lastLoginReminderSent == false
-    And match response.content.user.nricFin == "123456L"
-    And match response.content.user.name == "user name"
-    And match response.content.user.status == "DRAFT"
-    And match response.content.user.email == "email@palo-it.com"
-    And match response.content.user.mobileNumber == "8888 8888"
-    And match response.content.user.race == "race"
-    And match response.content.user.gender == "MALE"
-    And match response.content.user.highestEducationLevel == "bachelor"
-    And match response.content.user.occupationalGroup == "occup"
-    And match response.content.user.companyName == "company name"
-    And match response.content.user.companyBusinessNature == "company nature"
-    And match response.content.user.occupation == "developer"
-    And match response.content.user.monthlyGrossSalary == 9999
-    And match response.content.user.officeTelNo == "1234 5678"
-    And match response.content.user.bankName == "bank name"
-    And match response.content.user.bankAccountNumber == "0000 0000"
-    And match response.content.user.emailVerified == false
-    And match response.content.user.mobileNumberVerified == false
+    * def userResponse = response.content.user
+    * def formatter = new java.text.SimpleDateFormat("yyyy-MM-dd")
+    * def today = formatter.format(new java.util.Date())
+    # * print today
+    * match userResponse.lastLogin contains today
+    * def userFields = response.content.user
+    And match userFields == expectedMembership_User_Details
 
-
-  # To GET response from Membership micro-service and verify content inside response
-    Scenario: PRODUCT BACKLOG ITEM 417 - 3
+  # To GET response from Membership micro-service and verify content inside ADDRESS response
+  Scenario: PRODUCT BACKLOG ITEM 417 - 3
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
-    And match response.content.address.unit == "string"
-    And match response.content.address.street == "string"
-    And match response.content.address.postalCode == "string"
-    And match response.content.address.homeTelNo == "string"
-    And match response.content.address.floor == "string"
-    And match response.content.address.buildingName == "string"
-    And match response.content.address.blockHSENo == "string"
-    And match response.content.address.residentialStatus == "SC"
+    * def addressResponse = response.content.address
+    * def formatter = new java.text.SimpleDateFormat("yyyy-MM-dd")
+    * def today = formatter.format(new java.util.Date())
+    #* print today
+    * match addressResponse.modifiedDttm contains today
+    * def addressFields = response.content.address
+    And match addressFields == expectedMembership_Address_Details
 
+
+# To GET response from Membership micro-service and verify content inside ADDRESS response
+  Scenario: PRODUCT BACKLOG ITEM
+    Given path 'member-service/v1/membership/nric/{NRIC}/dob/{DOB}'
+    And param NRIC = '673P'
+    And param DOB = '1990-11-11'
+    When method Get
+    Then status 200
+    Then print response
+
+# To GET response from Membership micro-service and verify content using NRIC and DOB
+  Scenario: PRODUCT BACKLOG ITEM
+    Given path 'member-service/v1/membership/nric/{NRIC}/dob/{DOB}'
+    And param NRIC = '673P'
+    And param DOB = '1981-06-03'
+    When method Get
+    Then status 200
+    Then print response
+
+    # To GET response from Membership micro-service by passing INCORRECT NRIC AND DOB
+  Scenario: PRODUCT BACKLOG ITEM
+    Given path 'member-service/v1/membership/nric/{NRIC}/dob/{DOB}'
+    And param NRIC = 'XXXXX'
+    And param DOB = 'XXXXX'
+    When method Get
+    Then status 200
+    Then print response
+
+
+    # To POST response from Membership micro-service and verify content using NRIC and DOB
+  Scenario: PRODUCT BACKLOG ITEM
+    Given path 'membership'
+    And def requestBody = read("ntuc_memberportal/resources/Request/membershipRequest.json")
+    And request requestBody
+    When method Post
+    Then status 201
+    Then print response
+#    Then match response == expectedResponse

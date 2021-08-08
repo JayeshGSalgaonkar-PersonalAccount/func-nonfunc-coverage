@@ -1,4 +1,4 @@
-@membership @all
+@membership
 
 Feature: Linkpoint microservice
 
@@ -10,7 +10,7 @@ Feature: Linkpoint microservice
         # baseURL is a global variable declared in karate-config.js file
         * header Accept = 'application/json'
 
-    ## To GET response from LinkPoint micro-service
+    # To GET response from LinkPoint micro-service
     Scenario: PRODUCT BACKLOG ITEM 420 - 1
         Given path 'member-service/v1/linkpoint/balance'
         When method Get
@@ -18,7 +18,6 @@ Feature: Linkpoint microservice
         And print response
         And print responseStatus
         And print responseTime
-        And print 'url---'
         And print $.balance == #present
         And print $.dollarValue != #null
         And print $.poolID == #number && #present

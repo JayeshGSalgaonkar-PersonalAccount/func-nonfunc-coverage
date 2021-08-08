@@ -7,7 +7,6 @@ function fn() {
         env: env,
         }
         config.baseURL = karate.properties['baseURL'] || 'https://devma.ntuc.org.sg/api/'
-
         return config;
       }
 
