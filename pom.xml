@@ -86,7 +86,7 @@
                         </goals>
                         <configuration>
                             <projectName>karate-docker</projectName>
-                            <outputDirectory>target</outputDirectory>
+                            <outputDirectory>target/surefire-reports</outputDirectory>
                             <jsonFiles>
                                 <jsonFile>**/**.json</jsonFile>
                             </jsonFiles>

@@ -3,7 +3,7 @@
 
 # Run on local cli - Execute all tests (root folder)
 * mvn clean
-* mvn test -Dtest=TestRunner
+* mvn test "-Dkarate.options=--tags membership" -Dtest=TestRunner 
 
 # DockerFile (root folder)
 * docker build -t karate-docker .
