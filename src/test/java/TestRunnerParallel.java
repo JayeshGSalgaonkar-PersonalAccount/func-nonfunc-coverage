@@ -1,10 +1,9 @@
+import com.intuit.karate.KarateOptions;
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class TestRunner {
+class TestRunnerParallel {
 
     @Test
     void apiFunctionalTest() {

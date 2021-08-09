@@ -1,5 +1,4 @@
-@user @all
-
+@user
 Feature: User Micro-service
 
   Background:
@@ -7,5 +6,5 @@ Feature: User Micro-service
     * header Accept = 'application/json'
     * def expectedEducationLevelResponse = read("ntuc_memberportal/resources/Response/userStaticData.json")
 
-    Scenario:
-      * print "RUN"
+Scenario:
+  * print "RUN"

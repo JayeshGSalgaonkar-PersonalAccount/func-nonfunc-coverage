@@ -1,5 +1,4 @@
-@membership @all
-
+@membership
 Feature: Membership microservice
   This feature will test GET/POST HTTP methods for Membership service to validate results
 
@@ -11,27 +10,27 @@ Feature: Membership microservice
     * def expectedMembership_Address_Details = read("ntuc_memberportal/resources/Response/membershipAddressDetails.json")
 
     # To GET response from Membership micro-service and verify status
-  Scenario: PRODUCT BACKLOG ITEM 142 - 1
-    Given path 'member-service/v1/membership'
-    When method Get
-    Then status 200
-    And print response
-    * print "responseStatus = " + responseStatus
-    * print "responseTime = " + responseTime
-    * def status = response.metadata.status == 'SUCCESS'
-    * print "status is = " + status
+Scenario: PRODUCT BACKLOG ITEM 142 - 1
+  Given path 'member-service/v1/membership'
+  When method Get
+  Then status 200
+  And print response
+  * print "responseStatus = " + responseStatus
+  * print "responseTime = " + responseTime
+  * def status = response.metadata.status == 'SUCCESS'
+  * print "status is = " + status
 
    # To GET response from Membership micro-service and verify content inside response
-  Scenario: PRODUCT BACKLOG ITEM 142 - 2
-    Given path 'member-service/v1/membership'
-    When method Get
-    Then status 200
-    And print response
-    And response.content.membershipType == "OA"
-    And response.content.unionName == "NTUC Union"
-    And response.content.membershipStatus == "ACTIVE"
-    * def date1 = response.content[0].lastPaidDate
-    And assert date1 == "2021-07-15T06:12:36.000Z"
+Scenario: PRODUCT BACKLOG ITEM 142 - 2
+  Given path 'member-service/v1/membership'
+  When method Get
+  Then status 200
+  And print response
+  And response.content.membershipType == "OA"
+  And response.content.unionName == "NTUC Union"
+  And response.content.membershipStatus == "ACTIVE"
+  * def date1 = response.content[0].lastPaidDate
+  And assert date1 == "2021-07-15T06:12:36.000Z"
 #    #Below logic to verify accurate date (NEED TO DISCUSS WITH DEV TEAM ON DATE LOGIC)
 #    * def sdf = new java.text.SimpleDateFormat("MM-dd-yyyy")
 #    * def today = sdf.format(new java.util.Date())

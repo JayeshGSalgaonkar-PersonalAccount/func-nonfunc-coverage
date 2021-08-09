@@ -1,9 +1,12 @@
 # Run on IDE (preferred - Intellij)
-* Execute TestRunner.java
+* Execute TestRunnerParallel.java
 
-# Run on local cli - Execute all tests (root folder)
+# Run on local cli - Execute all tests
 * mvn clean
-* mvn test "-Dkarate.options=--tags membership" -Dtest=TestRunner 
+* mvn test -Dtest=TestRunnerParallel
+  
+# Run test of specific microservice (example here for "membership" microservice)
+* mvn test "-Dkarate.options=--tags @membership" -Dtest=TestRunnerParallel 
 
 # DockerFile (root folder)
 * docker build -t karate-docker .
