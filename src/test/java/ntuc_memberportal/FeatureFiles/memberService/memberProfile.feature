@@ -6,10 +6,10 @@ Feature: OA Member-Service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def expectedMembershipDetails = read("ntuc_memberportal/resources/Response/memberServiceDetails.json")
-    * def expectedMembership_User_Details = read("ntuc_memberportal/resources/Response/memberServiceUserDetails.json")
-    * def expectedMembership_Address_Details = read("ntuc_memberportal/resources/Response/memberServiceAddressDetails.json")
-    * def expectedMembershipType = read("ntuc_memberportal/resources/Response/memberServiceContent.json")
+    * def expectedMembershipDetails = read("ntuc_memberportal/resources/Response/memberserviceDetails.json")
+    * def expectedMembership_User_Details = read("ntuc_memberportal/resources/Response/memberserviceUserDetails.json")
+    * def expectedMembership_Address_Details = read("ntuc_memberportal/resources/Response/memberserviceAddressDetails.json")
+    * def expectedMembershipType = read("ntuc_memberportal/resources/Response/memberserviceContent.json")
 
   # GET
   Scenario: PRODUCT BACKLOG ITEM 142 - Validate GET method from member-service and verify status

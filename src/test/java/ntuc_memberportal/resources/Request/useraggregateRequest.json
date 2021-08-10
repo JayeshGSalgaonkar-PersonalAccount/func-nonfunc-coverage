@@ -1,0 +1,44 @@
+{
+  "user": {
+    "modifiedDttm": "2021-08-10T14:20:03.675Z",
+    "createdDttm": "2021-08-10T14:20:03.675Z",
+    "mobileNumberVerified": true,
+    "emailVerified": true,
+    "applicationSource": "UCEM",
+    "lastLoginReminderSent": true,
+    "lastLogin": "2021-08-10T14:20:03.675Z",
+    "bankAccountNumber": "string",
+    "bankName": "string",
+    "officeTelNo": "string",
+    "monthlyGrossSalary": 0,
+    "occupation": "string",
+    "companyBusinessNature": "string",
+    "companyName": "string",
+    "occupationalGroup": "string",
+    "highestEducationLevel": "string",
+    "maritalStatus": "SINGLE",
+    "race": "string",
+    "email": "string",
+    "mobileNumber": "string",
+    "gender": "MALE",
+    "dob": "2021-08-10T14:20:03.675Z",
+    "name": "string",
+    "nricFin": "string",
+    "status": "DRAFT",
+    "scid": "string"
+  },
+  "address": {
+    "residentialStatus": "string",
+    "postalCode": "string",
+    "blockHSENo": "string",
+    "floor": "string",
+    "unit": "string",
+    "street": "string",
+    "buildingName": "string",
+    "homeTelNo": "string",
+    "createdDTTM": "2021-08-10T14:20:03.675Z",
+    "modifiedDTTM": "2021-08-10T14:20:03.675Z"
+  },
+  "userId": 0
+}
+
