@@ -1,18 +1,18 @@
 @membership
 
-Feature: Membership microservice
+Feature: OA Member-Service
   This feature will test GET/POST HTTP methods for Membership service to validate results
 
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def expectedMembershipDetails = read("ntuc_memberportal/resources/Response/membershipDetails.json")
-    * def expectedMembership_User_Details = read("ntuc_memberportal/resources/Response/membershipUserDetails.json")
-    * def expectedMembership_Address_Details = read("ntuc_memberportal/resources/Response/membershipAddressDetails.json")
-    * def expectedMembershipType = read("ntuc_memberportal/resources/Response/memberserviceContent.json")
+    * def expectedMembershipDetails = read("ntuc_memberportal/resources/Response/memberServiceDetails.json")
+    * def expectedMembership_User_Details = read("ntuc_memberportal/resources/Response/memberServiceUserDetails.json")
+    * def expectedMembership_Address_Details = read("ntuc_memberportal/resources/Response/memberServiceAddressDetails.json")
+    * def expectedMembershipType = read("ntuc_memberportal/resources/Response/memberServiceContent.json")
 
-  # To GET response from Membership micro-service and verify status
-  Scenario: PRODUCT BACKLOG ITEM 142 - GET response from Membership service and verify status
+  # GET
+  Scenario: PRODUCT BACKLOG ITEM 142 - Validate GET method from member-service and verify status
     Given path 'member-service/v1/membership'
     When method Get
     Then status 200
@@ -22,30 +22,15 @@ Feature: Membership microservice
     * def status = response.metadata.status == 'SUCCESS'
     * print "status is = " + status
 
-   # To GET response from Membership micro-service and verify content inside response
-  Scenario: PRODUCT BACKLOG ITEM 142
-    Given path 'member-service/v1/membership'
-    When method Get
-    Then status 200
-    * def actualResponseType = response.content[0].membershipType
-    * def actualResponseStatus = response.content[0].status
-    * def actualResponseUCode = response.content[0].unionCode
-    * def actualResponseUName = response.content[0].unionName
-    Then match actualResponseType == expectedMembershipType.membershipType
-    Then match actualResponseStatus == expectedMembershipType.status
-    Then match actualResponseUCode == expectedMembershipType.unionCode
-    Then match actualResponseUName == expectedMembershipType.unionName
-
-
-   # To GET response from Membership micro-service and verify content inside MEMBERSHIP response
-  Scenario: PRODUCT BACKLOG ITEM 417 -1
+   # GET
+  Scenario: PRODUCT BACKLOG ITEM 417 - Validate GET method from member-service and verify Member Type, UnionName, Status and UnionCode
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
 #    And print response.content.membership[0]
     And match response.content.membership[0] == expectedMembershipDetails
 
-  # To GET response from Membership micro-service and verify content inside USER response
+  # GET
   Scenario: PRODUCT BACKLOG ITEM 417 - Validate GET method from member-service inside USER response
     Given path 'member-service/v1/membership/draft'
     When method Get
@@ -58,7 +43,7 @@ Feature: Membership microservice
     * def userFields = response.content.user
     And match userFields == expectedMembership_User_Details
 
-  # To GET response from Membership micro-service and verify content inside ADDRESS response
+  # GET
   Scenario: PRODUCT BACKLOG ITEM 417 - Validate GET method from member-service inside ADDRESS response
     Given path 'member-service/v1/membership/draft'
     When method Get
@@ -71,7 +56,7 @@ Feature: Membership microservice
     * def addressFields = response.content.address
     And match addressFields == expectedMembership_Address_Details
 
-# To GET response from Membership micro-service and verify content using NRIC and DOB
+# GET
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method when user pass NRIC and DOB as request
     Given path 'member-service/v1/membership/nric/NRIC/dob/DOB'
     And param NRIC = "<NRIC>"
@@ -86,7 +71,7 @@ Feature: Membership microservice
       | #$1  | 2020-01-11 |
       | 123Q | 2030-01-12 |
 
-  # To POST response from Membership micro-service and verify content using NRIC and DOB
+  # POST
   Scenario: PRODUCT BACKLOG ITEM 101 - POST request for member service
     Given path 'membership'
     And def requestBody = read("ntuc_memberportal/resources/Request/membershipRequest.json")

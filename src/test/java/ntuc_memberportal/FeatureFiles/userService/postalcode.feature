@@ -1,12 +1,12 @@
 @user
-Feature: User Micro-service (POSTAL CODE)
+Feature: User service (POSTAL CODE)
 
   Background:
     * url baseURL
     * header Accept = 'application/json'
 
     # To GET response from User POSTAL CODE micro-service and verify status
-  Scenario: PRODUCT BACKLOG ITEM 416 - 1
+  Scenario: PRODUCT BACKLOG ITEM 416 - Validate GET method for Postalcode from USER-service
     Given path 'user-service/v1/postal-code/{code}'
     And param code = 310145
     When method Get
