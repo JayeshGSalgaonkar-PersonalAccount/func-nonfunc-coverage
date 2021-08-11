@@ -97,9 +97,8 @@ Feature: User-service
     Then match groupCode == expectedGroupCODE
     Then match groupValue == expectedGroupVALUE
 
-  Scenario Outline: PRODUCT BACKLOG ITEM 372 -
-    Given path 'user-service/v1/user/scid/{SCID}'
-    And param SCID = <scid>
+  Scenario Outline: PRODUCT BACKLOG ITEM 417 - Verify user GET method via SCID
+    Given path 'user-service/v1/user/scid'
     When method Get
     Then status 200
     Then match response.metadata.status == "SUCCESS"
@@ -108,15 +107,48 @@ Feature: User-service
       | scid | expected_scid |
       | 999  | 999           |
 
-  Scenario Outline: PRODUCT BACKLOG ITEM 416 - 6
-    Given path 'user-service/v1/user/scid/{SCID}'
-    And param SCID = <scid>
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - - Verify user GET method via SCID
+    Given path 'user-service/v1/user/scid/SCID'
     When method Get
     Then status 400
-    Then match response.metadata.status == <expected_status>"
-    And match response.content.errorCode == <expected_errorCode>
-    And match response.content.errorDescription == <expected_errorDescription>
+    Then match response.metadata.status == expected_status
+    And match response.content.errorCode == expected_errorCode
+    And match response.content.errorDescription == expected_errorDescription
     Examples:
-      | scid | expected_status | expected_errorCode | expected_errorDescription |
+      | SCID | expected_status | expected_errorCode | expected_errorDescription |
       | 1    | BUSINESS_ERROR  | RECORD_NOT_FOUND   | No matching user found    |
 
+  #DELETE
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
+    Given path 'user-service/v1/user/id'
+    When method Delete
+    Then status 204
+    Then print response.metadata.status == "SUCCESS"
+    Examples:
+      | id |
+      | 1  |
+
+  #DELETE
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method with incorrect  USERID
+    Given path 'user-service/v1/user/id'
+    When method Delete
+    Then status 400
+    Then print response.metadata.status == "BUSINESS_ERROR"
+    Then print response.content.errorDescription == "Error while deleting user"
+    Examples:
+      | id  |
+      | 999 |
+
+  #PUT
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method with incorrect  USERID
+    Given path 'user-service/v1/user/id'
+    And def requestBody = read("ntuc_memberportal/resources/Request/userserviceRequest.json")
+    And request requestBody
+    When method Put
+    Then status 200
+    Then print response.content == requestBody
+#   Then match response == expectedResponse
+
+    Examples:
+      | id |
+      | 1  |

@@ -27,7 +27,7 @@ Feature: OA Member-Service
     Given path 'member-service/v1/membership/draft'
     When method Get
     Then status 200
-#    And print response.content.membership[0]
+#   And print response.content.membership[0]
     And match response.content.membership[0] == expectedMembershipDetails
 
   # GET
@@ -43,7 +43,7 @@ Feature: OA Member-Service
     * def userFields = response.content.user
     And match userFields == expectedMembership_User_Details
 
-  # GET
+# GET
   Scenario: PRODUCT BACKLOG ITEM 417 - Validate GET method from member-service inside ADDRESS response
     Given path 'member-service/v1/membership/draft'
     When method Get
@@ -51,7 +51,7 @@ Feature: OA Member-Service
     * def addressResponse = response.content.address
     * def formatter = new java.text.SimpleDateFormat("yyyy-MM-dd")
     * def today = formatter.format(new java.util.Date())
-    #* print today
+#   * print today
     * match addressResponse.modifiedDttm contains today
     * def addressFields = response.content.address
     And match addressFields == expectedMembership_Address_Details
@@ -77,5 +77,5 @@ Feature: OA Member-Service
     And request requestBody
     When method Post
     Then status 201
-#    Then print response
+#   Then print response
 #   Then match response == expectedResponse
