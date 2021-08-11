@@ -1,4 +1,4 @@
-@membership
+@member-service @all
 
 Feature: OA Member-Service
   This feature will test GET/POST HTTP methods for Membership service to validate results

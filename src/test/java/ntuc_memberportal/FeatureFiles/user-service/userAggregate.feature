@@ -1,4 +1,4 @@
-@user @all
+@user-service @all
 Feature: User-service
 
   Background:

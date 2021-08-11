@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
  
     <groupId>com.mycompany</groupId>
-    <artifactId>myproject</artifactId>
+    <artifactId>ntuc-member-app-quality</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
  
@@ -11,7 +11,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <maven.compiler.version>3.6.0</maven.compiler.version>
-        <maven.surefire.version>3.0.0-M3</maven.surefire.version>
+        <maven.surefire.version>2.22.2</maven.surefire.version>
         <karate.version>0.9.6</karate.version>
     </properties>    
 
@@ -102,9 +102,9 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>karate-docker</projectName>
-                            <outputDirectory>target</outputDirectory>
-                            <inputDirectory>target/surefire-reports</inputDirectory>
+                            <projectName>nmp</projectName>
+                            <outputDirectory>target/surefire-reports</outputDirectory>
+<!--                            <inputDirectory>target/surefire-reports/</inputDirectory>-->
                             <jsonFiles>
                                 <jsonFile>**/**.json</jsonFile>
                             </jsonFiles>

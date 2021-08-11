@@ -6,11 +6,21 @@
 * mvn test -Dtest=TestRunnerParallel
   
 # Run test of specific microservice (example here for "membership" microservice)
-* mvn test "-Dkarate.options=--tags @membership" -Dtest=TestRunnerParallel 
+* mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel 
+
+tags to be replaced by micro-service name -
+- @member-service
+- @user-service
 
 # DockerFile (root folder)
-* docker build -t karate-docker .
-* docker run -it -e mcr={<microservice_to_test>} -e url={<microservice_endpoint>} karate-docker
+* docker build -t nmp-tests .
+* docker run -it -e mcr=<microservice_to_test> -e url='microservice_endpoint' nmp-tests
+
+**mcr** to be replaced by micro-service name -
+- @member-service
+- @user-service
+- @all --> to run all microservices
+**url** example -> docker run -it -e mcr=@member-service -e url='https://devma.ntuc.org.sg/api/' nmp-tests
 
 # Reporting
 * Default karate-report -> /src/target/surefire-reports/karate-summary.html

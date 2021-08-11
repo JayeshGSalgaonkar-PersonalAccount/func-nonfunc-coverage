@@ -2,7 +2,7 @@
 
  echo "START: Running tests..."
 
- mvn test -q -T 3.0C "-Dkarate.options=--tags @$1" -DbaseURL=$2
+ mvn test -T 3.0C "-Dkarate.options=--tags $1" -DbaseURL=$2 -Dtest=TestRunnerParallel
 
  if [[ $? -ne 0 ]] ; then
    echo "FINISH: There are test failures, failing build..."

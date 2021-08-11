@@ -7,7 +7,7 @@ class TestRunnerParallel {
 
     @Test
     void apiFunctionalTest() {
-        Results results = Runner.path("classpath:ntuc_memberportal")
+        Results results = Runner.path("classpath:ntuc_memberportal/FeatureFiles/")
                 .parallel(5);
     }
 }

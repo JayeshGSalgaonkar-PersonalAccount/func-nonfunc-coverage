@@ -1,4 +1,4 @@
-@membership
+@member-service @all
 Feature: Member-Service
 
   This feature will test GET method for Linkpoints service to validate results

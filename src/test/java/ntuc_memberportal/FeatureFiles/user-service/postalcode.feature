@@ -1,4 +1,4 @@
-@user
+@user-service @all
 Feature: User service (POSTAL CODE)
 
   Background:

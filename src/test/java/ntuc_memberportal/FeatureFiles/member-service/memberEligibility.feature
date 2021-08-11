@@ -1,4 +1,4 @@
-@membership
+@member-service @all
 Feature: Member service
 
   Background:
