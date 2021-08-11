@@ -58,23 +58,22 @@ Feature: OA Member-Service
 
 # GET
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method when user pass NRIC and DOB as request
-    Given path 'member-service/v1/membership/nric/NRIC/dob/DOB'
-    And param NRIC = "<NRIC>"
-    And param DOB = <DOB>
+    Given path 'member-service/v1/membership/NRIC/DOB'
+#    * print NRIC + " " + DOB
     When method Get
     Then status 200
-#   Then print response
+    Then print response
     Examples:
       | NRIC | DOB        |
       | 987W | 2010-01-10 |
-      | 111  | 2015-01-00 |
-      | #$1  | 2020-01-11 |
-      | 123Q | 2030-01-12 |
+#      | 111  | 2015-01-00 |
+#      | #$1  | 2020-01-11 |
+#      | 123Q | 2030-01-12 |
 
   # POST
   Scenario: PRODUCT BACKLOG ITEM 101 - POST request for member service
     Given path 'membership'
-    And def requestBody = read("ntuc_memberportal/resources/Request/membershipRequest.json")
+    And def requestBody = read("ntuc_memberportal/resources/Request/memberserviceRequest.json")
     And request requestBody
     When method Post
     Then status 201
