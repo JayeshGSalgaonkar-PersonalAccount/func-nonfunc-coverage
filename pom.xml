@@ -13,6 +13,8 @@
         <maven.compiler.version>3.6.0</maven.compiler.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
         <karate.version>0.9.6</karate.version>
+        <gatling.plugin.version>3.0.5</gatling.plugin.version>
+        <gatling.charts.highcharts>3.4.0-M1</gatling.charts.highcharts>
     </properties>    
 
     <dependencies>
@@ -33,7 +35,13 @@
 
         <dependency>
             <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-junit4</artifactId>
+            <artifactId>karate-core</artifactId>
+            <version>${karate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-gatling</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
         </dependency>
@@ -43,6 +51,31 @@
             <artifactId>maven-cucumber-reporting</artifactId>
             <version>5.3.0</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>${gatling.charts.highcharts}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-codec-http</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.12.3</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-tools</groupId>
+            <artifactId>maven-scala-plugin</artifactId>
+            <version>2.15.2</version>
         </dependency>
 
     </dependencies>
@@ -75,7 +108,7 @@
                 <executions>
                     <execution>
                         <id>execute</id>
-                        <phase>test</phase>
+                        <phase>integration-test</phase>
                         <goals>
                             <goal>test</goal>
                         </goals>
@@ -86,7 +119,6 @@
                     <includes>
                         <include>src/test/java/TestRunnerParallel.java</include>
                     </includes>
-<!--                    <groups>membership, user</groups>-->
                 </configuration>
             </plugin>
 
@@ -104,7 +136,6 @@
                         <configuration>
                             <projectName>nmp</projectName>
                             <outputDirectory>target/surefire-reports</outputDirectory>
-<!--                            <inputDirectory>target/surefire-reports/</inputDirectory>-->
                             <jsonFiles>
                                 <jsonFile>**/**.json</jsonFile>
                             </jsonFiles>
@@ -113,8 +144,56 @@
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>4.5.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-Jbackend:GenBCode</arg>
+                                <arg>-Jdelambdafy:method</arg>
+                                <arg>-target:jvm-1.8</arg>
+                                <arg>-deprecation</arg>
+                                <arg>-feature</arg>
+                                <arg>-unchecked</arg>
+                                <arg>-language:implicitConversions</arg>
+                                <arg>-language:postfixOps</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <disableCompiler>true</disableCompiler>
+                    <simulationsFolder>src/test/java</simulationsFolder>
+                    <runMultipleSimulations>true</runMultipleSimulations>
+
+                    <includes>
+                        <include>ntuc_memberportal.LoadSimulation</include>
+                    </includes>
+                </configuration>
+            </plugin>
 
         </plugins>        
-    </build>       
+    </build>
+
+    <repositories>
+        <repository>
+            <id>scala-tools.org</id>
+            <name>Scala-tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases</url>
+        </repository>
+
+    </repositories>
     
 </project>

@@ -13,7 +13,7 @@ Feature: User service (POSTAL CODE)
     Then status 200
     And print response
     Then response.metadata.status ="SUCCESS"
-    Then response.content.id =
+#    Then response.content.id =
     Then response.content.id == 1
     Then response.content.postalCode == "310145"
     Then response.content.street == "Lorong 2 Toa Payoh"

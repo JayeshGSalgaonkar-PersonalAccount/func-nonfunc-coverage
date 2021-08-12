@@ -26,3 +26,7 @@ tags to be replaced by micro-service name -
 * Default karate-report -> /src/target/surefire-reports/karate-summary.html
 * Custom report -> /src/target/cucumber-html-reports/overview-tags.html
 
+------------------------------------------------------------------------------------------------------------------------
+# Performance test
+* mvn clean test-compile gatling:test
+
