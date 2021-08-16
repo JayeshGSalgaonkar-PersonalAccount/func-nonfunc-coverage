@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": {
+    "BranchCode": "#(BranchCode)",
+    "Checkclist": "#(Checkclist)",
+    "ExchangeId": "#(ExchangeId)",
+    "PaymentArrearMonths": "#(PaymentArrearMonths)",
+    "PaymentTypeCode": "#(PaymentTypeCode)",
+    "PaymentTypeName": "#(PaymentTypeName)",
+    "UnionCode": "#(UnionCode)",
+    "isnebo": "#(isnebo)"
+  }
+}

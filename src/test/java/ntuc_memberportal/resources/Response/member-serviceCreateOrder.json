@@ -1,0 +1,29 @@
+{
+  "content": {
+    "modifiedDttm": "#(modifiedDttm)",
+    "createdDttm": "#ignore",
+    "errorDescription": "#(errorDescription)",
+    "errorCode": "#(errorCode)",
+    "recurringCardType": "#(recurringCardType)",
+    "recurringPaymentMethod": "#(recurringPaymentMethod)",
+    "recurringPaymentStatus": "#(recurringPaymentStatus)",
+    "recurringToken": "#(recurringToken)",
+    "recurringMerchantId": "#(recurringMerchantId)",
+    "oneTimeCardType": "#(oneTimeCardType)",
+    "oneTimePaymentMethod": "#(oneTimePaymentMethod)",
+    "oneTimePaymentStatus": "#(oneTimePaymentStatus)",
+    "oneTimeCardExpiryDate": "#(oneTimeCardExpiryDate)",
+    "oneTimeMerchantId": "#(oneTimeMerchantId)",
+    "pgOrderId": "#(pgOrderId)",
+    "orderStatus": "#(orderStatus)",
+    "paymentType": "#(paymentType)",
+    "isOneTimePayment": "#(isOneTimePayment)",
+    "isRecurringPayment": "#(isRecurringPayment)",
+    "orderAmount": "#(orderAmount)",
+    "clientOrderId": "#(clientOrderId)",
+    "id": "#(id)"
+  },
+  "metadata": {
+    "status": "SUCCESS"
+  }
+}

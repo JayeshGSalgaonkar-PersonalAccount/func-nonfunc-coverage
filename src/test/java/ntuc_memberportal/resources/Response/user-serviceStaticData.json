@@ -1,0 +1,687 @@
+{
+  "content": {
+    "education_level": [
+      {
+        "code": "NE",
+        "value": "BELOW PRIMARY"
+      },
+      {
+        "code": "PR",
+        "value": "PRIMARY"
+      },
+      {
+        "code": "LS",
+        "value": "LOWER SECONDARY"
+      },
+      {
+        "code": "SE",
+        "value": "GCE 'O' OR 'N' LEVEL"
+      },
+      {
+        "code": "NI",
+        "value": "NTC / ITC"
+      },
+      {
+        "code": "PS",
+        "value": "POST SEC. / GCE 'A' LEVEL"
+      },
+      {
+        "code": "DP",
+        "value": "DIPLOMA"
+      },
+      {
+        "code": "DG",
+        "value": "DEGREE"
+      },
+      {
+        "code": "PG",
+        "value": "POST GRADUATE"
+      },
+      {
+        "code": "OT",
+        "value": "OTHERS"
+      }
+    ],
+    "marital_status": [
+      {
+        "code": "DEFAULT",
+        "value": "Marital Status"
+      },
+      {
+        "code": "S",
+        "value": "SINGLE"
+      },
+      {
+        "code": "M",
+        "value": "MARRIED"
+      },
+      {
+        "code": "P",
+        "value": "SEPERATED"
+      },
+      {
+        "code": "D",
+        "value": "DIVORCED"
+      },
+      {
+        "code": "W",
+        "value": "WIDOWED"
+      }
+    ],
+    "nationality": [],
+    "race": [
+      {
+        "code": "CN",
+        "value": "CHINESE"
+      },
+      {
+        "code": "MY",
+        "value": "MALAY"
+      },
+      {
+        "code": "IN",
+        "value": "INDIAN"
+      },
+      {
+        "code": "OT",
+        "value": "OTHERS"
+      },
+      {
+        "code": "EU",
+        "value": "EURASIAN"
+      }
+    ],
+    "residential_status": [
+      {
+        "code": "SC",
+        "value": "SINGAPORE CITIZEN"
+      },
+      {
+        "code": "EP",
+        "value": "EMPLOYMENT PASS HOLDER"
+      },
+      {
+        "code": "PR",
+        "value": "PERMANENT RESIDENT"
+      },
+      {
+        "code": "WP",
+        "value": "WORK PERMIT HOLDER"
+      }
+    ],
+    "bank": [
+      {
+        "code": "7010",
+        "value": "ABN AMRO BANK NV"
+      },
+      {
+        "code": "8828",
+        "value": "ABSA BANK LTD"
+      },
+      {
+        "code": "7454",
+        "value": "AMERICAN EXPRESS BANK LTD"
+      },
+      {
+        "code": "8253",
+        "value": "ARAB BANK PLC"
+      },
+      {
+        "code": "8217",
+        "value": "ARAB BANKING CORPORATION BSC"
+      },
+      {
+        "code": "7931",
+        "value": "AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED"
+      },
+      {
+        "code": "8411",
+        "value": "BANCA MONTE DEI PASCHI DI SIENA S.P.A."
+      },
+      {
+        "code": "7047",
+        "value": "BANGKOK BANK PUBLIC COMPANY LTD"
+      },
+      {
+        "code": "7065",
+        "value": "BANK OF AMERICA, NA"
+      },
+      {
+        "code": "7083",
+        "value": "BANK OF CHINA LIMITED"
+      },
+      {
+        "code": "7108",
+        "value": "BANK OF INDIA"
+      },
+      {
+        "code": "8129",
+        "value": "BANK OF NEW ZEALAND"
+      },
+      {
+        "code": "7117",
+        "value": "BANK OF SINGAPORE LTD"
+      },
+      {
+        "code": "8855",
+        "value": "BAYERISCHE HYPOUND VEREINSBANK AKTIENGESELLSCHAFT"
+      },
+      {
+        "code": "7418",
+        "value": "BNP PARIBAS"
+      },
+      {
+        "code": "7135",
+        "value": "CALYON"
+      },
+      {
+        "code": "9025",
+        "value": "CHANG HWA COMMERCIAL BANK LTD"
+      },
+      {
+        "code": "9043",
+        "value": "CHINA CONSTRUCTION BANK"
+      },
+      {
+        "code": "7986",
+        "value": "CIMB BANK BERHAD"
+      },
+      {
+        "code": "7214",
+        "value": "CITIBANK NA"
+      },
+      {
+        "code": "8606",
+        "value": "COMMERZBANK AKTIENGESELLSCHAFT"
+      },
+      {
+        "code": "7171",
+        "value": "DBS BANK LTD/POST OFFICE SAVINGS BANK (DBS/POSBANK)"
+      },
+      {
+        "code": "7463",
+        "value": "DEUTSCHE BANK AG"
+      },
+      {
+        "code": "8581",
+        "value": "DEXIA BANQUE INTERNATIONALE A LUXEMBOURG"
+      },
+      {
+        "code": "7737",
+        "value": "DNB NOR BANK ASA"
+      },
+      {
+        "code": "7393",
+        "value": "DRESDNER BANK AG"
+      },
+      {
+        "code": "7199",
+        "value": "FAR EASTERN BANK LTD (FEB)"
+      },
+      {
+        "code": "7764",
+        "value": "FIRST COMMERCIAL BANK"
+      },
+      {
+        "code": "8697",
+        "value": "FORTIS BANK (NEDERLAND) N.V."
+      },
+      {
+        "code": "7409",
+        "value": "HABIB BANK LTD"
+      },
+      {
+        "code": "7287",
+        "value": "HL BANK"
+      },
+      {
+        "code": "8864",
+        "value": "HUA NAN COMMERCIAL BANK, LTD"
+      },
+      {
+        "code": "9186",
+        "value": "ICICI BANK LIMITED"
+      },
+      {
+        "code": "7241",
+        "value": "INDIAN BANK"
+      },
+      {
+        "code": "7250",
+        "value": "INDIAN OVERSEAS BANK"
+      },
+      {
+        "code": "8712",
+        "value": "INDUSTRIAL & COMMERCIAL BANK OF CHINA"
+      },
+      {
+        "code": "8509",
+        "value": "ING BANK N.V."
+      },
+      {
+        "code": "7153",
+        "value": "JPMORGAN CHASE BANK, N.A."
+      },
+      {
+        "code": "8703",
+        "value": "KBC BANK N.V."
+      },
+      {
+        "code": "7490",
+        "value": "KOREA EXCHANGE BANK"
+      },
+      {
+        "code": "8785",
+        "value": "KRUNG THAI BANK PCL"
+      },
+      {
+        "code": "7302",
+        "value": "MALAYAN BANKING BERHAD"
+      },
+      {
+        "code": "8235",
+        "value": "MEGA INTERNATIONAL COMMERCIAL BANK (SINGAPORE BRANCH)"
+      },
+      {
+        "code": "7621",
+        "value": "MIZUHO CORPORATE BANK LTD"
+      },
+      {
+        "code": "7427",
+        "value": "MOSCOW NARODNY BANK LTD"
+      },
+      {
+        "code": "8156",
+        "value": "NATEXIS BANQUES POPULAIRES"
+      },
+      {
+        "code": "8518",
+        "value": "NORDEA BANK FINLAND PLC"
+      },
+      {
+        "code": "2000",
+        "value": "NTUC"
+      },
+      {
+        "code": "3000",
+        "value": "NTUC"
+      },
+      {
+        "code": "7339",
+        "value": "OVERSEA-CHINESE BANKING CORPORATION LTD (OCBC)"
+      },
+      {
+        "code": "8749",
+        "value": "P.T. BANK MANDIRI (PERSERO)"
+      },
+      {
+        "code": "7056",
+        "value": "P.T. BANK NEGARA INDONESIA (PERSERO) TBK"
+      },
+      {
+        "code": "7870",
+        "value": "PHILIPPINE NATIONAL BANK"
+      },
+      {
+        "code": "8439",
+        "value": "RABOBANK"
+      },
+      {
+        "code": "9034",
+        "value": "RAIFFEISEN ZENTRALBANK OSTERREICH AG"
+      },
+      {
+        "code": "7366",
+        "value": "RHB BANK BERHAD"
+      },
+      {
+        "code": "8615",
+        "value": "SHINHAN BANK"
+      },
+      {
+        "code": "9999",
+        "value": "SINGAPORE POST"
+      },
+      {
+        "code": "8527",
+        "value": "SKANDINAVISKA ENSKILDA BANKEN"
+      },
+      {
+        "code": "7852",
+        "value": "SOCIETE GENERALE"
+      },
+      {
+        "code": "7038",
+        "value": "SOUTHERN BANK BERHAD"
+      },
+      {
+        "code": "7144",
+        "value": "STANDARD CHARTERED BANK"
+      },
+      {
+        "code": "7791",
+        "value": "STATE BANK OF INDIA"
+      },
+      {
+        "code": "7472",
+        "value": "SUMITOMO MITSUI BANKING CORPORATION"
+      },
+      {
+        "code": "8837",
+        "value": "THE AGRICULTURAL BANK OF CHINA"
+      },
+      {
+        "code": "7092",
+        "value": "THE BANK OF EAST ASIA LTD"
+      },
+      {
+        "code": "7658",
+        "value": "THE BANK OF NOVA SCOTIA"
+      },
+      {
+        "code": "8846",
+        "value": "THE BANK OF TAIWAN"
+      },
+      {
+        "code": "7126",
+        "value": "THE BANK OF TOKYOMITSUBISHI UFJ, LTD"
+      },
+      {
+        "code": "7232",
+        "value": "THE HONGKONG & SHANGHAI BANKING CORPORATION LTD (HSBC)"
+      },
+      {
+        "code": "8934",
+        "value": "THE KOREA DEVELOPMENT BANK"
+      },
+      {
+        "code": "8475",
+        "value": "THE MITSUBISHI TRUST & BANKING CORPN"
+      },
+      {
+        "code": "8280",
+        "value": "THE NATIONAL BANK OF KUWAIT SAK"
+      },
+      {
+        "code": "8688",
+        "value": "THE NORINCHUKIN BANK"
+      },
+      {
+        "code": "8800",
+        "value": "THE SIAM COMMERCIAL BANK PCL"
+      },
+      {
+        "code": "7685",
+        "value": "UBS AG"
+      },
+      {
+        "code": "7357",
+        "value": "UCO BANK"
+      },
+      {
+        "code": "8110",
+        "value": "UNION DE BANQUES ARABES ET FRANCAISES"
+      },
+      {
+        "code": "7375",
+        "value": "UNITED OVERSEAS BANK (UOB)"
+      }
+    ],
+    "monthly_income": [
+      {
+        "code": "3",
+        "value": "BELOW $400"
+      },
+      {
+        "code": "4",
+        "value": "$400-$599"
+      },
+      {
+        "code": "6",
+        "value": "$600-$799"
+      },
+      {
+        "code": "8",
+        "value": "$800-$999"
+      },
+      {
+        "code": "10",
+        "value": "$1000 - $1499"
+      },
+      {
+        "code": "15",
+        "value": "$1500 - $1999"
+      },
+      {
+        "code": "20",
+        "value": "$2000 - $2499"
+      },
+      {
+        "code": "25",
+        "value": "$2500 - $2999"
+      },
+      {
+        "code": "30",
+        "value": "$3000 - $3999"
+      },
+      {
+        "code": "40",
+        "value": "$4000 - $4500"
+      },
+      {
+        "code": "45",
+        "value": "$4501 - $4999"
+      },
+      {
+        "code": "50",
+        "value": "$5000 - $5999"
+      },
+      {
+        "code": "60",
+        "value": "$6000 - $7999"
+      },
+      {
+        "code": "80",
+        "value": "$8000 - $9999"
+      },
+      {
+        "code": "99",
+        "value": "$10000 & ABOVE"
+      }
+    ],
+    "occupation_group": [
+      {
+        "code": "MG",
+        "value": "MANAGERIAL - COMPANY MANAGER/DIRECTOR, PROPRIETOR, OFFICIAL"
+      },
+      {
+        "code": "PF01",
+        "value": "PROFESSIONAL - PHYSICAL SCIENCE"
+      },
+      {
+        "code": "PF02",
+        "value": "PROFESSIONAL - STATISTICIAN, MATHEMATICIAN, RESEARCH ANALYST"
+      },
+      {
+        "code": "PF03",
+        "value": "PROFESSIONAL - INFORMATION TECHNOLOGY"
+      },
+      {
+        "code": "PF04",
+        "value": "PROFESSIONAL - ENGINEER, ARCHITECT, TOWN PLANNER, SURVEYOR"
+      },
+      {
+        "code": "PF05",
+        "value": "PROFESSIONAL - LIFE SCIENCE"
+      },
+      {
+        "code": "PF06",
+        "value": "PROFESSIONAL - HEALTH (DOCTOR, PHYSICIAN, SURGEON, DENTIST, ETC.)"
+      },
+      {
+        "code": "PF07",
+        "value": "PROFESSIONAL - TEACHING (UNI/POLY/PRI/SEC SCHOOL)"
+      },
+      {
+        "code": "PF08",
+        "value": "PROFESSIONAL - BUSINESS, FINANCE"
+      },
+      {
+        "code": "PF09",
+        "value": "PROFESSIONAL - LEGAL"
+      },
+      {
+        "code": "PF10",
+        "value": "PROFESSIONAL - LIBRARIAN, ARCHIVIST, CURATOR"
+      },
+      {
+        "code": "PF11",
+        "value": "PROFESSIONAL - SOCIAL/POLITICAL SCIENCE, HISTORIAN"
+      },
+      {
+        "code": "PF12",
+        "value": "PROFESSIONAL - ARTIST/WRITER"
+      },
+      {
+        "code": "PF13",
+        "value": "PROFESSIONAL - RELIGIOUS"
+      },
+      {
+        "code": "PF99",
+        "value": "PROFESSIONAL - OTHERS"
+      },
+      {
+        "code": "AP01",
+        "value": "SEMI-PROFESSIONAL - ENGINEER ASSISTANT"
+      },
+      {
+        "code": "AP02",
+        "value": "SEMI-PROFESSIONAL - TECHNICIAN - PHYSICAL SCIENCE"
+      },
+      {
+        "code": "AP03",
+        "value": "SEMI-PROFESSIONAL - TECHNICIAN - BUILDING/ENGINEERING"
+      },
+      {
+        "code": "AP04",
+        "value": "SEMI-PROFESSIONAL - COMPUTER SYSTEMS OPERATOR"
+      },
+      {
+        "code": "AP05",
+        "value": "SEMI-PROFESSIONAL - OPTICAL/PHOTO/ELECTRONIC EQUIP. OPERATOR"
+      },
+      {
+        "code": "AP06",
+        "value": "SEMI-PROFESSIONAL - TRAFFIC CONTROLLER, TECHNICIAN"
+      },
+      {
+        "code": "AP07",
+        "value": "SEMI-PROFESSIONAL - BUILDING SAFETY/HEALTH INSPECTOR"
+      },
+      {
+        "code": "AP08",
+        "value": "SEMI-PROFESSIONAL - TECHNICIAN - LIFE SCIENCE"
+      },
+      {
+        "code": "AP09",
+        "value": "SEMI-PROFESSIONAL - HEALTH (NURSE, OPTICIAN, THERAPIST, ETC.)"
+      },
+      {
+        "code": "AP10",
+        "value": "SEMI-PROFESSIONAL - TEACHING (PRE-PRIMARY/ECA/PRIVATE)"
+      },
+      {
+        "code": "AP11",
+        "value": "SEMI-PROFESSIONAL - FINANCE/SALES/REAL ESTATE"
+      },
+      {
+        "code": "AP12",
+        "value": "SEMI-PROFESSIONAL - GOVERNMENT"
+      },
+      {
+        "code": "AP13",
+        "value": "SEMI-PROFESSIONAL - ADMINISTRATIVE/STATISTICAL"
+      },
+      {
+        "code": "AP14",
+        "value": "SEMI-PROFESSIONAL - SOCIAL WORK"
+      },
+      {
+        "code": "AP15",
+        "value": "SEMI-PROFESSIONAL - TRANSLATOR/INTERPRETER"
+      },
+      {
+        "code": "AP16",
+        "value": "SEMI-PROFESSIONAL - ART, ENTERTAINMENT, SPORTS"
+      },
+      {
+        "code": "AP17",
+        "value": "SEMI-PROFESSIONAL - RELIGIOUS (NON-ORDAINED)"
+      },
+      {
+        "code": "AP99",
+        "value": "SEMI-PROFESSIONAL - OTHERS"
+      },
+      {
+        "code": "CL",
+        "value": "CLERICAL WORKER "
+      },
+      {
+        "code": "SV",
+        "value": "SERVICE WORKER, SHOP/MARKET SALES WORKER"
+      },
+      {
+        "code": "AG",
+        "value": "AGRICULTURAL/FISHERY WORKER"
+      },
+      {
+        "code": "PD",
+        "value": "PRODUCTION CRAFTSMAN (ELECTRICIAN, FOREMAN, TAILOR, ETC.)"
+      },
+      {
+        "code": "OP",
+        "value": "PLANT/MACHINE OPERATOR, VEHICLE DRIVER, SEAMAN"
+      },
+      {
+        "code": "LB",
+        "value": "CLEANER, LABOURER"
+      },
+      {
+        "code": "OT01",
+        "value": "RETIRED"
+      },
+      {
+        "code": "OT02",
+        "value": "HOUSEWIFE"
+      },
+      {
+        "code": "OT03",
+        "value": "UNIFORMED GROUP (SAF, AIR FORCE, NAVY, SCDF, MINDEF, DSTA)"
+      },
+      {
+        "code": "OT",
+        "value": "UNCLASSIFIABLE"
+      },
+      {
+        "code": "OT04",
+        "value": "UNEMPLOYED/RETRENCHED"
+      },
+      {
+        "code": "GS",
+        "value": "OTHERS – GRADUATING STUDENTS"
+      },
+      {
+        "code": "FL01",
+        "value": "FREELANCER - MEDIA PROFESSIONALS"
+      },
+      {
+        "code": "FL02",
+        "value": "FREELANCER - OTHERS"
+      },
+      {
+        "code": "FL03",
+        "value": "FREELANCER - SPORT COACHES/TRAINERS"
+      }
+    ]
+  }
+}

@@ -17,7 +17,7 @@ Feature: Member-Service (Linkpoints-Balance)
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
 #    * print data
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/linkpointsResponse.csv") |
+      | read("ntuc_memberportal/resources/TestData_File/member-serviceLinkpoints.csv") |
 
 #  GET response to verify data-type for Linkpoint service
   Scenario: PRODUCT BACKLOG ITEM 5 - Validate GET method for Linkpoints under Member-service

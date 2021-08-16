@@ -1,0 +1,9 @@
+{
+  "endDate": "#(endDate)",
+  "startDate": "#(startDate)",
+  "paymentType": "#(paymentType)",
+  "amount": "#(amount)",
+  "isOneTimePayment": "#(isOneTimePayment)",
+  "isRecurringPayment": "#(isRecurringPayment)",
+  "membershipid": "#(membershipid)"
+}
