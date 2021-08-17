@@ -1,2 +1,2 @@
-"endDate" ,"startDate","paymentType","amount","isOneTimePayment","isRecurringPayment","membershipid"
-"20000808","20000707" ,"Auto"       ,"1000"  ,"NO"              ,"YES"               ,"7654321"
+"endDate","startDate","paymentType","amount","isOneTimePayment","isRecurringPayment","membershipid"
+08082000,07071990,"Sign_UP","1000",true,true,7

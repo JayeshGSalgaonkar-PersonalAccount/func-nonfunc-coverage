@@ -16,7 +16,7 @@
     "oneTimeMerchantId": "#(oneTimeMerchantId)",
     "pgOrderId": "#(pgOrderId)",
     "orderStatus": "#(orderStatus)",
-    "paymentType": "(#paymentType)",
+    "paymentType": "#(paymentType)",
     "isOneTimePayment": "#(isOneTimePayment)",
     "isRecurringPayment": "#(isRecurringPayment)",
     "orderAmount": "#(orderAmount)",

@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": {
+    "id": "#(id)",
+    "postalCode": "#(postalCode)",
+    "street": "#(street)",
+    "block": "#(block)",
+    "buildingName": "#(buildingName)"
+  }
+}
