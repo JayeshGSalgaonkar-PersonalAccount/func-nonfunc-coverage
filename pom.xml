@@ -35,12 +35,6 @@
 
         <dependency>
             <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-core</artifactId>
-            <version>${karate.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.intuit.karate</groupId>
             <artifactId>karate-gatling</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
@@ -65,19 +59,6 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>2.12.3</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.scala-tools</groupId>
-            <artifactId>maven-scala-plugin</artifactId>
-            <version>2.15.2</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -85,6 +66,7 @@
             <testResource>
                 <directory>src/test/java</directory>
                 <excludes>
+                    <exclude>**/*.scala</exclude>
                     <exclude>**/*.java</exclude>
                 </excludes>
             </testResource>
@@ -187,13 +169,5 @@
         </plugins>        
     </build>
 
-    <repositories>
-        <repository>
-            <id>scala-tools.org</id>
-            <name>Scala-tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-
-    </repositories>
     
 </project>
