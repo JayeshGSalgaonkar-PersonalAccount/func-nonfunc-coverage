@@ -9,8 +9,8 @@ import scala.concurrent.duration._
 
 class LoadSimulation extends Simulation {
 
-  val member_Service_LinkPoints: ScenarioBuilder = scenario("member-service linkpoints").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/member-service/linkPoints.feature"))
-  val user_Service_UserPreference: ScenarioBuilder = scenario("user-service userpreference").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/user-service/userPreference.feature"))
+  val member_Service_LinkPoints: ScenarioBuilder = scenario("member-service linkpoints").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/member-service/member-serviceLinkPoints.feature"))
+  val user_Service_UserPreference: ScenarioBuilder = scenario("user-service userpreference").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/user-service/user-servicePreference.feature"))
 
   setUp(
     member_Service_LinkPoints.inject(constantUsersPerSec(1) during(10)),
