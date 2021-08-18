@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": {
+    "id": "#(id)",
+    "userId": "#(userId)",
+    "type": "#(type)",
+    "settings": "#(settings)",
+    "createdDttm": "#(createdDttm)",
+    "modifiedDttm": "#(modifiedDttm)"
+  }
+}

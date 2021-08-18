@@ -1,0 +1,39 @@
+{
+  "user": {
+    "mobileNumberVerified": "#(mobileNumberVerified)",
+    "emailVerified": "#(emailVerified)",
+    "applicationSource": "#(applicationSource)",
+    "lastLoginReminderSent": "#(lastLoginReminderSent)",
+    "lastLogin": "#(lastLogin)",
+    "bankAccountNumber": "#(bankAccountNumber)",
+    "bankName": "#(bankName)",
+    "officeTelNo": "#(officeTelNo)",
+    "monthlyGrossSalary": "#(monthlyGrossSalary)",
+    "occupation": "#(occupation)",
+    "companyBusinessNature": "#(companyBusinessNature)",
+    "companyName": "#(companyName)",
+    "occupationalGroup": "#(occupationalGroup)",
+    "highestEducationLevel": "#(highestEducationLevel)",
+    "maritalStatus": "#(maritalStatus)",
+    "race": "#(race)",
+    "email": "#(email)",
+    "mobileNumber": "#(mobileNumber)",
+    "gender": "#(gender)",
+    "dob": "#(dob)",
+    "name": "#(name)",
+    "nricFin": "#(nricFin)",
+    "status": "#(status)",
+    "scid": "#(scid)"
+  },
+  "address": {
+    "residentialStatus": "#(residentialStatus)",
+    "postalCode": "#(postalCode)",
+    "blockHSENo": "#(blockHSENo)",
+    "floor": "#(floor)",
+    "unit": "#(unit)",
+    "street": "#(street)",
+    "buildingName": "#(buildingName)",
+    "homeTelNo": "#(homeTelNo)"
+  },
+  "userId": "#(userId)"
+}
