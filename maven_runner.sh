@@ -19,7 +19,7 @@
 
   echo "START: Running non-functional tests..."
 
- mvn clean test-compile -DbaseURL=$url gatling:test
+ mvn test-compile -DbaseURL=$url gatling:test
 
  if [[ $? -ne 0 ]] ; then
    echo "FINISH: There are test failures, failing build..."

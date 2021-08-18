@@ -6,11 +6,12 @@ Feature: Member-Service (Eligibility)
 
   Background:
     * url baseURL
+    * path 'member-service/v1/membership/check/active/'
     * header Accept = 'application/json'
 
 #  GET response and verify data from Response matches data from .csv file
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method for Eligibility under Member-service
-    Given path 'member-service/v1/membership/check/active/<NRIC>/<DOB>'
+    Given path '<NRIC>/<DOB>'
     * def data = {NRIC: "<NRIC>",DOB: "<DOB>",BranchCode: "<BranchCode>",Checkclist: "<Checkclist>",ExchangeId: "<ExchangeId>",PaymentArrearMonths: "<PaymentArrearMonths>",PaymentTypeCode: "<PaymentTypeCode>",PaymentTypeName: "<PaymentTypeName>",UnionCode: "<UnionCode>",isnebo: "<isnebo>"}
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
