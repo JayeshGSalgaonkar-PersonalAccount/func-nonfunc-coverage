@@ -14,7 +14,7 @@ class LoadSimulation extends Simulation {
 
   setUp(
     member_Service_LinkPoints.inject(constantUsersPerSec(1) during(10)),
-    user_Service_UserPreference.inject(constantUsersPerSec(1) during(10)),
+    user_Service_UserPreference.inject(constantUsersPerSec(1) during(10))
   )
 }
 

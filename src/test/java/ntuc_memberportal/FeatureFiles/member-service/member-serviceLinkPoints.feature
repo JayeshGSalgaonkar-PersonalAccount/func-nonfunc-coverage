@@ -1,4 +1,5 @@
-@member-service @all
+@all
+@member-service
 
 Feature: Member-Service (Linkpoints-Balance)
 
@@ -11,11 +12,9 @@ Feature: Member-Service (Linkpoints-Balance)
     #GET response and verify data from Response matches data from .csv file
   Scenario Outline: PRODUCT BACKLOG ITEM 5 - Validate GET method for Linkpoints-Balance under Member-service
     Given path 'member-service/v1/linkpoint/balance'
-    And def data = { balance: "<balance>", dollarValue: "<dollarValue>", expiryDate: "<expiryDate>", poolId: "<poolId>", poolName: "<poolName>", expiringBalance: "<expiringBalance>"}
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
-#    * print data
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceLinkpoints.csv") |
 

@@ -1,4 +1,5 @@
-@payment-service @all
+@all
+@payment-service
 
 Feature: Payment-Service
   This feature will test GET/POST HTTP methods for Payment service to validate results

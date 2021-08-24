@@ -1,2 +1,3 @@
 "expiryDate","balance","poolId","dollarValue","expiringBalance","poolName"
-"20221231","100.00","P01","1.00","100.00","LinkPoints"
+"20221231","100.00","P01","1.00","100.00","LinkPoints",
+"20221231","200.00","P02","5.00","500.00","BonusPoints"

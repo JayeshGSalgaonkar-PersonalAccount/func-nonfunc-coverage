@@ -37,8 +37,13 @@
 # Reporting
 * Default karate-report -> /src/target/surefire-reports/karate-summary.html
 * Custom report -> /src/target/surefire-reports/cucumber-html-reports/overview-tags.html
+* Retrieve the container ID : docker ps -al
 
 Test artifacts from docker container needs to be copied -> docker cp "container_id":/app/target .
+
+
+
+
 
 ------------------------------------------------------------------------------------------------------------------------
 

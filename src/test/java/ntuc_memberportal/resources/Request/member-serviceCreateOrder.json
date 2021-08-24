@@ -1,9 +1,10 @@
 {
+  "feeType": "#(feeType)",
   "endDate": "#(endDate)",
   "startDate": "#(startDate)",
-  "paymentType": "#(paymentType)",
+  "serviceType": "#(serviceType)",
   "amount": "#(amount)",
   "isOneTimePayment": "#(isOneTimePayment)",
   "isRecurringPayment": "#(isRecurringPayment)",
-  "membershipid": "#(membershipid)"
+  "membershipId": "#(membershipId)"
 }

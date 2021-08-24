@@ -1,2 +1,2 @@
-"endDate","startDate","paymentType","amount","isOneTimePayment","isRecurringPayment","membershipid"
-08082000,07071990,"Sign_UP","1000",true,true,7
+"feeType","endDate","startDate","serviceType","amount","isOneTimePayment","isRecurringPayment","membershipId"
+"OUTSTANDING",08082000,07071990,"Sign_UP","1000",true,true,7
