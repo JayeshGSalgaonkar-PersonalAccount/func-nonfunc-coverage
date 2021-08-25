@@ -28,4 +28,8 @@ stages:
     strategy:
       maxParallel: 1
     steps:
+      - script: |
+          if ! [ -x /usr/bin/javac ]; then
+            sudo apt install -y openjdk-8-jdk-headless
+          fi
       - script: mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
