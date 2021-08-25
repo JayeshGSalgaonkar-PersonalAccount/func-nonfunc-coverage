@@ -28,4 +28,4 @@ stages:
     strategy:
       maxParallel: 1
     steps:
-      - script: mvn test "-Dkarate.options=--tags @all" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
+      - script: mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
