@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": {
+    "membership": {
+      "id": "#ignore",
+      "createdDttm": "#(createdDttm)",
+      "deletedDttm": "#(deletedDttm)",
+      "lastPaidDate": "#(lastPaidDate)",
+      "membershipTypeCode": "#(membershipTypeCode)",
+      "modifiedDttm": "#(modifiedDttm)",
+      "optInNebo": "#(optInNebo)",
+      "relationship": "#(relationship)",
+      "startDate": "#(startDate)",
+      "status": "#(status)",
+      "unionCode": "#(unionCode)",
+      "unionName": "#(unionName)",
+      "userId": "#(userId)",
+      "createGift": "#(createGift)",
+      "giftItemName": "#(giftItemName)",
+      "ucemMembershipGuid": "#(ucemMembershipGuid)",
+      "ucemStatus": "#(ucemStatus)",
+      "ucemGiftGuid": "#(ucemGiftGuid)"
+    },
+    "user": {
+      "id": "#ignore",
+      "scid": "#(scid)",
+      "status": "#(status)",
+      "nricFin": "#(nricFin)",
+      "name": "#(name)",
+      "dob": "#(dob)",
+      "gender": "#(gender)",
+      "mobileNumber": "#(mobileNumber)",
+      "email": "#(email)",
+      "race": "#(race)",
+      "maritalStatus": "#(maritalStatus)",
+      "highestEducationLevel": "#(highestEducationLevel)",
+      "occupationalGroup": "#(occupationalGroup)",
+      "companyName": "#(companyName)",
+      "companyBusinessNature": "#(companyBusinessNature)",
+      "occupation": "#(occupation)",
+      "monthlyGrossSalary": "#(monthlyGrossSalary)",
+      "officeTelNo": "#(officeTelNo)",
+      "bankName": "#(bankName)",
+      "bankAccountNumber": "#(bankAccountNumber)",
+      "lastLogin": "#(lastLogin)",
+      "lastLoginReminderSent": "#(lastLoginReminderSent)",
+      "applicationSource": "#(applicationSource)",
+      "emailVerified": "#(emailVerified)",
+      "mobileNumberVerified": "#(mobileNumberVerified)",
+      "createdDttm": "#(createdDttm)",
+      "modifiedDttm": "#(modifiedDttm)",
+      "employmentType": "#(employmentType)"
+    },
+    "address": {
+      "residentialStatus": "#(residentialStatus)",
+      "postalCode": "#(postalCode",
+      "blockHSENo": "#(blockHSENo)",
+      "unit": "#(unit)",
+      "floor": "#(floor)",
+      "street": "#(street)",
+      "buildingName": "#(buildingName)",
+      "homeTelNo": "#(homeTelNo)"
+    }
+  }
+}

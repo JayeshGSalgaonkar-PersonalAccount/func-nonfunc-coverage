@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "endDate": "#(endDate)",
+    "startDate": "#(startDate)",
+    "amount": "#(amount)",
+    "feeType": "#(feeType)"
+  }
+}

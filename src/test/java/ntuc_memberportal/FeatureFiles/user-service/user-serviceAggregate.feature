@@ -13,7 +13,7 @@ Feature: User-service
     And def requestBody = read("ntuc_memberportal/resources/Request/user-serviceAggregate.json")
     And request requestBody
     When method Post
-#    Then status 200
+    Then status 200
     * print requestBody
     * print read("ntuc_memberportal/resources/Response/user-serviceAggregate.json")
     Then match response == read("ntuc_memberportal/resources/Response/user-serviceAggregate.json")

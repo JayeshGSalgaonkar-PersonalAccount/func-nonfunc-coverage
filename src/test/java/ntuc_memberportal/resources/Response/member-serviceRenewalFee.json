@@ -1,0 +1,21 @@
+{
+  "content": [
+    {
+      "fees": [
+        {
+          "endDate": "#(endDate)",
+          "startDate": "#(startDate)",
+          "amount": "#(amount)",
+          "feeType": "#(feeType)"
+        }
+      ],
+      "pendingOrderId": "#(pendingOrderId)",
+      "paymentStatus": "#(paymentStatus)",
+      "membershipId": "#(membershipId)",
+      "membershipType": "#(membershipType)"
+    }
+  ],
+  "metadata": {
+    "status": "#(status)"
+  }
+}

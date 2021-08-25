@@ -1,2 +1,3 @@
 "feeType","endDate","startDate","serviceType","amount","isOneTimePayment","isRecurringPayment","membershipId"
-"OUTSTANDING",08082000,07071990,"Sign_UP","1000",true,true,7
+"OUTSTANDING",08082000,07071990,"Sign_UP","1000",true,true,7,
+"PAY12MONTHS",01011990,09091987,"RENEWAL","2000",true,true,8

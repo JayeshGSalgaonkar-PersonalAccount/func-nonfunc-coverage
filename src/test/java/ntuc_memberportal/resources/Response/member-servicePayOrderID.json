@@ -1,0 +1,54 @@
+{
+  "content": {
+    "payment": {
+      "modifiedDttm": "#ignore",
+      "createdDttm": "#ignore",
+      "errorDescription": "#(errorDescription)",
+      "errorCode": "#(errorCode)",
+      "recurringCardType": "#(recurringCardType)",
+      "recurringPaymentMethod": "#(recurringPaymentMethod)",
+      "recurringPaymentStatus": "#(recurringPaymentStatus)",
+      "recurringToken": "#(recurringToken)",
+      "recurringMerchantId": "#(recurringMerchantId)",
+      "oneTimeCardType": "#(oneTimeCardType)",
+      "oneTimePaymentMethod": "#(oneTimePaymentMethod)",
+      "oneTimePaymentStatus": "#(oneTimePaymentStatus)",
+      "oneTimeCardExpiryDate": "#(oneTimeCardExpiryDate)",
+      "oneTimeMerchantId": "#(oneTimeMerchantId)",
+      "pgOrderId": "#(pgOrderId)",
+      "orderStatus": "#(orderStatus)",
+      "serviceType": "#(serviceType)",
+      "isOneTimePayment": "#(isOneTimePayment)",
+      "isRecurringPayment": "#(isRecurringPayment)",
+      "orderAmount": "#(orderAmount)",
+      "clientOrderId": "#(clientOrderId)",
+      "id": "#(id)"
+    },
+    "membershipPayment": {
+      "feeType": "#(feeType)",
+      "endDate": "#ignore",
+      "startDate": "#ignore",
+      "noOfMonths": "#(noOfMonths)",
+      "orderInfoId": "#(orderInfoId)",
+      "membershipId": "#(membershipId)"
+    },
+    "membership": {
+      "userId": "#(userId)",
+      "unionName": "#(unionName)",
+      "unionCode": "#(unionCode)",
+      "status": "#(status)",
+      "startDate": "#ignore",
+      "relationship": "#(relationship)",
+      "optInNebo": "#(optInNebo)",
+      "modifiedDttm": "#ignore",
+      "modifiedBy": "#(modifiedBy)",
+      "membershipTypeCode": "#(membershipTypeCode)",
+      "lastPaidDate": "#ignore",
+      "deletedDttm": "#ignore",
+      "deletedBy": "#(deletedBy)",
+      "createdDttm": "#ignore",
+      "createdBy": "#(createdBy)",
+      "id": "#(id)"
+    }
+  }
+}
