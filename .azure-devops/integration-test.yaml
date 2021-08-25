@@ -20,8 +20,8 @@ stages:
 - stage: test
   displayName: Run integration test
   jobs:
-  - job: integration-test
-    displayName: integration-test
+  - job: integration_test
+    displayName: integration_test
     pool:
       # vmImage: $(vmImageName)
       name: devops
