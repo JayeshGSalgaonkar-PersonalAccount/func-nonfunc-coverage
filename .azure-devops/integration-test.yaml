@@ -1,0 +1,31 @@
+#trigger when deploy-on-merge-dev is run on master
+resources:
+  pipelines:
+  - pipeline: deploy_on_merge_pipeline
+    source: deploy-on-merge-dev
+    trigger: 
+      branches:
+        include: 
+        - master
+
+pr: none 
+trigger: none
+
+
+variables:
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: test
+  displayName: Run integration test
+  jobs:
+  - job: integration-test
+    displayName: integration-test
+    pool:
+      # vmImage: $(vmImageName)
+      name: devops
+    strategy:
+      maxParallel: 1
+    steps:
+      - script: mvn test "-Dkarate.options=--tags @all" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
