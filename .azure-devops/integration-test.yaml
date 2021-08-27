@@ -32,6 +32,7 @@ stages:
           if ! [ -x /usr/bin/javac ]; then
             sudo apt install -y openjdk-11-jdk-headless
           fi
-      - script: mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
+      - script: mvn test "-Dkarate.options=--tags @all" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
       - publish: $(System.DefaultWorkingDirectory)/target
         artifact: integration_test_reports
+        continueOnError: true
