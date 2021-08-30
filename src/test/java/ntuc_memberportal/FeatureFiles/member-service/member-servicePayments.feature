@@ -45,7 +45,7 @@ Feature: Member-Service (Payment)
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Payment Order-Id
     Given path 'member-service/v1/payment/<orderId>'
     When method Get
-#   Then status 200
+   Then status 200
     Then match response == read("ntuc_memberportal/resources/Response/member-servicePayOrderID.json")
 
     Examples:
@@ -67,14 +67,14 @@ Feature: Member-Service (Payment)
 #  GET response
   Scenario Outline: PRODUCT BACKLOG ITEM - 244 OA membership Sign-up fee
     Given path 'member-service/v1/payment/get-signup-fee/<membershipId>'
-    * def amount = <amount> * 1
+    * def amount = parseInt(amount)
     When method Get
     Then status 200
     And match response == read('ntuc_memberportal/resources/Response/member-serviceSignUpFee.json')
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceSignUpFee.csv') |
 
-    #  GET response
+#    GET response
   Scenario Outline: PRODUCT BACKLOG ITEM  - 244 - NEGATIVE test for Sign-up Fee
     Given path 'member-service/v1/payment/get-signup-fee/<membershipId>'
     When method Get
@@ -82,16 +82,15 @@ Feature: Member-Service (Payment)
     Then match response.content.errorCode == <errorCode>
     Then match response.metadata.status == <status>
     Then match response.content.errorDescription == <errorDescription>
-
     Examples:
       | membershipId | status      | errorCode          | errorDescription                      |
       | 1            | "SYS_ERROR" | "RECORD_NOT_FOUND" | "Error while retrieving sign up fee." |
 
+#    GET response
   Scenario Outline: PRODUCT BACKLOG ITEM - 88 - Membership Renewal fees
     Given path 'member-service/v1/payment/membership-renewal-fees'
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceRenewalFee.json')
-
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceRenewalFee.csv') |

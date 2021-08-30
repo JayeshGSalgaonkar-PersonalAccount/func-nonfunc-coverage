@@ -1,0 +1,8 @@
+{
+  "settings": {
+    "additionalProp1": "#(additionalProp1)",
+    "additionalProp2": "#(additionalProp2)",
+    "additionalProp3": "#(additionalProp3)"
+  },
+  "type": "#(type)"
+}

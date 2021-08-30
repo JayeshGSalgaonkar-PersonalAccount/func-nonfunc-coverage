@@ -15,7 +15,6 @@ Feature: OA Member-Service
     Then status 200
     * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemShip.json')
     Then match response == expected
-
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceProfile.csv") |
 
@@ -42,27 +41,27 @@ Feature: OA Member-Service
       | @#$  | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
       | 876  | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
 
-# POST method to verify user request is getting created
+# POST method
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - POST request for member service
     Given path 'member-service/v1/membership/oa'
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceMemOA.json")
     And request requestBody
+    * print requestBody
     When method Post
-    Then status 200
-#    Then print response
-    Then match response == requestBody
+#    Then status 200
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceMemOA.json')
 
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceMemOA.csv') |
 
-#  PUT method to verify user request is getting created
+#  PUT method
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - PUT request for member service
     Given path 'member-service/v1/membership/<MemID>'
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceProfile.json")
     And request requestBody
     When method Put
     Then status 200
-    Then match response == memberData
+    Then match response == read('')
 
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-servicePUTResponse.csv') |

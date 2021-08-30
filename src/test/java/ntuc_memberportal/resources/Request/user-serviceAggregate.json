@@ -22,8 +22,8 @@
     "dob": "#(dob)",
     "name": "#(name)",
     "nricFin": "#(nricFin)",
-    "status": "#(status)",
-    "scid": "#(scid)"
+    "scid": "#(scid)",
+    "employmentType": "#(employmentType)"
   },
   "address": {
     "residentialStatus": "#(residentialStatus)",
@@ -34,5 +34,6 @@
     "street": "#(street)",
     "buildingName": "#(buildingName)",
     "homeTelNo": "#(homeTelNo)"
-  }
+  },
+  "userId": "#(userId)"
 }
