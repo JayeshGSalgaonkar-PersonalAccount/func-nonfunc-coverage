@@ -3,11 +3,11 @@
 
 # Functional Test 
     CLI - Execute all tests
-* mvn clean
-* mvn test -Dtest=TestRunnerParallel
+* `mvn clean`
+* `mvn test -Dtest=TestRunnerParallel`
 #
     CLI - Execute specific microservice as tag
-* mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel 
+* `mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel` 
 
     tags to be replaced by micro-service name -
     - @member-service
@@ -16,15 +16,15 @@
 
 # Non-functional Test (Performance)
     CLI - Execute all tests (only option)
-* mvn clean test-compile gatling:test
+* `mvn clean test-compile gatling:test`
 
 
 # DockerFile (root folder)
     create - docker image
-* docker build -t nmp-tests .
+* `docker build -t nmp-tests .`
 #
     docker run & test execution
-* docker run -it -e mcr=<microservice_to_test> -e url='microservice_endpoint' nmp-tests
+* `docker run -it -e mcr=<microservice_to_test> -e url='microservice_endpoint' nmp-tests`
 
     **mcr** to be replaced by micro-service name -
     - @member-service
@@ -39,7 +39,7 @@
 * Custom report -> /src/target/surefire-reports/cucumber-html-reports/overview-tags.html
 * Retrieve the container ID : docker ps -al
 
-Test artifacts from docker container needs to be copied -> docker cp "container_id":/app/target .
+Test artifacts from docker container needs to be copied -> `docker cp "container_id":/app/target .`
 
 
 

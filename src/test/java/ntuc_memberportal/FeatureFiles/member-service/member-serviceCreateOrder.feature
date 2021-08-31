@@ -20,7 +20,7 @@ Feature: Member-Service (CreateOrder)
       | read('ntuc_memberportal/resources/TestData_File/member-serviceCreateOrder.csv') |
 
 #  POST response and verify data from Response matches data for INVALID scenario
-  Scenario Outline: PRODUCT BACKLOG ITEM 244 - Validate POST method for CreateOrder under Member-service for INCORRECT order
+  Scenario Outline: PRODUCT BACKLOG ITEM 244 - Negative Test
     Given path 'member-service/v1/payment/create-order'
     * def requestBody = {"feeType": <feeType>,"endDate": <endDate>,"startDate": <startDate>,"serviceType": <serviceType>, "amount": <amount>, "isOneTimePayment": <isOneTimePayment>,"isRecurringPayment": <isRecurringPayment>,"membershipId": <membershipId>}
     And request requestBody

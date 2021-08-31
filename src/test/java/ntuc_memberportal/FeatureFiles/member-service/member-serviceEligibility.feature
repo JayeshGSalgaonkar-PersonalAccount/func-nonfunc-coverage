@@ -29,5 +29,3 @@ Feature: Member-Service (Eligibility)
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceOccupationGrp.json')
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceOccupationGrp.csv") |
-
-

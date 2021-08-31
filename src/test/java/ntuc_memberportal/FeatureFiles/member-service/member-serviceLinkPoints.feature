@@ -30,4 +30,3 @@ Feature: Member-Service (Linkpoints-Balance)
     And print $.poolID == #number && #present
     And print $.expiryDate != #null
     And print $.poolName == "LinkPoints"
-
