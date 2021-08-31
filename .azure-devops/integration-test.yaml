@@ -1,0 +1,38 @@
+#trigger when deploy-on-merge-dev is run on master
+resources:
+  pipelines:
+  - pipeline: deploy_on_merge_pipeline
+    source: deploy-on-merge-dev
+    trigger: 
+      branches:
+        include: 
+        - master
+
+pr: none 
+trigger: none
+
+
+variables:
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: test
+  displayName: Run integration test
+  jobs:
+  - job: integration_test
+    displayName: integration_test
+    pool:
+      # vmImage: $(vmImageName)
+      name: devops
+    strategy:
+      maxParallel: 1
+    steps:
+      - script: |
+          if ! [ -x /usr/bin/javac ]; then
+            sudo apt install -y openjdk-11-jdk-headless
+          fi
+      - script: mvn test "-Dkarate.options=--tags @all" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
+        continueOnError: true
+      - publish: $(System.DefaultWorkingDirectory)/target
+        artifact: integration_test_reports
