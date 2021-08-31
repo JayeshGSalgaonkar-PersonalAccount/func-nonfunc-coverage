@@ -20,3 +20,8 @@ Feature: Payment-Service
     Then match response == paymentData
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/payment-serviceCreateOrder.csv') |
+
+
+  Scenario:
+    Given path 'payment-service/v1/payment/<clientOrderId>'
+    * print response

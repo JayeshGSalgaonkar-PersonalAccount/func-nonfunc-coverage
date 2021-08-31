@@ -1,16 +1,15 @@
 {
   "address": {
-    "blockHSENo": "#(blockHSENo)",
-    "buildingName": "#(buildingName)",
-    "floor": "#(floor)",
-    "homeTelNo": "#(homeTelNo)",
-    "postalCode": "#(postalCode)",
     "residentialStatus": "#(residentialStatus)",
+    "postalCode": "#(postalCode)",
+    "blockHSENo": "#(blockHSENo)",
+    "unit": "#(unit)",
+    "floor": "#(floor)",
     "street": "#(street)",
-    "unit": "#(unit)"
+    "buildingName": "#(buildingName)",
+    "homeTelNo": "#(homeTelNo)"
   },
   "user": {
-    "status": "#(status)",
     "applicationSource": "#(applicationSource)",
     "bankAccountNumber": "#(bankAccountNumber)",
     "bankName": "#(bankName)",
@@ -21,7 +20,7 @@
     "emailVerified": "#(emailVerified)",
     "gender": "#(gender)",
     "highestEducationLevel": "#(highestEducationLevel)",
-    "lastLogin": "#ignore",
+    "lastLogin": "#(lastLogin)",
     "lastLoginReminderSent": "#(lastLoginReminderSent)",
     "maritalStatus": "#(maritalStatus)",
     "mobileNumber": "#(mobileNumber)",
@@ -32,20 +31,10 @@
     "occupation": "#(occupation)",
     "occupationalGroup": "#(occupationalGroup)",
     "officeTelNo": "#(officeTelNo)",
-    "race": "#(race)",
-    "scid": "#(scid)"
+    "race": "#(race)"
   },
   "membership": {
-    "createdBy": "#(membership)",
-    "deletedBy": "#(deletedBy)",
-    "deletedDttm": "#ignore",
-    "lastPaidDate": "#ignore",
-    "membershipTypeCode": "#(membershipTypeCode)",
-    "modifiedBy": "#(modifiedBy)",
     "optInNebo": "#(optInNebo)",
-    "relationship": "#(relationship)",
-    "startDate": "#ignore",
-    "status": "#(status)",
     "unionCode": "#(unionCode)",
     "unionName": "#(unionName)"
   }

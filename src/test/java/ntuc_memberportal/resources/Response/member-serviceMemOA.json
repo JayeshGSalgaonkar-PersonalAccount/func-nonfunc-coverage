@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": {
+    "membershipTypeCode": "#(membershipTypeCode)",
+    "status": "#(status)",
+    "relationship": "#(relationship)",
+    "optInNebo": "#(optInNebo)",
+    "userId": "#(userId)"
+  }
+}

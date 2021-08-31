@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": {
+    "id": "#(id)",
+    "userId": "#(userId)",
+    "type": "#(type)",
+    "settings": {
+      "news": "#(news)",
+      "deals": "#(deals)",
+      "marketing": "#(marketing)"
+    },
+    "createdDttm": "#ignore",
+    "modifiedDttm": "#ignore"
+  }
+}

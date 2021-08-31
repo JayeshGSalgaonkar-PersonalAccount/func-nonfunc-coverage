@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "modifiedDttm": "#(modifiedDttm)",
+      "createdDttm": "#(createdDttm)",
+      "settings": {},
+      "type": "#(type)",
+      "user": {
+        "employmentType": "#(employmentType)",
+        "status": "#(status)",
+        "scid": "#(scid)",
+        "race": "#(race)",
+        "officeTelNo": "#(officeTelNo)",
+        "occupationalGroup": "#(occupationalGroup)",
+        "occupation": "#(occupation)",
+        "nricFin": "#(nricFin)",
+        "name": "#(name)",
+        "monthlyGrossSalary": "#(monthlyGrossSalary)",
+        "modifiedDttm": "#(modifiedDttm)",
+        "mobileNumberVerified": "#(mobileNumberVerified)",
+        "mobileNumber": "#(mobileNumber)",
+        "maritalStatus": "#(maritalStatus",
+        "lastLoginReminderSent": "#(lastLoginReminderSent)",
+        "lastLogin": "#(lastLogin)",
+        "highestEducationLevel": "#(highestEducationLevel)",
+        "gender": "#(gender)",
+        "emailVerified": "#(emailVerified)",
+        "email": "#(email)",
+        "dob": "#(dob)",
+        "createdDttm": "#(createdDttm)",
+        "companyName": "#(companyName)",
+        "companyBusinessNature": "#(companyBusinessNature)",
+        "bankName": "#(bankName)",
+        "bankAccountNumber": "#(bankAccountNumber)",
+        "applicationSource": "#(applicationSource)"
+      },
+      "userId": "#(userId)",
+    }
+  ],
+  "metadata": {
+    "status": "SUCCESS"
+  }
+}

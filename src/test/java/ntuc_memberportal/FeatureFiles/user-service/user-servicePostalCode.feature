@@ -8,7 +8,7 @@ Feature: User service (POSTAL CODE)
 
     # To GET response from User POSTAL CODE micro-service and verify status
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Validate GET method for Postalcode from USER-service
-    Given path 'user-service/v1/postal-code/<postalCode>'
+    Given path 'user-service/v1/postal-code/<code>'
     When method Get
     Then status 200
     Then match response == read("ntuc_memberportal/resources/Response/user-servicePostalCode.json")

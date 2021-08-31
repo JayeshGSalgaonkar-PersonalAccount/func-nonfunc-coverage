@@ -2,19 +2,20 @@
 Feature:
 
   Background:
-    * def curId = 0
-    * def nextId = function(){ return ~~curId++ }
-    * def cats = {}
+    * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
 
-  Scenario: pathMatches('/v1/cats/{id}')
-    * def responseStatus = 201
-    * def obj = read('ntuc_memberportal/Mocks/test.json')
-    * def response = obj.id
+  Scenario: pathMatches('/api/member-service/v1/payment/create-order')
+    * def responseStatus = 200
+    * def response = { feeType: "OUTSTANDING", endDate: "02022021", startDate: "01012021",serviceType: "SIGN_UP",amount: "100",isOneTimePayment: true,isRecurringPayment:true,membershipId:1}
 
-  Scenario: pathMatches('api/user-service/v1/postal-code/310145')
-    * def responseStatus = 206
-    * def response = { obj1 : "Sujit", obj2 : "Jayesh"}
+  Scenario: pathMatches('/api/member-service/v1/membership/nfm/main/2')
+    * def responseStatus = 200
+    * def response = {status: "SUCCESS"}
 
+  Scenario: pathMatches('/api/member-service/v1/membership/nfm/main/scid=5')
+    * def responseStatus = 200
+    * def response = {status: "SUCCESS"}
 
-  Scenario: pathMatches('/greeting')
-    * json response = read('ntuc_memberportal/Mocks/test.json')
+  Scenario: pathMatches('/api/member-service/v1/membership/nfm/main/scid=6')
+    * def responseStatus = 401
+    * def response = {errorCode: "RECORD_NOT_FOUND", errorDescription: "Not Valid"}
