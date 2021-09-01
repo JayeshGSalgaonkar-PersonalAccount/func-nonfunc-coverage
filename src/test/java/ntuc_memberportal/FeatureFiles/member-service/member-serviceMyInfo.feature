@@ -8,12 +8,11 @@ Feature: My-Info Member-Service
     * url baseURL
     * header Accept = 'application/json'
 
-# GET method to verify member service for OA
-  Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
+# GET
+  Scenario Outline: PRODUCT BACKLOG - 368 Signup using MyInfo
     Given path 'member-service/v1/callback'
     When method Get
     Then status 200
-    * def expected = read('ntuc_memberportal/resources/Response/member-serviceMyInfo.json')
-    Then match response == expected
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceMyInfo.json')
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceMyInfo.csv") |
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceMyInfo.csv') |

@@ -8,8 +8,19 @@ Feature: NFM Member-Service
     * url baseURL
     * header Accept = 'application/json'
 
-    # GET method to verify member service for NFM
-  Scenario Outline: PRODUCT BACKLOG - 478 - NEGATIVE Test
+#     GET
+  Scenario Outline: PRODUCT BACKLOG - 142 -
+    Given path 'member-service/v1/membership/nfm/main/<scid>'
+    When method Get
+    Then status 200
+    Then match response.content.mainMembership == <mainMembership>
+    Then match response.metadata.status == <status>
+    Examples:
+      | scid | mainMembership | status    |
+      | 1    | true           | "SUCCESS" |
+
+#    GET
+  Scenario Outline: PRODUCT BACKLOG - 142 - NEGATIVE Test
     Given path 'member-service/v1/membership/nfm/main/<scid>'
     When method Get
     Then status 401
@@ -18,6 +29,6 @@ Feature: NFM Member-Service
     Then match response.metadata.status == <status>
 
     Examples:
-      | scid | errorDescription | errorCode          | status  |
+      | scid | errorDescription | errorCode          | status    |
       | *&^  | "NOT FOUND"      | "RECORD_NOT_FOUND" | "SUCCESS" |
       | 876  | "NOT FOUND"      | "RECORD_NOT_FOUND" | "SUCCESS" |

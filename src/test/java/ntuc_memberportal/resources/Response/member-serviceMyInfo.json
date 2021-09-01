@@ -1,0 +1,51 @@
+{
+  "content": {
+    "address": {
+      "id": "#(id)",
+      "userId": "#(userId)",
+      "residentialStatus": "#(residentialStatus)",
+      "postalCode": "#(postalCode)",
+      "blockHSENo": "#(blockHSENo)",
+      "floor": "#(floor)",
+      "unit": "#(unit)",
+      "street": "#(street)",
+      "buildingName": "#(buildingName)",
+      "homeTelNo": "#(homeTelNo)",
+      "createdDttm": "#ignore",
+      "modifiedDttm": "#ignore"
+    },
+    "user": {
+      "id": "#(id)",
+      "applicationSource": "#(applicationSource)",
+      "bankAccountNumber": "#(bankAccountNumber)",
+      "bankName": "#(bankName)",
+      "companyBusinessNature": "#(companyBusinessNature)",
+      "companyName": "#ignore",
+      "createdDttm": "#ignore",
+      "dob": "#(dob)",
+      "email": "#(email)",
+      "emailVerified": "#(emailVerified)",
+      "gender": "#(gender)",
+      "highestEducationLevel": "#(highestEducationLevel)",
+      "lastLogin": "#(lastLogin)",
+      "lastLoginReminderSent": "#(lastLoginReminderSent)",
+      "maritalStatus": "#(maritalStatus)",
+      "mobileNumber": "#(mobileNumber)",
+      "mobileNumberVerified": "#(mobileNumberVerified)",
+      "modifiedDttm": "#ignore",
+      "monthlyGrossSalary": "#(monthlyGrossSalary)",
+      "name": "#(name)",
+      "nricFin": "#(nricFin)",
+      "occupation": "#(occupation)",
+      "occupationalGroup": "#(occupationalGroup)",
+      "officeTelNo": "#(officeTelNo)",
+      "race": "#(race)",
+      "scid": "#(scid)",
+      "status": "#(status)",
+      "employmentType": "#(employmentType)"
+    }
+  },
+  "metadata": {
+    "status": "SUCCESS"
+  }
+}
