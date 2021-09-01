@@ -8,17 +8,6 @@ Feature: NFM Member-Service
     * url baseURL
     * header Accept = 'application/json'
 
-# GET method to verify member service for NFM
-  Scenario Outline: PRODUCT BACKLOG - 478 GET method to verify membership details
-    Given path 'member-service/v1/membership/nfm/main/<scid>'
-    When method Get
-    Then status 200
-#    * def expected = read('')
-    Then match response.content.mainMembership == true
-    Then match response.metadata.status == "SUCCESS"
-    Examples:
-      | read("") |
-
     # GET method to verify member service for NFM
   Scenario Outline: PRODUCT BACKLOG - 478 - NEGATIVE Test
     Given path 'member-service/v1/membership/nfm/main/<scid>'

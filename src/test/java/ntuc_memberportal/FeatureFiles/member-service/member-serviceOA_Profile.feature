@@ -46,9 +46,8 @@ Feature: OA Member-Service
     Given path 'member-service/v1/membership/oa'
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceMemOA.json")
     And request requestBody
-    * print requestBody
     When method Post
-#    Then status 200
+    Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceMemOA.json')
 
     Examples:
