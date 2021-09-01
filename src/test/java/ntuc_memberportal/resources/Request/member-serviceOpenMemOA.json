@@ -1,0 +1,41 @@
+{
+  "address": {
+    "residentialStatus": "#(residentialStatus)",
+    "postalCode": "#(postalCode)",
+    "blockHSENo": "#(blockHSENo)",
+    "unit": "#(unit)",
+    "floor": "#(floor)",
+    "street": "#(street)",
+    "buildingName": "#(buildingName)",
+    "homeTelNo": "#(homeTelNo)"
+  },
+  "user": {
+    "applicationSource": "#(applicationSource)",
+    "bankAccountNumber": "#(bankAccountNumber)",
+    "bankName": "#(bankName)",
+    "companyBusinessNature": "#(companyBusinessNature)",
+    "companyName": "#(companyName)",
+    "dob": "#(dob)",
+    "email": "#(email)",
+    "emailVerified": "#(emailVerified)",
+    "gender": "#(gender)",
+    "highestEducationLevel": "#(highestEducationLevel)",
+    "lastLogin": "#(lastLogin)",
+    "lastLoginReminderSent": "#(lastLoginReminderSent)",
+    "maritalStatus": "#(maritalStatus)",
+    "mobileNumber": "#(mobileNumber)",
+    "mobileNumberVerified": "#(mobileNumberVerified)",
+    "monthlyGrossSalary": "#(monthlyGrossSalary)",
+    "name": "#(name)",
+    "nricFin": "#(nricFin)",
+    "occupation": "#(occupation)",
+    "occupationalGroup": "#(occupationalGroup)",
+    "officeTelNo": "#(officeTelNo)",
+    "race": "#(race)"
+  },
+  "membership": {
+    "optInNebo": "#(optInNebo)",
+    "unionCode": "#(unionCode)",
+    "unionName": "#(unionName)"
+  }
+}
