@@ -9,21 +9,35 @@ Feature: NFM Member-Service
     * header Accept = 'application/json'
 
 #     GET
-  Scenario Outline: PRODUCT BACKLOG - 142 -
-    Given path 'member-service/v1/membership/nfm/main/<scid>'
+  Scenario Outline: PRODUCT BACKLOG - 142 - NFM With Auth Token
+    Given path 'member-service/v1/membership/nfm/main/<auth>'
+    * def auth = ''
     When method Get
     Then status 200
     Then match response.content.mainMembership == <mainMembership>
     Then match response.metadata.status == <status>
     Examples:
-      | scid | mainMembership | status    |
-      | 1    | true           | "SUCCESS" |
+      | mainMembership | status    |
+      | true           | "SUCCESS" |
+
+#    GET
+  Scenario Outline: PRODUCT BACKLOG - 142 - NFM WithOut Auth Token
+    Given path 'member-service/v1/membership/nfm/main/'
+    When method Get
+    Then status 200
+    Then match response.metadata.status == <status>
+    Then match response.content.errorCode == <errorCode>
+    Then match response.content.errorDescription == <errorDescription>
+
+    Examples:
+      | errorCode         | errorDescription     | status            |
+      | "UNAUTHENTICATED" | "No Token provided." | "UNAUTHENTICATED" |
 
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 142 - NEGATIVE Test
     Given path 'member-service/v1/membership/nfm/main/<scid>'
     When method Get
-    Then status 401
+    Then status 404
     Then match response.content.errorDescription == <errorDescription>
     Then match response.content.errorCode == <errorCode>
     Then match response.metadata.status == <status>

@@ -8,7 +8,7 @@ Feature: OA Member-Service
     * url baseURL
     * header Accept = 'application/json'
 
-#  GET
+#    GET
   Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
     Given path 'member-service/v1/membership'
     When method Get
@@ -17,7 +17,7 @@ Feature: OA Member-Service
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceProfile.csv") |
 
-#  GET
+#   GET
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
     Given path 'member-service/v1/membership/draft/<scid>'
     When method Get
@@ -26,7 +26,7 @@ Feature: OA Member-Service
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-servicePOSTResponse.csv") |
 
-#  GET
+#   GET
   Scenario Outline: PRODUCT BACKLOG - 527 NEGATIVE Test
     Given path 'member-service/v1/membership/draft/<scid>'
     When method Get
@@ -39,7 +39,7 @@ Feature: OA Member-Service
       | "@#$" | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
       | "876" | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
 
-#  PUT method
+#   PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - PUT request for member service
     Given path 'member-service/v1/membership/oa/<MemID>'
     * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceMemOA.json')
@@ -54,7 +54,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-servicePUTRequest.csv') |
 
-    #  PUT method
+#   PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - NEGATIVE TEST
     Given path 'member-service/v1/membership/oa/<MemID>+gar'
     * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceMemOA.json')
@@ -66,28 +66,23 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-servicePUTRequest.csv') |
 
-
-
-
-
-
 #   GET
-  Scenario Outline: PRODUCT BACKLOG - 527 NEGATIVE Test
-    Given path 'member-service/v1/membership/memberships-can-apply/<scid>'
+  Scenario Outline: PRODUCT BACKLOG 527 - NEGATIVE Test
+    Given path 'member-service/v1/membership/memberships-can-apply/<authtoken>'
     When method Get
     Then status 200
     Then match response.content.types == <Type>
     Then match response.metadata.status == <status>
 
     Examples:
-      | scid | Type  | status    |
-      | 5    | "OA"  | "SUCCESS" |
-      | 6    | "NFM" | "SUCCESS" |
-      | 7    | "NOK" | "SUCCESS" |
+      | authtoken | Type  | status    |
+      | 5         | "OA"  | "SUCCESS" |
+      | 6         | "NFM" | "SUCCESS" |
 
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (With Token)
-    Given path 'member-service/v1/membership/oa'
+    Given path 'member-service/v1/membership/oa/'
+#    * def authToken = ''
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceMemOA.json")
     And request requestBody
     When method Post
@@ -114,6 +109,19 @@ Feature: OA Member-Service
     Then match response.metadata.relationship == requestBody.relationship
     Then match response.metadata.optInNebo == requestBody.optInNebo
     Then match response.metadata.userId == requestBody.userId
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
+#   POST
+  Scenario Outline: PRODUCT BACKLOG ITEM 142 - When API Server is Un-Available (Without Token)
+    Given path 'member-service/v1/membership/open/oa'
+    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
+    And request requestBody
+    * print requestBody
+    When method Post
+    Then status 500
+    Then match response.metadata.status == "SYS_ERROR"
+    Then match response.content.errorCode == "UNKNOWN_ERROR"
+    Then match response.content.errorDescription == "Error while saving the membership."
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
