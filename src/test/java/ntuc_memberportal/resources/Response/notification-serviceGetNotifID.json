@@ -1,0 +1,9 @@
+{
+  "isRead": "#(isRead)",
+  "createdDttm": "#ignore",
+  "state": "#(state)",
+  "type": "#(type)",
+  "message": "#(message)",
+  "title": "#(title)",
+  "id": "#(id)"
+}

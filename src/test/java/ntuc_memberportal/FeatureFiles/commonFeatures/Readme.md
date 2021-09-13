@@ -1,0 +1,2 @@
+# This folder contains feature files that have common-functionalities used throughout the project
+* auth.feature file will return a dyanmic Token which will be called by different APIs to perform JWT authentication for all Micro-services

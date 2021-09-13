@@ -7,8 +7,11 @@ Feature: OA Member-Service
   Background:
     * url baseURL
     * header Accept = 'application/json'
+    * def setup = call read('../commonfiles/auth.feature')
+    * def dyanicAccessToken = setup.staticToken
+#    * def dyanicAccessToken = setup.dyanicAccessToken
 
-#    GET
+#   GET
   Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
     Given path 'member-service/v1/membership'
     When method Get
@@ -82,7 +85,7 @@ Feature: OA Member-Service
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (With Token)
     Given path 'member-service/v1/membership/oa/'
-#    * def authToken = ''
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceMemOA.json")
     And request requestBody
     When method Post

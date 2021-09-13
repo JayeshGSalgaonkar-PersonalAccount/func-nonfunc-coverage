@@ -1,0 +1,8 @@
+{
+  "id": "#(id)",
+  "title": "#(title)",
+  "subtitle": "#(subtitle)",
+  "description": "#(description)",
+  "popularity": "#(popularity)",
+  "url": "#(url)"
+}

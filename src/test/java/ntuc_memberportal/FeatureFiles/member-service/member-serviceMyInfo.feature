@@ -8,7 +8,7 @@ Feature: My-Info Member-Service
     * url baseURL
     * header Accept = 'application/json'
 
-# GET
+#  GET
   Scenario Outline: PRODUCT BACKLOG - 368 Signup using MyInfo
     Given path 'member-service/v1/callback'
     When method Get
