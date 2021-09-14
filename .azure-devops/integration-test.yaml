@@ -24,7 +24,7 @@ stages:
     displayName: integration_test
     pool:
       # vmImage: $(vmImageName)
-      name: devops
+      name: devops-npd
     strategy:
       maxParallel: 1
     steps:
