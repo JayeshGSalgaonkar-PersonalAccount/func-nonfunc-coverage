@@ -7,6 +7,9 @@ Feature: Member-Service (Payment)
   Background:
     * url baseURL
     * header Accept = 'application/json'
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dyanicAccessToken = setup.staticToken
+#    * def dyanicAccessToken = setup.dyanicAccessToken
 
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 244 - Validate POST method for CreateOrder under Member-service
@@ -20,7 +23,7 @@ Feature: Member-Service (Payment)
       | read('ntuc_memberportal/resources/TestData_File/member-serviceCreateOrder.csv') |
 
 #  POST
-  Scenario Outline: PRODUCT BACKLOG ITEM 244 - NEGATIVE Scenario for CreateOrder under Member-service
+  Scenario Outline: PRODUCT BACKLOG ITEM 244 - NEGATIVE Tests
     Given path 'member-service/v1/payment/create-order'
     * def requestBody = {"feeType": <feeType>,"endDate": <endDate>,"startDate": <startDate>,"serviceType": <serviceType>, "amount": <amount>, "isOneTimePayment": <isOneTimePayment>,"isRecurringPayment": <isRecurringPayment>,"membershipId": <membershipId>}
     And request requestBody
@@ -37,21 +40,36 @@ Feature: Member-Service (Payment)
 #  GET
   Scenario: PRODUCT BACKLOG ITEM 88 - Validate GET method for Show-payment-option
     Given path 'member-service/v1/payment/show-payment-option'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
+    * print response
     Then match response == read("ntuc_memberportal/resources/Response/member-serviceShowPayOptions.json")
 
-#  GET
+#    GET
+  Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Show-payment-option
+    Given path 'member-service/v1/payment/show-payment-option'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
+    When method Get
+    Then status 400
+    * print response
+    Then match response.metatdata.status == <status>
+    Then match response.content.errorDescription == <errorDescription>
+    Then match response.content.errorCode == <errorCode>
+    Examples:
+      | status           | errorDescription                        | errorCode          |
+      | "BUSINESS_ERROR" | "No matching user found for given scid" | "RECORD_NOT_FOUND" |
+
+#   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Payment Order-Id
     Given path 'member-service/v1/payment/<orderId>'
     When method Get
     Then status 200
     Then match response == read("ntuc_memberportal/resources/Response/member-servicePayOrderID.json")
-
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-servicePayOrderId.csv') |
 
-#  GET
+#   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - NEGATIVE Scenario for Payment order-Id
     Given path 'member-service/v1/payment/<orderId>'
     When method Get
@@ -59,12 +77,11 @@ Feature: Member-Service (Payment)
     Then match response.metadata.status == <status>
     Then match response.content.errorDescription == <errorDescription>
     Then match response.content.errorCode == <errorCode>
-
     Examples:
       | orderId | status      | errorDescription                                                                         | errorCode       |
       | 5       | "SYS_ERROR" | "Error fetching order by order id 5. Error - Error: Request failed with status code 500" | "UNKNOWN_ERROR" |
 
-#  GET
+#   GET
   Scenario Outline: PRODUCT BACKLOG ITEM - 244 OA membership Sign-up fee
     Given path 'member-service/v1/payment/get-signup-fee/<membershipId>'
     * def amount = parseInt(amount)

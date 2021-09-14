@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": {
+    "user": {
+      "id": "#(id)",
+      "scid": "#(scid)",
+      "status": "#(satus)",
+      "nricFin": "#(nricFin)",
+      "name": "#(name)",
+      "dob": "#(dob)",
+      "gender": "#(gender)",
+      "mobileNumber": "#(mobileNumber)",
+      "email": "#(email)",
+      "race": "#(race)",
+      "maritalStatus": "#(maritalStatus)",
+      "highestEducationLevel": "#(highestEducationLevel)",
+      "occupationalGroup": "#(occupationalGroup)",
+      "companyName": "#(companyName)",
+      "companyBusinessNature": "#(companyBusinessNature)",
+      "occupation": "#(occupation)",
+      "monthlyGrossSalary": "#(monthlyGrossSalary)",
+      "officeTelNo": "#(officeTelNo)",
+      "bankName": "#(bankName)",
+      "bankAccountNumber": "#(bankAccountNumber)",
+      "lastLogin": "#(lastLogin)",
+      "employmentType": "#(employmentType)"
+    },
+    "address": {
+      "id": "#(id)",
+      "userId": "#(userId)",
+      "residentialStatus": "#(residentialStatus)",
+      "postalCode": "#(postalCode)",
+      "blockHSENo": "#(blockHSENo)",
+      "floor": "#(floor)",
+      "unit": "#(unit)",
+      "street": "#(street)",
+      "buildingName": "#buildingName)",
+      "homeTelNo": "#(homeTelNo)"
+    },
+    "membership": {
+      "id": "#(id)",
+      "createdDttm": "#ignore",
+      "deletedDttm": "#ignore",
+      "lastPaidDate": "#(lastPaidDate)",
+      "membershipTypeCode": "#(membershipTypeCode)",
+      "modifiedDttm": "#ignore",
+      "optInNebo": "#(optInNebo)",
+      "relationship": "#(relationship)",
+      "startDate": "#ignore",
+      "status": "#(status)",
+      "unionCode": "#(unionCode)",
+      "unionName": "#(unionName)",
+      "userId": "#(userId)",
+      "createGift": "#(createGift)",
+      "giftItemName": "#(giftItemName)",
+      "ucemMembershipGuid": "#(ucemMembershipGuid)",
+      "ucemCreateStatus": "#(ucemCreateStatus)",
+      "ucemUpdateStatus": "#(ucemUpdateStatus)",
+      "ucemGiftGuid": "#(ucemGiftGuid)",
+      "nameOnCard": "#(nameOnCard)"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "membershipId": "#(membershipId)",
+    "agreed": "#(agreed)",
+    "version": "#(version)"
+  }
+}

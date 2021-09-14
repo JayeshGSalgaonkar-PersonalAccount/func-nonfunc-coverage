@@ -7,7 +7,7 @@ Feature: OA Member-Service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonfiles/auth.feature')
+    * def setup = call read('../commonFeatures/auth.feature')
     * def dyanicAccessToken = setup.staticToken
 #    * def dyanicAccessToken = setup.dyanicAccessToken
 
@@ -21,16 +21,17 @@ Feature: OA Member-Service
       | read("ntuc_memberportal/resources/TestData_File/member-serviceProfile.csv") |
 
 #   GET
-  Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
-    Given path 'member-service/v1/membership/draft/<scid>'
+  Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details (with valid Token)
+    Given path 'member-service/v1/membership/draft'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
-    Then match response == read("ntuc_memberportal/resources/Response/member-serviceProfile.json")
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-servicePOSTResponse.csv") |
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
 #   GET
-  Scenario Outline: PRODUCT BACKLOG - 527 NEGATIVE Test
+  Scenario Outline: PRODUCT BACKLOG - 527 NEGATIVE Test  (with valid Token)
     Given path 'member-service/v1/membership/draft/<scid>'
     When method Get
     Then status 200
@@ -41,6 +42,15 @@ Feature: OA Member-Service
       | scid  | status      | errorCode       | errorDescription                            |
       | "@#$" | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
       | "876" | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
+
+    #   GET
+  Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
+    Given path 'member-service/v1/membership/draft/<nric>/<dob>'
+    When method Get
+    Then status 200
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
 #   PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - PUT request for member service
@@ -70,17 +80,55 @@ Feature: OA Member-Service
       | read('ntuc_memberportal/resources/TestData_File/member-servicePUTRequest.csv') |
 
 #   GET
-  Scenario Outline: PRODUCT BACKLOG 527 - NEGATIVE Test
-    Given path 'member-service/v1/membership/memberships-can-apply/<authtoken>'
+  Scenario Outline: PRODUCT BACKLOG 527 - Get all membership types the user can apply to.
+    Given path 'member-service/v1/membership/memberships-can-apply'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
     Then match response.content.types == <Type>
     Then match response.metadata.status == <status>
 
     Examples:
-      | authtoken | Type  | status    |
-      | 5         | "OA"  | "SUCCESS" |
-      | 6         | "NFM" | "SUCCESS" |
+      | Type  | status    |
+      | "OA"  | "SUCCESS" |
+      | "NFM" | "SUCCESS" |
+      | "AA"  | "SUCCESS" |
+
+#    GET
+  Scenario Outline: PRODUCT BACKLOG 277 - OA Membership terms-and-conditions
+    Given path 'member-service/v1/membership/<type>/terms-and-conditions/'
+    When method Get
+    Then status 200
+    Then match response.metadata.status == "SUCCESS"
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceTermsCond.json')
+    Examples:
+      | type |
+      | OA   |
+
+#    GET
+  Scenario Outline: PRODUCT BACKLOG 277 - NEGATIVE TEST
+    Given path 'member-service/v1/membership/<type>/terms-and-conditions/'
+    When method Get
+    Then status 400
+    Then match response.metadata.status == <status>
+    Then match response.content.errorCode == <errorCode>
+    Then match response.content.errorDescription == <errorDescription>
+    Examples:
+      | type | status        | errorCode          | errorDescription                                                    |
+      | OAA  | "BAD_REQUEST" | "VALIDATION_ERROR" | "Caught Validation Error for /membership/OAA/terms-and-conditions/" |
+
+#   PUT
+  Scenario Outline: PRODUCT BACKLOG 277 - Accept Terms and Condition
+    Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
+    * def membershipId = parseInt(membershipId)
+    * def agreed = Boolean(agreed)
+    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceTCAccept.json')
+    And request requestBody
+    When method Put
+    Then status 200
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceTCAccept.json')
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
 
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (With Token)
