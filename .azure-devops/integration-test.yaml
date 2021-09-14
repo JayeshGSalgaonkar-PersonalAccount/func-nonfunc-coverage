@@ -34,12 +34,9 @@ stages:
           fi
       - script: mvn test "-Dkarate.options=--tags @all" -Dtest=TestRunnerParallel -DbaseURL=https://devma.ntuc.org.sg/api/
         continueOnError: true
-      - publish: $(System.DefaultWorkingDirectory)/target
-        artifact: integration_test_reports
-        continueOnError: true
       - script: mvn test-compile -DbaseURL=https://devma.ntuc.org.sg/api/ gatling:test    
         continueOnError: true
-      - publish: $(System.DefaultWorkingDirectory)/target2
-        artifact: integration_test_reports2
+      - publish: $(System.DefaultWorkingDirectory)/target
+        artifact: integration_test_reports
         
     
