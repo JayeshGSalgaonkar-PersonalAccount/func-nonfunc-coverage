@@ -1,0 +1,10 @@
+[
+  {
+    "settings": {
+      "news": "#(news)",
+      "deals": "#(deals)",
+      "marketing": "#(marketing)"
+    },
+    "type": "#(type)"
+  }
+]

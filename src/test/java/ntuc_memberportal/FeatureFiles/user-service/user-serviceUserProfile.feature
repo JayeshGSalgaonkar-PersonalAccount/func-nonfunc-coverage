@@ -6,6 +6,9 @@ Feature: User-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dyanicAccessToken = setup.staticToken
+#    * def dyanicAccessToken = setup.dyanicAccessToken
 
 #  GET
   Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
@@ -20,7 +23,6 @@ Feature: User-service
     When method Get
     Then status 200
     And match response == read("ntuc_memberportal/resources/Response/user-serviceSCID.json")
-
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
 
@@ -32,15 +34,15 @@ Feature: User-service
     Then match $.metadata.status == <expected_status>
     And match $.content.errorDescription == <expected_errorDescription>
     And match $.content.errorCode == <expected_errorCode>
-
     Examples:
       | SCID | expected_status  | expected_errorCode | expected_errorDescription |
       | 1    | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found"  |
 
 
 #    POST
-  Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
     Given path 'user-service/v1/user'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceProfile.json')
     And request requestBody
     * print requestBody
@@ -58,13 +60,13 @@ Feature: User-service
     Then match response.companyName == request.companyName
     Then match response.monthlyGrossSalary == request.monthlyGrossSalary
     Then match response.lastLogin == request.lastLogin
-
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
 #    POST
-  Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST (With Token)
     Given path 'user-service/v1/user'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceProfile.json')
     And request requestBody
     When method Post
@@ -72,11 +74,9 @@ Feature: User-service
     Then match response.metadata.status == <status>
     Then match response.content.errorDescription == <errorDescription>
     Then match response.errorCode == <errorCode>
-
     Examples:
       | status        | errorDescription                    | errorCode |                                                                           |
       | "BAD_REQUEST" | "Caught Validation Error for /user" | ""        | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
-
 
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
@@ -84,7 +84,6 @@ Feature: User-service
     When method Delete
     Then status 204
     Then match response == read ("ntuc_memberportal/resources/Response/user-serviceDelete.json")
-
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
 
@@ -95,7 +94,6 @@ Feature: User-service
     Then status 400
     Then print response.metadata.status == <expected_delete_status>
     Then print response.content.errorDescription == <expected_delete_errorDescription>
-
     Examples:
       | id  | expected_delete_status | expected_delete_errorDescription |
       | 999 | "BUSINESS_ERROR"       | "Error while deleting user"      |
