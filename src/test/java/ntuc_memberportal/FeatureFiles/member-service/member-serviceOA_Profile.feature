@@ -43,7 +43,7 @@ Feature: OA Member-Service
       | "@#$" | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
       | "876" | "SYS_ERROR" | "UNKNOWN_ERROR" | "Unknown error while fetching memberships." |
 
-    #   GET
+#    GET
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
     Given path 'member-service/v1/membership/draft/<nric>/<dob>'
     When method Get
@@ -87,7 +87,6 @@ Feature: OA Member-Service
     Then status 200
     Then match response.content.types == <Type>
     Then match response.metadata.status == <status>
-
     Examples:
       | Type  | status    |
       | "OA"  | "SUCCESS" |
@@ -176,3 +175,23 @@ Feature: OA Member-Service
     Then match response.content.errorDescription == "Error while saving the membership."
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
+
+#  GET
+  Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
+    Given path 'member-service/v1/membership/cards'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
+    When method Get
+    Then status 200
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceCards.csv') |
+
+#    GET
+  Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
+    Given path 'member-service/v1/membership/cards'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
+    When method Get
+    Then status 200
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceCards.csv') |

@@ -7,7 +7,7 @@ Feature: Notification-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonfiles/auth.feature')
+    * def setup = call read('../commonFeatures/auth.feature')
     * def dyanicAccessToken = setup.staticToken
 #    * def dyanicAccessToken = setup.dyanicAccessToken
 

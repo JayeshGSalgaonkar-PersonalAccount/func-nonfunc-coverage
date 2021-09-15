@@ -1,0 +1,14 @@
+{
+  "content": [
+    {
+      "unionName": "#(unionName)",
+      "uLive": "#(uLive)",
+      "canNo": "#(canNo)",
+      "exchangeId": "#(exchangeId)",
+      "nameOnCard": "#(nameOnCard)"
+    }
+  ],
+  "metadata": {
+    "status": "#(status)"
+  }
+}

@@ -37,7 +37,7 @@ Feature: Member-Service (Payment)
       | "OUTSTANDING" | "08082000" | "07072000" | "Sign_UP"   | "1000" | true             | true               | 40           | "BAD_REQUEST" | "Caught Validation Error for /payment/create-order" | "VALIDATION_ERROR" |
       | "PAY12MONTHS" | "08082000" | "07072000" | "Sign_UP"   | "1000" | true             | true               | 40           | "BAD_REQUEST" | "Caught Validation Error for /payment/create-order" | "VALIDATION_ERROR" |
 
-#  GET
+#   GET
   Scenario: PRODUCT BACKLOG ITEM 88 - Validate GET method for Show-payment-option
     Given path 'member-service/v1/payment/show-payment-option'
     And header Authorization = 'Bearer ' + dyanicAccessToken

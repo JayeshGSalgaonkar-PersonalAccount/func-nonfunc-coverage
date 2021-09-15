@@ -7,13 +7,13 @@ Feature: Notification-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonfiles/auth.feature')
+    * def setup = call read('../commonFeatures/auth.feature')
     * def dyanicAccessToken = setup.staticToken
 #    * def dyanicAccessToken = setup.dyanicAccessToken
 
-#    GET
+#   GET
   Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Valid Token)
-    Given path 'notification-service/v1/user/notifications'
+    Given path 'notification-service/v1/user-notification'
     And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
@@ -32,8 +32,8 @@ Feature: Notification-service
     Then match response.content.errorDescription == <errorDescription>
 
     Examples:
-      | scid    | status           | errorCode          | errorDescription                        |
-      | 765 | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found for given scid" |
+      | scid | status           | errorCode          | errorDescription                        |
+      | 765  | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found for given scid" |
 
 #     GET
   Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Invalid Token)
@@ -70,6 +70,6 @@ Feature: Notification-service
     Then match response.content.errorDescription == <errorDescription>
 
     Examples:
-      | id      | status           | errorCode          | errorDescription                        |
+      | id | status           | errorCode          | errorDescription                        |
       | 12 | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found for given scid" |
 
