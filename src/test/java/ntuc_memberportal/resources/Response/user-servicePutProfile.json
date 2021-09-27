@@ -1,0 +1,41 @@
+{
+  "content": {
+    "address": {
+      "homeTelNo": "string",
+      "buildingName": "string",
+      "street": "string",
+      "unit": "string",
+      "floor": "string",
+      "blockHSENo": "string",
+      "postalCode": "string",
+      "residentialStatus": "string",
+      "userId": 0,
+      "id": 0
+    },
+    "exchangeId": "string",
+    "employmentType": "S",
+    "status": "DRAFT",
+    "scid": "string",
+    "race": "string",
+    "officeTelNo": "string",
+    "occupationalGroup": "string",
+    "occupation": "string",
+    "nricFin": "string",
+    "name": "string",
+    "monthlyGrossSalary": 0,
+    "mobileNumber": "string",
+    "maritalStatus": "S",
+    "highestEducationLevel": "string",
+    "gender": "M",
+    "email": "string",
+    "dob": "2021-09-16",
+    "companyName": "string",
+    "companyBusinessNature": "string",
+    "bankName": "string",
+    "bankAccountNumber": "string",
+    "id": 0
+  },
+  "metadata": {
+    "status": "SUCCESS"
+  }
+}
