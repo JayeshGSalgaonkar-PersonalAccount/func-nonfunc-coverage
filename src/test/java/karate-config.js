@@ -1,6 +1,8 @@
 function fn() {
   var env = karate.env; // get java system property 'karate.env'
 
+//  karate.configure('ssl', true);
+
 //  karate.log('karate.env system property was:', env);
 
    var config = {

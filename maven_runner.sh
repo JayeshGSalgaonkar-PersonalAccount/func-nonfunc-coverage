@@ -13,7 +13,7 @@
  else
    echo "FINISH: All tests passed!"
    echo "Exiting with code 0."
-   exit 0
+#   exit 0
  fi
 
 
@@ -27,5 +27,5 @@
  else
    echo "FINISH: All tests passed!"
    echo "Exiting with code 0."
-   exit 0
+#   exit 0
  fi
