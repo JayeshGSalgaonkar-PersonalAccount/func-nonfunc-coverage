@@ -111,3 +111,12 @@ Feature: Member-Service (Payment)
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceRenewalFee.json')
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceRenewalFee.csv') |
+
+#    GET
+  Scenario Outline: PRODUCT BACKLOG ITEM - 249 - Membership Payment history
+    Given path 'member-service/v1/payment/history'
+    When method Get
+    Then status 200
+    Then match response == read('ntuc_memberportal/resources/Response/member-servicePayHistory.json')
+    Examples:
+      | read('ntuc_memberportal/resources/Response/member-servicePayHistory.json') |

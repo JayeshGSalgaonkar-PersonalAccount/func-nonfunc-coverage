@@ -98,3 +98,33 @@ Feature: User-service
       | id  | expected_delete_status | expected_delete_errorDescription |
       | 999 | "BUSINESS_ERROR"       | "Error while deleting user"      |
 
+
+#    PUT
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - Edit User-Profile (With Token)
+    Given path 'user-service/v1/user'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
+    * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePutProfile.json')
+    And request requestBody
+    * print requestBody
+    When method Put
+    Then status 200
+    Then match response.content.homeTelNo == request.homeTelNo
+    Then match response.content.buildingName == request.buildingName
+    Then match response.content.street == request.street
+    Then match response.content.unit == request.unit
+    Then match response.content.floor == request.floor
+    Then match response.content.blockHSENo == request.blockHSENo
+    Then match response.content.postalCode == request.postalCode
+
+    Then match response.content.residentialStatus == request.residentialStatus
+    Then match response.content.exchangeId == request.exchangeId
+    Then match response.content.employmentType == request.employmentType
+    Then match response.content.status == request.status
+    Then match response.content.scid == request.scid
+    Then match response.content.race == request.race
+    Then match response.content.officeTelNo == request.officeTelNo
+    Then match response.content.occupationalGroup == request.occupationalGroup
+    Then match response.content.id == request.lastLogin
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+
