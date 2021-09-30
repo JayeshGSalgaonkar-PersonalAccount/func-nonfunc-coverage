@@ -43,22 +43,21 @@ Feature: Member-Service (Payment)
     And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
-    * print response
     Then match response == read("ntuc_memberportal/resources/Response/member-serviceShowPayOptions.json")
 
+
 #    GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Show-payment-option
+  Scenario Outline: PRODUCT BACKLOG ITEM 88 - NEGATIVE TEST
     Given path 'member-service/v1/payment/show-payment-option'
     And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
-    Then status 400
-    * print response
+    Then status 500
     Then match response.metatdata.status == <status>
     Then match response.content.errorDescription == <errorDescription>
     Then match response.content.errorCode == <errorCode>
     Examples:
-      | status           | errorDescription                        | errorCode          |
-      | "BUSINESS_ERROR" | "No matching user found for given scid" | "RECORD_NOT_FOUND" |
+      | status      | errorDescription                       | errorCode       |
+      | "SYS_ERROR" | "Error retriving show payment options" | "UNKNOWN_ERROR" |
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Payment Order-Id
@@ -112,11 +111,13 @@ Feature: Member-Service (Payment)
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceRenewalFee.csv') |
 
-#    GET
+#   GET
   Scenario Outline: PRODUCT BACKLOG ITEM - 249 - Membership Payment history
     Given path 'member-service/v1/payment/history'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-servicePayHistory.json')
     Examples:
       | read('ntuc_memberportal/resources/Response/member-servicePayHistory.json') |
+

@@ -1,4 +1,7 @@
 {
+  "metadata": {
+    "status": "#(status)"
+  },
   "content": [
     {
       "unionName": "#(unionName)",
@@ -7,8 +10,5 @@
       "exchangeId": "#(exchangeId)",
       "nameOnCard": "#(nameOnCard)"
     }
-  ],
-  "metadata": {
-    "status": "#(status)"
-  }
+  ]
 }

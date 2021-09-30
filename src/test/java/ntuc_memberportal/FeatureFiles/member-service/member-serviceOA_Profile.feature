@@ -98,11 +98,12 @@ Feature: OA Member-Service
     Given path 'member-service/v1/membership/<type>/terms-and-conditions/'
     When method Get
     Then status 200
+    And print response
     Then match response.metadata.status == "SUCCESS"
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceTermsCond.json')
     Examples:
-      | type |
-      | OA   |
+      | type |                                                                               |
+      | OA   | read('ntuc_memberportal/resources/TestData_File/member-serviceTermsCond.csv') |
 
 #    GET
   Scenario Outline: PRODUCT BACKLOG 277 - NEGATIVE TEST
@@ -180,16 +181,7 @@ Feature: OA Member-Service
   Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
     Given path 'member-service/v1/membership/cards'
     And header Authorization = 'Bearer ' + dyanicAccessToken
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceCards.csv') |
-
-#    GET
-  Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
-    Given path 'member-service/v1/membership/cards'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    * def uLive = Boolean(uLive)
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')
