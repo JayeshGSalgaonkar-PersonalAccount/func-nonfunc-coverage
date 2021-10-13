@@ -19,16 +19,18 @@ Feature: User-service
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 417 - Verify user GET method via SCID
-    Given path 'user-service/v1/user/scid/<scid>'
+    Given path 'user-service/v1/user/userId/<scid>'
+    * def id = parseInt(id)
     When method Get
     Then status 200
+    And print response
     And match response == read("ntuc_memberportal/resources/Response/user-serviceSCID.json")
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST
-    Given path 'user-service/v1/user/scid/<SCID>'
+    Given path 'user-service/v1/user/userId/<SCID>'
     When method Get
     Then status 400
     Then match $.metadata.status == <expected_status>
@@ -38,12 +40,11 @@ Feature: User-service
       | SCID | expected_status  | expected_errorCode | expected_errorDescription |
       | 1    | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found"  |
 
-
 #    POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
     Given path 'user-service/v1/user'
     And header Authorization = 'Bearer ' + dyanicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceProfile.json')
+    * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
     And request requestBody
     * print requestBody
     When method Post
@@ -61,7 +62,7 @@ Feature: User-service
     Then match response.monthlyGrossSalary == request.monthlyGrossSalary
     Then match response.lastLogin == request.lastLogin
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+      | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
 
 #    POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST (With Token)
@@ -76,16 +77,18 @@ Feature: User-service
     Then match response.errorCode == <errorCode>
     Examples:
       | status        | errorDescription                    | errorCode |                                                                           |
-      | "BAD_REQUEST" | "Caught Validation Error for /user" | ""        | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+      | "BAD_REQUEST" | "Caught Validation Error for /user" | " "        | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
-    Given path 'user-service/v1/user/<id>'
+    Given path 'user-service/v1/user'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Delete
-    Then status 204
+    And print response
+    Then status 200
     Then match response == read ("ntuc_memberportal/resources/Response/user-serviceDelete.json")
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
+      | read('ntuc_memberportal/resources/TestData_File/user-serviceDeleteUser.csv') |
 
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST

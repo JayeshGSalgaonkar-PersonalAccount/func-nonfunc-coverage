@@ -7,10 +7,13 @@ Feature: Member-Service (Linkpoints-Balance)
   Background:
     * url baseURL
     * header Accept = 'application/json'
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dyanicAccessToken = setup.staticToken
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 5 - Validate Linkpoint-Balance under Member-service
     Given path 'member-service/v1/linkpoint/balance'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
@@ -20,15 +23,16 @@ Feature: Member-Service (Linkpoints-Balance)
 #   GET
   Scenario: PRODUCT BACKLOG ITEM 5 - Validate Datatype in Linkpoints under Member-service
     Given path 'member-service/v1/linkpoint/balance'
+    And header Authorization = 'Bearer ' + dyanicAccessToken
     When method Get
     Then status 200
     * print "responseStatus is = " + responseStatus
     * print "responseTime is = " + responseTime
-    And match $.content.balance == "##string"
+    And match $.content.balance == "#string"
     And match $.content.dollarValue == "##string"
-    And match $.content.poolId == "##string"
-    And match $.content.expiryDate == "##string"
-    And match $.content.poolName == "##string"
+    And match $.content.poolId == "#string"
+    And match $.content.expiryDate == "#string"
+    And match $.content.poolName == "#string"
 
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 244 Validate Membership DETAILS using NRIC and DOB

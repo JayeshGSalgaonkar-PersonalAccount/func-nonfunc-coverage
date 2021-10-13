@@ -1,0 +1,35 @@
+{
+  "company": {
+    "name": "#(name)",
+    "code": "#(code)",
+    "businessNature": "#(businessNature)"
+  },
+  "address": {
+    "residentialStatus": "#(residentialStatus)",
+    "postalCode": "#(postalCode)",
+    "blockHSENo": "#(blockHSENo)",
+    "floor": "#(floor)",
+    "unit": "#(unit)",
+    "street": "#(street)",
+    "buildingName": "#(buildingName)",
+    "homeTelNo": "#(homeTelNo)"
+  },
+  "exchangeId": "#(exchangeId)",
+  "scid": "#(scid)",
+  "race": "#(race)",
+  "officeTelNo": "#(officeTelNo)",
+  "occupationalGroup": "#(occupationalGroup)",
+  "occupation": "#(occupation)",
+  "nricFin": "#(nricFin)",
+  "name": "#(name)",
+  "monthlyGrossSalary":"#(monthlyGrossSalary)",
+  "mobileNumber": "#(mobileNumber)",
+  "maritalStatus": "#(maritalStatus)",
+  "highestEducationLevel": "#(highestEducationLevel)",
+  "gender": "#(gender)",
+  "employmentType": "#(employmentType)",
+  "email": "#(email)",
+  "dob": "#(dob)",
+  "bankName": "#(bankName)",
+  "bankAccountNumber": "#(bankAccountNumber)"
+}

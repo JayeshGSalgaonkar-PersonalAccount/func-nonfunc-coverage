@@ -8,7 +8,8 @@ Feature: User service (POSTAL CODE & )
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Validate GET method for Postalcode from USER-service
-    Given path 'user-service/v1/postal-code/<code>'
+    Given path 'user-service/v1/postal-code/<postalCode>'
+    * def id = parseInt(id)
     When method Get
     Then status 200
     Then match response == read("ntuc_memberportal/resources/Response/user-servicePostalCode.json")
@@ -25,7 +26,6 @@ Feature: User service (POSTAL CODE & )
     And params search
     When method Get
     Then status 200
-    * print response
     * def expected = read("ntuc_memberportal/resources/Response/user-serviceCompanyName.json")
 #    Then match response.metadata.status === expected.metadata.status
     Then match response contains any expected
