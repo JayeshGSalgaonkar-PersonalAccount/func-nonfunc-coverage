@@ -7,8 +7,7 @@ Feature: User-service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #  GET
   Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
@@ -43,7 +42,7 @@ Feature: User-service
 #    POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
     And request requestBody
     * print requestBody
@@ -67,7 +66,7 @@ Feature: User-service
 #    POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceProfile.json')
     And request requestBody
     When method Post
@@ -82,7 +81,7 @@ Feature: User-service
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Delete
     And print response
     Then status 200
@@ -93,6 +92,7 @@ Feature: User-service
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST
     Given path 'user-service/v1/user/<id>'
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Delete
     Then status 400
     Then print response.metadata.status == <expected_delete_status>
@@ -105,7 +105,7 @@ Feature: User-service
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Edit User-Profile (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePutProfile.json')
     And request requestBody
     * print requestBody

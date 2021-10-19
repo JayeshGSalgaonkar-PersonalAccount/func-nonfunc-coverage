@@ -7,14 +7,13 @@ Feature: NFM Member-Service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonfiles/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #     GET
   Scenario Outline: PRODUCT BACKLOG - 142 - NFM With Auth Token
     Given path 'member-service/v1/membership/nfm/main/'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response.content.mainMembership == <mainMembership>

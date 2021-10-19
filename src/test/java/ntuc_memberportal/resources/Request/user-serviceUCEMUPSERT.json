@@ -1,0 +1,19 @@
+{
+  "ucemCompany": {
+    "UpdateDate": "#(UpdateDate)",
+    "Unionized": "#(Unionized)",
+    "UEN": "#(UEN)",
+    "TotalWorkforce": "#(TotalWorkforce)",
+    "StatusName": "#(StatusName)",
+    "StatusCode":"#(StatusCode)",
+    "SSIC": "#(SSIC)",
+    "Name": "#(Name)",
+    "IncorporateDate":"#(IncorporateDate)",
+    "DissolveDate": "#(DissolveDate)",
+    "CreationDate": "#(CreationDate)",
+    "CompanyGuid": "#(CompanyGuid)",
+    "Code": "#(Code)",
+    "CapitalSource": "#(CapitalSource)",
+    "BusinessNature": "#(BusinessNature)"
+  }
+}

@@ -8,13 +8,12 @@ Feature: Notification-service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Valid Token)
     Given path 'notification-service/v1/user-notification'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')
@@ -24,7 +23,7 @@ Feature: Notification-service
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 11 - NEGATIVE TEST (with Valid Token)
     Given path 'notification-service/v1/user/notifications/<scid>'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 400
     Then match response.metadata.status == <status>
@@ -50,7 +49,7 @@ Feature: Notification-service
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Valid Token)
     Given path 'notification-service/v1/user/notifications/<id>'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/notification-serviceGetNotifID.json')
@@ -60,7 +59,7 @@ Feature: Notification-service
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 11 - NEGATIVE TEST (with Valid Token)
     Given path 'notification-service/v1/user/notifications/<id>'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 400
     Then match response.metadata.status == <status>

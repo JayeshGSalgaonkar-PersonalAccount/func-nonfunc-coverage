@@ -8,12 +8,12 @@ Feature: Member-Service (Linkpoints-Balance)
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 5 - Validate Linkpoint-Balance under Member-service
     Given path 'member-service/v1/linkpoint/balance'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
@@ -23,7 +23,7 @@ Feature: Member-Service (Linkpoints-Balance)
 #   GET
   Scenario: PRODUCT BACKLOG ITEM 5 - Validate Datatype in Linkpoints under Member-service
     Given path 'member-service/v1/linkpoint/balance'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     * print "responseStatus is = " + responseStatus

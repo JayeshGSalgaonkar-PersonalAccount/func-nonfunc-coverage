@@ -4,7 +4,7 @@ Feature: User-service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #    POST response
   Scenario Outline: Validate POST method for user address and details under User-service
@@ -27,7 +27,7 @@ Feature: User-service
 
   Scenario Outline: Validate User service for Preference
     Given path 'user-service/v1/user/preferences/<type>'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/user-servicePreference.json')

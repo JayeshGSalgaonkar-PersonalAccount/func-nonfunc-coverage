@@ -8,8 +8,7 @@ Feature: OA Member-Service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
@@ -23,7 +22,7 @@ Feature: OA Member-Service
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details (with valid Token)
     Given path 'member-service/v1/membership/draft'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
@@ -82,7 +81,7 @@ Feature: OA Member-Service
 #   GET
   Scenario Outline: PRODUCT BACKLOG 527 - Get all membership types the user can apply to.
     Given path 'member-service/v1/membership/memberships-can-apply'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response.content.types == <Type>
@@ -133,7 +132,7 @@ Feature: OA Member-Service
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (With Token)
     Given path 'member-service/v1/membership/oa/'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceMemOA.json")
     And request requestBody
     When method Post
@@ -180,7 +179,7 @@ Feature: OA Member-Service
 #  GET
   Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
     Given path 'member-service/v1/membership/cards'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def uLive = Boolean(uLive)
     When method Get
     Then status 200

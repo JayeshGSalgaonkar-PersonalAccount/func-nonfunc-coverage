@@ -5,8 +5,7 @@ Feature: Notification-service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #   Post
   Scenario Outline: Verify notification details
@@ -22,7 +21,7 @@ Feature: Notification-service
 
   Scenario Outline: Verify notification details (with Valid Token)
     Given path 'notification-service/v1/user/notifications'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')
@@ -31,7 +30,7 @@ Feature: Notification-service
 
   Scenario Outline: Verify notification details (with Valid Token)
     Given path 'notification-service/v1/user-notification'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')

@@ -8,8 +8,7 @@ Feature: Member-Service (Payment)
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 244 - Validate POST method for CreateOrder under Member-service
@@ -40,16 +39,15 @@ Feature: Member-Service (Payment)
 #   GET
   Scenario: PRODUCT BACKLOG ITEM 88 - Validate GET method for Show-payment-option
     Given path 'member-service/v1/payment/show-payment-option'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read("ntuc_memberportal/resources/Response/member-serviceShowPayOptions.json")
 
-
 #    GET
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - NEGATIVE TEST
     Given path 'member-service/v1/payment/show-payment-option'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 500
     Then match response.metatdata.status == <status>
@@ -114,7 +112,7 @@ Feature: Member-Service (Payment)
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM - 249 - Membership Payment history
     Given path 'member-service/v1/payment/history'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-servicePayHistory.json')

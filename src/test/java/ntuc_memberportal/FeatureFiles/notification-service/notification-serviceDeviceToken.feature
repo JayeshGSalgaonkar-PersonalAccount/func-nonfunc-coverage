@@ -8,8 +8,7 @@ Feature: Notification-service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #   Post
   Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details
@@ -26,7 +25,7 @@ Feature: Notification-service
 #   Post
   Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details (With Token)
     Given path 'notification-service/v1/user-device-token/register-device'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
     And request requestBody
     When method Post
