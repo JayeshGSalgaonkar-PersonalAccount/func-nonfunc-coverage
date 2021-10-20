@@ -6,7 +6,7 @@ Feature: Deal-service
 
   Background:
     * url baseURL
-    * header Accept = 'application/json'
+    * header Acept = 'application/json'
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 15 - View Deal's Details page

@@ -6,7 +6,7 @@ Feature: Member-Service (Eligibility)
     * url baseURL + 'member-service/v1/membership/check/active/'
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #  GET
   Scenario Outline: Eligibility under Member-service
@@ -37,7 +37,7 @@ Feature: Member-Service (Eligibility)
 #   GET
   Scenario Outline: Verify membership DRAFT details (with valid Token)
     Given path 'member-service/v1/membership/draft'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')

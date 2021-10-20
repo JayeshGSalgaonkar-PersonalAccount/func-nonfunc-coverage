@@ -1,6 +1,29 @@
 {
-  "content": {},
   "metadata": {
-    "status": "SUCCESS"
+    "status": "#(status)"
+  },
+  "content": {
+    "id": "#(id)",
+    "scid": "#(scid)",
+    "lastLogin":"#(lastLogin)",
+    "nricFin": "#(nricFin)",
+    "name": "#(name)",
+    "dob": "#(dob)",
+    "gender": "#(gender)",
+    "status": "#(status)",
+    "email": "#(email)",
+    "mobileNumber": "#(mobileNumber)",
+    "race": "#(race)",
+    "maritalStatus": "#(maritalStatus)",
+    "highestEducationLevel": "#(highestEducationLevel)",
+    "occupationalGroup": "#(occupationalGroup)",
+    "occupation": "#(occupation)",
+    "monthlyGrossSalary": "#(monthlyGrossSalary)",
+    "officeTelNo": "#(officeTelNo)",
+    "bankName": "#(bankName)",
+    "bankAccountNumber":"#(bankAccountNumber)",
+    "employmentType": "#(employmentType)",
+    "companyCode": "#(companyCode)",
+    "exchangeId": "#(exchangeId)"
   }
 }

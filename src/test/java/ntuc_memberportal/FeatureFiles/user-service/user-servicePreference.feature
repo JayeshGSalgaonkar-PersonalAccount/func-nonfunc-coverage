@@ -7,13 +7,12 @@ Feature: User service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dyanicAccessToken = setup.staticToken
-#    * def dyanicAccessToken = setup.dyanicAccessToken
+    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #    GET
   Scenario Outline: PRODUCT BACKLOG ITEM 11 - Validate User service for Preference
     Given path 'user-service/v1/user/preferences/<type>'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/user-servicePreference.json')
@@ -23,7 +22,7 @@ Feature: User service
 #    GET
   Scenario Outline: PRODUCT BACKLOG ITEM 11 - Validate User service for Preference
     Given path 'user-service/v1/user/preferences/'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/user-servicePref.json')
@@ -33,7 +32,7 @@ Feature: User service
 #  Patch
   Scenario Outline: PRODUCT BACKLOG ITEM 11 - Validate User service for Preference
     Given path 'user-service/v1/user/preferences/'
-    And header Authorization = 'Bearer ' + dyanicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePatchPref.json')
     And request requestBody
     When method Patch

@@ -1,9 +1,8 @@
 {
   "metadata": {
-    "status": "SUCCESS"
+    "status": "#(status)"
   },
   "content": {
-    "scid": 1,
-    "userId": 1
+    "id": "#(id)"
   }
 }

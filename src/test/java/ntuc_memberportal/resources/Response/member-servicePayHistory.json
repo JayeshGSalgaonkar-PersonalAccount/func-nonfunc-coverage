@@ -1,8 +1,21 @@
 {
-  "content": [
-    "string"
-  ],
   "metadata": {
-    "status": "SUCCESS"
-  }
+    "status": "#(status)"
+  },
+  "content": [
+    {
+      "membershipId": "#(membershipId)",
+      "membershipType": "#(membershipType)",
+      "startDate": "#(startDate)",
+      "endDate": "#(endDate)",
+      "noOfMonths": "#(noOfMonths)",
+      "orderInfoId": "#(orderInfoId)",
+      "serviceType": "#(serviceType)",
+      "date": "#(date)",
+      "orderAmount": "#(orderAmount)",
+      "orderCurrency": "#(orderCurrency)",
+      "orderStatus": "#(orderStatus)",
+      "errorDescription": "#(errorDescription)"
+    }
+  ]
 }
