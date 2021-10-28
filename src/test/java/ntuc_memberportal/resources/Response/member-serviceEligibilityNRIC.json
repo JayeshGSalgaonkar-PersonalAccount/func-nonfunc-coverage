@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "status": "SUCCESS"
+    "status": "#(status)"
   },
   "content": [
     {
@@ -9,9 +9,9 @@
       "Checkblist": "#(Checkblist)",
       "Checkclist": "#(Checkclist)",
       "Checkelig": "#(Checkelig)",
-      "Eligibiity": "#(Eligibiity)",
+      "Eligibility": "#(Eligibility)",
       "IneligibleMessage": "#(IneligibleMessage)",
-      "ShowActiveMMessage": "#(ShowActiveMMessage)",
+      "ShowActiveMessage": "#(ShowActiveMessage)",
       "ShowBlacklistMessage": "#(ShowBlacklistMessage)"
     }
   ]

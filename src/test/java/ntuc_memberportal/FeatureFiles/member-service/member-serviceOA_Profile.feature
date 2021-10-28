@@ -9,6 +9,7 @@ Feature: OA Member-Service
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
 
+
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
     Given path 'member-service/v1/membership'
@@ -26,14 +27,12 @@ Feature: OA Member-Service
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
 
-
+#--------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details (with valid Token)
     Given path 'member-service/v1/membership/draft'
     * string user = username
-    * print user
     * def secret = test_secret[user]
-    * print secret
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
@@ -44,6 +43,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
     Given path 'member-service/v1/membership/draft/nric/dob'
@@ -55,6 +55,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #   PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - PUT request for member service
     Given path 'member-service/v1/membership/oa/<MemID>'
@@ -70,6 +71,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-servicePUTRequest.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #   PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - NEGATIVE TEST
     Given path 'member-service/v1/membership/oa/<MemID>+gar'
@@ -82,13 +84,12 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-servicePUTRequest.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG 527 - Get all membership types the user can apply to.
     Given path 'member-service/v1/membership/memberships-can-apply'
     * string user = <username>
-    * print user
     * def secret = test_secret[user]
-    * print secret
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
@@ -101,6 +102,7 @@ Feature: OA Member-Service
       | "OA"  | "SUCCESS" | "ishsh@hotmail.com" |
       | "NFM" | "SUCCESS" | "ishsh@hotmail.com" |
 
+#--------------------------------------------------------------------------------------------------------------
 #    GET
   Scenario Outline: PRODUCT BACKLOG 277 - OA Membership terms-and-conditions
     Given path 'member-service/v1/membership/OA/terms-and-conditions/'
@@ -115,6 +117,7 @@ Feature: OA Member-Service
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceTermsCond.csv") |
 
+#--------------------------------------------------------------------------------------------------------------
 #    GET
   Scenario Outline: PRODUCT BACKLOG 277 - NEGATIVE TEST
     Given path 'member-service/v1/membership/<type>/terms-and-conditions/'
@@ -127,6 +130,7 @@ Feature: OA Member-Service
       | type | status        | errorCode          | errorDescription                                                    |
       | OAA  | "BAD_REQUEST" | "VALIDATION_ERROR" | "Caught Validation Error for /membership/OAA/terms-and-conditions/" |
 
+#--------------------------------------------------------------------------------------------------------------
 #   PUT
   Scenario Outline: PRODUCT BACKLOG 277 - Accept Terms and Condition
     Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
@@ -140,6 +144,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (With Token)
     Given path 'member-service/v1/membership/oa/'
@@ -163,6 +168,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceMemOA.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (Without Token)
     Given path 'member-service/v1/membership/open/oa'
@@ -179,6 +185,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - When API Server is Un-Available (Without Token)
     Given path 'member-service/v1/membership/open/oa'
@@ -193,6 +200,7 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
+#--------------------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
     Given path 'member-service/v1/membership/cards'
