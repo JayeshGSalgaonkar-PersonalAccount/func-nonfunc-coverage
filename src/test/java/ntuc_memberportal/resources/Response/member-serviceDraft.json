@@ -4,8 +4,6 @@
   },
   "content": {
     "AllowECard": "#(AllowECard)",
-    "ApplicationSourceCode": "#(ApplicationSourceCode)",
-    "ApplicationSourceName": "#(ApplicationSourceName)",
     "ApplicationStatusCode": "#(ApplicationStatusCode)",
     "ApplicationStatusName": "#(ApplicationStatusName)",
     "ArrearsAmount": "#(ArrearsAmount)",

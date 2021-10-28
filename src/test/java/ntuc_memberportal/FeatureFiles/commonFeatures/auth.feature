@@ -1,14 +1,13 @@
 Feature: JWT Feature
   Background: JWT Background
-    * def test_secret = read('classpath:Test_Secret.json')
-    * def user = 'ishsh@hotmail.com'
-    * def secret = test_secret[user]
-
+#    * def test_secret = read('classpath:Test_Secret.json')
+#    * def user = 'ishsh@hotmail.com'
+#    * def secret = test_secret[user]
 
   Scenario: JWT Scenario
     Given url 'https://preprod-auth.ntuclink.com.sg/oauth/token'
     And form field audience = "https://api.ntucmp.org.sg"
-    And form field client_id = "8TmhK0rYCJfamFt96L8yi9eUa2wOMlel"
+    And form field client_id = "71zXmrAvrnQDDNCAhh417AgFwqIm8gDO"
     And form field grant_type = "http://auth0.com/oauth/grant-type/password-realm"
     And form field username = user
     And form field password = secret
@@ -19,5 +18,4 @@ Feature: JWT Feature
 
     * def dynamicAccessToken = response.access_token
     * print dynamicAccessToken
-
 

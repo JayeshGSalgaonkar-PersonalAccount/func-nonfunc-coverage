@@ -7,7 +7,7 @@ Feature: User-service
     * url baseURL
     * header Accept = 'application/json'
     * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+    * def dynamicAccessToken2 = setup.dynamicAccessToken2
 
 #  GET
   Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
@@ -39,34 +39,29 @@ Feature: User-service
       | SCID | expected_status  | expected_errorCode | expected_errorDescription |
       | 1    | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found"  |
 
-#    POST
+#   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dynamicAccessToken
+    # This scenario will always has static SCID, as we need a SCID which is already present inside the DB for this query to run
+    And header Authorization = 'Bearer ' + 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFUazVRVUV6TWpFME5EVkZNRFJFTVRRMk16WkRRVVF6UWtReFEwWXdRa1UyUkVRNFFUbEJPQSJ9.eyJodHRwczovL2NsYWltcy5pZGVudGl0eS5uZWRpZ2l0YWwuc2cvdWlkIjoiMTAxMzI1NzcxNjEwNDQ2MzkxIiwiaXNzIjoiaHR0cHM6Ly9wcmVwcm9kLWF1dGgubnR1Y2xpbmsuY29tLnNnLyIsInN1YiI6ImF1dGgwfDYxNmZkOWViNzU1NWVkMTU1MDRlYjc5ZSIsImF1ZCI6WyJodHRwczovL2FwaS5udHVjbXAub3JnLnNnIiwiaHR0cHM6Ly9wcmVwcm9kLW5lLWlkLm5lZGlnaXRhbC5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjM1MzE0Njc4LCJleHAiOjE2MzUzMjkwNzgsImF6cCI6IjcxelhtckF2cm5RREROQ0FoaDQxN0FnRndxSW04Z0RPIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBzY2lkOnJlYWQ6cHJvZmlsZSBzY2lkOnVwZGF0ZTpwcm9maWxlIHNjaWQ6dXBkYXRlOnByZWZlcmVuY2VzIHNjaWQ6dmVyaWZ5Om15aW5mbyBzY2lkOnVwZGF0ZTphY2NvdW50X3NlY3VyaXR5IG9mZmxpbmVfYWNjZXNzIiwiZ3R5IjoicGFzc3dvcmQifQ.HQ2S9E_HCTbdzLkYjGIgRE2ioG2t5xOfiFaiKNzI_g3s-aorVW57PiGY6xPcnseEG5ffMfZbZCfaMPRTRq1MaNgyF5UOr_MEIj2mx4jgYlnQ3YbmFVRn0QOszc6EQhRKUOvwYVZBjXwsdySzXdLc655zgoQbPqZ8byztel3mzGPY3v67w8ByB3qUpSK5SJCDhnUgs6he9UfFc31OCsUcs-vE1Q-w10eAaxhxnhMQBCJoRs75q7Jg5qj_K7l7spBqsx-TrVPe-I0ItpqNSTbMqI9vhu7HpJSJ0RTZWRJtNe-dvN4Q4XRTyZQITHuVt4A-LoUaAY5sUUk_0IKL6yx9wg'
+    * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
     * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
     And request requestBody
-    * print requestBody
     When method Post
     Then status 200
-    Then match response.scid == request.scid
-    Then match response.status == request.status
-    Then match response.nricFin == request.nricFin
-    Then match response.name == request.name
-    Then match response.dob == request.dob
-    Then match response.gender == request.gender
-    Then match response.mobileNumber == request.mobileNumber
-    Then match response.email == request.email
-    Then match response.maritalStatus == request.maritalStatus
-    Then match response.companyName == request.companyName
-    Then match response.monthlyGrossSalary == request.monthlyGrossSalary
-    Then match response.lastLogin == request.lastLogin
+    Then match response.content.monthlyGrossSalary == requestBody.monthlyGrossSalary
+    Then match response.content.name == requestBody.name
+    Then match response.content.dob == requestBody.dob
+    Then match response.content.gender == requestBody.gender
+    Then match response.content.mobileNumber == requestBody.mobileNumber
+    Then match response.content.email == requestBody.email
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
 
 #    POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken2
     * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceProfile.json')
     And request requestBody
     When method Post
@@ -76,12 +71,12 @@ Feature: User-service
     Then match response.errorCode == <errorCode>
     Examples:
       | status        | errorDescription                    | errorCode |                                                                           |
-      | "BAD_REQUEST" | "Caught Validation Error for /user" | " "        | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+      | "BAD_REQUEST" | "Caught Validation Error for /user" | null      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken2
     When method Delete
     And print response
     Then status 200
@@ -89,23 +84,10 @@ Feature: User-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceDeleteUser.csv') |
 
-#   DELETE
-  Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST
-    Given path 'user-service/v1/user/<id>'
-    And header Authorization = 'Bearer ' + dynamicAccessToken
-    When method Delete
-    Then status 400
-    Then print response.metadata.status == <expected_delete_status>
-    Then print response.content.errorDescription == <expected_delete_errorDescription>
-    Examples:
-      | id  | expected_delete_status | expected_delete_errorDescription |
-      | 999 | "BUSINESS_ERROR"       | "Error while deleting user"      |
-
-
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Edit User-Profile (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken2
     * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePutProfile.json')
     And request requestBody
     * print requestBody
@@ -116,18 +98,19 @@ Feature: User-service
     Then match response.content.street == request.street
     Then match response.content.unit == request.unit
     Then match response.content.floor == request.floor
-    Then match response.content.blockHSENo == request.blockHSENo
-    Then match response.content.postalCode == request.postalCode
-
-    Then match response.content.residentialStatus == request.residentialStatus
-    Then match response.content.exchangeId == request.exchangeId
-    Then match response.content.employmentType == request.employmentType
-    Then match response.content.status == request.status
-    Then match response.content.scid == request.scid
-    Then match response.content.race == request.race
-    Then match response.content.officeTelNo == request.officeTelNo
-    Then match response.content.occupationalGroup == request.occupationalGroup
-    Then match response.content.id == request.lastLogin
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+
+#  POST
+  Scenario Outline: PRODUCT BACKLOG ITEM 299 - User Login
+    Given path 'user-service/v1/user/login'
+    And header Authorization = 'Bearer ' + dynamicAccessToken2
+    * def requestBody = ""
+    And request requestBody
+    When method Post
+    And print response
+    Then status 200
+    And match response == read("ntuc_memberportal/resources/Response/user-serviceLogin.json")
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
 

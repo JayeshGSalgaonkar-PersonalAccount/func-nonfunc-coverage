@@ -1,7 +1,6 @@
 {
   "company": {
     "name": "#(name)",
-    "code": "#(code)",
     "businessNature": "#(businessNature)"
   },
   "address": {
@@ -15,7 +14,6 @@
     "homeTelNo": "#(homeTelNo)"
   },
   "exchangeId": "#(exchangeId)",
-  "scid": "#(scid)",
   "race": "#(race)",
   "officeTelNo": "#(officeTelNo)",
   "occupationalGroup": "#(occupationalGroup)",

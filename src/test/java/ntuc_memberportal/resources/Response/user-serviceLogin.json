@@ -1,0 +1,8 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "message": "#(message)"
+  }
+}
