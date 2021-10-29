@@ -6,8 +6,7 @@ Feature: User-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken2 = setup.dynamicAccessToken2
+    * def test_secret = read('classpath:Test_Secret.json')
 
 #  GET
   Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
@@ -61,22 +60,31 @@ Feature: User-service
 #    POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dynamicAccessToken2
+    * string user = <username>
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceProfile.json')
     And request requestBody
     When method Post
     Then status 400
     Then match response.metadata.status == <status>
     Then match response.content.errorDescription == <errorDescription>
-    Then match response.errorCode == <errorCode>
+#    Then match response.errorCode == <errorCode>
     Examples:
-      | status        | errorDescription                    | errorCode |                                                                           |
-      | "BAD_REQUEST" | "Caught Validation Error for /user" | null      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+      | status        | errorDescription                    | errorCode |                                                                           | username            |
+      | "BAD_REQUEST" | "Caught Validation Error for /user" | null      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
 
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dynamicAccessToken2
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def id = parseInt(id)
     When method Delete
     And print response
     Then status 200
@@ -87,7 +95,11 @@ Feature: User-service
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Edit User-Profile (With Token)
     Given path 'user-service/v1/user'
-    And header Authorization = 'Bearer ' + dynamicAccessToken2
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePutProfile.json')
     And request requestBody
     * print requestBody
@@ -101,10 +113,34 @@ Feature: User-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
+#    PUT
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE Tests
+    Given path 'user-service/v1/user'
+    * string user = <username>
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePutProfile.json')
+    And request requestBody
+    When method Put
+    Then status 400
+    Then match response.metadata.status == <status>
+    Then match response.content.errorDescription == <errorDescription>
+    Then match response.content.errorCode == <errorCode>
+
+    Examples:
+      | status        | errorDescription                    | errorCode          |                                                                           | username            |
+      | "BAD_REQUEST" | "Caught Validation Error for /user" | "VALIDATION_ERROR" | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
+
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 299 - User Login
     Given path 'user-service/v1/user/login'
-    And header Authorization = 'Bearer ' + dynamicAccessToken2
+    * def user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = ""
     And request requestBody
     When method Post
