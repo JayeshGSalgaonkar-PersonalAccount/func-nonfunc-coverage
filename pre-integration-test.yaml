@@ -1,0 +1,30 @@
+pr: none 
+trigger: none
+
+variables:
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: test
+  displayName: Run integration test fior Pre-prod
+  jobs:
+  - job: pre_integration_test
+    displayName: pre_integration_test
+    strategy:
+      maxParallel: 1
+    steps:
+      - script: |
+          if ! [ -x /usr/bin/javac ]; then
+            sudo apt install -y openjdk-11-jdk-headless
+          fi
+          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+          export PATH=$JAVA_HOME/bin:$PATH
+          mvn -version
+      - script: mvn test "-Dkarate.options=--tags @all" -Dtest=TestRunnerParallel -DbaseURL=https://prema.ntuc.org.sg/api/ -Dkarate.env=preprod
+        continueOnError: true
+      - script: mvn test-compile -DbaseURL=https://prema.ntuc.org.sg/api/ gatling:test    
+        continueOnError: true
+      - publish: $(System.DefaultWorkingDirectory)/target
+        artifact: integration_test_reports
+        
