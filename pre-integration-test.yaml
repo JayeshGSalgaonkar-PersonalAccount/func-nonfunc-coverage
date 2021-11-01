@@ -19,7 +19,8 @@ stages:
           mvn -version
           mvn test "-Dkarate.options=--tags @all" -Dtest=TestRunnerParallel -DbaseURL=https://prema.ntuc.org.sg/api/ -Dkarate.env=preprod
           mvn test-compile -DbaseURL=https://prema.ntuc.org.sg/api/ gatling:test    
-        continueOnError: true
+          mvn clean test-compile -Dkarate.env="preprod" gatling:test
+        displayName: mvn test
       - publish: $(System.DefaultWorkingDirectory)/target
         artifact: integration_test_reports
         
