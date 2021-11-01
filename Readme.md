@@ -4,10 +4,8 @@
 # Functional Test 
     CLI - Execute all tests
 * `mvn clean`
-* `mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"`
-# Use above command to run on pre-prod environment, If Karate.env is not specified it will by default run in Dev environment.
-
-
+* To run in dev-environment - execute - `mvn test -Dtest=TestRunnerParallel` 
+* To run in pre-prod environment - execute - `mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"`
 
 # CLI - Execute specific microservice as tag
 * `mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel` 
@@ -19,7 +17,8 @@
 
 # Non-functional Test (Performance)
     CLI - Execute all tests (only option)
-* `mvn clean test-compile gatling:test`
+* To run in dev-environment - execute - `mvn clean test-compile gatling:test`
+* To run in pre-prod environment - execute - `mvn clean test-compile -Dkarate.env="preprod" gatling:test`
 
 
 # DockerFile (root folder)
