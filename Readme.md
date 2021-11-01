@@ -4,9 +4,12 @@
 # Functional Test 
     CLI - Execute all tests
 * `mvn clean`
-* `mvn test -Dtest=TestRunnerParallel`
-#
-    CLI - Execute specific microservice as tag
+* `mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"`
+# Use above command to run on pre-prod environment, If Karate.env is not specified it will by default run in Dev environment.
+
+
+
+# CLI - Execute specific microservice as tag
 * `mvn test "-Dkarate.options=--tags @member-service" -Dtest=TestRunnerParallel` 
 
     tags to be replaced by micro-service name -

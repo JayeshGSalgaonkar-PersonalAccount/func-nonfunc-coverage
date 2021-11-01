@@ -1,16 +1,17 @@
 function fn() {
   var env = karate.env; // get java system property 'karate.env'
-
 //  karate.configure('ssl', true);
+  karate.log('karate.env system property was:', env);
+  if (!env) {
+      env = 'dev'; // a custom 'intelligent' default
+    }
 
-//  karate.log('karate.env system property was:', env);
+   var config = {}
 
-   var config = {
-        env: env,
-        }
-
-    config.baseURL = karate.properties['baseURL'] || 'https://devma.ntuc.org.sg/api/'
-
+    if (env == 'dev')
+        config.baseURL = karate.properties['baseURL'] || 'https://devma.ntuc.org.sg/api/'
+    else if(env == 'preprod')
+        config.baseURL = karate.properties['baseURL'] || 'https://prema.ntuc.org.sg/api/'
+//By default run in dev environment
     return config;
       }
-
