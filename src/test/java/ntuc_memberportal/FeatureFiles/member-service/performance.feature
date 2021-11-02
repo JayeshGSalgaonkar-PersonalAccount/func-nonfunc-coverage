@@ -5,8 +5,6 @@ Feature: Member-Service (Eligibility)
   Background:
     * url baseURL + 'member-service/v1/membership/check/active/'
     * header Accept = 'application/json'
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #  GET
   Scenario Outline: Eligibility under Member-service
@@ -37,6 +35,10 @@ Feature: Member-Service (Eligibility)
 #   GET
   Scenario Outline: Verify membership DRAFT details (with valid Token)
     Given path 'member-service/v1/membership/draft'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200

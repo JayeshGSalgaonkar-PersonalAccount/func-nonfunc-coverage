@@ -3,8 +3,6 @@ Feature: User-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
 
 #    POST response
   Scenario Outline: Validate POST method for user address and details under User-service
@@ -27,6 +25,10 @@ Feature: User-service
 
   Scenario Outline: Validate User service for Preference
     Given path 'user-service/v1/user/preferences/<type>'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200

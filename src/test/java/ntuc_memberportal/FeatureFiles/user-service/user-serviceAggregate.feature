@@ -1,3 +1,7 @@
+
+# OUT OF SCOPE AS THE ENDPOINTS ARE REMOVED
+# Please keep below lines [4-13] un-commented for successful execution of scripts in the pipeline
+
 @ignore
 @all
 @user-service

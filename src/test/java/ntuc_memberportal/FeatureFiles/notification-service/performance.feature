@@ -4,8 +4,7 @@ Feature: Notification-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+
 
 #   Post
   Scenario Outline: Verify notification details
@@ -21,6 +20,10 @@ Feature: Notification-service
 
   Scenario Outline: Verify notification details (with Valid Token)
     Given path 'notification-service/v1/user/notifications'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
@@ -30,6 +33,10 @@ Feature: Notification-service
 
   Scenario Outline: Verify notification details (with Valid Token)
     Given path 'notification-service/v1/user-notification'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200

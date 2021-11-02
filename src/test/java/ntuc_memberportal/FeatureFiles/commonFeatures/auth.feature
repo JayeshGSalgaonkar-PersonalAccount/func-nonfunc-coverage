@@ -1,8 +1,8 @@
 Feature: JWT Feature
   Background: JWT Background
-#    * def test_secret = read('classpath:Test_Secret.json')
-#    * def user = 'ishsh@hotmail.com'
-#    * def secret = test_secret[user]
+    * def test_secret = read('classpath:Test_Secret.json')
+    * def user = 'ishsh@hotmail.com'
+    * def secret = test_secret[user]
 
   Scenario: JWT Scenario
     Given url 'https://preprod-auth.ntuclink.com.sg/oauth/token'
@@ -17,5 +17,5 @@ Feature: JWT Feature
     Then status 200
 
     * def dynamicAccessToken = response.access_token
-#    * print dynamicAccessToken
+    * print dynamicAccessToken
 
