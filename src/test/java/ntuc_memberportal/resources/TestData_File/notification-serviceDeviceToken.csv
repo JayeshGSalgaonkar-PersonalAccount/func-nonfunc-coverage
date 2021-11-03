@@ -1,2 +1,2 @@
-"deviceOS","deviceToken","userId","status"
-"android","ESD342W",1,"SUCCESS"
+"username","deviceOS","deviceToken","userId","isSuccessful","statusCode","content-type","server","status","content-length","strict-transport-security"
+"ishsh@hotmail.com","android","ESD342Z","2",true,200,"application/xml; charset=utf-8","Microsoft-HTTPAPI/2.0","SUCCESS","0","max-age=2592000"

@@ -1,2 +1,2 @@
-"unionName","unionCode","status","startDate","relationship","optInNebo","modifiedDttm","modifiedBy","membershipType","lastPaidDate","deletedDttm","deletedBy","createdDttm","createdBy"
-"NTUC-FP","1020P","DRAFT","2021-08-16","MOTHER",true,"2021-08-16T03:31:09.495Z","Sujit","Active","2021-08-16T03:31:09.476Z","2021-08-16T03:31:09.476Z","Amby","2021-08-16T03:31:09.476Z","Jai"
+"username","unionName","unionCode","status","startDate","relationship","optInNebo","modifiedDttm","modifiedBy","membershipType","lastPaidDate","deletedDttm","deletedBy","createdDttm","createdBy"
+"ishsh@hotmail.com","NTUC-FP","1020P","DRAFT","2021-08-16","MOTHER",true,"2021-08-16T03:31:09.495Z","Sujit","Active","2021-08-16T03:31:09.476Z","2021-08-16T03:31:09.476Z","Amby","2021-08-16T03:31:09.476Z","Jai"

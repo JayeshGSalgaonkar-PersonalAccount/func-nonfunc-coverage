@@ -5,7 +5,6 @@ Feature: Notification-service
     * url baseURL
     * header Accept = 'application/json'
 
-
 #   Post
   Scenario Outline: Verify notification details
     Given path 'notification-service/v1/user-device-token/register-device/open'

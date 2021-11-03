@@ -1,3 +1,7 @@
+# OUT OF SCOPE AS THE ENDPOINTS ARE REMOVED
+# Please keep below lines [4-13] un-commented for successful execution of scripts in the pipeline
+
+@ignore
 @all
 @member-service
 
@@ -7,14 +11,13 @@ Feature: My-Info Member-Service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-
+#
 #  GET
-  Scenario Outline: PRODUCT BACKLOG - 368 Signup using MyInfo
-    Given path 'member-service/v1/callback'
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceMyInfo.json')
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceMyInfo.csv') |
-
-#   MyInfo API is not testable at API level
+#  Scenario Outline: PRODUCT BACKLOG - 368 Signup using MyInfo
+#    Given path 'member-service/v1/callback'
+#    When method Get
+#    Then status 200
+#    Then match response == read('ntuc_memberportal/resources/Response/member-serviceMyInfo.json')
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/member-serviceMyInfo.csv') |
+#

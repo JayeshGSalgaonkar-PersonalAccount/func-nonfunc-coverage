@@ -5,22 +5,26 @@ Feature: NFM Member-Service
   This feature will test HTTP methods for NFM Membership service to validate results
 
   Background:
-  * url baseURL
-  * header Accept = 'application/json'
-  * def setup = call read('../commonFeatures/auth.feature')
-  * def dynamicAccessToken2 = setup.dynamicAccessToken2
+    * url baseURL
+    * header Accept = 'application/json'
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 142 - NFM With Auth Token
     Given path 'member-service/v1/membership/nfm/main'
+    * string user = <username>
+    * print user
+    * def secret = test_secret[user]
+    * print secret
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken2
     When method Get
     Then status 200
     Then match response.content.mainMembership == <mainMembership>
     Then match response.metadata.status == <status>
     Examples:
-      | mainMembership | status    |
-      | true           | "SUCCESS" |
+      | mainMembership | status    | username            |
+      | true           | "SUCCESS" | "ishsh@hotmail.com" |
 
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 142 - NFM WithOut Auth Token

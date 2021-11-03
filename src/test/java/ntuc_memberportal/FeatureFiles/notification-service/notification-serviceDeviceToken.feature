@@ -7,18 +7,20 @@ Feature: Notification-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+
 
 #   Post
   Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details
     Given path 'notification-service/v1/user-device-token/register-device/open'
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDeviceToken.json')
     And request requestBody
+    * print requestBody
     When method Post
-    Then status 200
+#    Then status 200
     * print response
-    Then match response.metadata.status == "SUCCESS"
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceDeviceToken.json')
+    * print expectedResponse
+    Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceDeviceToken.csv') |
 
