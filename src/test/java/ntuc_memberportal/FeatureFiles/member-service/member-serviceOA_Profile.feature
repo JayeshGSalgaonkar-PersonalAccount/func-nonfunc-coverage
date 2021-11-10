@@ -191,7 +191,7 @@ Feature: OA Member-Service
     Given path 'member-service/v1/membership/open/oa'
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
     And request requestBody
-    * print requestBody
+#    * print requestBody
     When method Post
     Then status 500
     Then match response.metadata.status == "SYS_ERROR"

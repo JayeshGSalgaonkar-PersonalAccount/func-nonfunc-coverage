@@ -27,6 +27,12 @@ Feature: Notification-service
 #   Post
   Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details (With Token)
     Given path 'notification-service/v1/user-device-token/register-device'
+    * string user = username
+    * print user
+    * def secret = test_secret[user]
+    * print secret
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
     And request requestBody

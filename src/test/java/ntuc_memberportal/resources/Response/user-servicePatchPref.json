@@ -1,12 +1,12 @@
 {
-  "content": {
+  "content": [{
     "settings": {
       "marketing": "#(marketing)",
       "deals": "#(deals)",
       "news": "#(news)"
     },
     "type": "#(type)"
-  },
+  }],
   "metadata": {
     "status": "#(status)"
   }
