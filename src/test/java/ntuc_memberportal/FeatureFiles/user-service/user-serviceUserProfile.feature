@@ -62,6 +62,7 @@ Feature: User-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
 
+#----------------------------------------------------------------------------------------------------------------
 #    POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST (With Token)
     Given path 'user-service/v1/user'
@@ -81,6 +82,7 @@ Feature: User-service
       | status        | errorDescription                    | errorCode |                                                                           | username            |
       | "BAD_REQUEST" | "Caught Validation Error for /user" | null      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
 
+#----------------------------------------------------------------------------------------------------------------
 #   DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
     Given path 'user-service/v1/user'
@@ -97,6 +99,7 @@ Feature: User-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceDeleteUser.csv') |
 
+#----------------------------------------------------------------------------------------------------------------
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Edit User-Profile (With Token)
     Given path 'user-service/v1/user'
@@ -118,6 +121,7 @@ Feature: User-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
+#----------------------------------------------------------------------------------------------------------------
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE Tests
     Given path 'user-service/v1/user'
@@ -133,11 +137,11 @@ Feature: User-service
     Then match response.metadata.status == <status>
     Then match response.content.errorDescription == <errorDescription>
     Then match response.content.errorCode == <errorCode>
-
     Examples:
       | status        | errorDescription                    | errorCode          |                                                                           | username            |
       | "BAD_REQUEST" | "Caught Validation Error for /user" | "VALIDATION_ERROR" | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
 
+#----------------------------------------------------------------------------------------------------------------
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 299 - User Login
     Given path 'user-service/v1/user/login'
@@ -155,3 +159,4 @@ Feature: User-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
 
+#----------------------------------------------------------------------------------------------------------------

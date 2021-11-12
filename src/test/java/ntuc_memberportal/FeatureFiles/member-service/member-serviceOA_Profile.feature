@@ -37,7 +37,6 @@ Feature: OA Member-Service
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
-    * print response
     Then status 200
     Then match response.content == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
     Examples:
