@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "status": "SUCCESS"
+    "status": "#(status)"
   },
   "content": {
     "membership": [],

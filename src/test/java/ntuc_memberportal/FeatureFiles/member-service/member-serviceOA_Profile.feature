@@ -9,7 +9,7 @@ Feature: OA Member-Service
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
 
-
+#------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
     Given path 'member-service/v1/membership'
@@ -45,9 +45,7 @@ Feature: OA Member-Service
 #--------------------------------------------------------------------------------------------------------------
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
-    Given path 'member-service/v1/membership/draft/nric/dob'
-    * def nric = <nric>
-    * def dob = <dob>
+    Given path 'member-service/v1/membership/draft/<nric>/<dob>'
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
@@ -55,12 +53,18 @@ Feature: OA Member-Service
       | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#   PUT
+#   Patch - XX
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - PUT request for member service
     Given path 'member-service/v1/membership/oa/<MemID>'
-    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceMemOA.json')
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceMemOAPatch.json')
     And request requestBody
-    When method Put
+    When method Patch
+    * print response
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Then match response.content.membershipTypeCode == requestBody.membershipTypeCode
@@ -97,9 +101,8 @@ Feature: OA Member-Service
     Then match response.content.types contains <Type>
     Then match response.metadata.status == <status>
     Examples:
-      | Type  | status    | username            |
-      | "OA"  | "SUCCESS" | "ishsh@hotmail.com" |
-      | "NFM" | "SUCCESS" | "ishsh@hotmail.com" |
+      | Type | status    | username            |
+      | "OA" | "SUCCESS" | "ishsh@hotmail.com" |
 
 #--------------------------------------------------------------------------------------------------------------
 #    GET
@@ -144,19 +147,18 @@ Feature: OA Member-Service
       | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#   POST
+#   POST - XX
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (With Token)
     Given path 'member-service/v1/membership/oa/'
     * string user = username
-    * print user
     * def secret = test_secret[user]
-    * print secret
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceMemOA.json")
     And request requestBody
     When method Post
+    * print response
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Then match response.content.membershipTypeCode == requestBody.membershipTypeCode
@@ -168,49 +170,48 @@ Feature: OA Member-Service
       | read('ntuc_memberportal/resources/TestData_File/member-serviceMemOA.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#   POST
+#   POST -1
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service (Without Token)
     Given path 'member-service/v1/membership/open/oa'
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
     And request requestBody
+    * def email = '<email>'
     When method Post
     Then status 200
     Then match response.metadata.status == "SUCCESS"
-    Then match response.content.membershipTypeCode == requestBody.membershipTypeCode
-    Then match response.content.status == requestBody.status
-    Then match response.metadata.relationship == requestBody.relationship
-    Then match response.metadata.optInNebo == requestBody.optInNebo
-    Then match response.metadata.userId == requestBody.userId
+    Then match response.content.membership.membershipTypeCode == "OA"
+    Then match response.content.membership.status == "DRAFT"
+   * print response.content.user.email == email
+    Then match response.content.user.race == "MY"
+    Then match response.content.user.bankName == "DBS"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#   POST
-  Scenario Outline: PRODUCT BACKLOG ITEM 142 - When API Server is Un-Available (Without Token)
+#  POST-1
+  Scenario Outline: PRODUCT BACKLOG ITEM 142 - NEGATIVE SCENARIO
     Given path 'member-service/v1/membership/open/oa'
     * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
     And request requestBody
-#    * print requestBody
     When method Post
-    Then status 500
-    Then match response.metadata.status == "SYS_ERROR"
-    Then match response.content.errorCode == "UNKNOWN_ERROR"
-    Then match response.content.errorDescription == "Error while saving the membership."
+    * print requestBody
+    Then status 409
+    Then match response.metadata.status == "CONFLICT"
+    Then match response.content.errorCode == "RECORD_EXISTS_DRAFT"
+    Then match response.content.errorDescription == "Existing OA membership in draft, please retrieve the draft."
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#  GET
+#  GET -1
   Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
     Given path 'member-service/v1/membership/cards'
     * string user = username
-    * print user
+    * def uLive = Boolean(uLive)
     * def secret = test_secret[user]
-    * print secret
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def uLive = Boolean(uLive)
     When method Get
     Then status 200
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')

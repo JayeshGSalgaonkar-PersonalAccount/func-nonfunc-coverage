@@ -17,8 +17,6 @@
     "race": "#(race)"
   },
   "membership": {
-    "status": "#(status)",
-    "ucemCreateStatus": "#(ucemCreateStatus)",
     "optInNebo": "#(optInNebo)",
     "unionCode": "#(unionCode)",
     "unionName": "#(unionName)"

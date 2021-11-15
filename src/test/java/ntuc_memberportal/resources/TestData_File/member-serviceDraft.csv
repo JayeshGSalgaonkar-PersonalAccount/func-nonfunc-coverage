@@ -1,2 +1,2 @@
-"username","userId","nricFin","name","dob","gender","mobileNumber","email","race","maritalStatus","highestEducationLevel","occupationalGroup","occupation", "monthlyGrossSalary","officeTelNo","bankName","bankAccountNumber","employmentType","scid","exchangeId","status","residentialStatus","postalCode","blockHSENo","floor","unit","street","buildingName","homeTelNo","code","name","businessNature","status"
-"asgopal@sg.palo-it.com"
+"username","nric","dob","userId","nricFin","name","gender","mobileNumber","email","race","maritalStatus","highestEducationLevel","occupationalGroup","occupation", "monthlyGrossSalary","officeTelNo","bankName","bankAccountNumber","employmentType","scid","exchangeId","status","residentialStatus","postalCode","blockHSENo","floor","unit","street","buildingName","homeTelNo","code","name","businessNature","status"
+"ishsh@hotmail.com","001E","1971-12-03"

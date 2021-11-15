@@ -9,15 +9,27 @@ Feature: Member-Service (Eligibility)
     * url baseURL
     * header Accept = 'application/json'
 
+#------------------------------------------------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method for Eligibility under Member-service
     Given path 'member-service/v1/membership/check/active/<NRIC>/<DOB>'
     When method Get
+    * def PaymentArrearMonths = parseInt(PaymentArrearMonths)
+    * def PaymentTypeCode = parseInt(PaymentTypeCode)
     Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response.content[0].PaymentTypeName == expectedResponse.content.PaymentTypeName
+    Then match response.content[0].PaymentArrearMonths == expectedResponse.content.PaymentArrearMonths
+    Then match response.content[0].PaymentTypeCode == expectedResponse.content.PaymentTypeCode
+    Then match response.content[0].UnionCode == expectedResponse.content.UnionCode
+    Then match response.content[0].ExchangeId == expectedResponse.content.ExchangeId
+    Then match response.content[0].BranchCode == expectedResponse.content.BranchCode
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibility.csv") |
 
+#------------------------------------------------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - NEGATIVE TEST
     Given path 'member-service/v1/membership/check/active/<NRIC>/<DOB>'
@@ -28,15 +40,22 @@ Feature: Member-Service (Eligibility)
     Then match response.content.errorDescription == <errorDescription>
     Examples:
       | NRIC  | DOB      | status      | errorCode       | errorDescription                          |
-      | 899W  | 13139999 | "SYS_ERROR" | "UNKNOWN_ERROR" | "Error fetching membership active status" |
       | (*&)W | 13139999 | "SYS_ERROR" | "UNKNOWN_ERROR" | "Error fetching membership active status" |
       | &^123 | 13139999 | "SYS_ERROR" | "UNKNOWN_ERROR" | "Error fetching membership active status" |
 
+#------------------------------------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 372 - Validate GET method for Occupation-Group Eligibility under Member-service
     Given path 'member-service/v1/membership/check/eligibility/<NRIC>'
+    * def Checkelig = Boolean(Checkelig)
     When method Get
     Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response.content[0].Checkelig == expectedResponse.content[0].Checkelig
+    Then match response contains {Checkclist: '##boolean'}
+    Then match response contains {Checkblist: '##boolean'}
+    Then match response contains {CheckIneligibleJobFlag: '##boolean'}
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibilityNRIC.csv") |

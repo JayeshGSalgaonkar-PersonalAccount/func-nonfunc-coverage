@@ -16,6 +16,7 @@ Feature: Member-Service (Payment)
     And request requestBody
     When method Post
     Then status 200
+    * print response
     Then match response == read("ntuc_memberportal/resources/Response/member-serviceCreateOrder.json")
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceCreateOrder.csv') |

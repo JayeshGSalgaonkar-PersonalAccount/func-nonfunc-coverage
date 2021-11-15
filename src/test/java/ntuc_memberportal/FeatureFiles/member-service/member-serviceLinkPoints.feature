@@ -48,7 +48,6 @@ Feature: Member-Service (Linkpoints-Balance)
       | "ishsh@hotmail.com" |
 
 #--------------------------------------------------------------------------------------------------------------
-
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 244 Validate Membership DETAILS using NRIC and DOB
     Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
@@ -57,10 +56,25 @@ Feature: Member-Service (Linkpoints-Balance)
     When method Get
     Then status 200
     * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
-    Then match response.content[0].ArrearsinMonth == expected.content[0].ArrearsinMonth
-    Then match response.content[0].BranchName == expected.content[0].BranchName
-    Then match response.content[0].ArrearsAmount == expected.content[0].ArrearsAmount
-    Then match response.content[0].MemberTypeCode == expected.content[0].MemberTypeCode
-    Then match response.content[0].MemberTypeName == expected.content[0].MemberTypeName
+    Then match response.metadata.status == "SUCCESS"
+#    Then match response.content[0].ArrearsinMonth == expected.content[0].ArrearsinMonth
+#    Then match response.content[0].BranchName == expected.content[0].BranchName
+#    Then match response.content[0].ArrearsAmount == expected.content[0].ArrearsAmount
+#    Then match response.content[0].MemberTypeCode == expected.content[0].MemberTypeCode
+#    Then match response.content[0].MemberTypeName == expected.content[0].MemberTypeName
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
+
+#--------------------------------------------------------------------------------------------------------------
+#  GET
+  Scenario Outline: PRODUCT BACKLOG - NEGATIVE TEST
+    Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
+    When method Get
+    Then status 400
+    Then match response.metadata.status == <status>
+    Then match response.content.errorCode == <errorCode>
+    Then match response.content.errorDescription  == <errorDescription>
+
+    Examples:
+      | NRIC | DOB      | status        | errorCode          | errorDescription   |
+      | @#E# | 01011990 | "BAD_REQUEST" | "VALIDATION_ERROR" | "Invalid NRIC/FIN" |
