@@ -10,6 +10,18 @@ stages:
     strategy:
       maxParallel: 1
     steps:
+      - task: DownloadSecureFile@1
+        name: testSecrets
+        displayName: Download testSecrets json
+        inputs:
+          secureFile: 'Test_Secret.json'
+      
+      - task: CmdLine@2
+        displayName: Copy the secure files to git repository
+        inputs:
+          script: |
+            cp $(testSecrets.secureFilePath) .
+      
       - script: |
           if ! [ -x /usr/bin/javac ]; then
             sudo apt install -y openjdk-11-jdk-headless
