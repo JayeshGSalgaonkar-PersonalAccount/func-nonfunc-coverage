@@ -10,20 +10,22 @@ Feature: Notification-service
     * def test_secret = read('classpath:Test_Secret.json')
 
 #   Post
-  Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details
+  Scenario Outline: PRODUCT BACKLOG - XX - Verify notification details
     Given path 'notification-service/v1/user-device-token/register-device/open'
-    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDeviceToken.json')
+    * def userId = parseInt(userId)
+    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceRegisterDevice.json')
+    * print requestBody
     And request requestBody
     When method Post
+    * print response
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceDeviceToken.json')
-    * print expectedResponse
-    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response.metadata.status == "SUCCESS"
+    Then match response.content == "done"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceDeviceToken.csv') |
+      | read('ntuc_memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
 
 #   Post
-  Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details (With Token)
+  Scenario Outline: PRODUCT BACKLOG - XX - POST register user-device(With Token)
     Given path 'notification-service/v1/user-device-token/register-device'
     * string user = username
     * def secret = test_secret[user]
@@ -35,5 +37,6 @@ Feature: Notification-service
     When method Post
     Then status 200
     Then match response.metadata.status == "SUCCESS"
+    Then match response.content contains "done"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceDevice.csv') |

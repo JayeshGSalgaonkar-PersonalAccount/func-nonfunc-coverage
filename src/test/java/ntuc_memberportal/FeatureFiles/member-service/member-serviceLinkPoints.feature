@@ -25,7 +25,6 @@ Feature: Member-Service (Linkpoints-Balance)
       | read("ntuc_memberportal/resources/TestData_File/member-serviceLinkpoints.csv") |
 
 #--------------------------------------------------------------------------------------------------------------
-
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 5 - Validate Datatype in Linkpoints under Member-service
     Given path 'member-service/v1/linkpoint/balance'

@@ -1,5 +1,4 @@
 {
   "deviceOS": "#(deviceOS)",
-  "deviceToken": "#(deviceToken)",
-  "userId": "#(userId)"
+  "deviceToken": "#(deviceToken)"
 }

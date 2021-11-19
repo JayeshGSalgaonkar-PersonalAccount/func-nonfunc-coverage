@@ -29,7 +29,7 @@ Feature: Member-Service (Eligibility)
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibility.csv") |
 
-#------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - NEGATIVE TEST
     Given path 'member-service/v1/membership/check/active/<NRIC>/<DOB>'
@@ -41,16 +41,15 @@ Feature: Member-Service (Eligibility)
     Examples:
       | NRIC  | DOB      | status      | errorCode       | errorDescription                          |
       | (*&)W | 13139999 | "SYS_ERROR" | "UNKNOWN_ERROR" | "Error fetching membership active status" |
-      | &^123 | 13139999 | "SYS_ERROR" | "UNKNOWN_ERROR" | "Error fetching membership active status" |
 
-#------------------------------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 372 - Validate GET method for Occupation-Group Eligibility under Member-service
     Given path 'member-service/v1/membership/check/eligibility/<NRIC>'
     * def Checkelig = Boolean(Checkelig)
     When method Get
-    Then status 200
     * print response
+    Then status 200
     * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].Checkelig == expectedResponse.content[0].Checkelig

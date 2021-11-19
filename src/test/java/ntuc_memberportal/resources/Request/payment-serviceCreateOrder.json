@@ -1,6 +1,0 @@
-{
-  "isRecurringPayment": "#(isRecurringPayment)",
-  "isOneTimePayment": "#(isOneTimePayment)",
-  "amount": "#(amount)",
-  "paymentType": "#(paymentType)"
-}

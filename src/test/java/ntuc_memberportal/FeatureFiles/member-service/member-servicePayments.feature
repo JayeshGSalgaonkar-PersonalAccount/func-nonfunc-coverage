@@ -75,6 +75,7 @@ Feature: Member-Service (Payment)
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Payment Order-Id
     Given path 'member-service/v1/payment/<orderId>'
     When method Get
+    * print response
     Then status 200
     Then match response == read("ntuc_memberportal/resources/Response/member-servicePayOrderID.json")
     Examples:

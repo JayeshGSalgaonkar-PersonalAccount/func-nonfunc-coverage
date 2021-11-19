@@ -8,9 +8,10 @@ function fn() {
 
    var config = {}
 
-    if (env == 'preprod')
+    if (env == 'dev')
+        config.baseURL = karate.properties['baseURL'] || 'https://devma.ntuc.org.sg/api/'
+    else if(env == 'preprod')
         config.baseURL = karate.properties['baseURL'] || 'https://prema.ntuc.org.sg/api/'
-
 //By default run in dev environment
     return config;
       }
