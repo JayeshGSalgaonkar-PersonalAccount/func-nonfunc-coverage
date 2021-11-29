@@ -47,7 +47,7 @@ Feature: Member-Service (Linkpoints-Balance)
       | "ishsh@hotmail.com" |
 
 #--------------------------------------------------------------------------------------------------------------
-#   GET
+#   GET membership details from UCEM
   Scenario Outline: PRODUCT BACKLOG - 244 Validate Membership DETAILS using NRIC and DOB
     Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
     * def ArrearsinMonth = parseInt(ArrearsinMonth)

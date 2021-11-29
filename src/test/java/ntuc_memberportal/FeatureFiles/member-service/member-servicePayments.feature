@@ -36,7 +36,7 @@ Feature: Member-Service (Payment)
       | "OUTSTANDING" | "08082000" | "07072000" | "Sign_UP"   | "1000" | true             | true               | 40           | "BAD_REQUEST" | "Caught Validation Error for /payment/create-order" | "VALIDATION_ERROR" |
       | "PAY12MONTHS" | "08082000" | "07072000" | "Sign_UP"   | "1000" | true             | true               | 40           | "BAD_REQUEST" | "Caught Validation Error for /payment/create-order" | "VALIDATION_ERROR" |
 
-#   GET
+#   GET - XX
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Show-payment-option
     Given path 'member-service/v1/payment/show-payment-option'
     * string user = username
@@ -132,7 +132,7 @@ Feature: Member-Service (Payment)
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceRenewalFee.csv') |
 
-#   GET
+#   GET - XX
   Scenario Outline: PRODUCT BACKLOG ITEM - 249 - Membership Payment history
     Given path 'member-service/v1/payment/history'
     * string user = username

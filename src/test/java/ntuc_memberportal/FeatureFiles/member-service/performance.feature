@@ -5,36 +5,29 @@ Feature: Member-Service (Eligibility)
   Background:
     * url baseURL + 'member-service/v1/membership/check/active/'
     * header Accept = 'application/json'
-
-#  GET
-  Scenario Outline: Eligibility under Member-service
-    Given path '<NRIC>/<DOB>'
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
-    Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibility.csv") |
-
-  Scenario Outline: Linkpoint-Balance under Member-service
-    Given path 'member-service/v1/linkpoint/balance'
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
-    Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceLinkpoints.csv") |
-
-    #   GET
-  Scenario Outline: Verify Membership details
-    Given path 'member-service/v1/membership'
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceMemShip.json')
-    Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceProfile.csv") |
+    * def test_secret = read('classpath:Test_Secret.json')
 
 #   GET
-  Scenario Outline: Verify membership DRAFT details (with valid Token)
-    Given path 'member-service/v1/membership/draft'
+  Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
+    Given path 'member-service/v1/membership'
+    * def user = <username>
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    When method Get
+    Then status 200
+    * def expectedResponse = read("ntuc_memberportal/resources/Response/member-serviceMemShip.json")
+    * print response.content.membershipTypeCode == expectedResponse.content
+    * print response.content.nameOnCard == expectedResponse.content
+    * print response.content.status == expectedResponse.content
+    Examples:
+      | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
+
+#------------------------------------------------------------------------------------------------------------------------
+  #   GET
+  Scenario Outline: PRODUCT BACKLOG ITEM 5 - Validate Linkpoint-Balance under Member-service
+    Given path 'member-service/v1/linkpoint/balance'
     * string user = username
     * def secret = test_secret[user]
     * def setup = call read('../commonFeatures/auth.feature')
@@ -42,16 +35,37 @@ Feature: Member-Service (Eligibility)
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
+      | read("ntuc_memberportal/resources/TestData_File/member-serviceLinkpoints.csv") |
 
-  Scenario Outline: CreateOrder under Member-service
-    Given path 'member-service/v1/payment/create-order'
-    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceCreateOrder.json")
-    And request requestBody
-    When method Post
+#------------------------------------------------------------------------------------------------------------------------
+#   GET
+  Scenario Outline: PRODUCT BACKLOG 527 - Get all membership types the user can apply to.
+    Given path 'member-service/v1/membership/memberships-can-apply'
+    * string user = <username>
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    When method Get
     Then status 200
-    Then match response == read("ntuc_memberportal/resources/Response/member-serviceCreateOrder.json")
+    Then match response.content.types contains <Type>
+    Then match response.metadata.status == <status>
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceCreateOrder.csv') |
+      | Type | status    | username            |
+      | "OA" | "SUCCESS" | "ishsh@hotmail.com" |
+
+#------------------------------------------------------------------------------------------------------------------------
+#  PUT
+  Scenario Outline: PRODUCT BACKLOG 277 - Accept Terms and Condition
+    Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
+    * def membershipId = parseInt(membershipId)
+    * def agreed = Boolean(agreed)
+    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceTCAccept.json')
+    And request requestBody
+    When method Put
+    Then status 200
+    Then match response == read('ntuc_memberportal/resources/Response/member-serviceTCAccept.json')
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |

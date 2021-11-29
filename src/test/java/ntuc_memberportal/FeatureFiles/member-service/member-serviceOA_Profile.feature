@@ -28,7 +28,7 @@ Feature: OA Member-Service
       | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
 
 #--------------------------------------------------------------------------------------------------------------
-#   GET
+#   GET - XX
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details (with valid Token)
     Given path 'member-service/v1/membership/draft'
     * string user = username
@@ -37,13 +37,14 @@ Feature: OA Member-Service
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
+    * print response
     Then status 200
     Then match response.content == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#    GET
+#    GET - XX
   Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
     Given path 'member-service/v1/membership/draft/<nric>/<dob>'
     When method Get
@@ -105,7 +106,7 @@ Feature: OA Member-Service
       | "OA" | "SUCCESS" | "ishsh@hotmail.com" |
 
 #--------------------------------------------------------------------------------------------------------------
-#    GET
+#    GET - XX
   Scenario Outline: PRODUCT BACKLOG 277 - OA Membership terms-and-conditions
     Given path 'member-service/v1/membership/OA/terms-and-conditions/'
     When method Get
@@ -181,7 +182,7 @@ Feature: OA Member-Service
     Then match response.metadata.status == "SUCCESS"
     Then match response.content.membership.membershipTypeCode == "OA"
     Then match response.content.membership.status == "DRAFT"
-   * print response.content.user.email == email
+    * print response.content.user.email == email
     Then match response.content.user.race == "MY"
     Then match response.content.user.bankName == "DBS"
     Examples:
@@ -217,3 +218,41 @@ Feature: OA Member-Service
     Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceCards.csv') |
+
+#-----------------------------------------------------------------------------------------------------------------------
+##  GET - XX
+#  Scenario Outline: PRODUCT BACKLOG XX - Retrieve Membership status details i.e. Active or DRAFT status
+#    Given path 'member-service/v1/membership/has-draft-or-active-membership'
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+#    And header Authorization = 'Bearer ' + dynamicAccessToken
+#    When method Get
+#    Then status 200
+#    Then match expectedResponse == read('')
+#    Then match response.metadata.status == expectedResponse.metadata.status
+##    Then match response.content.types contains types
+#
+#    Examples:
+#      | read('') |
+#
+#
+##--------------------------------------------------------------------------------------------------------------
+##  GET - XX
+#  Scenario Outline: PRODUCT BACKLOG XX - Membership Association
+#    Given path 'member-service/v1/membership/membershipAssociation/nric/dob'
+#    * param nric = <nric>
+#    * param dob = <dob>
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+#    And header Authorization = 'Bearer ' + dynamicAccessToken
+#    When method Get
+#    Then status 200
+#    Then match expectedResponse == read('')
+#    Then match response.metadata.status == expectedResponse.metadata.status
+##    Then match response.content.types contains types
+#    Examples:
+#      | read('') |
