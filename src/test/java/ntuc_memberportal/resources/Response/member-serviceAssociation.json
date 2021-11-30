@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "email": [
+      "#(email)"
+    ],
+    "phone": [
+      "#(phone)"
+    ]
+  }
+}

@@ -1,2 +1,2 @@
-"username","membershipTypeCode",deletedDttm,"lastPaidDate","modifiedDttm","unionCode","createdDttm","nameOnCard","unionName","optInNebo","relationship","startDate","status"
- "ishsh@hotmail.com","OA" ,null,null,null,null,null, "sdfgyhjhg" ,null,false,null,null, "DRAFT"
+"username","vcCardNo","id","createdDttm","modifiedDttm","membershipTypeCode","optInNebo","status","unionCode","unionName","nameOnCard"
+"sha@yahoo.com","",2,"2021-11-29T06:23:16.282Z","2021-11-29T06:23:16.282Z","OA",true,"DRAFT","string","string","string"

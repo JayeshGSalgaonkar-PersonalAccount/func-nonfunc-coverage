@@ -5,7 +5,6 @@ Feature: TestFeature
     * url 'http://localhost:9000'
 #-------------------------------------------------
 
-
   Scenario: Test 1
     Given path '/v1/cats/1'
     When method get

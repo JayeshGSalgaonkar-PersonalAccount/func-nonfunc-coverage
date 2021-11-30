@@ -9,7 +9,6 @@
         "createdDttm": "#ignore",
         "membershipTypeCode": "#(membershipTypeCode)",
         "modifiedDttm": "#ignore",
-        "optInNebo": "#(optInNebo)",
         "status": "#(status)",
         "unionCode": "#(unionCode)",
         "unionName": "#(unionName)",

@@ -48,7 +48,7 @@ Feature: Member-Service (Linkpoints-Balance)
 
 #--------------------------------------------------------------------------------------------------------------
 #   GET membership details from UCEM
-  Scenario Outline: PRODUCT BACKLOG - 244 Validate Membership DETAILS using NRIC and DOB
+  Scenario Outline: PRODUCT BACKLOG - 1215 Validate Membership DETAILS using NRIC and DOB
     Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
     * def ArrearsinMonth = parseInt(ArrearsinMonth)
     * def ArrearsAmount = parseInt(ArrearsAmount)
@@ -65,6 +65,25 @@ Feature: Member-Service (Linkpoints-Balance)
       | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
+# PATCH - XX Failing defect 1525 XX
+  Scenario Outline: PRODUCT BACKLOG ITEM XXXXX
+    Given path 'member-service/v1/member/contact'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceUCEMContact.json')
+    And request requestBody
+    When method Patch
+    Then status 200
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceUCEMContact.json')
+#    Then match response.metadata.status == expectedResponse.metadata.status
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceUCEMContact.csv') |
+
+#--------------------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG - NEGATIVE TEST
     Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
@@ -73,7 +92,8 @@ Feature: Member-Service (Linkpoints-Balance)
     Then match response.metadata.status == <status>
     Then match response.content.errorCode == <errorCode>
     Then match response.content.errorDescription  == <errorDescription>
-
     Examples:
       | NRIC | DOB      | status        | errorCode          | errorDescription   |
       | @#E# | 01011990 | "BAD_REQUEST" | "VALIDATION_ERROR" | "Invalid NRIC/FIN" |
+
+#--------------------------------------------------------------------------------------------------------------

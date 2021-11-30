@@ -55,7 +55,7 @@
             <groupId>net.masterthought</groupId>
             <artifactId>maven-cucumber-reporting</artifactId>
             <version>5.5.4</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
 
         <dependency>
@@ -135,7 +135,7 @@
                         </goals>
                         <configuration>
                             <projectName>nmp</projectName>
-                            <outputDirectory>target/surefire-reports</outputDirectory>
+                            <outputDirectory>target/surefire-reports/cucumberReport</outputDirectory>
                             <jsonFiles>
                                 <jsonFile>**/**.json</jsonFile>
                             </jsonFiles>
