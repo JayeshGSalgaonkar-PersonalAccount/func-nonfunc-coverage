@@ -3,14 +3,14 @@ Feature: Member-Service (Eligibility)
   This feature will test HTTP methods for Eligibility API under Member-service microservice.
 
   Background:
-    * url baseURL + 'member-service/v1/membership/check/active/'
+    * url baseURL
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
     Given path 'member-service/v1/membership'
-    * def user = <username>
+    * def user = username
     * def secret = test_secret[user]
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
@@ -53,19 +53,7 @@ Feature: Member-Service (Eligibility)
     Then match response.content.types contains <Type>
     Then match response.metadata.status == <status>
     Examples:
-      | Type | status    | username            |
-      | "OA" | "SUCCESS" | "ishsh@hotmail.com" |
+      | Type | status    | username        |
+      | "OA" | "SUCCESS" | "sha@yahoo.com" |
 
 #------------------------------------------------------------------------------------------------------------------------
-#  PUT
-  Scenario Outline: PRODUCT BACKLOG 277 - Accept Terms and Condition
-    Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
-    * def membershipId = parseInt(membershipId)
-    * def agreed = Boolean(agreed)
-    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceTCAccept.json')
-    And request requestBody
-    When method Put
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceTCAccept.json')
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
