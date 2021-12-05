@@ -55,7 +55,7 @@ Feature: Member-Service (Linkpoints-Balance)
     When method Get
     Then status 200
     * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
-    Then match response.metadata.status == "SUCCESS"
+    Then match response.metadata.status == expected.metadata.status
 #    Then match response.content[0].ArrearsinMonth == expected.content[0].ArrearsinMonth
 #    Then match response.content[0].BranchName == expected.content[0].BranchName
 #    Then match response.content[0].ArrearsAmount == expected.content[0].ArrearsAmount

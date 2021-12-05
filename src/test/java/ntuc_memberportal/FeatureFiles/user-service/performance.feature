@@ -56,23 +56,23 @@ Feature: User-service
 #      | read("ntuc_memberportal/resources/TestData_File/user-servicePreference.csv") |
 
 #------------------------------------------------------------------------------------------------------------
-#    GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 11 - Validate User service for Preference
-    Given path 'user-service/v1/user/preferences/'
-    * string user = username
-    * def deals = Boolean(deals)
-    * def marketing = Boolean(marketing)
-    * def news = Boolean(news)
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
-    And header Authorization = 'Bearer ' + dynamicAccessToken
-    When method Get
-    Then status 200
-    * def expectedResult = read('ntuc_memberportal/resources/Response/user-servicePref.json')
-    Then match response.metadata.status == expectedResult.metadata.status
-#    Then match response.content[0].type == expectedResponse.content[0].type
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-servicePref.csv') |
+##    GET
+#  Scenario Outline: PRODUCT BACKLOG ITEM 11 - Validate User service for Preference
+#    Given path 'user-service/v1/user/preferences/'
+#    * string user = username
+#    * def deals = Boolean(deals)
+#    * def marketing = Boolean(marketing)
+#    * def news = Boolean(news)
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+#    And header Authorization = 'Bearer ' + dynamicAccessToken
+#    When method Get
+#    Then status 200
+#    * def expectedResult = read('ntuc_memberportal/resources/Response/user-servicePref.json')
+#    Then match response.metadata.status == expectedResult.metadata.status
+##    Then match response.content[0].type == expectedResponse.content[0].type
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/user-servicePref.csv') |
 
 #------------------------------------------------------------------------------------------------------------

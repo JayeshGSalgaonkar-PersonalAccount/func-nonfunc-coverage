@@ -1,4 +1,7 @@
 {
+  "metadata": {
+    "status": "#(status)"
+  },
   "content": [
     {
       "AllowECard": "#boolean",

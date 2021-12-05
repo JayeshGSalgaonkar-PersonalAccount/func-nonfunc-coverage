@@ -4,23 +4,26 @@ import scala.language.postfixOps
 import io.gatling.core.Predef._
 import com.intuit.karate.gatling.PreDef._
 import io.gatling.core.structure.ScenarioBuilder
+import org.apache.maven.wagon.PathUtils
+
 import scala.concurrent.duration._
 
 
 class LoadSimulation extends Simulation {
 
-  val user_Service: ScenarioBuilder = scenario("user-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/user-service/performance.feature"))
+//  val user_Service: ScenarioBuilder = scenario("user-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/user-service/performance.feature"))
   val member_Service: ScenarioBuilder = scenario("member-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/member-service/performance.feature"))
-  val deal_Service: ScenarioBuilder = scenario("deal-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/deal-service/performance.feature"))
-  val notification_Service: ScenarioBuilder = scenario("notification-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/notification-service/performance.feature"))
-  val payment_Service: ScenarioBuilder = scenario("payment-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/payment-service/performance.feature"))
+//  val deal_Service: ScenarioBuilder = scenario("deal-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/deal-service/performance.feature"))
+//  val notification_Service: ScenarioBuilder = scenario("notification-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/notification-service/performance.feature"))
+//  val payment_Service: ScenarioBuilder = scenario("payment-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/payment-service/performance.feature"))
 
   setUp(
-    user_Service.inject(constantUsersPerSec(20) during (10)),
-    member_Service.inject(constantUsersPerSec(10) during (10)),
-    deal_Service.inject(constantUsersPerSec(10) during (10)),
-    notification_Service.inject(constantUsersPerSec(10) during (10)),
-    payment_Service.inject(constantUsersPerSec(10) during (10))
+//    user_Service.inject(constantUsersPerSec(20) during (10)),
+    member_Service.inject(constantUsersPerSec(50) during (30 seconds))
+//    member_Service.inject(rampUsers(500) during (30 seconds))
+//    deal_Service.inject(constantUsersPerSec(10) during (10)),
+//    notification_Service.inject(constantUsersPerSec(10) during (10)),
+//    payment_Service.inject(constantUsersPerSec(10) during (10))
   )
 }
 

@@ -5,55 +5,31 @@ Feature: Member-Service (Eligibility)
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def test_secret = read('classpath:Test_Secret.json')
 
-#   GET
-  Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
-    Given path 'member-service/v1/membership'
-    * def user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
-    And header Authorization = 'Bearer ' + dynamicAccessToken
+#---------------------------------------------------------------------------------------------------------------------
+#    GET
+  Scenario Outline: PRODUCT BACKLOG - Membership Details
+    Given path 'member-service/v1/membership/details/<nric>/<dob>'
     When method Get
     Then status 200
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/member-serviceMemShip.json")
-    * print response.content.membershipTypeCode == expectedResponse.content
-    * print response.content.nameOnCard == expectedResponse.content
-    * print response.content.status == expectedResponse.content
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
+      | read('ntuc_memberportal/resources/TestData_File/member-service_Performance.csv') |
 
-#------------------------------------------------------------------------------------------------------------------------
-  #   GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 5 - Validate Linkpoint-Balance under Member-service
-    Given path 'member-service/v1/linkpoint/balance'
-    * string user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
-    And header Authorization = 'Bearer ' + dynamicAccessToken
+#---------------------------------------------------------------------------------------------------------------------
+#  GET
+  Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method for Eligibility under Member-service
+    Given path 'member-service/v1/membership/check/active/<nric>/<dob>'
     When method Get
     Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceLinkpoints.csv") |
+      | read('ntuc_memberportal/resources/TestData_File/member-service_Performance.csv') |
 
-#------------------------------------------------------------------------------------------------------------------------
-#   GET
-  Scenario Outline: PRODUCT BACKLOG 527 - Get all membership types the user can apply to.
-    Given path 'member-service/v1/membership/memberships-can-apply'
-    * string user = <username>
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
-    And header Authorization = 'Bearer ' + dynamicAccessToken
-    When method Get
-    Then status 200
-    Then match response.content.types contains <Type>
-    Then match response.metadata.status == <status>
-    Examples:
-      | Type | status    | username        |
-      | "OA" | "SUCCESS" | "sha@yahoo.com" |
 
-#------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+

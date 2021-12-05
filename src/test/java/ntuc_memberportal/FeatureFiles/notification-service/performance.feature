@@ -26,15 +26,6 @@ Feature: Notification-service
     Then status 200
     * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')
     Then match response.metadata.status == expectedResponse.metadata.status
-    Then match response.content[0].notification.templateName == expectedResponse.content[0].notification.templateName
-    Then match response.content[0].notification.title == expectedResponse.content[0].notification.title
-    Then match response.content[0].notification.state == expectedResponse.content[0].notification.state
-    Then match response.content[0].notification.message == expectedResponse.content[0].notification.message
-    Then match response.content[0].notification.type == expectedResponse.content[0].notification.type
-    Then match response.content[0].notification.shownIn == expectedResponse.content[0].notification.shownIn
-    Then match response.content[0].isRead == expectedResponse.content[0].isRead
-    Then match response.content[0].userId == expectedResponse.content[0].userId
-    Then match response.content[0].notificationSent == expectedResponse.content[0].notificationSent
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
 
@@ -52,7 +43,6 @@ Feature: Notification-service
     When method Post
     Then status 200
     Then match response.metadata.status == "SUCCESS"
-    Then match response.content contains "done"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceDevice.csv') |
 
@@ -68,13 +58,11 @@ Feature: Notification-service
     * print response
     Then status 200
     Then match response.metadata.status == "SUCCESS"
-    Then match response.content == "done"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #  POST
-
   Scenario Outline: PRODUCT BACKLOG ITEM XX - POST request for notification-service (With Token)
     Given path 'notification-service/v1/user-notification'
     * def count = parseInt(count)
@@ -89,7 +77,7 @@ Feature: Notification-service
     * print response
     Then status 200
     Then match response.metadata.status == "SUCCESS"
-    Then match response.content.count contains count
+
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
 
@@ -110,14 +98,5 @@ Feature: Notification-service
     Then status 200
     * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetNotifID.json')
     Then match response.metadata.status == expectedResponse.metadata.status
-    Then match response.content.notification.templateName == expectedResponse.content.notification.templateName
-    Then match response.content.notification.title == expectedResponse.content.notification.title
-    Then match response.content.notification.state == expectedResponse.content.notification.state
-    Then match response.content.notification.message == expectedResponse.content.notification.message
-    Then match response.content.notification.type == expectedResponse.content.notification.type
-    Then match response.content.notification.shownIn == expectedResponse.content.notification.shownIn
-    Then match response.content.isRead == expectedResponse.content.isRead
-    Then match response.content.userId == expectedResponse.content.userId
-    Then match response.content.notificationSent == expectedResponse.content.notificationSent
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetNotifID.csv') |

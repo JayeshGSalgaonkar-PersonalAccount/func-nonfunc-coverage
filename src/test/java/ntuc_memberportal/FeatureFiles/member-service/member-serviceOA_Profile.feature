@@ -86,8 +86,6 @@ Feature: OA Member-Service
     Then match response.content.membership[0].membershipTypeCode == expectedResponse.content.membership[0].membershipTypeCode
     Then match response.content.user.monthlyGrossSalary == expectedResponse.content.user.monthlyGrossSalary
     Then match response.content.user.occupation == expectedResponse.content.user.occupation
-#    Then match response.content.user.address.buildingName == expectedResponse.content.user.address.buildingName
-
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-serviceDraft2.csv") |
 
