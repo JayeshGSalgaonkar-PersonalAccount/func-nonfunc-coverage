@@ -14,7 +14,10 @@ Feature: User-service
     Given path 'user-service/v1/user/static-data'
     When method Get
     Then status 200
-    Then match response == read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
+#    * print response
+    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response == expectedResponse
 
 #----------------------------------------------------------------------------------------------------------------
 #   GET
@@ -45,20 +48,23 @@ Feature: User-service
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
     Given path 'user-service/v1/user'
-    # This scenario will always has static token with static SCID, as we need a SCID which is already present inside the DB for this query to run
-    And header Authorization = 'Bearer ' + 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFUazVRVUV6TWpFME5EVkZNRFJFTVRRMk16WkRRVVF6UWtReFEwWXdRa1UyUkVRNFFUbEJPQSJ9.eyJodHRwczovL2NsYWltcy5pZGVudGl0eS5uZWRpZ2l0YWwuc2cvdWlkIjoiMTAxMzI1NzcxNjEwNDQ2MzkxIiwiaXNzIjoiaHR0cHM6Ly9wcmVwcm9kLWF1dGgubnR1Y2xpbmsuY29tLnNnLyIsInN1YiI6ImF1dGgwfDYxNmZkOWViNzU1NWVkMTU1MDRlYjc5ZSIsImF1ZCI6WyJodHRwczovL2FwaS5udHVjbXAub3JnLnNnIiwiaHR0cHM6Ly9wcmVwcm9kLW5lLWlkLm5lZGlnaXRhbC5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjM1MzE0Njc4LCJleHAiOjE2MzUzMjkwNzgsImF6cCI6IjcxelhtckF2cm5RREROQ0FoaDQxN0FnRndxSW04Z0RPIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBzY2lkOnJlYWQ6cHJvZmlsZSBzY2lkOnVwZGF0ZTpwcm9maWxlIHNjaWQ6dXBkYXRlOnByZWZlcmVuY2VzIHNjaWQ6dmVyaWZ5Om15aW5mbyBzY2lkOnVwZGF0ZTphY2NvdW50X3NlY3VyaXR5IG9mZmxpbmVfYWNjZXNzIiwiZ3R5IjoicGFzc3dvcmQifQ.HQ2S9E_HCTbdzLkYjGIgRE2ioG2t5xOfiFaiKNzI_g3s-aorVW57PiGY6xPcnseEG5ffMfZbZCfaMPRTRq1MaNgyF5UOr_MEIj2mx4jgYlnQ3YbmFVRn0QOszc6EQhRKUOvwYVZBjXwsdySzXdLc655zgoQbPqZ8byztel3mzGPY3v67w8ByB3qUpSK5SJCDhnUgs6he9UfFc31OCsUcs-vE1Q-w10eAaxhxnhMQBCJoRs75q7Jg5qj_K7l7spBqsx-TrVPe-I0ItpqNSTbMqI9vhu7HpJSJ0RTZWRJtNe-dvN4Q4XRTyZQITHuVt4A-LoUaAY5sUUk_0IKL6yx9wg'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
-    * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
+    * def expectedResponse = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
     And request requestBody
     When method Post
     * print response
     Then status 200
-    Then match response.content.monthlyGrossSalary == requestBody.monthlyGrossSalary
-    Then match response.content.name == requestBody.name
-    Then match response.content.dob == requestBody.dob
-    Then match response.content.gender == requestBody.gender
-    Then match response.content.mobileNumber == requestBody.mobileNumber
-    Then match response.content.email == requestBody.email
+    Then match response.content.monthlyGrossSalary == expectedResponse.monthlyGrossSalary
+    Then match response.content.name == expectedResponse.name
+    Then match response.content.dob == expectedResponse.dob
+    Then match response.content.gender == expectedResponse.gender
+    Then match response.content.mobileNumber == expectedResponse.mobileNumber
+    Then match response.content.email == expectedResponse.email
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
 

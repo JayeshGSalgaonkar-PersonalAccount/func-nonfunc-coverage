@@ -11,7 +11,7 @@ Feature: OA Member-Service
 
 #------------------------------------------------------------------------------------------------------------
 #   GET
-  Scenario Outline: PRODUCT BACKLOG - 244 GET method to verify membership details
+  Scenario Outline: PRODUCT BACKLOG - 142 GET method to verify membership details
     Given path 'member-service/v1/membership'
     * def user = username
     * def secret = test_secret[user]
@@ -126,7 +126,7 @@ Feature: OA Member-Service
 
 #--------------------------------------------------------------------------------------------------------------
 #   GET
-  Scenario Outline: PRODUCT BACKLOG 527 - Get all membership types the user can apply to.
+  Scenario Outline: PRODUCT BACKLOG 530 - Get all membership types the user can apply to.
     Given path 'member-service/v1/membership/memberships-can-apply'
     * string user = <username>
     * def secret = test_secret[user]
@@ -143,7 +143,7 @@ Feature: OA Member-Service
 
 #--------------------------------------------------------------------------------------------------------------
 #    GET - XX
-  Scenario Outline: PRODUCT BACKLOG 277 - OA Membership terms-and-conditions
+  Scenario Outline: PRODUCT BACKLOG 299 - OA Membership terms-and-conditions
     Given path 'member-service/v1/membership/OA/terms-and-conditions/'
     When method Get
     Then status 200
@@ -158,7 +158,7 @@ Feature: OA Member-Service
 
 #--------------------------------------------------------------------------------------------------------------
 #    GET
-  Scenario Outline: PRODUCT BACKLOG 277 - NEGATIVE TEST
+  Scenario Outline: PRODUCT BACKLOG 299 - NEGATIVE TEST
     Given path 'member-service/v1/membership/<type>/terms-and-conditions/'
     When method Get
     Then status 400
@@ -171,7 +171,7 @@ Feature: OA Member-Service
 
 #--------------------------------------------------------------------------------------------------------------
 #   PUT
-  Scenario Outline: PRODUCT BACKLOG 277 - Accept Terms and Condition
+  Scenario Outline: PRODUCT BACKLOG 299 - Accept Terms and Condition
     Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
     * def membershipId = parseInt(membershipId)
     * def agreed = Boolean(agreed)
@@ -241,7 +241,7 @@ Feature: OA Member-Service
 
 #--------------------------------------------------------------------------------------------------------------
 #  GET -1
-  Scenario Outline: PRODUCT BACKLOG 88 - Retrieve all cards by user Id.
+  Scenario Outline: PRODUCT BACKLOG 16 - Retrieve all cards by user Id.
     Given path 'member-service/v1/membership/cards'
     * string user = username
     * def uLive = Boolean(uLive)
@@ -276,7 +276,7 @@ Feature: OA Member-Service
 #
 ##--------------------------------------------------------------------------------------------------------------
 #  GET
-  Scenario Outline: PRODUCT BACKLOG XX - Membership Association
+  Scenario Outline: PRODUCT BACKLOG 143 - Membership Association
     Given path 'member-service/v1/membership/membershipAssociation'
     * param last4Nric = last4Nric
     * param dob = dob

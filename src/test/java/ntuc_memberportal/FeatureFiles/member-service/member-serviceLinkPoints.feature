@@ -66,7 +66,7 @@ Feature: Member-Service (Linkpoints-Balance)
 
 #--------------------------------------------------------------------------------------------------------------
 # PATCH - XX Failing defect 1525 XX
-  Scenario Outline: PRODUCT BACKLOG ITEM XXXXX
+  Scenario Outline: PRODUCT BACKLOG ITEM 849
     Given path 'member-service/v1/member/contact'
     * string user = username
     * def secret = test_secret[user]
@@ -85,7 +85,7 @@ Feature: Member-Service (Linkpoints-Balance)
 
 #--------------------------------------------------------------------------------------------------------------
 #  GET
-  Scenario Outline: PRODUCT BACKLOG - NEGATIVE TEST
+  Scenario Outline: PRODUCT BACKLOG 1215- NEGATIVE TEST
     Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
     When method Get
     Then status 400

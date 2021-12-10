@@ -37,7 +37,7 @@ Feature: Member-Service (Payment)
       | "PAY12MONTHS" | "08082000" | "07072000" | "Sign_UP"   | "1000" | true             | true               | 40           | "BAD_REQUEST" | "Caught Validation Error for /payment/create-order" | "VALIDATION_ERROR" |
 
 #   GET - XX
-  Scenario Outline: PRODUCT BACKLOG ITEM 88 - Validate GET method for Show-payment-option
+  Scenario Outline: PRODUCT BACKLOG ITEM 350 - Validate GET method for Show-payment-option
     Given path 'member-service/v1/payment/show-payment-option'
     * string user = username
     * def secret = test_secret[user]
@@ -52,7 +52,7 @@ Feature: Member-Service (Payment)
 
 
 #    GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 88 - NEGATIVE TEST
+  Scenario Outline: PRODUCT BACKLOG ITEM 350- NEGATIVE TEST
     Given path 'member-service/v1/payment/show-payment-option'
     * string user = <username>
     * def secret = test_secret[user]

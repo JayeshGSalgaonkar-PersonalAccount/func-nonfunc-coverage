@@ -11,7 +11,7 @@ Feature: Member-Service (Eligibility)
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 #  GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method for Eligibility under Member-service
+  Scenario Outline: PRODUCT BACKLOG ITEM 415 - Validate GET method for Eligibility under Member-service
     Given path 'member-service/v1/membership/check/active/<NRIC>/<DOB>'
     When method Get
     * def PaymentArrearMonths = parseInt(PaymentArrearMonths)
@@ -31,7 +31,7 @@ Feature: Member-Service (Eligibility)
 
 #-----------------------------------------------------------------------------------------------------------------------
 #  GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 101 - NEGATIVE TEST
+  Scenario Outline: PRODUCT BACKLOG ITEM 415 - NEGATIVE TEST
     Given path 'member-service/v1/membership/check/active/<NRIC>/<DOB>'
     When method Get
     Then status 500
@@ -44,7 +44,7 @@ Feature: Member-Service (Eligibility)
 
 #-----------------------------------------------------------------------------------------------------------------------
 #   GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 372 - Validate GET method for Occupation-Group Eligibility under Member-service
+  Scenario Outline: PRODUCT BACKLOG ITEM 415 - Validate GET method for Occupation-Group Eligibility under Member-service
     Given path 'member-service/v1/membership/check/eligibility/<NRIC>'
     * def Checkelig = Boolean(Checkelig)
     When method Get

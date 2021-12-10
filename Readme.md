@@ -34,8 +34,8 @@
     - @payment-service
     - @all --> to run all microservices
 
-**url** example -> docker run -it -e mcr=@member-service -e url='https://devma.ntuc.org.sg/api/' nmp-tests
 
+**url** example -> docker run -it -e mcr=@member-service -e url='https://devma.ntuc.org.sg/api/' nmp-tests
 # Reporting
 * Default karate-report -> /src/target/surefire-reports/karate-summary.html
 * Custom report -> /src/target/surefire-reports/cucumber-html-reports/overview-tags.html
