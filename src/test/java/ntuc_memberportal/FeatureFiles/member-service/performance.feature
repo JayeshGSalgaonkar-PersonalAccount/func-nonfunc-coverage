@@ -1,9 +1,11 @@
 Feature: Member-Service (Eligibility)
 
   This feature will test HTTP methods for Eligibility API under Member-service microservice.
+
   Background:
     * url baseURL
     * header Accept = 'application/json'
+    * def test_secret = read('classpath:Test_Secret.json')
 
 #---------------------------------------------------------------------------------------------------------------------
 #    GET
@@ -39,16 +41,45 @@ Feature: Member-Service (Eligibility)
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/member-service_Performance.csv") |
 #---------------------------------------------------------------------------------------------------------------------
-#   POST
-  Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service
-    Given path 'member-service/v1/membership/open/oa'
-    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
-    And request requestBody
-    * def email = '<email>'
-    When method Post
+#  GET
+  Scenario Outline: PRODUCT BACKLOG - 142 GET method to verify membership details
+    Given path 'member-service/v1/membership'
+    * def user = username
+    * def token = authToken
+#    * print token
+    And header Authorization = 'Bearer ' + token
+    When method Get
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
+      | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
 
+#---------------------------------------------------------------------------------------------------------------------
+## GET
+#  Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
+#    Given path 'member-service/v1/membership/draft'
+#    * def user = username
+#    * def token = authToken
+#    And header Authorization = 'Bearer ' + token
+#    When method Get
+#    Then status 200
+#    * match response.metadata.status == "SUCCESS"
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
+
+#---------------------------------------------------------------------------------------------------------------------
+#   GET
+  Scenario Outline: PRODUCT BACKLOG - 1215 Validate Membership DETAILS using NRIC and DOB
+    Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
+    * def ArrearsinMonth = parseInt(ArrearsinMonth)
+    * def ArrearsAmount = parseInt(ArrearsAmount)
+    * def EducationalLevel = parseInt(EducationalLevel)
+    * def MaritalStatus = parseInt(MaritalStatus)
+    When method Get
+    Then status 200
+    * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+    Then match response.metadata.status == expected.metadata.status
+
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
 #---------------------------------------------------------------------------------------------------------------------

@@ -4,7 +4,7 @@
   },
   "content": [
     {
-      "AllowECard": "#boolean",
+      "AllowECard": "#(boolean)",
       "ApplicationSourceCode": "#(ApplicationSourceCode)",
       "ApplicationSourceName": "#(ApplicationSourceName)",
       "ApplicationStatusCode": "#(ApplicationStatusCode)",

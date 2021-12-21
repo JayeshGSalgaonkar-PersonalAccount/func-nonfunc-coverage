@@ -139,7 +139,7 @@ Feature: OA Member-Service
     Then match response.metadata.status == <status>
     Examples:
       | Type | status    | username            |
-      | "OA" | "SUCCESS" | "sha@yahoo.com" |
+      | "OA" | "SUCCESS" | "ishsh@hotmail.com" |
 
 #--------------------------------------------------------------------------------------------------------------
 #    GET - XX

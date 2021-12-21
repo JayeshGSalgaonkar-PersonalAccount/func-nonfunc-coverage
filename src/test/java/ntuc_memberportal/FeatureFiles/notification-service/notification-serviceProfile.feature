@@ -54,8 +54,14 @@ Feature: Notification-service
     * def id = parseInt(id)
     When method Get
     Then status 200
+    * print response
     * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceOpenUser.json')
-    Then match response == expectedResponse
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response.content[0].templateName == expectedResponse.content[0].templateName
+    Then match response.content[0].type == expectedResponse.content[0].type
+    Then match response.content[0].title == expectedResponse.content[0].title
+    Then match response.content[0].message == expectedResponse.content[0].message
+    Then match response.content[0].state == expectedResponse.content[0].state
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceOpenUser.csv') |
 

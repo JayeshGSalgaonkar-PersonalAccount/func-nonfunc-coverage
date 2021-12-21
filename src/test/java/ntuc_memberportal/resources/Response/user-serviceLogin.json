@@ -3,6 +3,7 @@
     "status": "#(status)"
   },
   "content": {
-    "message": "#(message)"
+    "firstTimeLogin": "#(firstTimeLogin)",
+    "isTemporary": "#(isTemporary)"
   }
 }

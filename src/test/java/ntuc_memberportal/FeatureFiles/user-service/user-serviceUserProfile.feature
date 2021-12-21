@@ -9,40 +9,22 @@ Feature: User-service
     * def test_secret = read('classpath:Test_Secret.json')
 
 #----------------------------------------------------------------------------------------------------------------
-#  GET
-  Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
-    Given path 'user-service/v1/user/static-data'
-    When method Get
-    Then status 200
-#    * print response
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
-    Then match response.metadata.status == expectedResponse.metadata.status
-    Then match response == expectedResponse
-
-#----------------------------------------------------------------------------------------------------------------
-#   GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 417 - Verify user GET method via SCID
-    Given path 'user-service/v1/user/userId/<scid>'
-    * def id = parseInt(id)
-    When method Get
-    Then status 200
+# POST
+  Scenario Outline: PRODUCT BACKLOG ITEM 299 - User Login
+    Given path 'user-service/v1/login'
+    * def user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def requestBody = ""
+    And request requestBody
+    When method Post
     And print response
-    And match response == read("ntuc_memberportal/resources/Response/user-serviceSCID.json")
-    Examples:
-      | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
+    Then status 200
 
-#----------------------------------------------------------------------------------------------------------------
-#   GET
-  Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST
-    Given path 'user-service/v1/user/userId/<SCID>'
-    When method Get
-    Then status 400
-    Then match $.metadata.status == <expected_status>
-    And match $.content.errorDescription == <expected_errorDescription>
-    And match $.content.errorCode == <expected_errorCode>
     Examples:
-      | SCID | expected_status  | expected_errorCode | expected_errorDescription |
-      | 1    | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found"  |
+      | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
 #   POST
@@ -128,6 +110,18 @@ Feature: User-service
       | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
+
+#  GET
+  Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
+    Given path 'user-service/v1/user/static-data'
+    When method Get
+    Then status 200
+    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response == expectedResponse
+
+#----------------------------------------------------------------------------------------------------------------
+
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE Tests
     Given path 'user-service/v1/user'
@@ -148,21 +142,28 @@ Feature: User-service
       | "BAD_REQUEST" | "Caught Validation Error for /user" | "VALIDATION_ERROR" | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
 
 #----------------------------------------------------------------------------------------------------------------
-#  POST
-  Scenario Outline: PRODUCT BACKLOG ITEM 299 - User Login
-    Given path 'user-service/v1/user/login'
-    * def user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
-    And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = ""
-    And request requestBody
-    When method Post
-    And print response
+#   GET
+  Scenario Outline: PRODUCT BACKLOG ITEM 417 - Verify user GET method via SCID
+    Given path 'user-service/v1/user/userId/<scid>'
+    * def id = parseInt(id)
+    When method Get
     Then status 200
-    And match response == read("ntuc_memberportal/resources/Response/user-serviceLogin.json")
+    And print response
+    And match response == read("ntuc_memberportal/resources/Response/user-serviceSCID.json")
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
+      | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
+
+#----------------------------------------------------------------------------------------------------------------
+#   GET
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST
+    Given path 'user-service/v1/user/userId/<SCID>'
+    When method Get
+    Then status 400
+    Then match $.metadata.status == <expected_status>
+    And match $.content.errorDescription == <expected_errorDescription>
+    And match $.content.errorCode == <expected_errorCode>
+    Examples:
+      | SCID | expected_status  | expected_errorCode | expected_errorDescription |
+      | 1    | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "No matching user found"  |
 
 #----------------------------------------------------------------------------------------------------------------

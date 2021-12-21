@@ -9,6 +9,7 @@ Feature: NFM Member-Service
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
 
+#-----------------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 142 - NFM With Auth Token
     Given path 'member-service/v1/membership/nfm/main'
@@ -24,8 +25,9 @@ Feature: NFM Member-Service
     Then match response.metadata.status == <status>
     Examples:
       | mainMembership | status    | username        |
-      | false          | "SUCCESS" | "sha@yahoo.com" |
+      | false          | "SUCCESS" | "ishsh@hotmail.com" |
 
+#-----------------------------------------------------------------------------------------------------------------------
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 142 - NFM WithOut Auth Token
     Given path 'member-service/v1/membership/nfm/main'
@@ -37,3 +39,5 @@ Feature: NFM Member-Service
     Examples:
       | errorCode         | errorDescription     | status            |
       | "UNAUTHENTICATED" | "No Token provided." | "UNAUTHENTICATED" |
+
+#-----------------------------------------------------------------------------------------------------------------------

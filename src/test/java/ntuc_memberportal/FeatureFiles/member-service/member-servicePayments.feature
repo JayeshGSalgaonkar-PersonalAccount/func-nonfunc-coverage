@@ -9,6 +9,7 @@ Feature: Member-Service (Payment)
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
 
+#----------------------------------------------------------------------------------------------------------------
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 244 - Validate POST method for CreateOrder under Member-service
     Given path 'member-service/v1/payment/create-order'
@@ -20,6 +21,7 @@ Feature: Member-Service (Payment)
     Then match response == read("ntuc_memberportal/resources/Response/member-serviceCreateOrder.json")
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceCreateOrder.csv') |
+#----------------------------------------------------------------------------------------------------------------
 
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 244 - NEGATIVE Tests
@@ -35,7 +37,7 @@ Feature: Member-Service (Payment)
       | feeType       | endDate    | startDate  | serviceType | amount | isOneTimePayment | isRecurringPayment | membershipId | status        | errorDescription                                    | errorCode          |
       | "OUTSTANDING" | "08082000" | "07072000" | "Sign_UP"   | "1000" | true             | true               | 40           | "BAD_REQUEST" | "Caught Validation Error for /payment/create-order" | "VALIDATION_ERROR" |
       | "PAY12MONTHS" | "08082000" | "07072000" | "Sign_UP"   | "1000" | true             | true               | 40           | "BAD_REQUEST" | "Caught Validation Error for /payment/create-order" | "VALIDATION_ERROR" |
-
+#----------------------------------------------------------------------------------------------------------------
 #   GET - XX
   Scenario Outline: PRODUCT BACKLOG ITEM 350 - Validate GET method for Show-payment-option
     Given path 'member-service/v1/payment/show-payment-option'
@@ -50,6 +52,7 @@ Feature: Member-Service (Payment)
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceShowPayOtions.csv') |
 
+#----------------------------------------------------------------------------------------------------------------
 
 #    GET
   Scenario Outline: PRODUCT BACKLOG ITEM 350- NEGATIVE TEST
@@ -80,6 +83,7 @@ Feature: Member-Service (Payment)
     Then match response == read("ntuc_memberportal/resources/Response/member-servicePayOrderID.json")
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-servicePayOrderId.csv') |
+#----------------------------------------------------------------------------------------------------------------
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 88 - NEGATIVE Tests
@@ -92,6 +96,7 @@ Feature: Member-Service (Payment)
     Examples:
       | orderId | status             | errorDescription                                        | errorCode          |
       | 5       | "RECORD_NOT_FOUND" | "Error fetching order by order id 5. Record not found." | "RECORD_NOT_FOUND" |
+#----------------------------------------------------------------------------------------------------------------
 
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM - 244 OA membership Sign-up fee
@@ -132,6 +137,8 @@ Feature: Member-Service (Payment)
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceRenewalFee.csv') |
 
+#----------------------------------------------------------------------------------------------------------------
+
 #   GET - XX
   Scenario Outline: PRODUCT BACKLOG ITEM - 249 - Membership Payment history
     Given path 'member-service/v1/payment/history'
@@ -145,4 +152,5 @@ Feature: Member-Service (Payment)
     Then match response == read('ntuc_memberportal/resources/Response/member-servicePayHistory.json')
     Examples:
       | read('ntuc_memberportal/resources/Response/member-servicePayHistory.json') |
+#----------------------------------------------------------------------------------------------------------------
 

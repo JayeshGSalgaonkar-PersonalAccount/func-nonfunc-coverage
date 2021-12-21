@@ -1,12 +1,10 @@
 package ntuc_memberportal
 
-import scala.language.postfixOps
-import io.gatling.core.Predef._
 import com.intuit.karate.gatling.PreDef._
+import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
-import org.apache.maven.wagon.PathUtils
 
-import scala.concurrent.duration._
+import scala.language.postfixOps
 
 class LoadSimulation extends Simulation {
 
@@ -17,8 +15,8 @@ class LoadSimulation extends Simulation {
   //  val payment_Service: ScenarioBuilder = scenario("payment-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/payment-service/performance.feature"))
 
   setUp(
-    user_Service.inject(constantUsersPerSec(10) during (300 seconds)),
-    member_Service.inject(constantUsersPerSec(10) during (300 seconds))
+    user_Service.inject(constantUsersPerSec(80) during (5)),
+    member_Service.inject(constantUsersPerSec(80) during (5)),
     //    deal_Service.inject(constantUsersPerSec(10) during (10)),
     //    notification_Service.inject(constantUsersPerSec(10) during (10)),
     //    payment_Service.inject(constantUsersPerSec(10) during (10))

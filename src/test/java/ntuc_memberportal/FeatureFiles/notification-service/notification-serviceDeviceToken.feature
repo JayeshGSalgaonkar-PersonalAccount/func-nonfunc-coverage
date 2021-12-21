@@ -9,8 +9,9 @@ Feature: Notification-service
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
 
+#-----------------------------------------------------------------------------------------------------------------------
 #   Post
-  Scenario Outline: PRODUCT BACKLOG - XX - Verify notification details
+  Scenario Outline: PRODUCT BACKLOG - 257 - Verify notification details
     Given path 'notification-service/v1/user-device-token/register-device/open'
     * def userId = parseInt(userId)
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceRegisterDevice.json')
@@ -24,10 +25,11 @@ Feature: Notification-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
 
+#-----------------------------------------------------------------------------------------------------------------------
 #   Post
-  Scenario Outline: PRODUCT BACKLOG - XX - POST register user-device(With Token)
+  Scenario Outline: PRODUCT BACKLOG - 257 - POST register user-device(With Token)
     Given path 'notification-service/v1/user-device-token/register-device'
-    * string user = username
+    * def user = username
     * def secret = test_secret[user]
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
@@ -35,8 +37,9 @@ Feature: Notification-service
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
     And request requestBody
     When method Post
-    Then status 200
-    Then match response.metadata.status == "SUCCESS"
-    Then match response.content contains "done"
+    * print requestBody
+    * print response
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceDevice.csv') |
+
+#-----------------------------------------------------------------------------------------------------------------------

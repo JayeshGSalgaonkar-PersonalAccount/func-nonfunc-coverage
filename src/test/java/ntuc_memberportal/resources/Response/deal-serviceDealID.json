@@ -1,8 +1,13 @@
 {
-  "id": "#(id)",
-  "title": "#(title)",
-  "subtitle": "#(subtitle)",
-  "description": "#(description)",
-  "popularity": "#(popularity)",
-  "url": "#(url)"
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "id": "#(id)",
+    "title": "#(title)",
+    "subtitle": "#(subtitle)",
+    "description": "#(description)",
+    "popularity": "#(popularity)",
+    "url": "#(url)"
+  }
 }

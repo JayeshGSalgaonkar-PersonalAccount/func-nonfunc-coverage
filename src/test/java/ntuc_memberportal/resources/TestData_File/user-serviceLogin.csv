@@ -1,2 +1,2 @@
-"username","status","message"
-"ishsh@hotmail.com","SUCCESS","User found in database"
+"username","status","firstTimeLogin","isTemporary"
+"ishsh@hotmail.com","SUCCESS","false","false"

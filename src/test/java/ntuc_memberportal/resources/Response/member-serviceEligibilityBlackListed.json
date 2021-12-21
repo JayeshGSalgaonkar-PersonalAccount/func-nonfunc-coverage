@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": [
+    {
+      "BlacklistReason": "#(BlacklistReason)",
+      "Checkblist": "#(Checkblist)",
+      "Checkclist": "#(Checkclist)",
+      "Checkelig": "#(Checkelig)",
+      "Eligibility": "#(Eligibility)",
+      "CheckIneligibleJobFlag": "#(CheckIneligibleJobFlag)",
+      "IneligibleMessage": "#(IneligibleMessage)",
+      "ShowActiveMessage": "#(ShowActiveMessage)",
+      "ShowBlacklistMessage": "#(ShowBlacklistMessage)"
+    }
+  ]
+}

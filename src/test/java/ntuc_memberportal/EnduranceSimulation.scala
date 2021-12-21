@@ -14,10 +14,8 @@ class EnduranceSimulation extends Simulation {
   val member_Service: ScenarioBuilder = scenario("member-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/member-service/performance.feature"))
 
   setUp(
-    user_Service.inject(rampUsers(500) during (300 seconds)),
-    user_Service.inject(constantUsersPerSec(10) during (300 seconds)),
-    member_Service.inject(rampUsers(500) during (300 seconds)),
-    member_Service.inject(constantUsersPerSec(10) during (300 seconds))
+    user_Service.inject(constantUsersPerSec(10) during (5 seconds)),
+    member_Service.inject(constantUsersPerSec(10) during (5 seconds))
   )
 
 }

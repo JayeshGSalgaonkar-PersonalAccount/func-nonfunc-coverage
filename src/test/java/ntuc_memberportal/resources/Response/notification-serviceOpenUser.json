@@ -4,103 +4,15 @@
   },
   "content": [
     {
-      "id": 0,
-      "title": "Your Union Membership application is successful!",
-      "templateName": "union-membership-application-successful",
-      "message": "Thank you and welcome!",
-      "type": "PAYMENT_STATUS",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 1,
-      "title": "Your Union Membership payment is successful!",
-      "templateName": "union-membership-payment-successful",
-      "message": "An acknowledgement email has been sent to you",
-      "type": "PAYMENT_STATUS",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 2,
-      "title": "Your Union Membership payment is unsuccessful",
-      "templateName": "union-membership-payment-failure",
-      "message": "Please try making payment again",
-      "type": "PAYMENT_STATUS",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 3,
-      "title": "Your Family Membership payment is unsuccessful",
-      "templateName": "family-membership-payment-failure",
-      "message": "Please try making payment again",
-      "type": "PAYMENT_STATUS",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 4,
-      "title": "Your Union Membership application is unsuccessful",
-      "templateName": "union-membership-application-failure",
-      "message": "Complete your sign up now",
-      "type": "PENDING_APPLICATION",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 5,
-      "title": "Your Family Membership application is unsuccessful",
-      "templateName": "family-membership-application-failure",
-      "message": "Complete your sign up now",
-      "type": "PENDING_APPLICATION",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 6,
-      "title": "You have membership fees due",
-      "templateName": "membership-fees-due",
-      "message": "Make payment in the MyNTUC app now",
-      "type": "PAYMENT_STATUS",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 7,
-      "title": "You have membership fees due as we were unable to process your payment",
-      "templateName": "membership-fees-due-payment-failure",
-      "message": "Make payment in the MyNTUC app now",
-      "type": "PAYMENT_STATUS",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "PUSH"
-    },
-    {
-      "id": 8,
-      "title": "Welcome to NTUC!",
-      "templateName": "welcome-email",
-      "message": "",
-      "type": "WELCOME",
-      "state": "PUBLISH",
-      "createdDttm": "2021-11-18T08:06:45.587Z",
-      "modifiedDttm": "2021-11-18T08:06:45.587Z",
-      "shownIn": "EMAIL"
+      "modifiedDttm": "#ignore",
+      "createdDttm": "#ignore",
+      "templateName": "#(templateName)",
+      "id": "#(id)",
+      "state": "#(state)",
+      "title": "#(title)",
+      "message": "#(message)",
+      "type": "#(type)",
+      "shownIn": "#(shownIn)"
     }
   ]
 }

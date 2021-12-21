@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": [
+    {
+      "merchant": "#(merchant)",
+      "content": "#(content)",
+      "image": "#(image)",
+      "url": "#(url)"
+    }
+  ]
+}
