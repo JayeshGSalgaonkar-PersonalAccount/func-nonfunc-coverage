@@ -29,7 +29,7 @@ Feature: OA Member-Service
 
 #-----------------------------------------------------------------------------------------------------------------------
 # GET
-  Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
+  Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details (VALID AUTH TOKEN)
     Given path 'member-service/v1/membership/draft'
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
     * string user = username
@@ -75,7 +75,7 @@ Feature: OA Member-Service
 #--------------------------------------------------------------------------------------------------------------
 # GET
   Scenario Outline: PRODUCT BACKLOG - 527 Verify DRAFT membership with NRIC and DOB details
-    Given path 'member-service/v1/membership/draft/<nric>/<dob1>'
+    Given path 'member-service/v1/membership/draft/<nric>/<dob1>
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
     When method Get
     Then status 200
@@ -240,20 +240,20 @@ Feature: OA Member-Service
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#  GET -1
-  Scenario Outline: PRODUCT BACKLOG 16 - Retrieve all cards by user Id.
-    Given path 'member-service/v1/membership/cards'
-    * string user = username
-    * def uLive = Boolean(uLive)
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
-    And header Authorization = 'Bearer ' + dynamicAccessToken
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceCards.csv') |
+##  GET -1
+#  Scenario Outline: PRODUCT BACKLOG 16 - Retrieve all cards by user Id.
+#    Given path 'member-service/v1/membership/cards'
+#    * string user = username
+#    * def uLive = Boolean(uLive)
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+#    And header Authorization = 'Bearer ' + dynamicAccessToken
+#    When method Get
+#    Then status 200
+#    Then match response == read('ntuc_memberportal/resources/Response/member-serviceCards.json')
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/member-serviceCards.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 ##  GET
@@ -275,23 +275,23 @@ Feature: OA Member-Service
 #
 #
 ##--------------------------------------------------------------------------------------------------------------
-#  GET
-  Scenario Outline: PRODUCT BACKLOG 143 - Membership Association
-    Given path 'member-service/v1/membership/membershipAssociation'
-    * param last4Nric = last4Nric
-    * param dob = dob
-    * string user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
-    And header Authorization = 'Bearer ' + dynamicAccessToken
-    When method Get
-    Then status 200
-    * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceAssociation.json')
-    Then match response.metadata.status == expectedResponse.metadata.status
-    Then match response.content.phone[0] == expectedResponse.content.phone[0]
-    Then match response.content.email[0] == expectedResponse.content.email[0]
-
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceAssociation.csv') |
+##  GET
+#  Scenario Outline: PRODUCT BACKLOG 143 - Membership Association
+#    Given path 'member-service/v1/membership/membershipAssociation'
+#    * param last4Nric = last4Nric
+#    * param dob = dob
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+#    And header Authorization = 'Bearer ' + dynamicAccessToken
+#    When method Get
+#    Then status 200
+#    * print response
+#    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceAssociation.json')
+#    Then match response.metadata.status == expectedResponse.metadata.status
+#    Then match response.content.phone[0] == expectedResponse.content.phone[0]
+#    Then match response.content.email[0] == expectedResponse.content.email[0]
+#
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/member-serviceAssociation.csv') |

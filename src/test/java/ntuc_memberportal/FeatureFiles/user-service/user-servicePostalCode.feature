@@ -13,7 +13,12 @@ Feature: User service (POSTAL CODE & Company search)
     * def id = parseInt(id)
     When method Get
     Then status 200
-    Then match response == read("ntuc_memberportal/resources/Response/user-servicePostalCode.json")
+    * print response
+    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-servicePostalCode.json")
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response.content[0].buildingName == expectedResponse.content[0].buildingName
+    Then match response.content[0].postalCode == expectedResponse.content[0].postalCode
+    Then match response.content[0].block == expectedResponse.content[0].block
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/user-servicePostalCode.csv") |
 

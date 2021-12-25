@@ -8,6 +8,7 @@ Feature: Deal-service
     * url baseURL
     * header Accept = 'application/json'
 
+#-----------------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 1260 - Carousel
     Given path 'deal-service/v1/deals/carousel'
