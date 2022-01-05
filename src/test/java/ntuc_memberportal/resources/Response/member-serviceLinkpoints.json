@@ -1,14 +1,13 @@
 {
   "metadata": {
-    "status": "SUCCESS"
+    "status": "#(status)"
   },
   "content": {
     "balance": "#(balance)",
     "dollarValue": "#(dollarValue)",
     "expiryDate": "#(expiryDate)",
     "poolId": "#(poolId)",
-    "poolName": "#(poolName)",
-    "expiringBalance": "#(expiringBalance)"
+    "poolName": "#(poolName)"
   }
 }
 

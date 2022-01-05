@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "status": "SUCCESS"
+    "status": "#(status)"
   },
   "content": {
-    "showPaymentOption": true
+    "showPaymentOption": "#(showPaymentOption)"
   }
 }

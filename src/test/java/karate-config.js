@@ -1,11 +1,9 @@
 function fn() {
   var env = karate.env; // get java system property 'karate.env'
-
 //  karate.configure('ssl', true);
-
   karate.log('karate.env system property was:', env);
   if (!env) {
-      env = 'dev'; // a custom 'intelligent' default
+      env = 'preprod'; // a custom 'intelligent' default
     }
 
    var config = {}
@@ -13,9 +11,7 @@ function fn() {
     if (env == 'dev')
         config.baseURL = karate.properties['baseURL'] || 'https://devma.ntuc.org.sg/api/'
     else if(env == 'preprod')
-        config.baseURL = karate.properties['baseURL'] || 'https://preprod.ntuc.org.sg/api/'
+        config.baseURL = karate.properties['baseURL'] || 'https://apimpre.ntuc.org.sg/api/'
 //By default run in dev environment
-
     return config;
       }
-

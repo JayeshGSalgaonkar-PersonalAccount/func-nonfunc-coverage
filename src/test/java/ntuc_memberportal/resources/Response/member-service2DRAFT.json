@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "membership": [
+      {
+        "id": "#(id)",
+        "createdDttm": "#ignore",
+        "membershipTypeCode": "#(membershipTypeCode)",
+        "modifiedDttm": "#ignore",
+        "status": "#(status)",
+        "unionCode": "#(unionCode)",
+        "unionName": "#(unionName)",
+        "userId": "#(userId)",
+        "nameOnCard": "#(nameOnCard)"
+      }
+    ],
+    "user": {
+      "id": "#(id)",
+      "nricFin": "#(nricFin)",
+      "name": "#(name)",
+      "dob": "#(dob)",
+      "gender": "#(gender)",
+      "mobileNumber": "#(mobileNumber)",
+      "email": "#(email)",
+      "race": "#(race)",
+      "maritalStatus": "#(maritalStatus)",
+      "highestEducationLevel": "#(highestEducationLevel)",
+      "occupationalGroup": "#(occupationalGroup)",
+      "occupation": "#(occupation)",
+      "monthlyGrossSalary": "#(monthlyGrossSalary)",
+      "officeTelNo": "#(officeTelNo)",
+      "bankName": "#(bankName)",
+      "bankAccountNumber": "#(bankAccountNumber)",
+      "employmentType": "#(employmentType)",
+      "scid": "#(scid)",
+      "exchangeId": "#(exchangeId)",
+      "status": "#(status)",
+      "address": {
+        "residentialStatus": "#(residentialStatus)",
+        "postalCode": "#(postalCode)",
+        "blockHSENo": "#(blockHSENo)",
+        "floor": "#(floor)",
+        "unit": "#(unit)",
+        "street": "#(street)",
+        "buildingName": "#(buildingName)",
+        "homeTelNo": "#(homeTelNo)"
+      }
+    }
+  }
+}

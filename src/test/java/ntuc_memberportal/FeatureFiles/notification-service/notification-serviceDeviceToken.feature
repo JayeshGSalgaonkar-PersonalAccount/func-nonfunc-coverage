@@ -7,29 +7,39 @@ Feature: Notification-service
   Background:
     * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+    * def test_secret = read('classpath:Test_Secret.json')
 
+#-----------------------------------------------------------------------------------------------------------------------
 #   Post
-  Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details
+  Scenario Outline: PRODUCT BACKLOG - 257 - Verify notification details
     Given path 'notification-service/v1/user-device-token/register-device/open'
-    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDeviceToken.json')
+    * def userId = parseInt(userId)
+    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceRegisterDevice.json')
+    * print requestBody
     And request requestBody
     When method Post
-    Then status 200
     * print response
+    Then status 200
     Then match response.metadata.status == "SUCCESS"
+    Then match response.content == "done"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceDeviceToken.csv') |
+      | read('ntuc_memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
 
+#-----------------------------------------------------------------------------------------------------------------------
 #   Post
-  Scenario Outline: PRODUCT BACKLOG - 10 - GET method to verify notification details (With Token)
+  Scenario Outline: PRODUCT BACKLOG - 257 - POST register user-device(With Token)
     Given path 'notification-service/v1/user-device-token/register-device'
+    * def user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
     And request requestBody
     When method Post
-    Then status 200
-    Then match response.metadata.status == "SUCCESS"
+    * print requestBody
+    * print response
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceDevice.csv') |
+
+#-----------------------------------------------------------------------------------------------------------------------

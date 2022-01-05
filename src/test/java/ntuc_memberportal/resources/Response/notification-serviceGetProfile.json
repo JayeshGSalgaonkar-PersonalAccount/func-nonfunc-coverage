@@ -1,10 +1,28 @@
 {
-  "isRead": "#(isRead)",
-  "modifiedDttm": "#ignore",
-  "createdDttm": "#ignore",
-  "state": "#(state)",
-  "type": "#(type)",
-  "message": "#(message)",
-  "title": "#(title)",
-  "id": "#(id)"
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": [
+    {
+      "id": "#(id)",
+      "userId": "#(userId)",
+      "notificationId": "#(notificationId)",
+      "createdDttm": "#ignore",
+      "modifiedDttm": "#ignore",
+      "isRead": "#(isRead)",
+      "notificationSent": "#(notificationSent)",
+      "notificationParameters": "#(notificationParameters)",
+      "notification": {
+        "id": "#(id)",
+        "title": "#(title)",
+        "templateName": "#(templateName)",
+        "message": "#(message)",
+        "type": "#(type)",
+        "state": "#(state)",
+        "createdDttm": "#ignore",
+        "modifiedDttm": "#ignore",
+        "shownIn": "#(shownIn)"
+      }
+    }
+  ]
 }

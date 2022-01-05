@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "id": "#(id)",
+    "fileName": "#(fileName)",
+    "fileType": "#(fileType)",
+    "fileSize": "#(fileSize)"
+  }
+}

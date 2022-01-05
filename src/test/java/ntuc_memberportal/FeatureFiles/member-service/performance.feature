@@ -3,53 +3,83 @@ Feature: Member-Service (Eligibility)
   This feature will test HTTP methods for Eligibility API under Member-service microservice.
 
   Background:
-    * url baseURL + 'member-service/v1/membership/check/active/'
+    * url baseURL
     * header Accept = 'application/json'
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+    * def test_secret = read('classpath:Test_Secret.json')
 
+#---------------------------------------------------------------------------------------------------------------------
+#    GET
+  Scenario Outline: PRODUCT BACKLOG - Membership Details
+    Given path 'member-service/v1/membership/details/<nric>/<dob>'
+    When method Get
+    Then status 200
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-service_Performance.csv') |
+
+#---------------------------------------------------------------------------------------------------------------------
 #  GET
-  Scenario Outline: Eligibility under Member-service
-    Given path '<NRIC>/<DOB>'
+  Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method for Eligibility under Member-service
+    Given path 'member-service/v1/membership/check/active/<nric>/<dob>'
     When method Get
     Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibility.csv") |
-
-  Scenario Outline: Linkpoint-Balance under Member-service
-    Given path 'member-service/v1/linkpoint/balance'
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceLinkpoints.json')
-    Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceLinkpoints.csv") |
-
-    #   GET
-  Scenario Outline: Verify Membership details
-    Given path 'member-service/v1/membership'
-    When method Get
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceMemShip.json')
-    Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceProfile.csv") |
-
+      | read('ntuc_memberportal/resources/TestData_File/member-service_Performance.csv') |
+#---------------------------------------------------------------------------------------------------------------------
 #   GET
-  Scenario Outline: Verify membership DRAFT details (with valid Token)
-    Given path 'member-service/v1/membership/draft'
-    And header Authorization = 'Bearer ' + dynamicAccessToken
+  Scenario Outline: PRODUCT BACKLOG ITEM 372 - Validate GET method for Occupation-Group Eligibility under Member-service
+    Given path 'member-service/v1/membership/check/eligibility/<nric>'
     When method Get
     Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
-
-  Scenario Outline: CreateOrder under Member-service
-    Given path 'member-service/v1/payment/create-order'
-    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceCreateOrder.json")
-    And request requestBody
-    When method Post
+      | read("ntuc_memberportal/resources/TestData_File/member-service_Performance.csv") |
+#---------------------------------------------------------------------------------------------------------------------
+#  GET
+  Scenario Outline: PRODUCT BACKLOG - 142 GET method to verify membership details
+    Given path 'member-service/v1/membership'
+    * def user = username
+    * def token = authToken
+#    * print token
+    And header Authorization = 'Bearer ' + token
+    When method Get
     Then status 200
-    Then match response == read("ntuc_memberportal/resources/Response/member-serviceCreateOrder.json")
+    Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceCreateOrder.csv') |
+      | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
+
+#---------------------------------------------------------------------------------------------------------------------
+## GET
+#  Scenario Outline: PRODUCT BACKLOG - 527 GET method to verify membership DRAFT details
+#    Given path 'member-service/v1/membership/draft'
+#    * def user = username
+#    * def token = authToken
+#    And header Authorization = 'Bearer ' + token
+#    When method Get
+#    Then status 200
+#    * match response.metadata.status == "SUCCESS"
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
+
+#---------------------------------------------------------------------------------------------------------------------
+#   GET
+  Scenario Outline: PRODUCT BACKLOG - 1215 Validate Membership DETAILS using NRIC and DOB
+    Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
+    * def ArrearsinMonth = parseInt(ArrearsinMonth)
+    * def ArrearsAmount = parseInt(ArrearsAmount)
+    * def EducationalLevel = parseInt(EducationalLevel)
+    * def MaritalStatus = parseInt(MaritalStatus)
+    When method Get
+    Then status 200
+    * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+    Then match response.metadata.status == expected.metadata.status
+
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
+#---------------------------------------------------------------------------------------------------------------------

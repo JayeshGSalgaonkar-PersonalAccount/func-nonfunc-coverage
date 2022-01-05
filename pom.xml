@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
- 
+
     <groupId>com.mycompany</groupId>
     <artifactId>ntuc-member-app-quality</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
- 
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -15,7 +15,7 @@
         <karate.version>0.9.6</karate.version>
         <gatling.plugin.version>3.0.5</gatling.plugin.version>
         <gatling.charts.highcharts>3.4.0-M1</gatling.charts.highcharts>
-    </properties>    
+    </properties>
 
     <dependencies>
 
@@ -46,11 +46,16 @@
             <version>${karate.version}</version>
         </dependency>
 
+
+
+
+
+
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>maven-cucumber-reporting</artifactId>
             <version>5.5.4</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
 
         <dependency>
@@ -130,7 +135,7 @@
                         </goals>
                         <configuration>
                             <projectName>nmp</projectName>
-                            <outputDirectory>target/surefire-reports</outputDirectory>
+                            <outputDirectory>target/surefire-reports/cucumberReport</outputDirectory>
                             <jsonFiles>
                                 <jsonFile>**/**.json</jsonFile>
                             </jsonFiles>
@@ -175,10 +180,11 @@
 
                     <includes>
                         <include>ntuc_memberportal.LoadSimulation</include>
+                        <include>ntuc_memberportal.EnduranceSimulation</include>
                     </includes>
                 </configuration>
             </plugin>
 
-        </plugins>        
+        </plugins>
     </build>
 </project>

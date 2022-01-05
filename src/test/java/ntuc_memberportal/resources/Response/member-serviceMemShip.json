@@ -1,23 +1,22 @@
 {
-  "content": [
-    {
-      "unionName": "#(unionName)",
-      "unionCode": "#(unionCode)",
-      "status": "#(status)",
-      "startDate": "#(startDate)",
-      "relationship": "#(relationship)",
-      "optInNebo": "#(optInNebo)",
-      "modifiedDttm": "#(modifiedDttm)",
-      "modifiedBy": "#(modifiedBy)",
-      "membershipType": "#(membershipType)",
-      "lastPaidDate": "#(lastPaidDate)",
-      "deletedDttm": "#(deletedDttm)",
-      "deletedBy": "#(deletedBy)",
-      "createdDttm": "#(createdDttm)",
-      "createdBy": "#(createdBy)"
-    }
-  ],
   "metadata": {
     "status": "SUCCESS"
+  },
+  "content": {
+    "vcCardNo": "#(vcCardNo)",
+    "memberships": [
+      {
+        "id": "#(id)",
+        "modifiedDttm": "#(modifiedDttm)",
+        "membershipTypeCode": "#(membershipTypeCode)",
+        "createdDttm": "#(createdDttm)",
+        "nameOnCard": "#(nameOnCard)",
+        "unionName": "#(unionName)",
+        "unionCode": "#(unionCode)",
+        "optInNebo": "#(optInNebo)",
+        "startDate": "#(startDate)",
+        "status": "#(status)"
+      }
+    ]
   }
 }

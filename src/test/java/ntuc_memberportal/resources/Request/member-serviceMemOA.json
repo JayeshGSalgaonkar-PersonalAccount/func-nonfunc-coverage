@@ -1,19 +1,7 @@
 {
-  "address": {
-    "residentialStatus": "#(residentialStatus)",
-    "postalCode": "#(postalCode)",
-    "blockHSENo": "#(blockHSENo)",
-    "unit": "#(unit)",
-    "floor": "#(floor)",
-    "street": "#(street)",
-    "buildingName": "#(buildingName)",
-    "homeTelNo": "#(homeTelNo)"
-  },
   "user": {
     "bankAccountNumber": "#(bankAccountNumber)",
     "bankName": "#(bankName)",
-    "companyBusinessNature": "#(companyBusinessNature)",
-    "companyName": "#(companyName)",
     "dob": "#(dob)",
     "email": "#(email)",
     "gender": "#(gender)",
@@ -29,6 +17,8 @@
     "race": "#(race)"
   },
   "membership": {
+    "status": "#(status)",
+    "ucemCreateStatus": "#(ucemCreateStatus)",
     "optInNebo": "#(optInNebo)",
     "unionCode": "#(unionCode)",
     "unionName": "#(unionName)"

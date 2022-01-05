@@ -1,0 +1,38 @@
+pr: none 
+trigger: none
+
+stages:
+- stage: test
+  displayName: Run integration test fior Pre-prod
+  jobs:
+  - job: pre_integration_test
+    displayName: pre_integration_test
+    strategy:
+      maxParallel: 1
+    steps:
+      - task: DownloadSecureFile@1
+        name: testSecrets
+        displayName: Download testSecrets json
+        inputs:
+          secureFile: 'Test_Secret.json'
+      
+      - task: CmdLine@2
+        displayName: Copy the secure files to git repository
+        inputs:
+          script: |
+            cp $(testSecrets.secureFilePath) .
+      
+      - script: |
+          if ! [ -x /usr/bin/javac ]; then
+            sudo apt install -y openjdk-11-jdk-headless
+          fi
+          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+          export PATH=$JAVA_HOME/bin:$PATH
+          mvn -version
+          mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
+          mvn test-compile -DbaseURL=https://prema.ntuc.org.sg/api/ gatling:test    
+          mvn clean test-compile -Dkarate.env="preprod" gatling:test
+        displayName: mvn test
+      - publish: $(System.DefaultWorkingDirectory)/target
+        artifact: integration_test_reports
+        

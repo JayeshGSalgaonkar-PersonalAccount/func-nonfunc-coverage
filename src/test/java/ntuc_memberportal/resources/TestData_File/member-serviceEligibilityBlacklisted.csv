@@ -1,0 +1,2 @@
+"NRIC","status","BlacklistReason","Checkblist","Checkclist","Checkelig","Eligibility","CheckIneligibleJobFlag","IneligibleMessage","ShowActiveMessage","ShowBlacklistMessage"
+"S9153616A","SUCCESS","for UAT",true,false,true,"~Blacklisted members are not eligible for NTUC membership.","false","","No","Yes"

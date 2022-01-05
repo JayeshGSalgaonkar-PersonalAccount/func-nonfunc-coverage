@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "status": "SUCCESS"
+  },
+  "content": [
+    {
+      "modifiedDttm": "#ignore",
+      "createdDttm": "#ignore",
+      "templateName": "#(templateName)",
+      "id": "#(id)",
+      "state": "#(state)",
+      "title": "#(title)",
+      "message": "#(message)",
+      "type": "#(type)",
+      "shownIn": "#(shownIn)"
+    }
+  ]
+}

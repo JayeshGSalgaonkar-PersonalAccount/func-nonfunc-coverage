@@ -1,0 +1,9 @@
+{
+  "content": {
+    "userUpdated": "#(userUpdated)",
+    "ucemUpdated": "#(ucemUpdated)"
+  },
+  "metadata": {
+    "status": "#(status)"
+  }
+}

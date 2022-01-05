@@ -1,4 +1,3 @@
-import com.intuit.karate.KarateOptions;
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
 import cucumber.api.CucumberOptions;

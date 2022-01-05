@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "isSuccessful": "#(isSuccessful)",
+    "statusCode":"#(statusCode)",
+    "body": "",
+    "headers": {
+      "date": "#ignore",
+      "content-type": "#(content-type)",
+      "server": "#(server)",
+      "content-length": "#(content-length)",
+      "strict-transport-security": "#(strict-transport-security)"
+    }
+  }
+}

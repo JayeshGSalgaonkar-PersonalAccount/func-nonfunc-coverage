@@ -1,2 +1,2 @@
-"expiryDate","balance","poolId","dollarValue","expiringBalance","poolName"
-"20221231","100.00","P01","1.00","100.00","LinkPoints"
+"username","expiryDate","balance","poolId","dollarValue","poolName","status"
+"ishsh@hotmail.com","2022-12-30T16:00:00.000Z","100.00","P01","1.00","LinkPoints","SUCCESS"

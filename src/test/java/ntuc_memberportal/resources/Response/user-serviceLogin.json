@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "firstTimeLogin": "#(firstTimeLogin)",
+    "isTemporary": "#(isTemporary)"
+  }
+}
