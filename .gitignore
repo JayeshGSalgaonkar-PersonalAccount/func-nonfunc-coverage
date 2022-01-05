@@ -1,4 +1,4 @@
 /target
 /.idea
-/Mocks
+/src/test/java/ntuc_memberportal/Mocks
 /Test_Secret.json

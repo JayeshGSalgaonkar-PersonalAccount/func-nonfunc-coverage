@@ -22,8 +22,8 @@
 # DockerFile (root folder)
     create - docker image
 * `docker build -t nmp-tests .`
-#
-    docker run & test execution
+
+#    docker run & test execution
 * `docker run -it -e mcr=<microservice_to_test> -e url='microservice_endpoint' nmp-tests`
 
     **mcr** to be replaced by micro-service name -
