@@ -29,7 +29,7 @@ stages:
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
           export PATH=$JAVA_HOME/bin:$PATH
           mvn -version
-          mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod" -Dsleep.time=500
+          mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod" -Dsleep.time=500000
           mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test    
           mvn clean test-compile -Dkarate.env="preprod" gatling:test
         displayName: mvn test
