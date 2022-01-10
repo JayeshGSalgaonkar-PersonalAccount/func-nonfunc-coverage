@@ -36,17 +36,20 @@ Feature: User-service
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
-    * def expectedResponse = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
+    * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
     And request requestBody
+    * print requestBody
     When method Post
-    * print response
     Then status 200
-    Then match response.content.monthlyGrossSalary == expectedResponse.monthlyGrossSalary
-    Then match response.content.name == expectedResponse.name
-    Then match response.content.dob == expectedResponse.dob
-    Then match response.content.gender == expectedResponse.gender
-    Then match response.content.mobileNumber == expectedResponse.mobileNumber
-    Then match response.content.email == expectedResponse.email
+    * print response
+    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceUser.json")
+    * print expectedResponse
+    Then match response.content.monthlyGrossSalary == expectedResponse.content.monthlyGrossSalary
+    Then match response.content.name == expectedResponse.content.name
+    Then match response.content.dob == expectedResponse.content.dob
+    Then match response.content.gender == expectedResponse.content.gender
+    Then match response.content.mobileNumber == expectedResponse.content.mobileNumber
+    Then match response.content.email == expectedResponse.content.email
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
 
@@ -83,7 +86,8 @@ Feature: User-service
     When method Delete
     And print response
     Then status 200
-    Then match response == read ("ntuc_memberportal/resources/Response/user-serviceDelete.json")
+    * def expectedResponse = read ("ntuc_memberportal/resources/Response/user-serviceDelete.json")
+    * print expectedResponse
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceDeleteUser.csv') |
 
@@ -91,6 +95,7 @@ Feature: User-service
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Edit User-Profile (With Token)
     Given path 'user-service/v1/user'
+    * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
     * string user = username
     * def secret = test_secret[user]
     * def setup = call read('../commonFeatures/auth.feature')
@@ -101,27 +106,30 @@ Feature: User-service
     * print requestBody
     When method Put
     Then status 200
-    Then match response.content.homeTelNo == request.homeTelNo
-    Then match response.content.buildingName == request.buildingName
-    Then match response.content.street == request.street
-    Then match response.content.unit == request.unit
-    Then match response.content.floor == request.floor
+    * print response
+    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-servicePutProfile.json")
+    Then match response.content.monthlyGrossSalary == expectedResponse.content.monthlyGrossSalary
+    Then match response.content.race == expectedResponse.content.race
+    Then match response.content.bankName == expectedResponse.content.bankName
+    Then match response.content.name == expectedResponse.content.name
+    Then match response.content.bankAccountNumber == expectedResponse.content.bankAccountNumber
+    Then match response.content.highestEducationLevel == expectedResponse.content.highestEducationLevel
+    Then match response.content.status == expectedResponse.content.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+      | read('ntuc_memberportal/resources/TestData_File/user-servicePutProfile.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
-
 #  GET
   Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
     Given path 'user-service/v1/user/static-data'
     When method Get
     Then status 200
+    * print response
     * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response == expectedResponse
 
 #----------------------------------------------------------------------------------------------------------------
-
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE Tests
     Given path 'user-service/v1/user'

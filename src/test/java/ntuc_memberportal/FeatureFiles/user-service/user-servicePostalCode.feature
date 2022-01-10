@@ -19,6 +19,8 @@ Feature: User service (POSTAL CODE & Company search)
     Then match response.content[0].buildingName == expectedResponse.content[0].buildingName
     Then match response.content[0].postalCode == expectedResponse.content[0].postalCode
     Then match response.content[0].block == expectedResponse.content[0].block
+    Then match response.content[0].id == '#notnull'
+
     Examples:
       | read("ntuc_memberportal/resources/TestData_File/user-servicePostalCode.csv") |
 
@@ -51,4 +53,4 @@ Feature: User service (POSTAL CODE & Company search)
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceUCEMUPCERT.csv') |
 
-#    ------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------

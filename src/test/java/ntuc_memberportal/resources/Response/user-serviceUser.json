@@ -3,8 +3,6 @@
     "status": "#(status)"
   },
   "content": {
-    "id": "#(id)",
-    "nricFin": "#(nricFin)",
     "name": "#(name)",
     "dob": "#(dob)",
     "gender": "#(gender)",
@@ -20,12 +18,11 @@
     "bankCode": "#(bankCode)",
     "bankName": "#(bankName)",
     "bankAccountNumber": "#(bankAccountNumber)",
-    "branchCode": "#(branchCode)",
     "employmentType": "#(employmentType)",
     "scid": "#(scid)",
     "exchangeId": "#(exchangeId)",
-    "status": "#(status2)",
     "address": {
+      "residentialStatus": "#(residentialStatus)",
       "postalCode": "#(postalCode)",
       "blockHSENo": "#(blockHSENo)",
       "floor": "#(floor)",
@@ -33,6 +30,11 @@
       "street": "#(street)",
       "buildingName": "#(buildingName)",
       "homeTelNo": "#(homeTelNo)"
+    },
+    "company": {
+      "code": "#(code)",
+      "name": "#(name)",
+      "businessNature": "#(businessNature)",
     }
   }
 }
