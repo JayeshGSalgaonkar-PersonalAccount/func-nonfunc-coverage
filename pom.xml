@@ -46,11 +46,6 @@
             <version>${karate.version}</version>
         </dependency>
 
-
-
-
-
-
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>maven-cucumber-reporting</artifactId>
