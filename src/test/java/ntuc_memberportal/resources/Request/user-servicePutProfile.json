@@ -1,11 +1,13 @@
 {
   "bankAccountNumber": "#(bankAccountNumber)",
+  "bankCode": "#(bankCode)",
   "bankName": "#(bankName)",
-  "companyBusinessNature": "#(companyBusinessNature)",
-  "companyName": "#(companyName)",
+  "branchCode": "#(branchCode)",
+  "conflictUserId": "#(conflictUserId)",
   "dob": "#(dob)",
   "email": "#(email)",
   "employmentType": "#(employmentType)",
+  "exchangeId": "#(exchangeId)",
   "gender": "#(gender)",
   "highestEducationLevel": "#(highestEducationLevel)",
   "maritalStatus": "#(maritalStatus)",
@@ -18,15 +20,5 @@
   "officeTelNo": "#(officeTelNo)",
   "race": "#(race)",
   "scid": "#(scid)",
-  "exchangeId": "#(exchangeId)",
-  "address": {
-    "residentialStatus": "#(residentialStatus)",
-    "postalCode": "#(postalCode)",
-    "blockHSENo": "#(blockHSENo)",
-    "floor": "#(floor)",
-    "unit": "#(unit)",
-    "street": "#(street)",
-    "buildingName": "#(buildingName)",
-    "homeTelNo": "#(homeTelNo)"
-  }
+  "status": "#(status2)"
 }

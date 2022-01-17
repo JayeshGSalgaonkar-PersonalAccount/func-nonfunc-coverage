@@ -1,2 +1,3 @@
-"status","content","Unionized","UpdateDate","UEN","TotalWorkforce","StatusName","StatusCode","SSIC","Name","IncorporateDate","DissolveDate","CreationDate","CompanyGuid","Code","CapitalSource","BusinessNature"
-"SUCCESS",true,"YES","2021-12-12","XYZ12WEDSAZXC",10,"SUCCESS",0,"Streng","SUJIT","2020-12-10","2021-12-11","2019-12-12","GUID12","CODENAME","UCEM","BUSINESS"
+"status","Unionized","UpdateDate","UEN","TotalWorkforce","StatusName","StatusCode","SSIC","Name","IncorporateDate","DissolveDate","CreationDate","CompanyGuid","Code","CapitalSource","BusinessNature"
+"SUCCESS",true,"2021-12-07","",10,"SUCCESS",915240002,"","HQ BLACK PLUS CONVERSION","1990-11-25","2022-12-11","2021-01-01","D1D4BC82-FC50-EB11-8113-0050569249DC","000026","UCEM","BUSINESS"
+"SUCCESS",true,"2022-01-10","",20,"SUCCESS",915240002,"46900","SR SUPPLY PTE LTD","1990-12-12","2022-01-11","2021-01-01","D3D4BC82-FC50-EB11-8113-0050569249DC","000027","UCEM","BUSINESS"

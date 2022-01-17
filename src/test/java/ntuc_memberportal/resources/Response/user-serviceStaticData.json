@@ -9,23 +9,27 @@
         "value": "SINGLE"
       },
       {
-        "code": "P",
-        "value": "SEPARATED"
-      },
-      {
-        "code": "D",
-        "value": "DIVORCED"
-      },
-      {
         "code": "M",
         "value": "MARRIED"
-      },
-      {
-        "code": "W",
-        "value": "WIDOWED"
       }
     ],
     "bank": [
+      {
+        "code": "7171",
+        "value": "DBS BANK LTD/POST OFFICE SAVINGS BANK (DBS/POSBANK)"
+      },
+      {
+        "code": "7339",
+        "value": "OVERSEA-CHINESE BANKING CORPORATION LTD (OCBC)"
+      },
+      {
+        "code": "7144",
+        "value": "STANDARD CHARTERED BANK"
+      },
+      {
+        "code": "7375",
+        "value": "UNITED OVERSEAS BANK (UOB)"
+      },
       {
         "code": "7010",
         "value": "ABN AMRO BANK NV"
@@ -41,6 +45,46 @@
       {
         "code": "8253",
         "value": "ARAB BANK PLC"
+      },
+      {
+        "code": "8217",
+        "value": "ARAB BANKING CORPORATION BSC"
+      },
+      {
+        "code": "7931",
+        "value": "AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED"
+      },
+      {
+        "code": "8411",
+        "value": "BANCA MONTE DEI PASCHI DI SIENA S.P.A."
+      },
+      {
+        "code": "7047",
+        "value": "BANGKOK BANK PUBLIC COMPANY LTD"
+      },
+      {
+        "code": "7065",
+        "value": "BANK OF AMERICA, NA"
+      },
+      {
+        "code": "7083",
+        "value": "BANK OF CHINA LIMITED"
+      },
+      {
+        "code": "7108",
+        "value": "BANK OF INDIA"
+      },
+      {
+        "code": "8129",
+        "value": "BANK OF NEW ZEALAND"
+      },
+      {
+        "code": "7117",
+        "value": "BANK OF SINGAPORE LTD"
+      },
+      {
+        "code": "8855",
+        "value": "BAYERISCHE HYPOUND VEREINSBANK AKTIENGESELLSCHAFT"
       },
       {
         "code": "7418",
@@ -69,10 +113,6 @@
       {
         "code": "8606",
         "value": "COMMERZBANK AKTIENGESELLSCHAFT"
-      },
-      {
-        "code": "7171",
-        "value": "DBS BANK LTD/POST OFFICE SAVINGS BANK (DBS/POSBANK)"
       },
       {
         "code": "7463",
@@ -171,6 +211,18 @@
         "value": "NATEXIS BANQUES POPULAIRES"
       },
       {
+        "code": "8518",
+        "value": "NORDEA BANK FINLAND PLC"
+      },
+      {
+        "code": "3000",
+        "value": "NTUC"
+      },
+      {
+        "code": "2000",
+        "value": "NTUC"
+      },
+      {
         "code": "8749",
         "value": "P.T. BANK MANDIRI (PERSERO)"
       },
@@ -213,10 +265,6 @@
       {
         "code": "7038",
         "value": "SOUTHERN BANK BERHAD"
-      },
-      {
-        "code": "7144",
-        "value": "STANDARD CHARTERED BANK"
       },
       {
         "code": "7791",
@@ -281,66 +329,6 @@
       {
         "code": "8110",
         "value": "UNION DE BANQUES ARABES ET FRANCAISES"
-      },
-      {
-        "code": "7375",
-        "value": "UNITED OVERSEAS BANK (UOB)"
-      },
-      {
-        "code": "8217",
-        "value": "ARAB BANKING CORPORATION BSC"
-      },
-      {
-        "code": "7931",
-        "value": "AUSTRALIA AND NEW ZEALAND BANKING GROUP LIMITED"
-      },
-      {
-        "code": "8411",
-        "value": "BANCA MONTE DEI PASCHI DI SIENA S.P.A."
-      },
-      {
-        "code": "7047",
-        "value": "BANGKOK BANK PUBLIC COMPANY LTD"
-      },
-      {
-        "code": "7065",
-        "value": "BANK OF AMERICA, NA"
-      },
-      {
-        "code": "7083",
-        "value": "BANK OF CHINA LIMITED"
-      },
-      {
-        "code": "7108",
-        "value": "BANK OF INDIA"
-      },
-      {
-        "code": "8129",
-        "value": "BANK OF NEW ZEALAND"
-      },
-      {
-        "code": "7117",
-        "value": "BANK OF SINGAPORE LTD"
-      },
-      {
-        "code": "8855",
-        "value": "BAYERISCHE HYPOUND VEREINSBANK AKTIENGESELLSCHAFT"
-      },
-      {
-        "code": "8518",
-        "value": "NORDEA BANK FINLAND PLC"
-      },
-      {
-        "code": "2000",
-        "value": "NTUC"
-      },
-      {
-        "code": "3000",
-        "value": "NTUC"
-      },
-      {
-        "code": "7339",
-        "value": "OVERSEA-CHINESE BANKING CORPORATION LTD (OCBC)"
       }
     ],
     "employment_type": [
@@ -447,67 +435,131 @@
     ],
     "monthly_income": [
       {
-        "code": "3",
-        "value": "BELOW $400"
+        "code": "100000010",
+        "value": "NO INCOME"
       },
       {
-        "code": "4",
-        "value": "$400-$599"
+        "code": "100000000",
+        "value": "BELOW $1,000"
       },
       {
-        "code": "6",
-        "value": "$600-$799"
+        "code": "100000001",
+        "value": "$1,000 - $1,499"
       },
       {
-        "code": "8",
-        "value": "$800-$999"
+        "code": "100000002",
+        "value": "$1,500 - $1,999"
       },
       {
-        "code": "10",
-        "value": "$1000 - $1499"
+        "code": "100000003",
+        "value": "$2,000 - $2,499"
       },
       {
-        "code": "15",
-        "value": "$1500 - $1999"
+        "code": "100000004",
+        "value": "$2,500 - $2,999"
       },
       {
-        "code": "20",
-        "value": "$2000 - $2499"
+        "code": "100000005",
+        "value": "$3,000 - $3,999"
       },
       {
-        "code": "25",
-        "value": "$2500 - $2999"
+        "code": "100000006",
+        "value": "$4,000 - $4,500"
       },
       {
-        "code": "30",
-        "value": "$3000 - $3999"
+        "code": "100000007",
+        "value": "$4,501 - $4,999"
       },
       {
-        "code": "40",
-        "value": "$4000 - $4500"
+        "code": "100000008",
+        "value": "$5,000 - $5,999"
       },
       {
-        "code": "45",
-        "value": "$4501 - $4999"
+        "code": "100000009",
+        "value": "$6,000 - $7,999"
       },
       {
-        "code": "50",
-        "value": "$5000 - $5999"
+        "code": "100000011",
+        "value": "$8,000 - $9,999"
       },
       {
-        "code": "60",
-        "value": "$6000 - $7999"
-      },
-      {
-        "code": "80",
-        "value": "$8000 - $9999"
-      },
-      {
-        "code": "99",
-        "value": "$10000 & ABOVE"
+        "code": "100000012",
+        "value": "$10,000 & ABOVE"
       }
     ],
     "occupation_group": [
+      {
+        "code": "AP10",
+        "value": "SEMI-PROFESSIONAL - TEACHING (PRE-PRIMARY/ECA/PRIVATE)"
+      },
+      {
+        "code": "AP11",
+        "value": "SEMI-PROFESSIONAL - FINANCE/SALES/REAL ESTATE"
+      },
+      {
+        "code": "AP12",
+        "value": "SEMI-PROFESSIONAL - GOVERNMENT"
+      },
+      {
+        "code": "AP13",
+        "value": "SEMI-PROFESSIONAL - ADMINISTRATIVE/STATISTICAL"
+      },
+      {
+        "code": "AP14",
+        "value": "SEMI-PROFESSIONAL - SOCIAL WORK"
+      },
+      {
+        "code": "AP15",
+        "value": "SEMI-PROFESSIONAL - TRANSLATOR/INTERPRETER"
+      },
+      {
+        "code": "AP16",
+        "value": "SEMI-PROFESSIONAL - ART, ENTERTAINMENT, SPORTS"
+      },
+      {
+        "code": "AP17",
+        "value": "SEMI-PROFESSIONAL - RELIGIOUS (NON-ORDAINED)"
+      },
+      {
+        "code": "AP99",
+        "value": "SEMI-PROFESSIONAL - OTHERS"
+      },
+      {
+        "code": "CL",
+        "value": "CLERICAL WORKER "
+      },
+      {
+        "code": "SV",
+        "value": "SERVICE WORKER, SHOP/MARKET SALES WORKER"
+      },
+      {
+        "code": "AG",
+        "value": "AGRICULTURAL/FISHERY WORKER"
+      },
+      {
+        "code": "PD",
+        "value": "PRODUCTION CRAFTSMAN (ELECTRICIAN, FOREMAN, TAILOR, ETC.)"
+      },
+      {
+        "code": "OP",
+        "value": "PLANT/MACHINE OPERATOR, VEHICLE DRIVER, SEAMAN"
+      },
+      {
+        "code": "LB",
+        "value": "CLEANER, LABOURER"
+      },
+      {
+        "code": "OT01",
+        "value": "RETIRED"
+      },
+      {
+        "code": "OT02",
+        "value": "HOUSEWIFE"
+      },
+      {
+        "code": "OT03",
+        "value": "UNIFORMED GROUP (SAF, AIR FORCE, NAVY, SCDF, MINDEF, DSTA)"
+      },
       {
         "code": "OT",
         "value": "UNCLASSIFIABLE"
@@ -627,78 +679,6 @@
       {
         "code": "AP09",
         "value": "SEMI-PROFESSIONAL - HEALTH (NURSE, OPTICIAN, THERAPIST, ETC.)"
-      },
-      {
-        "code": "AP10",
-        "value": "SEMI-PROFESSIONAL - TEACHING (PRE-PRIMARY/ECA/PRIVATE)"
-      },
-      {
-        "code": "AP11",
-        "value": "SEMI-PROFESSIONAL - FINANCE/SALES/REAL ESTATE"
-      },
-      {
-        "code": "AP12",
-        "value": "SEMI-PROFESSIONAL - GOVERNMENT"
-      },
-      {
-        "code": "AP13",
-        "value": "SEMI-PROFESSIONAL - ADMINISTRATIVE/STATISTICAL"
-      },
-      {
-        "code": "AP14",
-        "value": "SEMI-PROFESSIONAL - SOCIAL WORK"
-      },
-      {
-        "code": "AP15",
-        "value": "SEMI-PROFESSIONAL - TRANSLATOR/INTERPRETER"
-      },
-      {
-        "code": "AP16",
-        "value": "SEMI-PROFESSIONAL - ART, ENTERTAINMENT, SPORTS"
-      },
-      {
-        "code": "AP17",
-        "value": "SEMI-PROFESSIONAL - RELIGIOUS (NON-ORDAINED)"
-      },
-      {
-        "code": "AP99",
-        "value": "SEMI-PROFESSIONAL - OTHERS"
-      },
-      {
-        "code": "CL",
-        "value": "CLERICAL WORKER "
-      },
-      {
-        "code": "SV",
-        "value": "SERVICE WORKER, SHOP/MARKET SALES WORKER"
-      },
-      {
-        "code": "AG",
-        "value": "AGRICULTURAL/FISHERY WORKER"
-      },
-      {
-        "code": "PD",
-        "value": "PRODUCTION CRAFTSMAN (ELECTRICIAN, FOREMAN, TAILOR, ETC.)"
-      },
-      {
-        "code": "OP",
-        "value": "PLANT/MACHINE OPERATOR, VEHICLE DRIVER, SEAMAN"
-      },
-      {
-        "code": "LB",
-        "value": "CLEANER, LABOURER"
-      },
-      {
-        "code": "OT01",
-        "value": "RETIRED"
-      },
-      {
-        "code": "OT02",
-        "value": "HOUSEWIFE"
-      },
-      {
-        "code": "OT03",
-        "value": "UNIFORMED GROUP (SAF, AIR FORCE, NAVY, SCDF, MINDEF, DSTA)"
       }
     ]
   }
