@@ -5,6 +5,7 @@ Feature: Notification-service
     * url baseURL
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
+    * def val = function(max){ return "ESD344Z" + Math.floor(Math.random() * max)}
 
 #-----------------------------------------------------------------------------------------------------------------------
 #    GET
@@ -38,7 +39,14 @@ Feature: Notification-service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
+#    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
+    * def requestBody =
+  """
+  {
+  "deviceOS": "#(deviceOS)",
+  "deviceToken": "#(val(100000))",
+  }
+  """
     And request requestBody
     When method Post
     Then status 200
@@ -51,7 +59,16 @@ Feature: Notification-service
   Scenario Outline: PRODUCT BACKLOG - XX - Verify notification details
     Given path 'notification-service/v1/user-device-token/register-device/open'
     * def userId = parseInt(userId)
-    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceRegisterDevice.json')
+#    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceRegisterDevice.json')
+    * def requestBody =
+  """
+  {
+  "deviceOS": "#(deviceOS)",
+  "deviceToken": "#(val(100000))",
+  "userId": "#(userId)"
+  }
+  """
+
     * print requestBody
     And request requestBody
     When method Post
