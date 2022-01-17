@@ -17,8 +17,8 @@
 
 # Non-functional Test (Performance)
     CLI - Execute all tests (only option)
-* To run in dev-environment - execute - `mvn cl test-compile gatling:test`
-* To run in pre-prod environment - execute - `mvn clean test-compile -Dkarate.env="preprod" gatling:test`
+* To run in dev-environment - execute - `mvn test-compile gatling:test`
+* To run in pre-prod environment - execute - `mvn test-compile -Dkarate.env="preprod" gatling:test`
 
 
 # DockerFile (root folder)

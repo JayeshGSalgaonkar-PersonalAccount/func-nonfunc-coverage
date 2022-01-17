@@ -30,8 +30,8 @@ stages:
           export PATH=$JAVA_HOME/bin:$PATH
           mvn -version
           mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
-          #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test
-          mvn test-compile -Dkarate.env="preprod" gatling:test
+          mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test    
+          mvn clean test-compile -Dkarate.env="preprod" gatling:test
         displayName: mvn test
       - publish: $(System.DefaultWorkingDirectory)/target
         artifact: integration_test_reports

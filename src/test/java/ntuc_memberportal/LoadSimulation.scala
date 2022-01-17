@@ -16,12 +16,11 @@ class LoadSimulation extends Simulation {
 
   setUp(
 
-    user_Service.inject(constantUsersPerSec(80) during (5)),
-    member_Service.inject(constantUsersPerSec(80) during (5)),
-    deal_Service.inject(constantUsersPerSec(10) during (10)),
-    notification_Service.inject(constantUsersPerSec(10) during (10)),
-    payment_Service.inject(constantUsersPerSec(10) during (10))
-
+    user_Service.inject(constantConcurrentUsers(15).during(60)),
+    member_Service.inject(constantConcurrentUsers(15) during (60)),
+    deal_Service.inject(constantConcurrentUsers(15) during (60)),
+    notification_Service.inject(constantConcurrentUsers(15) during (60)),
+    payment_Service.inject(constantConcurrentUsers(15) during (60))
   )
 }
 

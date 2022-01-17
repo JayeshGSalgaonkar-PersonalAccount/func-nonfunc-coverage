@@ -1,7 +1,6 @@
 {
   "company": {
     "name": "#(name)",
-    "code": "#(code)",
     "businessNature": "#(businessNature)"
   },
   "address": {
