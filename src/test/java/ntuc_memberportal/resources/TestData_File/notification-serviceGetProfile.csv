@@ -1,2 +1,2 @@
 "username","status","id","userId","notificationId","createdDttm","modifiedDttm","isRead","notificationSent","notificationParameters","title","templateName","message","type","state","shownIn","createdDttm","modifiedDttm"
-"sha@yahoo.com","SUCCESS",4,200000,0,"","",false,false,null,"Your Union Membership payment is unsuccessful","union-membership-payment-failure","Please try making payment again","PAYMENT_STATUS","PUBLISH","PUSH","",""
+"ishsh@hotmail.com","SUCCESS",4,200000,0,"","",false,false,null,"Your Union Membership payment is unsuccessful","union-membership-payment-failure","Please try making payment again","PAYMENT_STATUS","PUBLISH","PUSH","",""

@@ -1,7 +1,7 @@
 Feature: Token Feature
   Background: Token Background
     * def test_secret = read('classpath:Test_Secret.json')
-    * def user1 = 'sha@yahoo.com'
+    * def user1 = 'asgopal@sg.palo-it.com'
     * def user2 = 'ishsh@hotmail.com'
 
   Scenario: Token Scenario 1
