@@ -6,6 +6,31 @@ Feature: User-service
     * def test_secret = read('classpath:Test_Secret.json')
 
 #------------------------------------------------------------------------------------------------------------
+# Create User
+
+  Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
+    Given path 'user-service/v1/user'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
+    * def expectedResponse = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
+    And request requestBody
+    When method Post
+    * print response
+    Then status 200
+    Then match response.content.monthlyGrossSalary == expectedResponse.monthlyGrossSalary
+    Then match response.content.name == expectedResponse.name
+    Then match response.content.dob == expectedResponse.dob
+    Then match response.content.gender == expectedResponse.gender
+    Then match response.content.mobileNumber == expectedResponse.mobileNumber
+    Then match response.content.email == expectedResponse.email
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
+
+#------------------------------------------------------------------------------------------------------------
 # GET
   Scenario Outline: PRODUCT BACKLOG ITEM 766 - Company Search
     Given path 'user-service/v1/company/search'
