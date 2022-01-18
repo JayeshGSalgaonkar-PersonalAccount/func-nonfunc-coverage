@@ -2,7 +2,7 @@ Feature: JWT Feature
   Background: JWT Background
     * def test_secret = read('classpath:Test_Secret.json')
 #    * def user = 'ntucpalotestemail+su18@gmail.com'
-    * def user = 'ishsh@hotmail.com'
+    * def user = 'asgopal@sg.palo-it.com'
     * def secret = test_secret[user]
 
   Scenario: JWT Scenario
@@ -16,7 +16,6 @@ Feature: JWT Feature
     And form field scope = "openid profile scid:read:profile scid:update:profile scid:update:preferences scid:verify:myinfo scid:update:account_security offline_access"
     When method post
     Then status 200
-
     * def dynamicAccessToken = response.access_token
     * print dynamicAccessToken
 

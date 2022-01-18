@@ -156,7 +156,7 @@ Feature: Notification-service
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-servicePostNotf.json')
     And request requestBody
-    When method Post
+    When method Get
     * print response
     Then status 200
     Then match response.metadata.status == "SUCCESS"

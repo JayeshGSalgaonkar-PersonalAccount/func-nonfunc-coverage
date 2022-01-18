@@ -17,7 +17,7 @@ Feature: User-service
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
     * def expectedResponse = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
-    And request requestBody
+    And request expectedResponse
     When method Post
     * print response
     Then status 200

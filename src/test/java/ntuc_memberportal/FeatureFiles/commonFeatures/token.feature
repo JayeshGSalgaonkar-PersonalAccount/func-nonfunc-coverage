@@ -15,7 +15,6 @@ Feature: Token Feature
     And form field scope = "openid profile scid:read:profile scid:update:profile scid:update:preferences scid:verify:myinfo scid:update:account_security offline_access"
     When method post
     Then status 200
-
     * def dynamicAccessToken_user1 = response.access_token
     * print dynamicAccessToken_user1
 
