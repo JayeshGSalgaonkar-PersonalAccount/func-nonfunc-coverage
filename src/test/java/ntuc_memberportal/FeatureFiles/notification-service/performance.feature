@@ -11,10 +11,13 @@ Feature: Notification-service
 #    GET
   Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Valid Token)
     Given path 'notification-service/v1/user-notification'
-    * string user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+
+#    Steps to generate auth token is disabled, using hardcode value
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def id = parseInt(id)
     * def userId = parseInt(userId)
@@ -34,10 +37,13 @@ Feature: Notification-service
 #   Post
   Scenario Outline: PRODUCT BACKLOG - XX - POST register user-device(With Token)
     Given path 'notification-service/v1/user-device-token/register-device'
-    * string user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+
+#    Steps to generate auth token is disabled, using hardcode value
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+
     And header Authorization = 'Bearer ' + dynamicAccessToken
 #    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
     * def requestBody =
@@ -82,10 +88,14 @@ Feature: Notification-service
   Scenario Outline: PRODUCT BACKLOG ITEM XX - POST request for notification-service (With Token)
     Given path 'notification-service/v1/user-notification'
     * def count = parseInt(count)
-    * string user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+
+#    Steps to generate auth token is disabled, using hardcode value
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+
+
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-servicePostNotf.json')
     And request requestBody
@@ -101,10 +111,14 @@ Feature: Notification-service
 #    GET
   Scenario Outline: PRODUCT BACKLOG - XX
     Given path 'notification-service/v1/user-notification/<id>'
-    * string user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+
+#    Steps to generate auth token is disabled, using hardcode value
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+
+
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def isRead = Boolean(~~isRead)
     * def notificationId = parseInt(notificationId)

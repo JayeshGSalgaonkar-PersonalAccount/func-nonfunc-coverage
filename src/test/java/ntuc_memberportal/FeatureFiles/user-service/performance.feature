@@ -10,10 +10,13 @@ Feature: User-service
 
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
     Given path 'user-service/v1/user'
-    * string user = username
-    * def secret = test_secret[user]
-    * def setup = call read('../commonFeatures/auth.feature')
-    * def dynamicAccessToken = setup.dynamicAccessToken
+
+#Ignoring below steps, using hard code value
+#    * string user = username
+#    * def secret = test_secret[user]
+#    * def setup = call read('../commonFeatures/auth.feature')
+#    * def dynamicAccessToken = setup.dynamicAccessToken
+
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
     * def expectedResponse = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
