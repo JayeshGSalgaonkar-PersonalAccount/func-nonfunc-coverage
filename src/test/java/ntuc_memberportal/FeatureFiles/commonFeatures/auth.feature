@@ -18,4 +18,3 @@ Feature: JWT Feature
     Then status 200
     * def dynamicAccessToken = response.access_token
     * print dynamicAccessToken
-

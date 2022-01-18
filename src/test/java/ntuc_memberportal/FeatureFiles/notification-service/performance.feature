@@ -62,13 +62,12 @@ Feature: Notification-service
 #    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceRegisterDevice.json')
     * def requestBody =
   """
-  {
-  "deviceOS": "#(deviceOS)",
-  "deviceToken": "#(val(100000))",
-  "userId": "#(userId)"
-  }
+      {
+        "deviceOS": "#(deviceOS)",
+        "deviceToken": "#(val(100000))",
+        "userId": "#(userId)"
+      }
   """
-
     * print requestBody
     And request requestBody
     When method Post
