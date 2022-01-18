@@ -15,11 +15,11 @@ class LoadSimulation extends Simulation {
   val payment_Service: ScenarioBuilder = scenario("payment-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/payment-service/performance.feature"))
 
   setUp(
-    user_Service.inject(constantConcurrentUsers(5).during(60))
-//    member_Service.inject(constantConcurrentUsers(150).during(180)),
-//    deal_Service.inject(constantConcurrentUsers(150).during(180)),
-//    notification_Service.inject(constantConcurrentUsers(150).during(180)),
-//    payment_Service.inject(constantConcurrentUsers(150).during(180))
+    user_Service.inject(constantConcurrentUsers(150).during(180)),
+    member_Service.inject(constantConcurrentUsers(150).during(180)),
+    deal_Service.inject(constantConcurrentUsers(150).during(180)),
+    notification_Service.inject(constantConcurrentUsers(150).during(180)),
+    payment_Service.inject(constantConcurrentUsers(150).during(180))
     );
 }
 
