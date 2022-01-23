@@ -28,10 +28,9 @@ stages:
           fi
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
           export PATH=$JAVA_HOME/bin:$PATH
-          ulimit -a
           ulimit -s 16384
-          java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
-          java -XX:+PrintFlagsFinal -Xms512m -Xmx1024m -Xss50M -XX:VMThreadStackSize=64m -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+          ulimit -a
+          java -XX:+PrintFlagsFinal -Xms512m -Xmx1024m -Xss50M -XX:VMThreadStackSize=50m -XX:CompilerThreadStackSize=50M -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
           echo "stack size definition complete"
           mvn -version
           mvn clean
