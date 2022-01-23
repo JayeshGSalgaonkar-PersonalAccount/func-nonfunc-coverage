@@ -18,14 +18,14 @@ Feature: Deal-service
       | read('ntuc_memberportal/resources/TestData_File/deal-serviceDeal.csv') |
 
 #---------------------------------------------------------------------------------------------------------------------
-# GET
-  Scenario Outline: PRODUCT BACKLOG - 15 - Service
-    Given path 'deal-service/v1/deals'
-    When method Get
-    Then status 200
-    * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/deal-serviceDealID.json')
-    Then match response.metadata.status == expectedResponse.metadata.status
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/deal-serviceDeal.csv') |
+## GET
+#  Scenario Outline: PRODUCT BACKLOG - 15 - Service
+#    Given path 'deal-service/v1/deals'
+#    When method Get
+#    Then status 200
+#    * print response
+#    * def expectedResponse = read('ntuc_memberportal/resources/Response/deal-serviceDealID.json')
+#    Then match response.metadata.status == expectedResponse.metadata.status
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/deal-serviceDeal.csv') |
 #---------------------------------------------------------------------------------------------------------------------

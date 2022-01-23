@@ -69,17 +69,17 @@ Feature: Member-Service (Eligibility)
 
 #---------------------------------------------------------------------------------------------------------------------
 #   GET
-  Scenario Outline: PRODUCT BACKLOG - 1215 Validate Membership DETAILS using NRIC and DOB
-    Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
-    * def ArrearsinMonth = parseInt(ArrearsinMonth)
-    * def ArrearsAmount = parseInt(ArrearsAmount)
-    * def EducationalLevel = parseInt(EducationalLevel)
-    * def MaritalStatus = parseInt(MaritalStatus)
-    When method Get
-    Then status 200
-    * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
-    Then match response.metadata.status == expected.metadata.status
-
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
+#  Scenario Outline: PRODUCT BACKLOG - 1215 Validate Membership DETAILS using NRIC and DOB
+#    Given path 'member-service/v1/membership/details/<NRIC>/<DOB>'
+#    * def ArrearsinMonth = parseInt(ArrearsinMonth)
+#    * def ArrearsAmount = parseInt(ArrearsAmount)
+#    * def EducationalLevel = parseInt(EducationalLevel)
+#    * def MaritalStatus = parseInt(MaritalStatus)
+#    When method Get
+#    Then status 200
+#    * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+#    Then match response.metadata.status == expected.metadata.status
+#
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
 #---------------------------------------------------------------------------------------------------------------------
