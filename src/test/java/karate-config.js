@@ -1,4 +1,7 @@
 function fn() {
+
+  karate.configure('connectTimeout', 80000);
+  karate.configure('readTimeout', 80000);
   var env = karate.env; // get java system property 'karate.env'
 //  karate.configure('ssl', true);
   karate.log('karate.env system property was:', env);
