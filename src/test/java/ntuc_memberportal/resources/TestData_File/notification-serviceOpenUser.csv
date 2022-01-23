@@ -1,2 +1,2 @@
 "username","status","userID","id","title","templateName","message","type","state","createdDttm","modifiedDttm","shownIn"
-"ishsh@hotmail.com","SUCCESS",1,"0","Your Union Membership application is successful!","union-membership-application-successful","Thank you and welcome!","PAYMENT_STATUS","PUBLISH","","","PUSH"
+"ishsh@hotmail.com","SUCCESS",1,"0","Your Union Membership payment is successful!","union-membership-payment-successful","An acknowledgement email has been sent to you","PAYMENT_STATUS","PUBLISH","","","PUSH"

@@ -38,6 +38,8 @@ Feature: NFM Member-Service
     Then match response.content.errorDescription == <errorDescription>
     Examples:
       | errorCode         | errorDescription     | status            |
-      | "UNAUTHENTICATED" | "No Token provided." | "UNAUTHENTICATED" |
+      | "UNAUTHENTICATED" | "Unauthenticated Request."  | "UNAUTHENTICATED" |
+
+  # errorDescription change from "No Token provided." to "Unauthenticated Request."
 
 #-----------------------------------------------------------------------------------------------------------------------
