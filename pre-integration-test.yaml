@@ -28,6 +28,8 @@ stages:
           fi
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
           export PATH=$JAVA_HOME/bin:$PATH
+          java -XX:+PrintFlagsFinal -Xms512m -Xmx1024m -Xss50M -XX:VMThreadStackSize=64m -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+          echo "stack size definition complete"
           mvn -version
           mvn clean
           #mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
