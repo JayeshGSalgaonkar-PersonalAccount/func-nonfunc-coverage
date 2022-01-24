@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ntuc-member-app-quality" target="11.0.13" />
+      <module name="ntuc-member-app-quality" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -24,7 +24,7 @@ stages:
             cp $(testSecrets.secureFilePath) .
       
       - script: |
-          rm -rf ~/.m2/repository
+          #rm -rf ~/.m2/repository
           if ! [ -x /usr/bin/javac ]; then
             sudo apt install -y openjdk-11-jdk-headless
           fi
@@ -41,7 +41,7 @@ stages:
           echo 100000 > /proc/sys/kernel/threads-max
           echo "threads-max set to 100k"
           mvn -version
-          mvn clean
+          mvn clean verify
           #mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
           mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test
           #mvn test-compile -Dkarate.env="preprod" gatling:test
