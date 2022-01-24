@@ -33,7 +33,9 @@ stages:
           ulimit -a
           java -XX:+PrintFlagsFinal -Xms512m -Xmx1024m -Xss50M -XX:VMThreadStackSize=50m -XX:CompilerThreadStackSize=50M -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
           echo "stack size definition complete"
-          chmod 600 /proc/sys/kernel/threads-max
+          echo cat /proc/sys/kernel/threads-max
+          cat /proc/sys/kernel/threads-max
+          chmod 666 /proc/sys/kernel/threads-max
           echo 100000 > /proc/sys/kernel/threads-max
           echo "threads-max set to 100k"
           mvn -version
