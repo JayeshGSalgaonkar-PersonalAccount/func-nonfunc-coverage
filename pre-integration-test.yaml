@@ -24,6 +24,7 @@ stages:
             cp $(testSecrets.secureFilePath) .
       
       - script: |
+          rm -rf ~/.m2/repository
           if ! [ -x /usr/bin/javac ]; then
             sudo apt install -y openjdk-11-jdk-headless
           fi
