@@ -193,8 +193,16 @@
                         <include>ntuc_memberportal.LoadSimulation</include>
                         <include>ntuc_memberportal.EnduranceSimulation</include>
                     </includes>
+                    <compilerJvmArgs>
+                        <compilerJvmArg>-Xmx512m</compilerJvmArg>
+                    </compilerJvmArgs>
+                    <jvmArgs>
+                        <jvmArg>-Xmx512m</jvmArg>
+                    </jvmArgs>
                 </configuration>
             </plugin>
+
+<!--            https://stackoverflow.com/questions/59392180/karate-gatling-how-to-resolve-java-heap-space-outofmemoryerror-->
 
         </plugins>
     </build>
