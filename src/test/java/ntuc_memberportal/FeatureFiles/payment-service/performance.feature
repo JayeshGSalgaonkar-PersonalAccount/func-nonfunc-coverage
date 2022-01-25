@@ -32,7 +32,8 @@ Feature: Payment-Service
 
 # GET method
 #  Scenario Outline: PRODUCT BACKLOG ITEM 88 - GET request for CLientOrderID endpoint
-    Given path 'payment-service/v1/payment/' + clientOrderId
+    * path 'payment-service/v1/payment/' + clientOrderId
+    And header karate-name = 'payment-service/v1/payment/OrderId'
     * def isOneTimePayment = Boolean(isOneTimePayment)
     When method Get
     Then status 200
