@@ -48,20 +48,17 @@ Feature: User-service
     Examples:
       | name     |
       | ncs      |
-      | tis      |
-      | ntuc     |
 
 #------------------------------------------------------------------------------------------------------------
   Scenario Outline: Validate GET method for Postalcode from USER-service
     Given path 'user-service/v1/postal-code/<postalCode>'
+    And header karate-name = 'v1/postal-code/postal-code'
     When method Get
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
       | postalCode |
       | 543269     |
-      | 541259     |
-      | 520147     |
 
 #------------------------------------------------------------------------------------------------------------
 #  GET
@@ -76,6 +73,7 @@ Feature: User-service
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 417 - Verify user GET method via SCID
     Given path 'user-service/v1/user/userId/<scid>'
+    And header karate-name = 'v1/user/userID/scid'
     * def id = parseInt(id)
     When method Get
     Then status 200
