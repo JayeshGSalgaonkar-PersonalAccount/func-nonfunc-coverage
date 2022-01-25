@@ -20,7 +20,7 @@ class LoadSimulation extends Simulation {
     deal_Service.inject(constantConcurrentUsers(400).during(480)),
     notification_Service.inject(constantConcurrentUsers(400).during(480)),
     payment_Service.inject(constantConcurrentUsers(400).during(480))
-    );
+    )
 }
 
 //  .inject(constantUsersPerSec(100) during(10))

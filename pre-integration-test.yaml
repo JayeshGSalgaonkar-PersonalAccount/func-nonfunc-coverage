@@ -33,6 +33,8 @@ stages:
           ulimit -s 524288
           ulimit -u 524288
           ulimit -a
+          export MAVEN_OPTS="-Xmx4G"
+          export _JAVA_OPTIONS="-Xmx4G"
           java -XX:+PrintFlagsFinal -Xms512m -Xmx1024m -Xss50M -XX:VMThreadStackSize=50m -XX:CompilerThreadStackSize=50M -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
           echo "stack size definition complete"
           echo cat /proc/sys/kernel/threads-max
