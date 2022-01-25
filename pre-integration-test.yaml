@@ -51,5 +51,6 @@ stages:
           #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_dealservice
           mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_paymentservice
         displayName: mvn testcreating
+        continueOnError: true
       - publish: $(System.DefaultWorkingDirectory)/target
         artifact: integration_test_reports
