@@ -85,11 +85,6 @@
             <version>4.4.13</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.typesafe.akka</groupId>-->
-<!--            <artifactId>akka-actor-typed_${scala.binary.version}</artifactId>-->
-<!--        </dependency>-->
-
     </dependencies>
 
     <build>
@@ -121,7 +116,7 @@
                 <executions>
                     <execution>
                         <id>execute</id>
-                        <phase>integration-test</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>test</goal>
                         </goals>
@@ -129,6 +124,7 @@
                 </executions>
                 <configuration>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>src/test/java/TestRunnerParallel.java</include>
                     </includes>
@@ -152,6 +148,7 @@
                             <jsonFiles>
                                 <jsonFile>**/**.json</jsonFile>
                             </jsonFiles>
+                            <checkBuildResult>true</checkBuildResult>
                         </configuration>
                     </execution>
                 </executions>
@@ -163,6 +160,7 @@
                 <version>4.5.3</version>
                 <executions>
                     <execution>
+<!--                        <phase>integration-test</phase>-->
                         <goals>
                             <goal>testCompile</goal>
                         </goals>
@@ -187,16 +185,24 @@
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
+<!--                    <goal>testCompile</goal>-->
                     <disableCompiler>true</disableCompiler>
                     <simulationsFolder>src/test/java</simulationsFolder>
                     <runMultipleSimulations>true</runMultipleSimulations>
-
                     <includes>
                         <include>ntuc_memberportal.LoadSimulation</include>
                         <include>ntuc_memberportal.EnduranceSimulation</include>
                     </includes>
+                    <compilerJvmArgs>
+                        <compilerJvmArg>-Xmx512m</compilerJvmArg>
+                    </compilerJvmArgs>
+                    <jvmArgs>
+                        <jvmArg>-Xmx1024m</jvmArg>
+                    </jvmArgs>
                 </configuration>
             </plugin>
+
+<!--            https://stackoverflow.com/questions/59392180/karate-gatling-how-to-resolve-java-heap-space-outofmemoryerror-->
 
         </plugins>
     </build>

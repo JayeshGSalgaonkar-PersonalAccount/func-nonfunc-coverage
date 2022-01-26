@@ -11,6 +11,7 @@ Feature: Member-Service (Eligibility)
 #    GET
   Scenario Outline: PRODUCT BACKLOG - Membership Details
     Given path 'member-service/v1/membership/details/<nric>/<dob>'
+    And header karate-name = 'membership/details/nric/dob'
     When method Get
     Then status 200
     * print response
@@ -23,6 +24,7 @@ Feature: Member-Service (Eligibility)
 #  GET
   Scenario Outline: PRODUCT BACKLOG ITEM 101 - Validate GET method for Eligibility under Member-service
     Given path 'member-service/v1/membership/check/active/<nric>/<dob>'
+    And header karate-name = 'membership/check/active/nric/dob'
     When method Get
     Then status 200
     * print response
@@ -34,6 +36,7 @@ Feature: Member-Service (Eligibility)
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 372 - Validate GET method for Occupation-Group Eligibility under Member-service
     Given path 'member-service/v1/membership/check/eligibility/<nric>'
+    And header karate-name = 'eligibility/nric'
     When method Get
     Then status 200
     * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
