@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "hasActiveMembership": "#(hasActiveMembership)",
+    "hasDraft": "#(hasDraft)"
+  }
+}

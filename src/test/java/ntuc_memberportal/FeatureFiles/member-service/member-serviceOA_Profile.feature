@@ -201,26 +201,27 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
-
 #-----------------------------------------------------------------------------------------------------------------------
 #  GET
-#  Scenario Outline: PRODUCT BACKLOG 1214 - Retrieve Membership status details i.e. Active or DRAFT status
-#    Given path 'member-service/v1/membership/has-draft-or-active-membership'
-#    * string user = username
-#    * def secret = test_secret[user]
-#    * def setup = call read('../commonFeatures/auth.feature')
-#    * def dynamicAccessToken = setup.dynamicAccessToken
-#    And header Authorization = 'Bearer ' + dynamicAccessToken
-#    When method Get
-#    Then status 200
-#    Then match expectedResponse == read('')
-#    Then match response.metadata.status == expectedResponse.metadata.status
-##    Then match response.content.types contains types
-#
-#    Examples:
-#      | read('') |
-#
-#
+  Scenario Outline: PRODUCT BACKLOG 1214 - Retrieve Membership status details i.e. Active or DRAFT status
+    Given path 'member-service/v1/membership/has-draft-or-active-membership'
+    * string user = username
+    * def hasDraft = Boolean(~hasDraft)
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    When method Get
+    Then status 200
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceDraftOrActive.json')
+    * print expectedResponse
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response.content.hasDraft == expectedResponse.content.hasDraft
+
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraftOrActive.csv') |
+
 #--------------------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG 143 - Membership Association
@@ -242,3 +243,4 @@ Feature: OA Member-Service
     Then match response.content.email[0] == expectedResponse.content.email[0]
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceAssociation.csv') |
+#--------------------------------------------------------------------------------------------------------------

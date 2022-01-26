@@ -1,7 +1,7 @@
 Feature: JWT Feature
   Background: JWT Background
     * def test_secret = read('classpath:Test_Secret.json')
-    * def user = 'sha@yahoo.com'
+#    * def user = 'isii@ntuc.org.sg'
     * def secret = test_secret[user]
 
   Scenario: JWT Scenario
@@ -17,4 +17,4 @@ Feature: JWT Feature
     Then status 200
     * def dynamicAccessToken = response.access_token
 
-    * print dynamicAccessToken
+#    * print dynamicAccessToken
