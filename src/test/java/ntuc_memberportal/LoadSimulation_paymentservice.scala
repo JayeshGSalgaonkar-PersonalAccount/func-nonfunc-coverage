@@ -18,7 +18,7 @@ class LoadSimulation_paymentservice extends Simulation {
   val payment_Service: ScenarioBuilder = scenario("payment-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/payment-service/performance.feature"))
 
   setUp(
-    payment_Service.inject(constantConcurrentUsers(1000).during(480)).protocols(protocol)
+    payment_Service.inject(constantConcurrentUsers(100).during(480)).protocols(protocol)
     )
 }
 

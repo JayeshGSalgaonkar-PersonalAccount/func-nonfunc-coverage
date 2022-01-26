@@ -15,6 +15,10 @@ function fn() {
         config.baseURL = karate.properties['baseURL'] || 'https://devma.ntuc.org.sg/api/'
     else if(env == 'preprod')
         config.baseURL = karate.properties['baseURL'] || 'https://apimpre.ntuc.org.sg/api/'
+    else if(env == 'uat')
+        config.baseURL = karate.properties['baseURL'] || 'https://uatma.ntuc.org.sg/api/'
+    else
+        config.baseURL = karate.properties['baseURL']
 //By default run in dev environment
     return config;
       }
