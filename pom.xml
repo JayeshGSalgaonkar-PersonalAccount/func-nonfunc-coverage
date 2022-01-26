@@ -197,7 +197,7 @@
                         <compilerJvmArg>-Xmx512m</compilerJvmArg>
                     </compilerJvmArgs>
                     <jvmArgs>
-                        <jvmArg>-Xmx512m</jvmArg>
+                        <jvmArg>-Xmx1024m</jvmArg>
                     </jvmArgs>
                 </configuration>
             </plugin>
