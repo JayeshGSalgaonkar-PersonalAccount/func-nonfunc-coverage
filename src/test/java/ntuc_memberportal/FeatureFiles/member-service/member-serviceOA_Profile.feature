@@ -223,22 +223,22 @@ Feature: OA Member-Service
 #
 #--------------------------------------------------------------------------------------------------------------
 #  GET
-#  Scenario Outline: PRODUCT BACKLOG 143 - Membership Association
-#    Given path 'member-service/v1/membership/membershipAssociation'
-#    * param last4Nric = last4Nric
-#    * param dob = dob
-#    * string user = username
-#    * def secret = test_secret[user]
-#    * def setup = call read('../commonFeatures/auth.feature')
-#    * def dynamicAccessToken = setup.dynamicAccessToken
-#    And header Authorization = 'Bearer ' + dynamicAccessToken
-#    When method Get
-#    Then status 200
-#    * print response
-#    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceAssociation.json')
-#    Then match response.metadata.status == expectedResponse.metadata.status
-#    Then match response.content.phone[0] == expectedResponse.content.phone[0]
-#    Then match response.content.email[0] == expectedResponse.content.email[0]
-
-#    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-serviceAssociation.csv') |
+  Scenario Outline: PRODUCT BACKLOG 143 - Membership Association
+    Given path 'member-service/v1/membership/membershipAssociation'
+    * param last4Nric = last4Nric
+    * param dob = dob
+    * param mobile = mobile
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    When method Get
+    Then status 200
+    * print response
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceAssociation.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Then match response.content.phone[0] == expectedResponse.content.phone[0]
+    Then match response.content.email[0] == expectedResponse.content.email[0]
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceAssociation.csv') |
