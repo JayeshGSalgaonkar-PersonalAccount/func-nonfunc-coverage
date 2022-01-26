@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "membership": {
+      "modifiedDttm": "#ignore",
+      "unionCode": "#(unionCode)",
+      "membershipTypeCode": "#(membershipTypeCode)",
+      "createdDttm": "#ignore",
+      "ucemCreateStatus": "#(ucemCreateStatus)",
+      "unionName": "#(unionName)",
+      "id": "#(id)",
+      "optInNebo": "#(optInNebo)",
+      "userId": "#(userId)",
+      "status": "#(status)"
+    },
+    "user": {
+      "bankCode": "#(bankCode)",
+      "monthlyGrossSalary": "#(monthlyGrossSalary)",
+      "occupation": "#(occupation)",
+      "address": {
+        "buildingName": "#(buildingName)",
+        "unit": "#(unit)",
+        "homeTelNo": "#(homeTelNo)",
+        "blockHSENo": "#(blockHSENo)",
+        "street": "#(street)",
+        "postalCode": "#(postalCode)",
+        "floor": "#(floor)"
+      },
+      "gender": "#(gender)",
+      "race": "#(race)",
+      "employmentType": "#(employmentType)",
+      "nricFin": "#(nricFin)",
+      "mobileNumber": "#(mobileNumber)",
+      "bankName": "#(bankName)",
+      "branchCode": "#(branchCode)",
+      "exchangeId": "#(exchangeId)",
+      "occupationalGroup": "#(occupationalGroup)",
+      "dob": "#(dob)",
+      "name": "#(name)",
+      "bankAccountNumber": "#(bankAccountNumber)",
+      "id": "#(id)",
+      "highestEducationLevel": "#(highestEducationLevel)",
+      "officeTelNo": "#(officeTelNo)",
+      "email": "#(email)",
+      "maritalStatus": "#(maritalStatus)",
+      "scid": "#(scid)",
+      "status": "#(status)"
+    }
+  }
+}

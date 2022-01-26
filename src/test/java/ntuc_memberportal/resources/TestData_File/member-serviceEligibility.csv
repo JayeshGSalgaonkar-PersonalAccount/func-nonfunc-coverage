@@ -1,2 +1,2 @@
 "NRIC","DOB","BranchCode","Checkclist","ExchangeId","PaymentArrearMonths","PaymentTypeCode","PaymentTypeName","UnionCode","isnebo","status"
-"279Z",01011975,"002",true,"202100015908",6,2,"CASH","Training2",false,"SUCCESS"
+"279Z",01011975,"002",true,"202100015908",7,2,"CASH","NICA",false,"SUCCESS"
