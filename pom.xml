@@ -198,10 +198,10 @@
                         <include>ntuc_memberportal.EnduranceSimulation</include>
                     </includes>
                     <compilerJvmArgs>
-                        <compilerJvmArg>-Xmx512m</compilerJvmArg>
+                        <compilerJvmArg>-Xmx1024m</compilerJvmArg>
                     </compilerJvmArgs>
                     <jvmArgs>
-                        <jvmArg>-Xmx1024m</jvmArg>
+                        <jvmArg>-Xmx2048m</jvmArg>
                     </jvmArgs>
                 </configuration>
             </plugin>
