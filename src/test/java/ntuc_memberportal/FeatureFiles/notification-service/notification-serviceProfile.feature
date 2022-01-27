@@ -85,7 +85,7 @@ Feature: Notification-service
 #      | "BAD_REQUEST" | "VALIDATION_ERROR" | "Caught Validation Error for /notification/open" | 0  | "ishsh@hotmail.com" |
 
 #---------------------------------------------------------------------------------------------------
-#     GET
+#  GET
   Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Invalid Token)
     Given path 'notification-service/v1/user-notification'
     And header Authorization = 'Bearer ' + "XCDERFWRONGVALUE"
@@ -113,6 +113,7 @@ Feature: Notification-service
     * def userId = parseInt(userId)
     When method Get
     Then status 200
+    * print response
     * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetNotifID.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content.notification.templateName == expectedResponse.content.notification.templateName
@@ -128,22 +129,22 @@ Feature: Notification-service
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetNotifID.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
-#   GET Need to revalidate API call (SUJIT TO TAKE ACTION)
-#  Scenario Outline: PRODUCT BACKLOG - 11 - NEGATIVE TEST (with Valid Token)
-#    Given path 'notification-service/v1/user-notification/<id>'
-#    * string user = <username>
-#    * def secret = test_secret[user]
-#    * def setup = call read('../commonFeatures/auth.feature')
-#    * def dynamicAccessToken = setup.dynamicAccessToken
-#    And header Authorization = 'Bearer ' + dynamicAccessToken
-#    When method Get
-#    Then status 400
-#    Then match response.metadata.status == <status>
-#    Then match response.content.errorCode == <errorCode>
-#    Then match response.content.errorDescription == <errorDescription>
-#    Examples:
-#      | id | status           | errorCode          | errorDescription                        | username            |
-#      | 1  | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "Selected User Notification not found." | "ishsh@hotmail.com" |
+#  GET
+  Scenario Outline: PRODUCT BACKLOG - 11 - NEGATIVE TEST (with Valid Token)
+    Given path 'notification-service/v1/user-notification/<id>'
+    * string user = <username>
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    When method Get
+    Then status 400
+    Then match response.metadata.status == <status>
+    Then match response.content.errorCode == <errorCode>
+    Then match response.content.errorDescription == <errorDescription>
+    Examples:
+      | id    | status           | errorCode          | errorDescription                        | username        |
+      | 10102 | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "Selected User Notification not found." | "ish@hmail.com" |
 #-----------------------------------------------------------------------------------------------------------------------
 # POST Need to revalidate API call (SUJIT TO TAKE ACTION)
 #  Scenario Outline: PRODUCT BACKLOG ITEM XX - POST request for notification-service (With Token)
