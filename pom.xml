@@ -190,14 +190,18 @@
                     <simulationsFolder>src/test/java</simulationsFolder>
                     <runMultipleSimulations>true</runMultipleSimulations>
                     <includes>
-                        <include>ntuc_memberportal.LoadSimulation</include>
+                        <include>ntuc_memberportal.LoadSimulation_dealservice</include>
+                        <include>ntuc_memberportal.LoadSimulation_memberservice</include>
+                        <include>ntuc_memberportal.LoadSimulation_notificationservice</include>
+                        <include>ntuc_memberportal.LoadSimulation_paymentservice</include>
+                        <include>ntuc_memberportal.LoadSimulation_userservice</include>
                         <include>ntuc_memberportal.EnduranceSimulation</include>
                     </includes>
                     <compilerJvmArgs>
-                        <compilerJvmArg>-Xmx512m</compilerJvmArg>
+                        <compilerJvmArg>-Xmx1024m</compilerJvmArg>
                     </compilerJvmArgs>
                     <jvmArgs>
-                        <jvmArg>-Xmx1024m</jvmArg>
+                        <jvmArg>-Xmx2048m</jvmArg>
                     </jvmArgs>
                 </configuration>
             </plugin>

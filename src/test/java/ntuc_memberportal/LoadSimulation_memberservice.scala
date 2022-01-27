@@ -22,7 +22,7 @@ class LoadSimulation_memberservice extends Simulation {
 
 
   setUp(
-    member_Service.inject(constantConcurrentUsers(400).during(480)).protocols(protocol)
+    member_Service.inject(constantConcurrentUsers(400).during(1200)).protocols(protocol)
     )
 }
 

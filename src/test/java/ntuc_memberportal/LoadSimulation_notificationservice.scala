@@ -12,7 +12,7 @@ class LoadSimulation_notificationservice extends Simulation {
 
 
   setUp(
-    notification_Service.inject(constantConcurrentUsers(400).during(480)),
+    notification_Service.inject(constantConcurrentUsers(400).during(1200)),
     )
 }
 
