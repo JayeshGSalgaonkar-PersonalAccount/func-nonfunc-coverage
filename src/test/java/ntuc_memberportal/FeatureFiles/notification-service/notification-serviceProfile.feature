@@ -10,36 +10,21 @@ Feature: Notification-service
     * def test_secret = read('classpath:Test_Secret.json')
 
 #---------------------------------------------------------------------------------------------------
-#    GET Need to revalidate API call (SUJIT TO TAKE ACTION)
-#  Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Valid Token)
-#    Given path 'notification-service/v1/user-notification'
-#    * string user = username
-#    * def secret = test_secret[user]
-#    * def setup = call read('../commonFeatures/auth.feature')
-#    * def dynamicAccessToken = setup.dynamicAccessToken
-#    And header Authorization = 'Bearer ' + dynamicAccessToken
-#    * def id = parseInt(id)
-#    * def userId = parseInt(userId)
-#    * def isRead = Boolean(~~isRead)
-#    * def notificationId = parseInt(notificationId)
-#    * def notificationSent = Boolean(~~notificationSent)
-#    * def notificationParameters = Boolean(~~notificationParameters)
-#    When method Get
-#    * print response
-#    Then status 200
-#    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')
-#    Then match response.metadata.status == expectedResponse.metadata.status
-#    Then match response.content[0].notification.templateName == expectedResponse.content[0].notification.templateName
-#    Then match response.content[0].notification.title == expectedResponse.content[0].notification.title
-#    Then match response.content[0].notification.state == expectedResponse.content[0].notification.state
-#    Then match response.content[0].notification.message == expectedResponse.content[0].notification.message
-#    Then match response.content[0].notification.type == expectedResponse.content[0].notification.type
-#    Then match response.content[0].notification.shownIn == expectedResponse.content[0].notification.shownIn
-#    Then match response.content[0].isRead == expectedResponse.content[0].isRead
-#    Then match response.content[0].userId == expectedResponse.content[0].userId
-#    Then match response.content[0].notificationSent == expectedResponse.content[0].notificationSent
-#    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
+#  GET
+  Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Valid Token)
+    Given path 'notification-service/v1/user-notification'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    When method Get
+    * print response
+    Then status 200
+    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')
+    Then match response.metadata.status == expectedResponse.metadata.status
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
 
 #---------------------------------------------------------------------------------------------------
 #  GET
