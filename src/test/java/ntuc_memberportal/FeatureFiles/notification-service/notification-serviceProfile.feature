@@ -26,7 +26,7 @@ Feature: Notification-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
 
-#---------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG - 11 - Verify Notification Template (with Valid Token)
     Given path 'notification-service/v1/notification/open'
@@ -50,25 +50,6 @@ Feature: Notification-service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceOpenUser.csv') |
 
-#---------------------------------------------------------------------------------------------------------
-#   GET Need to revalidate API call (SUJIT TO TAKE ACTION)
-#  Scenario Outline: PRODUCT BACKLOG - 11 - NEGATIVE TEST (with Valid Token)
-#    Given path 'notification-service/v1/notification/open'
-#    * param id = <id>
-#    * string user = <username>
-#    * def secret = test_secret[user]
-#    * def setup = call read('../commonFeatures/auth.feature')
-#    * def dynamicAccessToken = setup.dynamicAccessToken
-#    And header Authorization = 'Bearer ' + dynamicAccessToken
-#    When method Get
-#    Then status 400
-#    Then match response.metadata.status == <status>
-#    Then match response.content.errorCode == <errorCode>
-#    Then match response.content.errorDescription == <errorDescription>
-#    Examples:
-#      | status        | errorCode          | errorDescription                                 | id | username            |
-#      | "BAD_REQUEST" | "VALIDATION_ERROR" | "Caught Validation Error for /notification/open" | 0  | "ishsh@hotmail.com" |
-
 #---------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG - 11 - GET method to verify notification details (with Invalid Token)
@@ -85,7 +66,7 @@ Feature: Notification-service
 
 #---------------------------------------------------------------------------------------------------
 #    GET
-  Scenario Outline: PRODUCT BACKLOG - XX
+  Scenario Outline: PRODUCT BACKLOG - 458
     Given path 'notification-service/v1/user-notification/<id>'
     * string user = username
     * def secret = test_secret[user]
@@ -128,27 +109,52 @@ Feature: Notification-service
     Then match response.content.errorCode == <errorCode>
     Then match response.content.errorDescription == <errorDescription>
     Examples:
-      | id    | status           | errorCode          | errorDescription                        | username        |
-      | 10102 | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "Selected User Notification not found." | "ish@hmail.com" |
+      | id    | status           | errorCode          | errorDescription                        | username            |
+      | 10102 | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "Selected User Notification not found." | "ohklohk@gmail.com" |
+
 #-----------------------------------------------------------------------------------------------------------------------
-# POST Need to revalidate API call (SUJIT TO TAKE ACTION)
-#  Scenario Outline: PRODUCT BACKLOG ITEM XX - POST request for notification-service (With Token)
-#    Given path 'notification-service/v1/user-notification'
-#    * def count = parseInt(count)
-#    * string user = username
-#    * def secret = test_secret[user]
-#    * def setup = call read('../commonFeatures/auth.feature')
-#    * def dynamicAccessToken = setup.dynamicAccessToken
-#    And header Authorization = 'Bearer ' + dynamicAccessToken
-#    * def requestBody = read('ntuc_memberportal/resources/Request/notification-servicePostNotf.json')
-#    And request requestBody
-#    When method Get
-#    * print response
-#    Then status 200
-#    Then match response.metadata.status == "SUCCESS"
-#    Then match response.content.count contains count
-#    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
+# POST
+  Scenario Outline: PRODUCT BACKLOG ITEM 318 - POST request for READ notification-service (With Token)
+    Given path 'notification-service/v1/user-notification/read'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def requestBody =
+  """
+  {
+  "ids": "#(ids)",
+  }
+  """
+    And request requestBody
+    When method Post
+    Then status 200
+    Then match response.metadata.status == "SUCCESS"
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
+
+#-----------------------------------------------------------------------------------------------------------------------
+    # POST
+  Scenario Outline: PRODUCT BACKLOG ITEM 318 - POST request for UNREAD notification-service (With Token)
+    Given path 'notification-service/v1/user-notification/unread'
+    * string user = username
+    * def secret = test_secret[user]
+    * def setup = call read('../commonFeatures/auth.feature')
+    * def dynamicAccessToken = setup.dynamicAccessToken
+    And header Authorization = 'Bearer ' + dynamicAccessToken
+    * def requestBody =
+  """
+  {
+  "ids": "#(ids)",
+  }
+  """
+    And request requestBody
+    When method Post
+    Then status 200
+    Then match response.metadata.status == "SUCCESS"
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 # DELETE
@@ -162,7 +168,6 @@ Feature: Notification-service
     * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDelete.json')
     And request requestBody
     When method Delete
-    * print response
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
