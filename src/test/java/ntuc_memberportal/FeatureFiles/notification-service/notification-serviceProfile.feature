@@ -42,11 +42,11 @@ Feature: Notification-service
     * print response
     * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceOpenUser.json')
     Then match response.metadata.status == expectedResponse.metadata.status
-    Then match response.content[0].templateName == expectedResponse.content[0].templateName
-    Then match response.content[0].type == expectedResponse.content[0].type
-    Then match response.content[0].title == expectedResponse.content[0].title
-    Then match response.content[0].message == expectedResponse.content[0].message
-    Then match response.content[0].state == expectedResponse.content[0].state
+    Then match response.content[0].type contains "PAYMENT_STATUS"
+    Then match response.content[0].templateName contains expectedResponse.content[0].templateName
+    Then match response.content[0].title contains "Your Union Membership application is successful!"
+    Then match response.content[0].message contains "Thank you and welcome!"
+    Then match response.content[0].state contains "PUBLISH"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceOpenUser.csv') |
 

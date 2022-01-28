@@ -21,7 +21,7 @@ Feature: Case-Service
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
-    * print response
+    Then match response.metadata.status == "SUCCESS"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
 
