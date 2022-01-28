@@ -1,7 +1,7 @@
 Feature: JWT Feature
   Background: JWT Background
     * def test_secret = read('classpath:Test_Secret.json')
-#    * def user = 'ishsh@hotmail.com'
+#    * def user = 'sha@yahoo.com'
     * def secret = test_secret[user]
 
   Scenario: JWT Scenario

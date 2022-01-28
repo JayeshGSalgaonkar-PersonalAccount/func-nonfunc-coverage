@@ -41,3 +41,5 @@ Feature: Case-Service
     Then match response.metadata.status == "BAD_REQUEST"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/protection-serviceFileUpload.csv') |
+
+#------------------------------------------------------------------------------------------------------------
