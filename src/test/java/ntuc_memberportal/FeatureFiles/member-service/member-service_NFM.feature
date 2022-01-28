@@ -25,11 +25,11 @@ Feature: NFM Member-Service
     Then match response.metadata.status == <status>
     Examples:
       | mainMembership | status    | username        |
-      | false          | "SUCCESS" | "ishsh@hotmail.com" |
+      | false          | "SUCCESS" | "sha@yahoo.com" |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #    GET
-  Scenario Outline: PRODUCT BACKLOG - 142 - NFM WithOut Auth Token
+  Scenario Outline: PRODUCT BACKLOG - 142 - NFM Unauthenticated Request.
     Given path 'member-service/v1/membership/nfm/main'
     When method Get
     Then status 401
@@ -37,8 +37,8 @@ Feature: NFM Member-Service
     Then match response.content.errorCode == <errorCode>
     Then match response.content.errorDescription == <errorDescription>
     Examples:
-      | errorCode         | errorDescription     | status            |
-      | "UNAUTHENTICATED" | "Unauthenticated Request."  | "UNAUTHENTICATED" |
+      | errorCode         | errorDescription           | status            |
+      | "UNAUTHENTICATED" | "Unauthenticated Request." | "UNAUTHENTICATED" |
 
   # errorDescription change from "No Token provided." to "Unauthenticated Request."
 
