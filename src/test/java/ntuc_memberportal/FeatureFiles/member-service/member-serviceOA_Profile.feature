@@ -10,6 +10,26 @@ Feature: OA Member-Service
     * def test_secret = read('classpath:Test_Secret.json')
 
 #------------------------------------------------------------------------------------------------------------
+#  POST
+  Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service
+    Given path 'member-service/v1/membership/open/oa'
+    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
+    And request requestBody
+    * def email = '<email>'
+    When method Post
+    Then status 200
+    * print response
+    * def expectedResult = read("ntuc_memberportal/resources/Response/member-serviceOpenMemOA.json")
+    Then match response.metadata.status == expectedResult.metadata.status
+    Then match response.content.membership.membershipTypeCode == "OA"
+    Then match response.content.membership.status == "DRAFT"
+    * print response.content.user.email == email
+    Then match response.content.user.race == "CN"
+    Then match response.content.user.bankName == "DBS"
+    Examples:
+      | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
+
+#------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 142 GET method to verify membership details
     Given path 'member-service/v1/membership'
@@ -121,7 +141,7 @@ Feature: OA Member-Service
     Then match response.metadata.status == <status>
     Examples:
       | Type | status    | username            |
-      | "OA" | "SUCCESS" | "ishsh@hotmail.com" |
+      | "OA" | "SUCCESS" | "sha@yahoo.com" |
 
 #--------------------------------------------------------------------------------------------------------------
 #    GET
@@ -165,26 +185,6 @@ Feature: OA Member-Service
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
 
-
-#--------------------------------------------------------------------------------------------------------------
-#   POST
-  Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service
-    Given path 'member-service/v1/membership/open/oa'
-    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
-    And request requestBody
-    * def email = '<email>'
-    When method Post
-    Then status 200
-    * print response
-    * def expectedResult = read("ntuc_memberportal/resources/Response/member-serviceOpenMemOA.json")
-    Then match response.metadata.status == expectedResult.metadata.status
-    Then match response.content.membership.membershipTypeCode == "OA"
-    Then match response.content.membership.status == "DRAFT"
-    * print response.content.user.email == email
-    Then match response.content.user.race == "CN"
-    Then match response.content.user.bankName == "DBS"
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 #  POST
