@@ -45,10 +45,13 @@ stages:
           echo "threads-max set to 100k"
           mvn -version
           mvn clean
+          #Functional Test--------------------
           #mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
+          #Nonfunctional Test---------------------
           #mvn test-compile -e -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test
-          mvn test-compile -e -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test
+          mvn test-compile -e -DbaseURL=https://uatma.ntuc.org.sg/api/ gatling:test
           #mvn test-compile -Dkarate.env="preprod" gatling:test
+          #Nonfunctional Test for Individual microservice ---------------------
           #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_dealservice
           #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_paymentservice
           #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_notificationservice
