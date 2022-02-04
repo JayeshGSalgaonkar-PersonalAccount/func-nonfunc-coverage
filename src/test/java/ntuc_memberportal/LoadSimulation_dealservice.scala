@@ -17,7 +17,7 @@ class LoadSimulation_dealservice extends Simulation {
   setUp(
 //    user_Service.inject(constantConcurrentUsers(1000).during(300)),
 //    member_Service.inject(constantConcurrentUsers(400).during(480)),
-    deal_Service.inject(constantConcurrentUsers(100).during(120)),
+    deal_Service.inject(constantConcurrentUsers(500).during(300)),
 //    notification_Service.inject(constantConcurrentUsers(400).during(480)),
 //    payment_Service.inject(constantConcurrentUsers(400).during(480))
     )

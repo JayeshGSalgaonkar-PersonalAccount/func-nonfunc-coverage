@@ -18,7 +18,7 @@ class LoadSimulation_userservice extends Simulation {
 
   val user_Service: ScenarioBuilder = scenario("user-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/user-service/performance.feature"))
   setUp(
-    user_Service.inject(constantConcurrentUsers(100).during(120)).protocols(protocol),
+    user_Service.inject(constantConcurrentUsers(500).during(300)).protocols(protocol),
     )
 }
 

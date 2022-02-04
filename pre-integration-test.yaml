@@ -48,7 +48,6 @@ stages:
           #Functional Test--------------------
           #mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
           #Nonfunctional Test---------------------
-          #mvn test-compile -e -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test
           mvn test-compile -e -DbaseURL=https://uatma.ntuc.org.sg/api/ gatling:test
           #mvn test-compile -Dkarate.env="preprod" gatling:test
           #Nonfunctional Test for Individual microservice ---------------------
