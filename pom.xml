@@ -196,6 +196,7 @@
                         <include>ntuc_memberportal.LoadSimulation_paymentservice</include>
                         <include>ntuc_memberportal.LoadSimulation_userservice</include>
                         <include>ntuc_memberportal.EnduranceSimulation</include>
+                        <include>ntuc_memberportal.LoadSimulation_Total</include>
                     </includes>
                     <compilerJvmArgs>
                         <compilerJvmArg>-Xmx1024m</compilerJvmArg>

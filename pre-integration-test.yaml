@@ -47,9 +47,8 @@ stages:
           mvn clean
           #Functional Test--------------------
           #mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
-          #Nonfunctional Test---------------------
-          mvn test-compile -e -DbaseURL=https://uatma.ntuc.org.sg/api/ gatling:test
-          #mvn test-compile -Dkarate.env="preprod" gatling:test
+          #Nonfunctional All microservices test---------------------
+          mvn test-compile -Dkarate.env="uat" gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_Total
           #Nonfunctional Test for Individual microservice ---------------------
           #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_dealservice
           #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_paymentservice

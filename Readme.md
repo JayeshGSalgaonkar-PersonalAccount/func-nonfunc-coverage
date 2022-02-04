@@ -17,8 +17,19 @@
 
 # Non-functional Test (Performance)
     CLI - Execute all tests (only option)
-* To run in dev-environment - execute - `mvn test-compile gatling:test`
-* To run in pre-prod environment - execute - `mvn test-compile -Dkarate.env="preprod" gatling:test`
+* To run without any specifications (default run in dev-environment) - execute - `mvn test-compile gatling:test`
+* To run in specific environment (run in preprod, uat, prod) - execute - `mvn test-compile -Dkarate.env="preprod" gatling:test`
+* To run a specific LoadSimulation - execute - `mvn test-compile gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_Total`
+
+
+
+Note - single load simulation
+Deal Service = -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_dealservice
+Member Service = -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_memberservice
+Notification Service = -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_notificationservice
+Payment Service = -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_paymentservice
+User Service = -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_userservice
+All Services = -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_Total
 
 
 # DockerFile (root folder)
