@@ -27,7 +27,7 @@ Feature: User service
       | read("ntuc_memberportal/resources/TestData_File/user-servicePreference.csv") |
 
 #----------------------------------------------------------------------------------------------------------------
-#    GET
+#  GET
   Scenario Outline: PRODUCT BACKLOG ITEM 11 - Validate User service for Preference
     Given path 'user-service/v1/user/preferences/'
     * string user = username
