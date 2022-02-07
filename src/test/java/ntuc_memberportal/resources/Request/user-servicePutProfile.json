@@ -1,8 +1,6 @@
 {
   "bankAccountNumber": "#(bankAccountNumber)",
   "bankName": "#(bankName)",
-  "companyBusinessNature": "#(companyBusinessNature)",
-  "companyName": "#(companyName)",
   "dob": "#(dob)",
   "email": "#(email)",
   "employmentType": "#(employmentType)",

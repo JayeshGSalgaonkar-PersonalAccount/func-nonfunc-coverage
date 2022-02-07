@@ -22,12 +22,11 @@ Feature: User-service
     When method Post
     And print response
     Then status 200
-
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
-#   POST XXXXXXXX
+#  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Create User-Profile (With Token)
     Given path 'user-service/v1/user'
     * string user = username
@@ -46,7 +45,7 @@ Feature: User-service
       | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
-#    POST
+#  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE TEST (With Token)
     Given path 'user-service/v1/user'
     * string user = <username>
@@ -66,7 +65,7 @@ Feature: User-service
       | "BAD_REQUEST" | "Caught Validation Error for /user" | null      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
 
 #----------------------------------------------------------------------------------------------------------------
-#   DELETE
+#  DELETE
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Verify user DELETE method via USERID
     Given path 'user-service/v1/user'
     * string user = username
@@ -78,12 +77,16 @@ Feature: User-service
     When method Delete
     And print response
     Then status 200
-    Then match response == read ("ntuc_memberportal/resources/Response/user-serviceDelete.json")
+    * def expectedResponse = read ("ntuc_memberportal/resources/Response/user-serviceDelete.json")
+    Then match response.content.name == expectedResponse.content.name
+    Then match response.content.scid == expectedResponse.content.scid
+    Then match response.content.id == expectedResponse.content.id
+    Then match response.content.status == expectedResponse.content.status
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceDeleteUser.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
-#    PUT
+#  PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - Edit User-Profile (With Token)
     Given path 'user-service/v1/user'
     * string user = username
@@ -95,28 +98,24 @@ Feature: User-service
     And request requestBody
     * print requestBody
     When method Put
+    * print response
     Then status 200
-    Then match response.content.homeTelNo == request.homeTelNo
-    Then match response.content.buildingName == request.buildingName
-    Then match response.content.street == request.street
-    Then match response.content.unit == request.unit
-    Then match response.content.floor == request.floor
+    Then match response.content.scid == requestBody.scid
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
-
 #  GET
   Scenario: PRODUCT BACKLOG ITEM 372 - Validate User Static details
     Given path 'user-service/v1/user/static-data'
     When method Get
     Then status 200
+    * print response
     * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response == expectedResponse
 
 #----------------------------------------------------------------------------------------------------------------
-
 #    PUT
   Scenario Outline: PRODUCT BACKLOG ITEM 416 - NEGATIVE Tests
     Given path 'user-service/v1/user'

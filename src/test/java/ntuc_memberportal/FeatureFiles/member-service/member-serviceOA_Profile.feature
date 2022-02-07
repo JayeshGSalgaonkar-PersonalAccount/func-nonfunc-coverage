@@ -110,7 +110,7 @@ Feature: OA Member-Service
 
 #--------------------------------------------------------------------------------------------------------------
 #   Patch
-  Scenario Outline: PRODUCT BACKLOG ITEM 142 - PUT request for member service
+  Scenario Outline: PRODUCT BACKLOG ITEM 142 - Request for member service
     Given path 'member-service/v1/membership/oa/<MemID>'
     * string user = username
     * def secret = test_secret[user]
@@ -171,19 +171,18 @@ Feature: OA Member-Service
       | OAA  | "BAD_REQUEST" | "VALIDATION_ERROR" | "Caught Validation Error for /membership/OAA/terms-and-conditions/" |
 
 #--------------------------------------------------------------------------------------------------------------
-#   PUT
-  Scenario Outline: PRODUCT BACKLOG 299 - Accept Terms and Condition
-    Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
-    * def membershipId = parseInt(membershipId)
-    * def agreed = Boolean(agreed)
-    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceTCAccept.json')
-    And request requestBody
-    When method Put
-    Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/member-serviceTCAccept.json')
-    Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
-
+##   PUT
+#  Scenario Outline: PRODUCT BACKLOG 299 - Accept Terms and Condition
+#    Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
+#    * def membershipId = parseInt(membershipId)
+#    * def agreed = Boolean(agreed)
+#    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceTCAccept.json')
+#    And request requestBody
+#    When method Put
+#    Then status 200
+#    Then match response == read('ntuc_memberportal/resources/Response/member-serviceTCAccept.json')
+#    Examples:
+#      | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 #  POST

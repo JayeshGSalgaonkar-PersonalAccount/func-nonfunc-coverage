@@ -66,7 +66,7 @@ Feature: Notification-service
 
 #---------------------------------------------------------------------------------------------------
 #    GET
-  Scenario Outline: PRODUCT BACKLOG - 458
+  Scenario Outline: PRODUCT BACKLOG - 458 Notification id
     Given path 'notification-service/v1/user-notification/<id>'
     * string user = username
     * def secret = test_secret[user]
