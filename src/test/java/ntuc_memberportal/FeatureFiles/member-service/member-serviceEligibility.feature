@@ -18,6 +18,7 @@ Feature: Member-Service (Eligibility)
     * print PaymentArrearMonths
     * def PaymentTypeCode = parseInt(PaymentTypeCode)
     Then status 200
+    * print response
     * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].PaymentTypeName == expectedResponse.content.PaymentTypeName
