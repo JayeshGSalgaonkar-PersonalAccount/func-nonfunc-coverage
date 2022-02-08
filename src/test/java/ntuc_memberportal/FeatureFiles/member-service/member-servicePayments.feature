@@ -10,19 +10,6 @@ Feature: Member-Service (Payment)
     * def test_secret = read('classpath:Test_Secret.json')
 
 #--------------------------------------------------------------------------------------------------------------------------------
-#  POST API calls needs to be re-validated (SUJIT to take necessary actions)
-#  Scenario Outline: PRODUCT BACKLOG ITEM 244 - Validate POST method for CreateOrder under Member-service
-#    Given path 'member-service/v1/payment/create-order'
-#    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceCreateOrder.json")
-#    And request requestBody
-#    When method Post
-#    Then status 200
-#    * print response
-#    Then match response == read("ntuc_memberportal/resources/Response/member-serviceCreateOrder.json")
-#    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-serviceCreateOrder.csv') |
-#--------------------------------------------------------------------------------------------------------------------------------
-
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 244 - NEGATIVE Tests
     Given path 'member-service/v1/payment/create-order'
