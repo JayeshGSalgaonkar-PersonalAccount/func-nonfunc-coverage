@@ -199,10 +199,10 @@
                         <include>ntuc_memberportal.LoadSimulation_Total</include>
                     </includes>
                     <compilerJvmArgs>
-                        <compilerJvmArg>-Xmx1024m</compilerJvmArg>
+                        <compilerJvmArg>-Xmx4096m</compilerJvmArg>
                     </compilerJvmArgs>
                     <jvmArgs>
-                        <jvmArg>-Xmx2048m</jvmArg>
+                        <jvmArg>-Xmx4096m</jvmArg>
                     </jvmArgs>
                 </configuration>
             </plugin>
