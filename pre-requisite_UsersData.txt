@@ -1,0 +1,166 @@
+Automation Test Data:
+————————————————————————————————————————————
+Name: SHA NG
+NRIC : S7625290D
+Mobile : 85240048
+Email : sha@yahoo.com
+Race: CHINESE
+DOB: 25.11.1990
+Residential Status : SINGAPORE CITIZEN
+Marital Status : MARRIED
+Education Level : POST GRADUATE
+
+Postal code: 543269
+Block : 269C
+Street : COMPASSVALE LINK
+Unit : 11-11
+Building Name : COMPASSVALE ARCADIA
+Job Title: ENGINEER
+OCCUPATION GROUP : PROFESSIONAL-PHYSICAL SCIENCE
+Monthly gross salary : 6000
+Company Name : NCS EMPLOYMENT AGENCY
+
+
+Bank Name : DBS
+Account number:  250647899
+————————————————————————————————————————————
+DELETE USER
+
+Name: Hani Brown
+NRIC: S1851633J
+Mobile: 85240048
+Email : hani@yahoo.com
+Race: MALAY
+DOB: 25.10.1991
+Marital Status: SINGLE
+Residential Status : Permanent RESIDENT
+Education Level : DEGREE
+
+
+Postal code: 541259
+Block : 259A
+Street : COMPASSVALE ROAD
+Unit : 12-12
+Building Name : COMPASSVALE GARDEN
+Job Title: ENGINEER
+OCCUPATION GROUP : PROFESSIONAL-BUSINESS FINANCE
+Monthly gross salary : 3000
+Company Name : HEPALOY ENTERPRISE
+
+Bank : OCBC
+Account: 254785636
+
+SCID: "121290118646594304"
+
+————————————————————————————————————————————
+DELETE USER
+
+Name: Ish Sh
+NRIC: S6003171A
+Mobile: 85240048
+Email : ishsh@hotmail.com
+Race: IN
+DOB: 25.10.1992
+Marital Status: SINGLE
+Residential Status : SINGAPORE CITIZEN
+Education Level : DG
+
+
+
+Postal code: 543266
+Block : 266C
+Street : COMPASSVALE BOW
+Unit : 13-13
+Building Name : THE CORIS
+Job Title: ENGINEER
+OCCUPATION GROUP : PROFESSIONAL-LEGAL
+Monthly gross salary : 4000
+Company Name : DELOITTE SINGAPORE
+
+Bank : UOB
+Account: 852147365
+
+SCID: "121290118646594304"
+
+————————————————————————————————————————————
+
+Name: AS GOPAL
+NRIC: S1378510D
+Mobile: 85240048
+Email : ntucpalotestemail+go30@gmail.com
+Race: IN
+DOB: 01.01.1993
+Marital Status: SINGLE
+Residential Status : SINGAPORE CITIZEN
+Education Level : DG
+
+
+Postal code: 543266
+Block : 266C
+Street : COMPASSVALE BOW
+Unit : 16-16
+Building Name : THE CORIS
+Job Title: ENGINEER
+OCCUPATION GROUP : PROFESSIONAL-LEGAL
+Monthly gross salary : 4000
+Company Name : DELOITTE SINGAPORE
+
+Bank : UOB
+Account: 852147365
+
+————————————————————————————————————————————
+Name: Deeraj
+NRIC: S1281906D
+Mobile: 85240048
+Email : ntucpalotestemail+go31@gmail.com
+Race: IN
+DOB: 01.01.1995
+Marital Status: SINGLE
+Residential Status : SINGAPORE CITIZEN
+Education Level : DG
+
+
+Postal code: 543266
+Block : 266C
+Street : COMPASSVALE BOW
+Unit : 16-16
+Building Name : THE CORIS
+Job Title: ENGINEER
+OCCUPATION GROUP : PROFESSIONAL-LEGAL
+Monthly gross salary : 4000
+Company Name : DELOITTE SINGAPORE
+
+Bank : UOB
+Account: 852147365
+
+————————————————————————————————————————————
+DRAFT USER
+
+Name: Draft User
+NRIC: S9148619I
+Mobile: 85240048
+Email : ntucpalotestemail+su04@gmail.com
+Race: IN
+DOB: 25/11/1990
+Marital Status: SINGLE
+Residential Status : Permanent Resident
+Education Level : Diploma
+
+
+Postal code: 543269
+Block : 266C
+Street : COMPASSVALE Link
+Unit : 16-16
+Building Name : COMPASSVALE ARCADIA
+Job Title: ENGINEER
+OCCUPATION GROUP : PROFESSIONAL-LEGAL
+Monthly gross salary : 4000
+Company Name : AUNTY VENUS CAFE
+
+Bank : OCBC
+Account: 852147365
+
+————————————————————————————————————————————
+
+
+

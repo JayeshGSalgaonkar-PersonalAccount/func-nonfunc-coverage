@@ -42,9 +42,9 @@ Feature: Notification-service
     * print response
     * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceOpenUser.json')
     Then match response.metadata.status == expectedResponse.metadata.status
-    Then match response.content[0].type contains "WELCOME"
+    Then match response.content[0].type contains "PAYMENT_STATUS"
     Then match response.content[0].templateName contains expectedResponse.content[0].templateName
-    Then match response.content[0].title contains "Welcome to NTUC!"
+    Then match response.content[0].title contains "Your Union Membership application is successful!"
     Then match response.content[0].state contains "PUBLISH"
     Examples:
       | read('ntuc_memberportal/resources/TestData_File/notification-serviceOpenUser.csv') |
@@ -111,7 +111,7 @@ Feature: Notification-service
       | id    | status           | errorCode          | errorDescription                        | username            |
       | 10102 | "BUSINESS_ERROR" | "RECORD_NOT_FOUND" | "Selected User Notification not found." | "ohklohk@gmail.com" |
 
-#-----------------------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------
 # POST
   Scenario Outline: PRODUCT BACKLOG ITEM 318 - POST request for READ notification-service (With Token)
     Given path 'notification-service/v1/user-notification/read'
