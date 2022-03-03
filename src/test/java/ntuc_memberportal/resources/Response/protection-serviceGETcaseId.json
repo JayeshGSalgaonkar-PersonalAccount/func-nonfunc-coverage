@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "creationDate": "#ignore",
+    "description": "#(description)",
+    "id": "#(id)",
+    "status": "#(status)",
+    "statusDate": "#(ignore)",
+    "remarks": [
+      {
+        "content": "#(ignore)",
+        "dttm": "#(ignore)"
+      },
+      {
+        "content": "#(ignore)",
+        "dttm": "#(ignore)"
+      }
+    ]
+  }
+}

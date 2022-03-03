@@ -1,0 +1,18 @@
+{
+  "case": {
+    "employmentEndDate": "#(employmentEndDate)",
+    "employmentStartDate": "#(employmentStartDate)",
+    "attachFileName": "#(attachFileName)",
+    "hasAttachment": "#(hasAttachment)",
+    "caseDescription": "#(caseDescription)",
+    "salary": "#(salary)",
+    "stillSameCompany": "#(stillSameCompany)",
+    "jobTitle": "#(jobTitle)",
+    "companyInvolved": {
+      "name": "#(name)",
+      "code": "#(code)",
+      "businessNature": "#(businessNature)"
+    },
+    "caseType": "#(caseType)"
+  }
+}

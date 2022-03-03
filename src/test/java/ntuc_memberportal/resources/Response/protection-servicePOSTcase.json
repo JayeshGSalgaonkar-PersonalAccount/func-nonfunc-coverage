@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "status": "#(status)"
+  },
+  "content": {
+    "CreateCaseResult": {
+      "CaseId": "#(CaseId)",
+      "CaseType": "#(CaseType)"
+    }
+  }
+}
