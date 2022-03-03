@@ -67,53 +67,6 @@ Feature: Case-Service
       | read('ntuc_memberportal/resources/TestData_File/protection-servicePOSTcase.csv') |
 
 #------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG - 237 NEGATIVE TEST (without File)
     Given path 'protection-service/v1/attachment/upload'
