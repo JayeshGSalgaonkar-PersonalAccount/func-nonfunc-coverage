@@ -7,7 +7,8 @@ Feature: Payment-Service
     * url baseURL
     * header Accept = 'application/json'
 #    * header x-api-key = 'bm1wSW50ZXJuYWxTZXJ2aWNl'
-    * header x-api-key = 'MzI2YjUyNzYtOGY2MS00MjhlLWFjNTAtOGQ1ZjU0YmE2MjI2'
+#    * header x-api-key = 'MzI2YjUyNzYtOGY2MS00MjhlLWFjNTAtOGQ1ZjU0YmE2MjI2'
+    * header x-api-key = 'MjIwYWFlMTItYzg0NC00NTU4LWIyZjAtNjc2Y2Y5ZmMzNzUw'
     * header Content-Type = 'application/json'
 
     Scenario: Payment Create Order
