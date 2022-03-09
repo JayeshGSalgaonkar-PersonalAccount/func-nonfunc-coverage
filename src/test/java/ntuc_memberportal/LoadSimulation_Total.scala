@@ -18,11 +18,11 @@ class LoadSimulation_Total extends Simulation {
 
 
   setUp(
-    user_Service.inject(constantConcurrentUsers(8000).during(1500)),
-    member_Service.inject(constantConcurrentUsers(8000).during(1500)),
-    deal_Service.inject(constantConcurrentUsers(8000).during(1500)),
-    notification_Service.inject(constantConcurrentUsers(8000).during(1500)),
-    payment_Service.inject(constantConcurrentUsers(8000).during(1500))
+    user_Service.inject(constantConcurrentUsers(10000).during(1500)),
+    member_Service.inject(constantConcurrentUsers(10000).during(1500)),
+    deal_Service.inject(constantConcurrentUsers(10000).during(1500)),
+    notification_Service.inject(constantConcurrentUsers(10000).during(1500)),
+    payment_Service.inject(constantConcurrentUsers(10000).during(1500))
 //    protection_Service.inject(constantConcurrentUsers(8000).during(1500))
   )
 }
