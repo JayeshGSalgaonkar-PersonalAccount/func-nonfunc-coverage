@@ -7,7 +7,7 @@ function fn() {
     //  karate.configure('ssl', true);
   karate.log('karate.env system property was:', env);
   if (!env) {
-      env = 'preprod'; // a custom 'intelligent' default
+      env = 'dev'; // a custom 'intelligent' default
     }
 
    var config = {}
