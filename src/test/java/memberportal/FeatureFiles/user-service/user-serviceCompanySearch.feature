@@ -19,9 +19,9 @@ Feature: User service (Company search)
     And params search
     When method Get
     Then status 200
-    * def expected = read("ntuc_memberportal/resources/Response/user-serviceCompanyName.json")
+    * def expected = read("memberportal/resources/Response/user-serviceCompanyName.json")
     Then match response contains any expected
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceCompanyName.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceCompanyName.csv') |
 
 #------------------------------------------------------------------------------------------------------------

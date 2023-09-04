@@ -1,4 +1,4 @@
-package ntuc_memberportal
+package memberportal
 
 import com.intuit.karate.gatling.PreDef._
 import io.gatling.core.Predef._
@@ -8,7 +8,7 @@ import scala.language.postfixOps
 
 class LoadSimulation_notificationservice extends Simulation {
 
-  val notification_Service: ScenarioBuilder = scenario("notification-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/notification-service/performance.feature"))
+  val notification_Service: ScenarioBuilder = scenario("notification-service").exec(karateFeature("classpath:memberportal/FeatureFiles/notification-service/performance.feature"))
 
 
   setUp(

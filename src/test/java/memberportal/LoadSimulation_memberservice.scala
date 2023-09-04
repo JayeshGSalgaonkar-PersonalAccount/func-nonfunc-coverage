@@ -1,4 +1,4 @@
-package ntuc_memberportal
+package memberportal
 
 import com.intuit.karate.gatling.KarateProtocol
 import com.intuit.karate.gatling.PreDef._
@@ -18,7 +18,7 @@ class LoadSimulation_memberservice extends Simulation {
   protocol.nameResolver = (req, ctx) => req.getHeader("karate-name")
 
 
-  val member_Service: ScenarioBuilder = scenario("member-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/member-service/performance.feature"))
+  val member_Service: ScenarioBuilder = scenario("member-service").exec(karateFeature("classpath:memberportal/FeatureFiles/member-service/performance.feature"))
 
 
   setUp(

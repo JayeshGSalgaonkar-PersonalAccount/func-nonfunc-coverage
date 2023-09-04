@@ -37,10 +37,10 @@ Feature: Payment-Service
     * def isOneTimePayment = Boolean(isOneTimePayment)
     When method Get
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/payment-serviceID.json')
+    * def expectedResponse = read('memberportal/resources/Response/payment-serviceID.json')
     Then match response.metadata.status == metadata_status
     Then match response.content.clientOrderId == clientOrderId
     Then match response.content.isOneTimePayment == isOneTimePayment
     Then match response.content.orderStatus == orderStatus
 #    Examples:
-#      | read("ntuc_memberportal/resources/TestData_File/payment-serviceId.csv") |
+#      | read("memberportal/resources/TestData_File/payment-serviceId.csv") |

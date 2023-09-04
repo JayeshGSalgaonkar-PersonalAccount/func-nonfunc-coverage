@@ -13,13 +13,13 @@ Feature: OA Member-Service
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - POST request for member service
     Given path 'member-service/v1/membership/open/oa'
-    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
+    * def requestBody = read("memberportal/resources/Request/member-serviceOpenMemOA.json")
     And request requestBody
     * def email = '<email>'
     When method Post
     Then status 200
     * print response
-    * def expectedResult = read("ntuc_memberportal/resources/Response/member-serviceOpenMemOA.json")
+    * def expectedResult = read("memberportal/resources/Response/member-serviceOpenMemOA.json")
     Then match response.metadata.status == expectedResult.metadata.status
     Then match response.content.membership.membershipTypeCode == "OA"
     Then match response.content.membership.status == "DRAFT"
@@ -27,7 +27,7 @@ Feature: OA Member-Service
     Then match response.content.user.race == "CN"
     Then match response.content.user.bankName == "DBS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
 #------------------------------------------------------------------------------------------------------------
 #  GET
@@ -40,12 +40,12 @@ Feature: OA Member-Service
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/member-serviceMemShip.json")
+    * def expectedResponse = read("memberportal/resources/Response/member-serviceMemShip.json")
     * print response.content.membershipTypeCode == expectedResponse.content
     * print response.content.nameOnCard == expectedResponse.content
     * print response.content.status == expectedResponse.content
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
+      | read("memberportal/resources/TestData_File/member-serviceMemShip.csv") |
 
 #-----------------------------------------------------------------------------------------------------------------------
 # GET
@@ -60,7 +60,7 @@ Feature: OA Member-Service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceDraft.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceDraft.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content.membership[0].nameOnCard == expectedResponse.content.membership[0].nameOnCard
     Then match response.content.user.address.buildingName == expectedResponse.content.user.address.buildingName
@@ -89,7 +89,7 @@ Feature: OA Member-Service
     Then match response.content.user.maritalStatus == expectedResponse.content.user.maritalStatus
     Then match response.content.user.scid == expectedResponse.content.user.scid
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 # GET
@@ -99,13 +99,13 @@ Feature: OA Member-Service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/member-service2DRAFT.json")
+    * def expectedResponse = read("memberportal/resources/Response/member-service2DRAFT.json")
     Then match response.content.membership[0].nameOnCard == expectedResponse.content.membership[0].nameOnCard
     Then match response.content.membership[0].status == expectedResponse.content.membership[0].status
     Then match response.content.membership[0].membershipTypeCode == expectedResponse.content.membership[0].membershipTypeCode
     Then match response.content.user.monthlyGrossSalary == expectedResponse.content.user.monthlyGrossSalary
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceDraft2.csv") |
+      | read("memberportal/resources/TestData_File/member-serviceDraft2.csv") |
 
 #--------------------------------------------------------------------------------------------------------------
 ##   Patch
@@ -116,14 +116,14 @@ Feature: OA Member-Service
 #    * def setup = call read('../commonFeatures/auth.feature')
 #    * def dynamicAccessToken = setup.dynamicAccessToken
 #    And header Authorization = 'Bearer ' + dynamicAccessToken
-#    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceMemOAPatch.json')
+#    * def requestBody = read('memberportal/resources/Request/member-serviceMemOAPatch.json')
 #    And request requestBody
 #    When method Patch
 #    Then status 200
 #    * print response
 #    Then match response.metadata.status == "SUCCESS"
 #    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-servicePUTRequest.csv') |
+#      | read('memberportal/resources/TestData_File/member-servicePUTRequest.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 #   GET
@@ -154,7 +154,7 @@ Feature: OA Member-Service
     Then match response.content.content == <content>
     Examples:
       | status    | version | content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-      | "SUCCESS" | "1"     | "Union Membership refers to a range of membership types depending on the work status of the individual.\u200B\n\u200B\nNTUC reserves the right to assign successful applicants to an NTUC affiliated union/association. For a full list of affiliated unions/associations, please visit www.ntuc.org.sg. Upon approval, the member will automatically become a member of NTUC Club and NTUC FairPrice.\u200B\n\u200B\nMembership Fees# ($117 per year) \u200B\nauthorise NTUC or its nominated Agency(s) to obtain Membership Fees [current fees being $9 per month (Jan-Nov); $18 (Dec)] from me in accordance with the prevailing rates of union/association subscriptions. \u200B\n\nRules \u200B\nobserve all rules and regulations of NTUC, its affiliated unions/associations, NTUC Social Enterprises, by-laws of NTUC's cooperatives, and terms and conditions relating to membership benefits and programmes. \u200B\n\nTransfer Between Membership Types \u200B\nauthorise NTUC and its affiliated unions/associations to assign and transfer my membership depending on eligibility and work status. \u200B\n\nLoss and Replacement of the NTUC Plus! Card \u200B\nmake a payment of $3 to \"NTUC Link Pte Ltd\" for any loss or replacement of the NTUC Plus! Card. \u200B\n\nNotice of Termination \u200B\ngive 3 months' notice in writing for termination* of membership. \u200B\n\nCollection, Use and Disclosure of Personal Data \u200B\nI consent to my personal data being collected, used and retained by NTUC and my union / association for the purposes of processing, administering and managing my membership.\u200B\nI acknowledge that the collection, use and/or disclosure of my NRIC/FIN number is necessary to accurately establish my identity to a high degree of fidelity in relation to \"NTUC Gift\", a group insurance policy exclusively for members of NTUC affiliated unions and associations; financial subsidies for skill upgrading and training under the Union Training Assistance Programme (UTAP) and an array of other services including but not limited to legal consultation, job placement and education grants.\u200B\nI consent to my personal data being disclosed amongst:\u200B\na. NTUC and the affiliated union / association of which I will be a member for the purposes of managing my respective membership; and\u200B\nb. NTUC / affiliated union/association, the Employment and Employability Institute, and NTUC Social Enterprises^\u200B for the purposes of managing and increasing membership benefits and privileges.\n  4. I consent to be contacted by NTUC and my assigned union/association via email, text messages, fax and/or post for matters relating to employment and employability, industrial relations, training and education, social and recreation as well as to give my opinion/feedback on such matters. \u200B\n\nFor the purposes of industrial relations and employment-related issues, I consent to NTUC and my union obtaining my personal data and any relevant data relating to my employment from my employer.\u200B\n\nI will also keep NTUC and my assigned union/association informed immediately of any changes to my employment status or personal particulars that may affect my membership status and benefits. \u200B\n\nI understand that I am also applying for membership to the PLUS! Programme (\"PLUS!\") administered by NTUC Link Private Limited (\"NTUC Link\"). I agree to abide by the terms and conditions of PLUS! I acknowledge and consent to: -\u200B\na. the collection, use and retention of my personal data by NTUC Link for the purposes of fulfilling, servicing and managing my PLUS! membership;\u200B\nb. the disclosure of my personal data between NTUC/union/association and NTUC Link for the purposes of processing, servicing and managing my PLUS! membership; \u200B\nc. the disclosure of my personal data by NTUC Link to its LinkPoints Partners / Merchants for the purposes of fulfilling, servicing and managing my PLUS! Membership; \u200B\nd. I further consent to be notified by NTUC Link on benefits and privileges pertaining to PLUS! via email, text messages, mail and/or phone calls; and\u200B\ne. I can visit www.plus.com.sg to manage my PLUS! membership (including withdrawal of consent) after my successful enrolment to PLUS! \u200B\n\nFor any enquiries on personal data protection matters, please email to dpo@ntuc.org.sg. \u200B\n\nNTUC FairPrice Membership \u200B\n\nI understand that I will be automatically enrolled into NTUC FairPrice membership administered by NTUC FairPrice Co-operative Limited (\"NTUC FairPrice\") and that I will be eligible for NTUC FairPrice Rebate (\"rebates\") that are distributed annually. Under the \"Join-Now-Pay-Later\" scheme, the first $23 of rebates accumulated will be used to pay for the 20 shares (at $1 each) and $3 entrance fee. I hereby authorise NTUC FairPrice to credit my rebates into the bank account that I have provided. I consent to NTUC disclosing my personal particulars to NTUC FairPrice for the purpose of facilitating my NTUC FairPrice membership. I acknowledge that the maximum amount in purchases at NTUC FairPrice outlets entitled to rebate each financial year is $6,000 \u2013 the rate will be declared at the Annual General Meeting of NTUC FairPrice Cooperative Limited each year.\u200B\n\nSign-up Gift Eligibility \u200B\n\nNew member(s) will be entitled to receive the Sign-up Gift upon payment of 6 month(s) of membership fees (non-refundable fees) and activation of Credit/Debit Card Recurring (CCR) arrangement for future membership fee deduction.\u200B\na. New members shall mean applicants who are not existing members.\u200B\nb. In addition, member(s) must not terminate his/her Membership within 6 month(s) of payment of the membership fees.\u200B\n\nMember(s) will receive an eCoupon for the Sign-up Gift, which can be redeemed through the MyNTUC app. Member(s) will receive a notification via MyNTUC app when the eCoupon is ready for redemption, upon approval of Credit/Debit Card Recurring (CCR) Payment arrangement and Membership application. \u200B\n\nNew member(s) will not be eligible for the Sign-up Gift if he/she has redeemed any Sign-up Gift from Union Membership within 2 years prior to the date of collection of the Sign-up Gift. \u200B\n\nThis promotion is not in conjunction with other ongoing promotions. \u200B\n\nThis promotion is only applicable to Unions and union members participating in the General Branch (GB) programme. \u200B\n\nWhile stocks last. \u200B\n\nNTUC reserves the right in its sole and absolute discretion to replace the Sign-up Gift at any time with one or more item(s) of equivalent value (such value to be determined by NTUC in its sole and absolute discretion) without having to give any prior notice or reason for such replacement. \u200B\n\nIn the event of a dispute, NTUC's decision is final. \u200B\n\n#The cycle repeats automatically for the following year.\u200B\n*Termination notice may differ for some unions. If you have chosen to receive a sign-up gift, you would be required to fulfil the minimum membership period before giving the notice of termination.\u200B\n^For the list of NTUC Social Enterprises, please refer to ntucsocialenterprises.sg. \u200B" |
+      | "SUCCESS" | "1"     | "Union Membership refers to a range of membership types depending on the work status of the individual.\u200B\n\u200B\nreserves the right to assign successful applicants to an affiliated union/association. For a full list of affiliated unions/associations, please visit www.org.sg. Upon approval, the member will automatically become a member of Club and FairPrice.\u200B\n\u200B\nMembership Fees# ($117 per year) \u200B\nauthorise or its nominated Agency(s) to obtain Membership Fees [current fees being $9 per month (Jan-Nov); $18 (Dec)] from me in accordance with the prevailing rates of union/association subscriptions. \u200B\n\nRules \u200B\nobserve all rules and regulations of  its affiliated unions/associations, Social Enterprises, by-laws of s cooperatives, and terms and conditions relating to membership benefits and programmes. \u200B\n\nTransfer Between Membership Types \u200B\nauthorise and its affiliated unions/associations to assign and transfer my membership depending on eligibility and work status. \u200B\n\nLoss and Replacement of the Plus! Card \u200B\nmake a payment of $3 to \"Link Pte Ltd\" for any loss or replacement of the Plus! Card. \u200B\n\nNotice of Termination \u200B\ngive 3 months' notice in writing for termination* of membership. \u200B\n\nCollection, Use and Disclosure of Personal Data \u200B\nI consent to my personal data being collected, used and retained by and my union / association for the purposes of processing, administering and managing my membership.\u200B\nI acknowledge that the collection, use and/or disclosure of my NRIC/FIN number is necessary to accurately establish my identity to a high degree of fidelity in relation to \"Gift\", a group insurance policy exclusively for members of affiliated unions and associations; financial subsidies for skill upgrading and training under the Union Training Assistance Programme (UTAP) and an array of other services including but not limited to legal consultation, job placement and education grants.\u200B\nI consent to my personal data being disclosed amongst:\u200B\na. and the affiliated union / association of which I will be a member for the purposes of managing my respective membership; and\u200B\nb. / affiliated union/association, the Employment and Employability Institute, and Social Enterprises^\u200B for the purposes of managing and increasing membership benefits and privileges.\n  4. I consent to be contacted by and my assigned union/association via email, text messages, fax and/or post for matters relating to employment and employability, industrial relations, training and education, social and recreation as well as to give my opinion/feedback on such matters. \u200B\n\nFor the purposes of industrial relations and employment-related issues, I consent to and my union obtaining my personal data and any relevant data relating to my employment from my employer.\u200B\n\nI will also keep and my assigned union/association informed immediately of any changes to my employment status or personal particulars that may affect my membership status and benefits. \u200B\n\nI understand that I am also applying for membership to the PLUS! Programme (\"PLUS!\") administered by Link Private Limited (\"Link\"). I agree to abide by the terms and conditions of PLUS! I acknowledge and consent to: -\u200B\na. the collection, use and retention of my personal data by Link for the purposes of fulfilling, servicing and managing my PLUS! membership;\u200B\nb. the disclosure of my personal data between union/association and Link for the purposes of processing, servicing and managing my PLUS! membership; \u200B\nc. the disclosure of my personal data by Link to its LinkPoints Partners / Merchants for the purposes of fulfilling, servicing and managing my PLUS! Membership; \u200B\nd. I further consent to be notified by Link on benefits and privileges pertaining to PLUS! via email, text messages, mail and/or phone calls; and\u200B\ne. I can visit www.plus.com.sg to manage my PLUS! membership (including withdrawal of consent) after my successful enrolment to PLUS! \u200B\n\nFor any enquiries on personal data protection matters, please email to dpo@org.sg. \u200B\n\nFairPrice Membership \u200B\n\nI understand that I will be automatically enrolled into FairPrice membership administered by FairPrice Co-operative Limited (\"FairPrice\") and that I will be eligible for FairPrice Rebate (\"rebates\") that are distributed annually. Under the \"Join-Now-Pay-Later\" scheme, the first $23 of rebates accumulated will be used to pay for the 20 shares (at $1 each) and $3 entrance fee. I hereby authorise FairPrice to credit my rebates into the bank account that I have provided. I consent to disclosing my personal particulars to FairPrice for the purpose of facilitating my FairPrice membership. I acknowledge that the maximum amount in purchases at FairPrice outlets entitled to rebate each financial year is $6,000 \u2013 the rate will be declared at the Annual General Meeting of FairPrice Cooperative Limited each year.\u200B\n\nSign-up Gift Eligibility \u200B\n\nNew member(s) will be entitled to receive the Sign-up Gift upon payment of 6 month(s) of membership fees (non-refundable fees) and activation of Credit/Debit Card Recurring (CCR) arrangement for future membership fee deduction.\u200B\na. New members shall mean applicants who are not existing members.\u200B\nb. In addition, member(s) must not terminate his/her Membership within 6 month(s) of payment of the membership fees.\u200B\n\nMember(s) will receive an eCoupon for the Sign-up Gift, which can be redeemed through the Myapp. Member(s) will receive a notification via Myapp when the eCoupon is ready for redemption, upon approval of Credit/Debit Card Recurring (CCR) Payment arrangement and Membership application. \u200B\n\nNew member(s) will not be eligible for the Sign-up Gift if he/she has redeemed any Sign-up Gift from Union Membership within 2 years prior to the date of collection of the Sign-up Gift. \u200B\n\nThis promotion is not in conjunction with other ongoing promotions. \u200B\n\nThis promotion is only applicable to Unions and union members participating in the General Branch (GB) programme. \u200B\n\nWhile stocks last. \u200B\n\nreserves the right in its sole and absolute discretion to replace the Sign-up Gift at any time with one or more item(s) of equivalent value (such value to be determined by in its sole and absolute discretion) without having to give any prior notice or reason for such replacement. \u200B\n\nIn the event of a dispute, s decision is final. \u200B\n\n#The cycle repeats automatically for the following year.\u200B\n*Termination notice may differ for some unions. If you have chosen to receive a sign-up gift, you would be required to fulfil the minimum membership period before giving the notice of termination.\u200B\n^For the list of Social Enterprises, please refer to ocialenterprises.sg. \u200B" |
 
 #--------------------------------------------------------------------------------------------------------------
 #    GET
@@ -175,19 +175,19 @@ Feature: OA Member-Service
 #    Given path 'member-service/v1/membership/<membershipId>/terms-and-conditions/accept'
 #    * def membershipId = parseInt(membershipId)
 #    * def agreed = Boolean(agreed)
-#    * def requestBody = read('ntuc_memberportal/resources/Request/member-serviceTCAccept.json')
+#    * def requestBody = read('memberportal/resources/Request/member-serviceTCAccept.json')
 #    And request requestBody
 #    When method Put
 #    Then status 200
-#    Then match response == read('ntuc_memberportal/resources/Response/member-serviceTCAccept.json')
+#    Then match response == read('memberportal/resources/Response/member-serviceTCAccept.json')
 #    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
+#      | read('memberportal/resources/TestData_File/member-serviceTCAccept.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 #  POST
   Scenario Outline: PRODUCT BACKLOG ITEM 142 - NEGATIVE SCENARIO
     Given path 'member-service/v1/membership/open/oa'
-    * def requestBody = read("ntuc_memberportal/resources/Request/member-serviceOpenMemOA.json")
+    * def requestBody = read("memberportal/resources/Request/member-serviceOpenMemOA.json")
     And request requestBody
     When method Post
     * print requestBody
@@ -196,7 +196,7 @@ Feature: OA Member-Service
     Then match response.content.errorCode == "EMAIL_UNAVAILABLE"
     Then match response.content.errorDescription == "Existing OA membership in draft, please retrieve the draft."
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceOpenMemOA.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 ##  GET
@@ -211,12 +211,12 @@ Feature: OA Member-Service
 #    When method Get
 #    Then status 200
 #    * print response
-#    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceDraftOrActive.json')
+#    * def expectedResponse = read('memberportal/resources/Response/member-serviceDraftOrActive.json')
 #    * print expectedResponse
 #    Then match response.metadata.status == expectedResponse.metadata.status
 #    Then match response.content.hasDraft == expectedResponse.content.hasDraft
 #    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraftOrActive.csv') |
+#      | read('memberportal/resources/TestData_File/member-serviceDraftOrActive.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 #  GET
@@ -233,10 +233,10 @@ Feature: OA Member-Service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceAssociation.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceAssociation.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content.phone[0] == expectedResponse.content.phone[0]
     Then match response.content.email[0] == expectedResponse.content.email[0]
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceAssociation.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceAssociation.csv') |
 #--------------------------------------------------------------------------------------------------------------

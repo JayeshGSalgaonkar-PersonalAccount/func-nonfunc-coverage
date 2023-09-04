@@ -23,7 +23,7 @@ Feature: User-service
     And print response
     Then status 200
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceLogin.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
 #  POST
@@ -35,14 +35,14 @@ Feature: User-service
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
-    * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
+    * def requestBody = read('memberportal/resources/Request/user-serviceUser.json')
     And request requestBody
     When method Post
     * print response
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceUser.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
 #  POST
@@ -53,7 +53,7 @@ Feature: User-service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/user-serviceProfile.json')
+    * def requestBody = read('memberportal/resources/Request/user-serviceProfile.json')
     And request requestBody
     When method Post
     Then status 400
@@ -62,7 +62,7 @@ Feature: User-service
 #    Then match response.errorCode == <errorCode>
     Examples:
       | status        | errorDescription                    | errorCode |                                                                           | username            |
-      | "BAD_REQUEST" | "Caught Validation Error for /user" | null      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
+      | "BAD_REQUEST" | "Caught Validation Error for /user" | null      | read('memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
 
 #----------------------------------------------------------------------------------------------------------------
 #  DELETE
@@ -77,13 +77,13 @@ Feature: User-service
     When method Delete
     And print response
     Then status 200
-    * def expectedResponse = read ("ntuc_memberportal/resources/Response/user-serviceDelete.json")
+    * def expectedResponse = read ("memberportal/resources/Response/user-serviceDelete.json")
     Then match response.content.name == expectedResponse.content.name
     Then match response.content.scid == expectedResponse.content.scid
     Then match response.content.id == expectedResponse.content.id
     Then match response.content.status == expectedResponse.content.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceDeleteUser.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceDeleteUser.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
 #  PUT
@@ -94,7 +94,7 @@ Feature: User-service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePutProfile.json')
+    * def requestBody = read('memberportal/resources/Request/user-servicePutProfile.json')
     And request requestBody
     * print requestBody
     When method Put
@@ -102,7 +102,7 @@ Feature: User-service
     Then status 200
     Then match response.content.scid == requestBody.scid
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceProfile.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
 #  GET
@@ -111,7 +111,7 @@ Feature: User-service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
+    * def expectedResponse = read("memberportal/resources/Response/user-serviceStaticData.json")
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response == expectedResponse
 
@@ -124,7 +124,7 @@ Feature: User-service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePutProfile.json')
+    * def requestBody = read('memberportal/resources/Request/user-servicePutProfile.json')
     And request requestBody
     When method Put
     Then status 400
@@ -133,7 +133,7 @@ Feature: User-service
     Then match response.content.errorCode == <errorCode>
     Examples:
       | status        | errorDescription                    | errorCode          |                                                                           | username            |
-      | "BAD_REQUEST" | "Caught Validation Error for /user" | "VALIDATION_ERROR" | read('ntuc_memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
+      | "BAD_REQUEST" | "Caught Validation Error for /user" | "VALIDATION_ERROR" | read('memberportal/resources/TestData_File/user-serviceProfile.csv') | "ishsh@hotmail.com" |
 
 #----------------------------------------------------------------------------------------------------------------
 #   GET
@@ -143,9 +143,9 @@ Feature: User-service
     When method Get
     Then status 200
     And print response
-    And match response == read("ntuc_memberportal/resources/Response/user-serviceSCID.json")
+    And match response == read("memberportal/resources/Response/user-serviceSCID.json")
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
+      | read("memberportal/resources/TestData_File/user-serviceSCID.csv") |
 
 #----------------------------------------------------------------------------------------------------------------
 #   GET

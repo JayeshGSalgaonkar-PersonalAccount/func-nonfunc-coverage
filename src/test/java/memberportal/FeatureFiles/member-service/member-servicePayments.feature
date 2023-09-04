@@ -38,9 +38,9 @@ Feature: Member-Service (Payment)
     When method Get
     Then status 200
     * print response
-    Then match response == read("ntuc_memberportal/resources/Response/member-serviceShowPayOptions.json")
+    Then match response == read("memberportal/resources/Response/member-serviceShowPayOptions.json")
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceShowPayOtions.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceShowPayOtions.csv') |
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #   GET
@@ -49,14 +49,14 @@ Feature: Member-Service (Payment)
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/member-servicePayOrderID.json")
+    * def expectedResponse = read("memberportal/resources/Response/member-servicePayOrderID.json")
     * print expectedResponse
     Then match response.content.payment.serviceType == expectedResponse.content.payment.serviceType
     Then match response.content.payment.recurringMerchantId == expectedResponse.content.payment.recurringMerchantId
     Then match response.content.payment.orderAmount == expectedResponse.content.payment.orderAmount
     Then match response.content.payment.clientOrderId == expectedResponse.content.payment.clientOrderId
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-servicePayOrderId.csv') |
+      | read('memberportal/resources/TestData_File/member-servicePayOrderId.csv') |
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #   GET
@@ -81,13 +81,13 @@ Feature: Member-Service (Payment)
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceSignUpFee.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceSignUpFee.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content.amount == expectedResponse.content.amount
     Then match response.content.month == expectedResponse.content.month
     Then match response.content.feeType == expectedResponse.content.feeType
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceSignUpFee.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceSignUpFee.csv') |
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #   GET
@@ -113,10 +113,10 @@ Feature: Member-Service (Payment)
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceRenewalFee.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceRenewalFee.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceRenewalFee.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceRenewalFee.csv') |
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #  GET
@@ -129,10 +129,10 @@ Feature: Member-Service (Payment)
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-servicePayHistory.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-servicePayHistory.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-servicePayHistory.csv') |
+      | read('memberportal/resources/TestData_File/member-servicePayHistory.csv') |
 
 #--------------------------------------------------------------------------------------------------------------------------------
 

@@ -12,10 +12,10 @@ Feature: Deal-service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/deal-serviceDealID.json')
+    * def expectedResponse = read('memberportal/resources/Response/deal-serviceDealID.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/deal-serviceDeal.csv') |
+      | read('memberportal/resources/TestData_File/deal-serviceDeal.csv') |
 
 #---------------------------------------------------------------------------------------------------------------------
 ## GET
@@ -24,8 +24,8 @@ Feature: Deal-service
 #    When method Get
 #    Then status 200
 #    * print response
-#    * def expectedResponse = read('ntuc_memberportal/resources/Response/deal-serviceDealID.json')
+#    * def expectedResponse = read('memberportal/resources/Response/deal-serviceDealID.json')
 #    Then match response.metadata.status == expectedResponse.metadata.status
 #    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/deal-serviceDeal.csv') |
+#      | read('memberportal/resources/TestData_File/deal-serviceDeal.csv') |
 #---------------------------------------------------------------------------------------------------------------------

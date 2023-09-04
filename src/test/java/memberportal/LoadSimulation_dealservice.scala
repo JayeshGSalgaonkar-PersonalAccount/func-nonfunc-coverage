@@ -1,4 +1,4 @@
-package ntuc_memberportal
+package memberportal
 
 import com.intuit.karate.gatling.PreDef._
 import io.gatling.core.Predef._
@@ -8,7 +8,7 @@ import scala.language.postfixOps
 
 class LoadSimulation_dealservice extends Simulation {
 
-  val deal_Service: ScenarioBuilder = scenario("deal-service").exec(karateFeature("classpath:ntuc_memberportal/FeatureFiles/deal-service/performance.feature"))
+  val deal_Service: ScenarioBuilder = scenario("deal-service").exec(karateFeature("classpath:memberportal/FeatureFiles/deal-service/performance.feature"))
 
   setUp(
     deal_Service.inject(constantConcurrentUsers(500).during(300))

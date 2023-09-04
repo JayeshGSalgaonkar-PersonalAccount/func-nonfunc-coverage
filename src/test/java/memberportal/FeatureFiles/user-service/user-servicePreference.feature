@@ -22,9 +22,9 @@ Feature: User service
     * def marketing = Boolean(marketing)
     When method Get
     Then status 200
-    Then match response == read('ntuc_memberportal/resources/Response/user-servicePreference.json')
+    Then match response == read('memberportal/resources/Response/user-servicePreference.json')
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/user-servicePreference.csv") |
+      | read("memberportal/resources/TestData_File/user-servicePreference.csv") |
 
 #----------------------------------------------------------------------------------------------------------------
 #  GET
@@ -40,11 +40,11 @@ Feature: User service
     And header Authorization = 'Bearer ' + dynamicAccessToken
     When method Get
     Then status 200
-    * def expectedResult = read('ntuc_memberportal/resources/Response/user-servicePref.json')
+    * def expectedResult = read('memberportal/resources/Response/user-servicePref.json')
     Then match response.metadata.status == expectedResult.metadata.status
     Then match response.content[0] == expectedResult.content[0]
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-servicePref.csv') |
+      | read('memberportal/resources/TestData_File/user-servicePref.csv') |
 
 #----------------------------------------------------------------------------------------------------------------
 #  Patch
@@ -58,16 +58,16 @@ Feature: User service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/user-servicePatchPref.json')
+    * def requestBody = read('memberportal/resources/Request/user-servicePatchPref.json')
     And request requestBody
     When method Patch
     Then status 200
-    * def expectedResult = read('ntuc_memberportal/resources/Response/user-servicePatchPref.json')
+    * def expectedResult = read('memberportal/resources/Response/user-servicePatchPref.json')
     Then match response.metadata.status == expectedResult.metadata.status
     Then match response.content[0].settings.marketing == expectedResult.content[0].settings.marketing
     Then match response.content[0].settings.deals == expectedResult.content[0].settings.deals
     Then match response.content[0].settings.news == expectedResult.content[0].settings.news
     Then match response.content[0].type contains expectedResult.content[0].type
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-servicePatchPref.csv') |
+      | read('memberportal/resources/TestData_File/user-servicePatchPref.csv') |
 #----------------------------------------------------------------------------------------------------------------

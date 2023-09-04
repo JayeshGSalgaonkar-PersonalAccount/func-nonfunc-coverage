@@ -19,7 +19,7 @@ Feature: Member-Service (Eligibility)
     * def PaymentTypeCode = parseInt(PaymentTypeCode)
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceEligibility.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].PaymentTypeName == expectedResponse.content.PaymentTypeName
     Then match response.content[0].PaymentArrearMonths == expectedResponse.content.PaymentArrearMonths
@@ -28,7 +28,7 @@ Feature: Member-Service (Eligibility)
     Then match response.content[0].ExchangeId == expectedResponse.content.ExchangeId
     Then match response.content[0].BranchCode == expectedResponse.content.BranchCode
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibility.csv") |
+      | read("memberportal/resources/TestData_File/member-serviceEligibility.csv") |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #  GET
@@ -53,14 +53,14 @@ Feature: Member-Service (Eligibility)
     When method Get
     * print response
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceEligibilityNRIC.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response contains {Checkelig: '##boolean'}
     Then match response contains {Checkclist: '##boolean'}
     Then match response contains {Checkblist: '##boolean'}
     Then match response contains {CheckIneligibleJobFlag: '##boolean'}
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibilityNRIC.csv") |
+      | read("memberportal/resources/TestData_File/member-serviceEligibilityNRIC.csv") |
 #-----------------------------------------------------------------------------------------------------------------------
 
    #   GET
@@ -72,7 +72,7 @@ Feature: Member-Service (Eligibility)
     When method Get
     * print response
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceEligibilityNRIC.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].Checkelig == expectedResponse.content[0].Checkelig
     Then match response.content[0].Checkblist == expectedResponse.content[0].Checkblist
@@ -81,7 +81,7 @@ Feature: Member-Service (Eligibility)
     Then match response.content[0].ShowActiveMessage == expectedResponse.content[0].ShowActiveMessage
 
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceEligibilityNRIC.csv") |
+      | read("memberportal/resources/TestData_File/member-serviceEligibilityNRIC.csv") |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #  GET
@@ -93,7 +93,7 @@ Feature: Member-Service (Eligibility)
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityBlackListed.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceEligibilityBlackListed.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].BlacklistReason == expectedResponse.content[0].BlacklistReason
     Then match response.content[0].Eligibility == expectedResponse.content[0].Eligibility
@@ -103,7 +103,7 @@ Feature: Member-Service (Eligibility)
     Then match response.content[0].ShowBlacklistMessage == expectedResponse.content[0].ShowBlacklistMessage
     Then match response.content[0].Checkblist == expectedResponse.content[0].Checkblist
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceEligibilityBlacklisted.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceEligibilityBlacklisted.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 #   GET
@@ -115,7 +115,7 @@ Feature: Member-Service (Eligibility)
     * def MaritalStatus = parseInt(MaritalStatus)
     When method Get
     Then status 200
-    * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+    * def expected = read('memberportal/resources/Response/member-serviceMemDetailss.json')
     Then match response.metadata.status == expected.metadata.status
     Then match response.content[0].ApplicationSourceName == expected.content[0].ApplicationSourceName
     Then match response.content[0].BranchName == expected.content[0].BranchName
@@ -140,7 +140,7 @@ Feature: Member-Service (Eligibility)
     Then match response.content[0].PaymentInstructionName == expected.content[0].PaymentInstructionName
 
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
+      | read('memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
 #--------------------------------------------------------------------------------------------------------------
 #  GET
 

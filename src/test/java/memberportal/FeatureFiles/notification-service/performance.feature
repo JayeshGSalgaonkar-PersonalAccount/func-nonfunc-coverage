@@ -28,10 +28,10 @@ Feature: Notification-service
     When method Get
     * print response
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')
+    * def expectedResponse = read('memberportal/resources/Response/notification-serviceGetProfile.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #   Post
@@ -45,7 +45,7 @@ Feature: Notification-service
 #    * def dynamicAccessToken = setup.dynamicAccessToken
 
     And header Authorization = 'Bearer ' + dynamicAccessToken
-#    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
+#    * def requestBody = read('memberportal/resources/Request/notification-serviceDevice.json')
     * def requestBody =
   """
   {
@@ -58,14 +58,14 @@ Feature: Notification-service
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceDevice.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceDevice.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #   Post
   Scenario Outline: PRODUCT BACKLOG - XX - Verify notification details
     Given path 'notification-service/v1/user-device-token/register-device/open'
     * def userId = parseInt(userId)
-#    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceRegisterDevice.json')
+#    * def requestBody = read('memberportal/resources/Request/notification-serviceRegisterDevice.json')
     * def requestBody =
   """
       {
@@ -81,7 +81,7 @@ Feature: Notification-service
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #  POST
@@ -97,7 +97,7 @@ Feature: Notification-service
 
 
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/notification-servicePostNotf.json')
+    * def requestBody = read('memberportal/resources/Request/notification-servicePostNotf.json')
     And request requestBody
     When method Get
     * print response
@@ -105,7 +105,7 @@ Feature: Notification-service
     Then match response.metadata.status == "SUCCESS"
 
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
+      | read('memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #    GET
@@ -126,7 +126,7 @@ Feature: Notification-service
     * def userId = parseInt(userId)
     When method Get
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetNotifID.json')
+    * def expectedResponse = read('memberportal/resources/Response/notification-serviceGetNotifID.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetNotifID.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceGetNotifID.csv') |

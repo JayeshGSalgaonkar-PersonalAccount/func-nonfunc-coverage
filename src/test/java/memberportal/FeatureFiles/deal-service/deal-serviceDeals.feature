@@ -15,14 +15,14 @@ Feature: Deal-service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/deal-serviceCarousel.json')
+    * def expectedResponse = read('memberportal/resources/Response/deal-serviceCarousel.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].merchant contains "LXP"
-    Then match response.content[0].content contains "NTUC members can gain on-the-go access to over 75,000 courses at only $5 per month*!"
+    Then match response.content[0].content contains "members can gain on-the-go access to over 75,000 courses at only $5 per month*!"
     Then match response.content[0].url == '#notnull'
     Then match response.content[0].image == '#notnull'
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/deal-serviceCarousel.csv') |
+      | read('memberportal/resources/TestData_File/deal-serviceCarousel.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #  GET
@@ -31,9 +31,9 @@ Feature: Deal-service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/deal-serviceDealID.json')
+    * def expectedResponse = read('memberportal/resources/Response/deal-serviceDealID.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/deal-serviceDeal.csv') |
+      | read('memberportal/resources/TestData_File/deal-serviceDeal.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------

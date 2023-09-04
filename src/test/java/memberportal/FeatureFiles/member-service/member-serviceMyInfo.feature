@@ -17,7 +17,7 @@ Feature: My-Info Member-Service
 #    Given path 'member-service/v1/callback'
 #    When method Get
 #    Then status 200
-#    Then match response == read('ntuc_memberportal/resources/Response/member-serviceMyInfo.json')
+#    Then match response == read('memberportal/resources/Response/member-serviceMyInfo.json')
 #    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-serviceMyInfo.csv') |
+#      | read('memberportal/resources/TestData_File/member-serviceMyInfo.csv') |
 #

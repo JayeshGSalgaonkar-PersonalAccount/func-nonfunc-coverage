@@ -5,8 +5,8 @@ Feature: Token Feature
     * def user2 = 'ishsh@hotmail.com'
 
   Scenario: Token Scenario 1
-    Given url 'https://preprod-auth.ntuclink.com.sg/oauth/token'
-    And form field audience = "https://api.ntucmp.org.sg"
+    Given url 'https://preprod-auth.clientlink.com.sg/oauth/token'
+    And form field audience = "https://api.clientmp.org.sg"
     And form field client_id = "71zXmrAvrnQDDNCAhh417AgFwqIm8gDO"
     And form field grant_type = "http://auth0.com/oauth/grant-type/password-realm"
     And form field username = user1
@@ -19,8 +19,8 @@ Feature: Token Feature
     * print dynamicAccessToken_user1
 
   Scenario: Token Scenario 2
-    Given url 'https://preprod-auth.ntuclink.com.sg/oauth/token'
-    And form field audience = "https://api.ntucmp.org.sg"
+    Given url 'https://preprod-auth.clientlink.com.sg/oauth/token'
+    And form field audience = "https://api.clientmp.org.sg"
     And form field client_id = "71zXmrAvrnQDDNCAhh417AgFwqIm8gDO"
     And form field grant_type = "http://auth0.com/oauth/grant-type/password-realm"
     And form field username = user2

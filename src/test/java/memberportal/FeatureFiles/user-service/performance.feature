@@ -19,7 +19,7 @@ Feature: User-service
 
     And header Authorization = 'Bearer ' + dynamicAccessToken
     * def monthlyGrossSalary = parseInt(monthlyGrossSalary)
-    * def expectedResponse = read('ntuc_memberportal/resources/Request/user-serviceUser.json')
+    * def expectedResponse = read('memberportal/resources/Request/user-serviceUser.json')
     And request expectedResponse
     When method Post
     * print response
@@ -31,7 +31,7 @@ Feature: User-service
     Then match response.content.mobileNumber == expectedResponse.mobileNumber
     Then match response.content.email == expectedResponse.email
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceUser.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceUser.csv') |
 
 #------------------------------------------------------------------------------------------------------------
 # GET
@@ -66,7 +66,7 @@ Feature: User-service
     Given path 'user-service/v1/user/static-data'
     When method Get
     Then status 200
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-serviceStaticData.json")
+    * def expectedResponse = read("memberportal/resources/Response/user-serviceStaticData.json")
     Then match response.metadata.status == expectedResponse.metadata.status
 
 #------------------------------------------------------------------------------------------------------------
@@ -80,17 +80,17 @@ Feature: User-service
     And print response
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/user-serviceSCID.csv") |
+      | read("memberportal/resources/TestData_File/user-serviceSCID.csv") |
 #------------------------------------------------------------------------------------------------------------
 
 #   POST
   Scenario Outline: PRODUCT BACKLOG ITEM 766 - Search Company name for OA Sign up
     Given path '/user-service/v1/company/ucem-upsert'
-    * def requestBody = read("ntuc_memberportal/resources/Request/user-serviceUCEMUPSERT.json")
+    * def requestBody = read("memberportal/resources/Request/user-serviceUCEMUPSERT.json")
     And request requestBody
     When method Post
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Then match response.content == true
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceUCEMUPCERT.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceUCEMUPCERT.csv') |

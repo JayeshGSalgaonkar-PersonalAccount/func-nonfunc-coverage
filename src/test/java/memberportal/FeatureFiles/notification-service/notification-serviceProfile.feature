@@ -21,10 +21,10 @@ Feature: Notification-service
     When method Get
     * print response
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetProfile.json')
+    * def expectedResponse = read('memberportal/resources/Response/notification-serviceGetProfile.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceGetProfile.csv') |
 
 # ---------------------------------------------------------------------------------------------------
 #  GET
@@ -40,14 +40,14 @@ Feature: Notification-service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceOpenUser.json')
+    * def expectedResponse = read('memberportal/resources/Response/notification-serviceOpenUser.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].type contains "PAYMENT_STATUS"
     Then match response.content[0].templateName contains expectedResponse.content[0].templateName
     Then match response.content[0].title contains "Your Union Membership application is successful!"
     Then match response.content[0].state contains "PUBLISH"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceOpenUser.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceOpenUser.csv') |
 
 #---------------------------------------------------------------------------------------------------
 #  GET
@@ -79,7 +79,7 @@ Feature: Notification-service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/notification-serviceGetNotifID.json')
+    * def expectedResponse = read('memberportal/resources/Response/notification-serviceGetNotifID.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content.notification.templateName == expectedResponse.content.notification.templateName
     Then match response.content.notification.title == expectedResponse.content.notification.title
@@ -91,7 +91,7 @@ Feature: Notification-service
     Then match response.content.userId == expectedResponse.content.userId
     Then match response.content.notificationSent == expectedResponse.content.notificationSent
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceGetNotifID.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceGetNotifID.csv') |
 
 #--------------------------------------------------------------------------------------------------------------
 #  GET
@@ -131,7 +131,7 @@ Feature: Notification-service
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
+      | read('memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
     # POST
@@ -153,7 +153,7 @@ Feature: Notification-service
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
+      | read('memberportal/resources/TestData_File/notification-servicePostNotf.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 # DELETE
@@ -164,10 +164,10 @@ Feature: Notification-service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDelete.json')
+    * def requestBody = read('memberportal/resources/Request/notification-serviceDelete.json')
     And request requestBody
     When method Delete
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceDelete.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceDelete.csv') |

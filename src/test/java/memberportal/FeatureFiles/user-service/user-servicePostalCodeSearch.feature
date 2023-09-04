@@ -14,10 +14,10 @@ Feature: User service (POSTAL CODE & Company search)
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read("ntuc_memberportal/resources/Response/user-servicePostalCode.json")
+    * def expectedResponse = read("memberportal/resources/Response/user-servicePostalCode.json")
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content[0].buildingName == expectedResponse.content[0].buildingName
     Then match response.content[0].postalCode == expectedResponse.content[0].postalCode
     Then match response.content[0].block == expectedResponse.content[0].block
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/user-servicePostalCode.csv") |
+      | read("memberportal/resources/TestData_File/user-servicePostalCode.csv") |

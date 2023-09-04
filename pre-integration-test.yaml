@@ -45,16 +45,27 @@ stages:
           echo "threads-max set to 100k"
           mvn -version
           mvn clean
+
+
           #Functional Test--------------------
-          #mvn test -Dtest=TestRunnerParallel -Dkarate.env="preprod"
+          mvn test -Dtest=TestRunnerParallel -Dkarate.env=$
+
+
+
+
           #Nonfunctional All microservices test---------------------
-          mvn test-compile -Dkarate.env="preprod" gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_Total
+          mvn test-compile -Dkarate.env=$ gatling:test -Dgatling.simulationClass.client_memberportal.LoadSimulation_Total -DNo.ofUser = $ -Dtime = $
+
+
+
+
+
           #Nonfunctional Test for Individual microservice ---------------------
-          #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_dealservice
-          #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_paymentservice
-          #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_notificationservice
-          #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_memberservice
-          #mvn test-compile -DbaseURL=https://apimpre.ntuc.org.sg/api/ gatling:test -Dgatling.simulationClass=ntuc_memberportal.LoadSimulation_userservice
+          #mvn test-compile -DbaseURL=https://apimpre.client.org.sg/api/ gatling:test -Dgatling.simulationClass.client_memberportal.LoadSimulation_dealservice
+          #mvn test-compile -DbaseURL=https://apimpre.client.org.sg/api/ gatling:test -Dgatling.simulationClass.client_memberportal.LoadSimulation_paymentservice
+          #mvn test-compile -DbaseURL=https://apimpre.client.org.sg/api/ gatling:test -Dgatling.simulationClass.client_memberportal.LoadSimulation_notificationservice
+          #mvn test-compile -DbaseURL=https://apimpre.client.org.sg/api/ gatling:test -Dgatling.simulationClass.client_memberportal.LoadSimulation_memberservice
+          #mvn test-compile -DbaseURL=https://apimpre.client.org.sg/api/ gatling:test -Dgatling.simulationClass.client_memberportal.LoadSimulation_userservice
         displayName: mvn testcreating
         continueOnError: true
       - publish: $(System.DefaultWorkingDirectory)/target

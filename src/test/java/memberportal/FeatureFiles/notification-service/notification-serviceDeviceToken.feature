@@ -30,7 +30,7 @@ Feature: Notification-service
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceRegisterDevice.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------
 #   Post
@@ -41,13 +41,13 @@ Feature: Notification-service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read('ntuc_memberportal/resources/Request/notification-serviceDevice.json')
+    * def requestBody = read('memberportal/resources/Request/notification-serviceDevice.json')
     And request requestBody
     When method Post
     Then status 200
     * print requestBody
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/notification-serviceDevice.csv') |
+      | read('memberportal/resources/TestData_File/notification-serviceDevice.csv') |
 
 #-----------------------------------------------------------------------------------------------------------------------

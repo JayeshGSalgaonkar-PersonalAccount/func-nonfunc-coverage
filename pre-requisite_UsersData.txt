@@ -87,7 +87,7 @@ SCID: "121290118646594304"
 Name: AS GOPAL
 NRIC: S1378510D
 Mobile: 85240048
-Email : ntucpalotestemail+go30@gmail.com
+Email : clientpalotestemail+go30@gmail.com
 Race: IN
 DOB: 01.01.1993
 Marital Status: SINGLE
@@ -112,7 +112,7 @@ Account: 852147365
 Name: Deeraj
 NRIC: S1281906D
 Mobile: 85240048
-Email : ntucpalotestemail+go31@gmail.com
+Email : clientpalotestemail+go31@gmail.com
 Race: IN
 DOB: 01.01.1995
 Marital Status: SINGLE
@@ -139,7 +139,7 @@ DRAFT USER
 Name: Draft User
 NRIC: S9148619I
 Mobile: 85240048
-Email : ntucpalotestemail+su04@gmail.com
+Email : clientpalotestemail+su04@gmail.com
 Race: IN
 DOB: 25/11/1990
 Marital Status: SINGLE

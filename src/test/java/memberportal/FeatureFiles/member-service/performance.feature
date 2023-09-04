@@ -15,10 +15,10 @@ Feature: Member-Service (Eligibility)
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceMemDetailss.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-service_Performance.csv') |
+      | read('memberportal/resources/TestData_File/member-service_Performance.csv') |
 
 #---------------------------------------------------------------------------------------------------------------------
 #  GET
@@ -28,10 +28,10 @@ Feature: Member-Service (Eligibility)
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibility.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceEligibility.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/member-service_Performance.csv') |
+      | read('memberportal/resources/TestData_File/member-service_Performance.csv') |
 #---------------------------------------------------------------------------------------------------------------------
 #   GET
   Scenario Outline: PRODUCT BACKLOG ITEM 372 - Validate GET method for Occupation-Group Eligibility under Member-service
@@ -39,10 +39,10 @@ Feature: Member-Service (Eligibility)
     And header karate-name = 'eligibility/nric'
     When method Get
     Then status 200
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/member-serviceEligibilityNRIC.json')
+    * def expectedResponse = read('memberportal/resources/Response/member-serviceEligibilityNRIC.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-service_Performance.csv") |
+      | read("memberportal/resources/TestData_File/member-service_Performance.csv") |
 #---------------------------------------------------------------------------------------------------------------------
 #  GET
   Scenario Outline: PRODUCT BACKLOG - 142 GET method to verify membership details
@@ -55,7 +55,7 @@ Feature: Member-Service (Eligibility)
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read("ntuc_memberportal/resources/TestData_File/member-serviceMemShip.csv") |
+      | read("memberportal/resources/TestData_File/member-serviceMemShip.csv") |
 
 #---------------------------------------------------------------------------------------------------------------------
 ## GET
@@ -68,7 +68,7 @@ Feature: Member-Service (Eligibility)
 #    Then status 200
 #    * match response.metadata.status == "SUCCESS"
 #    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-serviceDraft.csv') |
+#      | read('memberportal/resources/TestData_File/member-serviceDraft.csv') |
 
 #---------------------------------------------------------------------------------------------------------------------
 #   GET
@@ -80,9 +80,9 @@ Feature: Member-Service (Eligibility)
 #    * def MaritalStatus = parseInt(MaritalStatus)
 #    When method Get
 #    Then status 200
-#    * def expected = read('ntuc_memberportal/resources/Response/member-serviceMemDetailss.json')
+#    * def expected = read('memberportal/resources/Response/member-serviceMemDetailss.json')
 #    Then match response.metadata.status == expected.metadata.status
 #
 #    Examples:
-#      | read('ntuc_memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
+#      | read('memberportal/resources/TestData_File/member-serviceMemDetails.csv') |
 #---------------------------------------------------------------------------------------------------------------------

@@ -5,8 +5,8 @@ Feature: JWT Feature
     * def secret = test_secret[user]
 
   Scenario: JWT Scenario
-    Given url 'https://preprod-auth.ntuclink.com.sg/oauth/token'
-    And form field audience = "https://api.ntucmp.org.sg"
+    Given url 'https://preprod-auth.clientlink.com.sg/oauth/token'
+    And form field audience = "https://api.clientmp.org.sg"
     And form field client_id = "71zXmrAvrnQDDNCAhh417AgFwqIm8gDO"
     And form field grant_type = "http://auth0.com/oauth/grant-type/password-realm"
     And form field username = user

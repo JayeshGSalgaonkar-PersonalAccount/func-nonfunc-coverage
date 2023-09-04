@@ -8,7 +8,7 @@ Feature: Case-Service
     * url baseURL
     * header Accept = 'application/json'
     * def test_secret = read('classpath:Test_Secret.json')
-#    * def myFile = 'ntuc_memberportal/resources/TestData_File/image1.png'
+#    * def myFile = 'memberportal/resources/TestData_File/image1.png'
 
 #------------------------------------------------------------------------------------------------------------
 #   GET
@@ -23,7 +23,7 @@ Feature: Case-Service
     Then status 200
     Then match response.metadata.status == "SUCCESS"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/user-serviceLogin.csv') |
+      | read('memberportal/resources/TestData_File/user-serviceLogin.csv') |
 
 #------------------------------------------------------------------------------------------------------------
 #   GET
@@ -38,11 +38,11 @@ Feature: Case-Service
     When method Get
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/protection-serviceGETcaseId.json')
+    * def expectedResponse = read('memberportal/resources/Response/protection-serviceGETcaseId.json')
     Then match response.metadata.status == expectedResponse.metadata.status
     Then match response.content.id == expectedResponse.content.id
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/protection-serviceGETcaseId.csv') |
+      | read('memberportal/resources/TestData_File/protection-serviceGETcaseId.csv') |
 
 #------------------------------------------------------------------------------------------------------------
 #  POST
@@ -54,17 +54,17 @@ Feature: Case-Service
     * def setup = call read('../commonFeatures/auth.feature')
     * def dynamicAccessToken = setup.dynamicAccessToken
     And header Authorization = 'Bearer ' + dynamicAccessToken
-    * def requestBody = read("ntuc_memberportal/resources/Request/protection-servicePOSTcase.json")
+    * def requestBody = read("memberportal/resources/Request/protection-servicePOSTcase.json")
     And request requestBody
     * print requestBody
     When method Post
     Then status 200
     * print response
-    * def expectedResponse = read('ntuc_memberportal/resources/Response/protection-servicePOSTcase.json')
+    * def expectedResponse = read('memberportal/resources/Response/protection-servicePOSTcase.json')
     Then match response.metadata.status == "SUCCESS"
     Then match response.content.CreateCaseResult.CaseType == expectedResponse.content.CreateCaseResult.CaseType
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/protection-servicePOSTcase.csv') |
+      | read('memberportal/resources/TestData_File/protection-servicePOSTcase.csv') |
 
 #------------------------------------------------------------------------------------------------------------
 #   GET
@@ -75,12 +75,12 @@ Feature: Case-Service
     {id: '#(id)'}
     """
     And params id
-    * def requestBody = read('ntuc_memberportal/resources/Response/protection-serviceFileUpload.json')
+    * def requestBody = read('memberportal/resources/Response/protection-serviceFileUpload.json')
     And request requestBody
     When method Post
     Then status 400
     Then match response.metadata.status == "BAD_REQUEST"
     Examples:
-      | read('ntuc_memberportal/resources/TestData_File/protection-serviceFileUpload.csv') |
+      | read('memberportal/resources/TestData_File/protection-serviceFileUpload.csv') |
 
 #------------------------------------------------------------------------------------------------------------
